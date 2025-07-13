@@ -1,6 +1,6 @@
-# Whoami
+# Galette
 
-Tiny Go webserver that prints OS information and HTTP request to output.
+Gestionnaire d’Adhérents en Ligne.
 
 ## Usage
 
