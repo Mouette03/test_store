@@ -41,7 +41,7 @@ services:
       - traefik.http.routers.galette-insecure.entrypoints: web
       - traefik.http.routers.galette-insecure.service: galette
       - traefik.http.routers.galette-insecure.middlewares: galette-web-redirect
-      traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
       - traefik.http.routers.galette.entrypoints: websecure
       - traefik.http.routers.galette.service: galette
       - traefik.http.routers.galette.tls.certresolver: myresolver
