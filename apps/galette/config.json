@@ -1,7 +1,7 @@
 {
   "name": "Galette",
   "available": true,
-  "port": 8754,
+  "port": 8081,
   "exposable": true,
   "dynamic_config": true,
   "id": "galette",
@@ -15,6 +15,6 @@
   "website": "https://galette.eu/site/fr/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1691943801422,
-  "updated_at": 1729872794208
+  "created_at": 1.1.5.2,
+  "updated_at": 1.1.5.2
 }

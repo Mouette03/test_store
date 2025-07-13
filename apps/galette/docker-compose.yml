@@ -1,7 +1,7 @@
 services:
   mariadb:
-    image: mariadb:10.5
     container_name: galette-db
+    image: mariadb:10.5
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: galettedb
@@ -34,26 +34,26 @@ services:
       - ${APP_DATA_DIR}/galette_photos:/var/www/galette/data/photos
       - ${APP_DATA_DIR}/galette_templates:/var/www/galette/data/templates_c
     labels:
-      - traefik.enable: true
-      - traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme: https
-      - traefik.http.services.galette.loadbalancer.server.port: 7474
-      - traefik.http.routers.galette-insecure.rule: Host(`${APP_DOMAIN}`)
-      - traefik.http.routers.galette-insecure.entrypoints: web
-      - traefik.http.routers.galette-insecure.service: galette
-      - traefik.http.routers.galette-insecure.middlewares: galette-web-redirect
-      - traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
-      - traefik.http.routers.galette.entrypoints: websecure
-      - traefik.http.routers.galette.service: galette
-      - traefik.http.routers.galette.tls.certresolver: myresolver
-      - traefik.http.routers.galette-local-insecure.rule: Host(`galette.${LOCAL_DOMAIN}`)
-      - traefik.http.routers.galette-local-insecure.entrypoints: web
-      - traefik.http.routers.galette-local-insecure.service: galette
-      - traefik.http.routers.galette-local-insecure.middlewares: galette-web-redirect
-      - traefik.http.routers.galette-local.rule: Host(`galette.${LOCAL_DOMAIN}`)
-      - traefik.http.routers.galette-local.entrypoints: websecure
-      - traefik.http.routers.galette-local.service: galette
-      - traefik.http.routers.galette-local.tls: true
-      - runtipi.managed: true
+      traefik.enable: true
+      traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.galette.loadbalancer.server.port: 7474
+      traefik.http.routers.galette-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.galette-insecure.entrypoints: web
+      traefik.http.routers.galette-insecure.service: galette
+      traefik.http.routers.galette-insecure.middlewares: galette-web-redirect
+      traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.galette.entrypoints: websecure
+      traefik.http.routers.galette.service: galette
+      traefik.http.routers.galette.tls.certresolver: myresolver
+      traefik.http.routers.galette-local-insecure.rule: Host(`galette.${LOCAL_DOMAIN}`)
+      traefik.http.routers.galette-local-insecure.entrypoints: web
+      traefik.http.routers.galette-local-insecure.service: galette
+      traefik.http.routers.galette-local-insecure.middlewares: galette-web-redirect
+      traefik.http.routers.galette-local.rule: Host(`galette.${LOCAL_DOMAIN}`)
+      traefik.http.routers.galette-local.entrypoints: websecure
+      traefik.http.routers.galette-local.service: galette
+      traefik.http.routers.galette-local.tls: true
+      runtipi.managed: true
     networks:
       - runtipi_tipi_main_network
     restart: unless-stopped
