@@ -1,17 +1,17 @@
 {
-  "name": "Whoami",
-  "id": "whoami",
+  "name": "Galette",
+  "id": "Galette",
   "available": true,
-  "short_desc": "Tiny Go server that prints os information and HTTP request to output.",
+  "short_desc": "Site WeB de gestion d'associations.",
   "author": "traefik",
-  "port": 8382,
+  "port": 8386,
   "categories": [
     "utilities"
   ],
-  "description": "Tiny Go webserver that prints OS information and HTTP request to output.",
+  "description": "Site WeB de gestion d'associations.",
   "tipi_version": 2,
-  "version": "v1.11.0",
-  "source": "https://github.com/traefik/whoami",
+  "version": "v1.1.5.2",
+  "source": "https://github.com/galette-community/docker.git",
   "exposable": true,
   "supported_architectures": [
     "arm64",
