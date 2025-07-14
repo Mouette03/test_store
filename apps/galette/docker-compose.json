@@ -12,7 +12,7 @@
       },
       "volumes": [
         {
-          "hostPath": "galette_db",
+          "hostPath": "${APP_DATA_DIR}/galette_db",
           "containerPath": "/var/lib/mysql",
           "readOnly": false,
           "shared": false,
@@ -34,49 +34,49 @@
       "internalPort": 80,
       "volumes": [
         {
-          "hostPath": "galette_config",
+          "hostPath": "${APP_DATA_DIR}/galette_config",
           "containerPath": "/var/www/galette/config",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_attachments",
+          "hostPath": "${APP_DATA_DIR}/galette_attachments",
           "containerPath": "/var/www/galette/data/attachments",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_cache",
+          "hostPath": "${APP_DATA_DIR}/galette_cache",
           "containerPath": "/var/www/galette/data/cache",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_files",
+          "hostPath": "${APP_DATA_DIR}/galette_files",
           "containerPath": "/var/www/galette/data/files",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_logs",
+          "hostPath": "${APP_DATA_DIR}/galette_logs",
           "containerPath": "/var/www/galette/data/logs",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_photos",
+          "hostPath": "${APP_DATA_DIR}/galette_photos",
           "containerPath": "/var/www/galette/data/photos",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "galette_templates",
+          "hostPath": "${APP_DATA_DIR}/galette_templates",
           "containerPath": "/var/www/galette/data/templates_c",
           "readOnly": false,
           "shared": false,
