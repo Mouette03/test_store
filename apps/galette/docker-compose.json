@@ -1,5 +1,4 @@
 {
-  "$schema": "../app-info-schema.json",
   "services": [
     {
       "name": "galette-db",
@@ -25,12 +24,11 @@
       "image": "galette/galette:1.1.5.2",
       "environment": {
         "DB_TYPE": "mysqli",
-        "DB_HOST": "galette-db",
+        "DB_HOST": "mariadb",
         "DB_NAME": "galettedb",
         "DB_USER": "galetteuser",
         "DB_PASS": "galettepwd"
       },
-      "port": 8081,
       "internalPort": 80,
       "volumes": [
         {
@@ -84,21 +82,11 @@
         }
       ],
       "dependsOn": {
-        "galette-db": {
+        "mariadb": {
           "condition": "service_started"
         }
       },
       "isMain": true
     }
-  ],
-  "volumes": {
-    "galette_db": {},
-    "galette_config": {},
-    "galette_attachments": {},
-    "galette_cache": {},
-    "galette_files": {},
-    "galette_logs": {},
-    "galette_photos": {},
-    "galette_templates": {}
-  }
+  ]
 }
