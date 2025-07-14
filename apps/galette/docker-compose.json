@@ -82,7 +82,7 @@
         }
       ],
       "dependsOn": {
-        "mariadb": {
+        "galette-db": {
           "condition": "service_started"
         }
       },
