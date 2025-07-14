@@ -20,7 +20,8 @@
     "amd64",
     "arm64"
   ],
-  "form_fields": [],
+  "form_fields": [
+],
   "created_at": 1721000000000,
   "updated_at": 1721000000000
 }
