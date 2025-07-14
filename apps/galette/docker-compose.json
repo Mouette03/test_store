@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "name": "mariadb",
+      "name": "{GALETTE_NAME_DATABASE}",
       "image": "mariadb:10.5",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
@@ -82,7 +82,7 @@
         }
       ],
       "dependsOn": {
-        "mariadb": {
+        "{GALETTE_NAME_DATABASE}": {
           "condition": "service_started"
         }
       },
