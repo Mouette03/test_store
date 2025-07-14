@@ -22,7 +22,7 @@
   ],
   "form_fields": [
     {
-      "type": "string",
+      "type": "text",
       "label": "Utilisateur DB",
       "env_variable": "DB_USER",
       "default": "galette",
