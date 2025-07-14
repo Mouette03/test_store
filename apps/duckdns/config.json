@@ -8,7 +8,7 @@
   "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice",
   "tipi_version": 1,
   "no_gui": true,
-  "version": "lastest",
+  "version": "63bf4c1a-ls58",
   "categories": ["network"],
   "short_desc": "Duck DNS is a free Dynamic DNS service",
   "author": "linuxserver.io",
