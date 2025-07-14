@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "name": "galette-db",
+      "name": "mariadb",
       "image": "mariadb:10.5",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
@@ -75,14 +75,14 @@
         },
         {
           "hostPath": "${APP_DATA_DIR}/galette_templates",
-          "containerPath": "/var/www/galette/data/templates",
+          "containerPath": "/var/www/galette/data/templates_c",
           "readOnly": false,
           "shared": false,
           "private": false
         }
       ],
       "dependsOn": {
-        "galette-db": {
+        "mariadb": {
           "condition": "service_started"
         }
       },
