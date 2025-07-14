@@ -33,6 +33,13 @@
       "internalPort": 80,
       "volumes": [
         {
+  	  "hostPath": "galette_db",
+  	  "containerPath": "/var/lib/mysql",
+ 	  "readOnly": false,
+  	  "shared": false,
+  	  "private": false
+	}
+	{
           "hostPath": "galette_config",
           "containerPath": "/var/www/galette/config",
           "readOnly": false,
