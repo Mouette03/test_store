@@ -5,9 +5,9 @@
       "image": "mariadb:10.5",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
-        "MYSQL_DATABASE": "galettedb",
-        "MYSQL_USER": "galetteuser",
-        "MYSQL_PASSWORD": "galettepwd"
+        "MYSQL_DATABASE": "{GALETTE_NAME_DATABASE}",
+        "MYSQL_USER": "{GALETTE_USER_DATABASE}",
+        "MYSQL_PASSWORD": "{GALETTE_PASSWORD_DATABASE}"
       },
       "volumes": [
         {
@@ -24,10 +24,10 @@
       "image": "galette/galette:1.1.5.2",
       "environment": {
         "DB_TYPE": "mysqli",
-        "DB_HOST": "mariadb",
-        "DB_NAME": "galettedb",
-        "DB_USER": "galetteuser",
-        "DB_PASS": "galettepwd"
+        "DB_HOST": "{GALETTE_NAME_HOST}",
+        "DB_NAME": "{GALETTE_NAME_DATABASE}",
+        "DB_USER": "{GALETTE_USER_DATABASE}",
+        "DB_PASS": "{GALETTE_PASSWORD_DATABASE}"
       },
       "internalPort": 80,
       "volumes": [
