@@ -30,6 +30,7 @@
         "DB_PASS": "galettepwd"
       },
       "internalPort": 80,
+      "command": "sh -c 'chown -R www-data:www-data /var/www/galette/data /var/www/galette/config && apache2-foreground'",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/galette_config",
