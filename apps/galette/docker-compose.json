@@ -1,51 +1,108 @@
 {
-  "services": [
-    {
-      "name": "galette-db",
+  "version": "3.8",
+  "services": {
+    "mariadb": {
+      "container_name": "galette-db",
       "image": "mariadb:10.5",
       "environment": {
-        "MYSQL_ROOT_PASSWORD": "root",
-        "MYSQL_DATABASE": "galette",
-        "MYSQL_USER": "${DB_USER}",
-        "MYSQL_PASSWORD": "${DB_PASSWORD}"
+        "MYSQL_ROOT_PASSWORD": "rootpass",
+        "MYSQL_DATABASE": "galettedb",
+        "MYSQL_USER": "galetteuser",
+        "MYSQL_PASSWORD": "galettepwd"
       },
       "volumes": [
-         {
-           "hostPath": "galette-db-data",
-           "containerPath": "/var/lib/mysql"
-        }
-      ]
-    },
-    {
-      "name": "galette",
-      "image": "ghcr.io/galette-community/galette:latest",
-      "internalPort": 80,
-      "isMain": true,
-      "environment": {
-        "DB_HOST": "galette-db",
-        "DB_PORT": "3306",
-        "DB_NAME": "galette",
-        "DB_USER": "${DB_USER}",
-        "DB_PASSWORD": "${DB_PASSWORD}"
-      },
-      "volumes": [
-         {
-           "hostPath": "galette-config",
-           "containerPath": "/var/www/html/config"
-         },
-         {
-           "hostPath": "galette-data",
-           "containerPath": "/var/www/html/data"
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_db",
+          "target": "/var/lib/mysql"
         }
       ],
-      "depends_on": [
-        "galette-db"
-      ]
+      "networks": ["tipi_main_network"],
+      "restart": "unless-stopped"
+    },
+    "galette": {
+      "container_name": "galette",
+      "image": "galette/galette:1.1.5.2",
+      "depends_on": ["mariadb"],
+      "environment": {
+        "DB_TYPE": "mysqli",
+        "DB_HOST": "mariadb",
+        "DB_NAME": "galettedb",
+        "DB_USER": "galetteuser",
+        "DB_PASS": "galettepwd"
+      },
+      "ports": [
+        {
+          "published": "${APP_PORT}",
+          "target": 80
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_config",
+          "target": "/var/www/galette/config"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_attachments",
+          "target": "/var/www/galette/data/attachments"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_cache",
+          "target": "/var/www/galette/data/cache"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_files",
+          "target": "/var/www/galette/data/files"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_logs",
+          "target": "/var/www/galette/data/logs"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_photos",
+          "target": "/var/www/galette/data/photos"
+        },
+        {
+          "type": "bind",
+          "source": "${APP_DATA_DIR}/galette_templates",
+          "target": "/var/www/galette/data/templates_c"
+        }
+      ],
+      "labels": {
+        "traefik.enable": "true",
+        "traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme": "https",
+        "traefik.http.services.galette.loadbalancer.server.port": "8081",
+        "traefik.http.routers.galette-insecure.rule": "Host(`${APP_DOMAIN}`)",
+        "traefik.http.routers.galette-insecure.entrypoints": "web",
+        "traefik.http.routers.galette-insecure.service": "galette",
+        "traefik.http.routers.galette-insecure.middlewares": "galette-web-redirect",
+        "traefik.http.routers.galette.rule": "Host(`${APP_DOMAIN}`)",
+        "traefik.http.routers.galette.entrypoints": "websecure",
+        "traefik.http.routers.galette.service": "galette",
+        "traefik.http.routers.galette.tls.certresolver": "myresolver",
+        "traefik.http.routers.galette-local-insecure.rule": "Host(`galette.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.galette-local-insecure.entrypoints": "web",
+        "traefik.http.routers.galette-local-insecure.service": "galette",
+        "traefik.http.routers.galette-local-insecure.middlewares": "galette-web-redirect",
+        "traefik.http.routers.galette-local.rule": "Host(`galette.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.galette-local.entrypoints": "websecure",
+        "traefik.http.routers.galette-local.service": "galette",
+        "traefik.http.routers.galette-local.tls": "true",
+        "runtipi.managed": "true"
+      },
+      "networks": ["tipi_main_network"],
+      "restart": "unless-stopped"
     }
-  ],
-  "volumes": {
-    "galette-db-data": {},
-    "galette-config": {},
-    "galette-data": {}
+  },
+  "networks": {
+    "tipi_main_network": {
+      "external": true
+    }
   }
 }
