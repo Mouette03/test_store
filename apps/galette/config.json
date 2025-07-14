@@ -3,7 +3,7 @@
   "available": true,
   "port": 8081,
   "exposable": true,
-  "dynamic_config": false,
+  "dynamic_config": true,
   "id": "galette",
   "description": "Site WEB de gestion d'associations.",
   "tipi_version": 1,
