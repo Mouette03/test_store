@@ -30,6 +30,7 @@
         "DB_USER": "galetteuser",
         "DB_PASS": "galettepwd"
       },
+      "port": 8081,
       "internalPort": 80,
       "volumes": [
         {
