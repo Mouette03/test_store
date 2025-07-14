@@ -25,7 +25,7 @@
       "image": "galette/galette:1.1.5.2",
       "environment": {
         "DB_TYPE": "mysqli",
-        "DB_HOST": "mariadb",
+        "DB_HOST": "galette-db",
         "DB_NAME": "galettedb",
         "DB_USER": "galetteuser",
         "DB_PASS": "galettepwd"
@@ -33,13 +33,6 @@
       "internalPort": 80,
       "volumes": [
         {
-  	  "hostPath": "galette_db",
-  	  "containerPath": "/var/lib/mysql",
- 	  "readOnly": false,
-  	  "shared": false,
-  	  "private": false
-	}
-	{
           "hostPath": "galette_config",
           "containerPath": "/var/www/galette/config",
           "readOnly": false,
@@ -90,7 +83,7 @@
         }
       ],
       "dependsOn": {
-        "mariadb": {
+        "galette-db": {
           "condition": "service_started"
         }
       },
