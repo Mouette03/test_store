@@ -1,8 +1,7 @@
 {
-  "version": "3.8",
-  "services": {
-    "mariadb": {
-      "container_name": "galette-db",
+  "services": [
+    {
+      "name": "galette-db",
       "image": "mariadb:10.5",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
@@ -12,18 +11,17 @@
       },
       "volumes": [
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_db",
-          "target": "/var/lib/mysql"
+          "hostPath": "galette_db",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
-      ],
-      "networks": ["tipi_main_network"],
-      "restart": "unless-stopped"
+      ]
     },
-    "galette": {
-      "container_name": "galette",
+    {
+      "name": "galette",
       "image": "galette/galette:1.1.5.2",
-      "depends_on": ["mariadb"],
       "environment": {
         "DB_TYPE": "mysqli",
         "DB_HOST": "mariadb",
@@ -31,78 +29,64 @@
         "DB_USER": "galetteuser",
         "DB_PASS": "galettepwd"
       },
-      "ports": [
-        {
-          "published": "${APP_PORT}",
-          "target": 80
-        }
-      ],
+      "internalPort": 80,
       "volumes": [
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_config",
-          "target": "/var/www/galette/config"
+          "hostPath": "galette_config",
+          "containerPath": "/var/www/galette/config",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_attachments",
-          "target": "/var/www/galette/data/attachments"
+          "hostPath": "galette_attachments",
+          "containerPath": "/var/www/galette/data/attachments",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_cache",
-          "target": "/var/www/galette/data/cache"
+          "hostPath": "galette_cache",
+          "containerPath": "/var/www/galette/data/cache",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_files",
-          "target": "/var/www/galette/data/files"
+          "hostPath": "galette_files",
+          "containerPath": "/var/www/galette/data/files",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_logs",
-          "target": "/var/www/galette/data/logs"
+          "hostPath": "galette_logs",
+          "containerPath": "/var/www/galette/data/logs",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_photos",
-          "target": "/var/www/galette/data/photos"
+          "hostPath": "galette_photos",
+          "containerPath": "/var/www/galette/data/photos",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         },
         {
-          "type": "bind",
-          "source": "${APP_DATA_DIR}/galette_templates",
-          "target": "/var/www/galette/data/templates_c"
+          "hostPath": "galette_templates",
+          "containerPath": "/var/www/galette/data/templates_c",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
       ],
-      "labels": {
-        "traefik.enable": "true",
-        "traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme": "https",
-        "traefik.http.services.galette.loadbalancer.server.port": "8081",
-        "traefik.http.routers.galette-insecure.rule": "Host(`${APP_DOMAIN}`)",
-        "traefik.http.routers.galette-insecure.entrypoints": "web",
-        "traefik.http.routers.galette-insecure.service": "galette",
-        "traefik.http.routers.galette-insecure.middlewares": "galette-web-redirect",
-        "traefik.http.routers.galette.rule": "Host(`${APP_DOMAIN}`)",
-        "traefik.http.routers.galette.entrypoints": "websecure",
-        "traefik.http.routers.galette.service": "galette",
-        "traefik.http.routers.galette.tls.certresolver": "myresolver",
-        "traefik.http.routers.galette-local-insecure.rule": "Host(`galette.${LOCAL_DOMAIN}`)",
-        "traefik.http.routers.galette-local-insecure.entrypoints": "web",
-        "traefik.http.routers.galette-local-insecure.service": "galette",
-        "traefik.http.routers.galette-local-insecure.middlewares": "galette-web-redirect",
-        "traefik.http.routers.galette-local.rule": "Host(`galette.${LOCAL_DOMAIN}`)",
-        "traefik.http.routers.galette-local.entrypoints": "websecure",
-        "traefik.http.routers.galette-local.service": "galette",
-        "traefik.http.routers.galette-local.tls": "true",
-        "runtipi.managed": "true"
+      "dependsOn": {
+        "mariadb": {
+          "condition": "service_started"
+        }
       },
-      "networks": ["tipi_main_network"],
-      "restart": "unless-stopped"
+      "isMain": true
     }
-  },
-  "networks": {
-    "tipi_main_network": {
-      "external": true
-    }
-  }
+  ]
 }
