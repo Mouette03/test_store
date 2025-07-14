@@ -90,5 +90,15 @@
       },
       "isMain": true
     }
-  ]
+  ],
+  "volumes": {
+    "galette_db": {},
+    "galette_config": {},
+    "galette_attachments": {},
+    "galette_cache": {},
+    "galette_files": {},
+    "galette_logs": {},
+    "galette_photos": {},
+    "galette_templates": {}
+  }
 }
