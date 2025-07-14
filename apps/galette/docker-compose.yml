@@ -1,32 +1,59 @@
-version: '3'
 services:
-  galette-db:
+  mariadb:
+    container_name: galette-db
     image: mariadb:10.5
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: galette
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: galettedb
+      MYSQL_USER: galetteuser
+      MYSQL_PASSWORD: galettepwd
     volumes:
-      - galette-db-data:/var/lib/mysql
-
+      - ${APP_DATA_DIR}/galette_db:/var/lib/mysql
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
   galette:
-    image: ghcr.io/galette-community/galette:latest
-    ports:
-      - "80:80"
-    environment:
-      DB_HOST: galette-db
-      DB_PORT: 3306
-      DB_NAME: galette
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
+    image: galette/galette:1.1.5.2
+    container_name: galette
     depends_on:
-      - galette-db
+      - mariadb
+    environment:
+      DB_TYPE: mysqli
+      DB_HOST: mariadb
+      DB_NAME: galettedb
+      DB_USER: galetteuser
+      DB_PASS: galettepwd
+    ports:
+      - ${APP_PORT}:80
     volumes:
-      - galette-config:/var/www/html/config
-      - galette-data:/var/www/html/data
-
-volumes:
-  galette-db-data:
-  galette-config:
-  galette-data:
+      - ${APP_DATA_DIR}/galette_config:/var/www/galette/config
+      - ${APP_DATA_DIR}/galette_attachments:/var/www/galette/data/attachments
+      - ${APP_DATA_DIR}/galette_cache:/var/www/galette/data/cache
+      - ${APP_DATA_DIR}/galette_files:/var/www/galette/data/files
+      - ${APP_DATA_DIR}/galette_logs:/var/www/galette/data/logs
+      - ${APP_DATA_DIR}/galette_photos:/var/www/galette/data/photos
+      - ${APP_DATA_DIR}/galette_templates:/var/www/galette/data/templates_c
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.galette.loadbalancer.server.port: 8081
+      traefik.http.routers.galette-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.galette-insecure.entrypoints: web
+      traefik.http.routers.galette-insecure.service: galette
+      traefik.http.routers.galette-insecure.middlewares: galette-web-redirect
+      traefik.http.routers.galette.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.galette.entrypoints: websecure
+      traefik.http.routers.galette.service: galette
+      traefik.http.routers.galette.tls.certresolver: myresolver
+      traefik.http.routers.galette-local-insecure.rule: Host(`galette.${LOCAL_DOMAIN}`)
+      traefik.http.routers.galette-local-insecure.entrypoints: web
+      traefik.http.routers.galette-local-insecure.service: galette
+      traefik.http.routers.galette-local-insecure.middlewares: galette-web-redirect
+      traefik.http.routers.galette-local.rule: Host(`galette.${LOCAL_DOMAIN}`)
+      traefik.http.routers.galette-local.entrypoints: websecure
+      traefik.http.routers.galette-local.service: galette
+      traefik.http.routers.galette-local.tls: true
+      runtipi.managed: true
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
