@@ -1,28 +1,20 @@
 {
-  "$schema": "../app-info-schema.json",
   "name": "Galette",
-  "id": "galette",
-  "description": "Gestion des adh\u00e9rents pour associations.",
-  "short_desc": "Gestionnaire d\u2019adh\u00e9rents libre",
-  "version": "1.0.0",
-  "tipi_version": 1,
-  "port": 80,
   "available": true,
-  "categories": [
-    "data",
-    "utilities"
-  ],
-  "author": "galette-community",
-  "source": "https://github.com/galette-community/docker",
-  "website": "https://galette.eu/",
+  "port": 8081,
   "exposable": true,
   "dynamic_config": true,
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
-  "form_fields": [
-],
+  "id": "galette",
+  "description": "Gestion des adherents pour associations.",
+  "tipi_version": 1,
+  "version": "1.1.5.2",
+  "categories": ["utilities"],
+  "short_desc": "Gestionnaire d'adherents libre.",
+  "author": "galette",
+  "source": "https://github.com/galette-community/docker",
+  "website": "https://galette.eu/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
   "created_at": 1721000000000,
   "updated_at": 1721000000000
 }
