@@ -22,14 +22,16 @@
   ],
   "form_fields": [
     {
-      "name": "DB_USER",
-      "kind": "string",
+      "type": "string",
+      "label": "Utilisateur DB",
+      "env_variable": "DB_USER",
       "default": "galette",
       "description": "Nom d\u2019utilisateur de la base MariaDB"
     },
     {
-      "name": "DB_PASSWORD",
-      "kind": "password",
+      "type": "password",
+      "label": "Mot de passe DB",
+      "env_variable": "DB_PASSWORD",
       "default": "galettedb",
       "description": "Mot de passe pour la base de donn\u00e9es"
     }

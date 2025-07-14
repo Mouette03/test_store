@@ -10,7 +10,11 @@
         "MYSQL_PASSWORD": "${DB_PASSWORD}"
       },
       "volumes": [
-        "galette-db-data:/var/lib/mysql"
+        {
+          "type": "volume",
+          "source": "galette-db-data",
+          "target": "/var/lib/mysql"
+        }
       ]
     },
     {
@@ -26,8 +30,16 @@
         "DB_PASSWORD": "${DB_PASSWORD}"
       },
       "volumes": [
-        "galette-config:/var/www/html/config",
-        "galette-data:/var/www/html/data"
+        {
+          "type": "volume",
+          "source": "galette-config",
+          "target": "/var/www/html/config"
+        },
+        {
+          "type": "volume",
+          "source": "galette-data",
+          "target": "/var/www/html/data"
+        }
       ],
       "depends_on": [
         "galette-db"

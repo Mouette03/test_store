@@ -1,12 +1,9 @@
-
 # Galette
 
-Galette est une application web libre de gestion de base d’adhérents, spécialement conçue pour les associations.
+Galette est une application web de gestion d’adhérents, adaptée aux associations.
 
-Elle permet :
-- La gestion des fiches adhérents
-- Le suivi des cotisations
-- L’émission de reçus PDF
-- L’envoi de courriels groupés
+- Gestion des membres, cotisations, fiches PDF
+- Connexion base MariaDB
+- Interface claire et responsive
 
-Plus d’infos sur [galette.eu](https://galette.eu)
+👉 Plus d’info : [galette.eu](https://galette.eu/)

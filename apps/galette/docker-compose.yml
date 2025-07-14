@@ -1,32 +1,30 @@
-version: '3.7'
+version: '3'
 services:
   galette-db:
     image: mariadb:10.5
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: galette
-      MYSQL_USER: galette
-      MYSQL_PASSWORD: galettedb
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - galette-db-data:/var/lib/mysql
 
   galette:
     image: ghcr.io/galette-community/galette:latest
-    restart: unless-stopped
+    ports:
+      - "80:80"
     environment:
       DB_HOST: galette-db
       DB_PORT: 3306
       DB_NAME: galette
-      DB_USER: galette
-      DB_PASSWORD: galettedb
-    ports:
-      - "8080:80"
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - galette-db
     volumes:
       - galette-config:/var/www/html/config
       - galette-data:/var/www/html/data
-    depends_on:
-      - galette-db
 
 volumes:
   galette-db-data:
