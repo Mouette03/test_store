@@ -10,7 +10,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/galette_db:/var/lib/mysql
     networks:
-      - runtipi_tipi_main_network
+      - tipi_main_network
     restart: unless-stopped
   galette:
     image: galette/galette:1.1.5.2
@@ -36,12 +36,12 @@ services:
     labels:
       traefik.enable: true
       traefik.http.middlewares.galette-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.galette.loadbalancer.server.port: 7474
+      traefik.http.services.galette.loadbalancer.server.port: 8081
       traefik.http.routers.galette-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.galette-insecure.entrypoints: web
       traefik.http.routers.galette-insecure.service: galette
       traefik.http.routers.galette-insecure.middlewares: galette-web-redirect
-      traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.galette.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.galette.entrypoints: websecure
       traefik.http.routers.galette.service: galette
       traefik.http.routers.galette.tls.certresolver: myresolver
@@ -55,17 +55,5 @@ services:
       traefik.http.routers.galette-local.tls: true
       runtipi.managed: true
     networks:
-      - runtipi_tipi_main_network
+      - tipi_main_network
     restart: unless-stopped
-volumes:
-  galette_db: null
-  galette_config: null
-  galette_attachments: null
-  galette_cache: null
-  galette_files: null
-  galette_logs: null
-  galette_photos: null
-  galette_templates: null
-networks:
-  runtipi_tipi_main_network:
-    external: true

@@ -85,7 +85,8 @@
         "mariadb": {
           "condition": "service_started"
         }
-      }
+      },
+      "isMain": true
     }
   ]
 }
