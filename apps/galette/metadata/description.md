@@ -8,3 +8,17 @@ Galette est une application web de gestion d’adhérents, adaptée aux associat
 
 👉 Plus d’info : [galette.eu](https://galette.eu/)
 
+
+
+Infos de connexion à la base de données au premier lancement: 
+
+
+
+&nbsp;       HOST: mariadb
+
+&nbsp;       DATABASE\_NAME : galettedb
+
+&nbsp;       DB\_USER : galetteuser
+
+&nbsp;       DB\_PASS : galettepwd
+
