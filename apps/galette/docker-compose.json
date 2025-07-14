@@ -75,7 +75,7 @@
         },
         {
           "hostPath": "${APP_DATA_DIR}/galette_templates",
-          "containerPath": "/var/www/galette/data/templates_c",
+          "containerPath": "/var/www/galette/data/templates",
           "readOnly": false,
           "shared": false,
           "private": false
