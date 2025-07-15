@@ -15,6 +15,6 @@
   "website": "https://galette.eu/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1752457249000,
+  "created_at": 1752437249000,
   "updated_at": 1752457249001
 }
