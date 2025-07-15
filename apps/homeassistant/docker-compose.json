@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "homeassistant",
-      "image": "ghcr.io/home-assistant/home-assistant:latest",
+      "image": "ghcr.io/home-assistant/home-assistant:2025.7.2",
       "isMain": true,
       "networkMode": "host",
       "volumes": [

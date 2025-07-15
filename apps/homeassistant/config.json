@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8123,
   "tipi_version": 1,
-  "version": "latest",
+  "version": "2025.7.2",
   "id": "homeassistant",
   "categories": ["automation"],
   "description": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
