@@ -15,7 +15,6 @@ You want to learn more about how you can use Nextcloud to access, share and prot
 - 📦 Buy one of the [awesome **devices** coming with a preinstalled Nextcloud](https://nextcloud.com/devices/)
 - 🏢 Find a [service **provider**](https://nextcloud.com/providers/) who hosts Nextcloud for you or your company
 
-Enterprise? Public Sector or Education user? You may want to have a look into [**Nextcloud Enterprise**](https://nextcloud.com/enterprise/) provided by Nextcloud GmbH.
 
 ## Get in touch 💬
 
@@ -28,10 +27,13 @@ You can also [get support for Nextcloud](https://nextcloud.com/support)!
 
 ## Reset password
 Nextcloud does not support password resets from environment variables. If you want to change your password run the following commands in your terminal:
+
+Check Docker : docker ps
     
 ```bash
-sudo docker exec -u www-data -it nextcloud /bin/bash
+sudo docker exec -u www-data -it namedocker /bin/bash
 php occ user:resetpassword username
 ```
+Replace with your information namedocker and username
 
 ![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
