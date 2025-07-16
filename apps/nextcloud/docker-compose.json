@@ -1,8 +1,11 @@
 {
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "nextcloud",
-      "image": "nextcloud:26.0.13-apache",
+      "image": "nextcloud:31.0.7-apache",
+      "isMain": true,
+      "internalPort": 80,
       "environment": {
         "POSTGRES_HOST": "db-nextcloud",
         "REDIS_HOST": "redis-nextcloud",
@@ -14,25 +17,27 @@
         "TRUSTED_PROXIES": "172.16.0.0/12",
         "OVERWRITEPROTOCOL": "${APP_PROTOCOL:-http}"
       },
-      "internalPort": 80,
+      "dependsOn": ["db-nextcloud", "redis-nextcloud"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
-          "containerPath": "/var/www/html",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/var/www/html"
         }
       ],
-      "dependsOn": {
-        "db-nextcloud": {
-          "condition": "service_started"
-        },
-        "redis-nextcloud": {
-          "condition": "service_started"
-        }
-      },
-      "isMain": true
+      "extraLabels": {
+        "traefik.http.middlewares.nextcloud.headers.browserXSSFilter": "true",
+        "traefik.http.middlewares.nextcloud.headers.contentTypeNosniff": "true",
+        "traefik.http.middlewares.nextcloud.headers.stsIncludeSubdomains": "true",
+        "traefik.http.middlewares.nextcloud.headers.stsPreload": "true",
+        "traefik.http.middlewares.nextcloud.headers.stsSeconds": "155520011",
+        "traefik.http.middlewares.nextcloud_redirect.redirectregex.permanent": "true",
+        "traefik.http.middlewares.nextcloud_redirect.redirectregex.regex": "https://(.*)/.well-known/(card|cal)dav",
+        "traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement": "https://$${1}/remote.php/dav/",
+        "traefik.http.routers.nextcloud.middlewares": "nextcloud,nextcloud_redirect,nextcloud-https",
+        "traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto": "https",
+        "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme": "https",
+        "traefik.http.routers.nextcloud-http.middlewares": "nextcloud-https@docker"
+      }
     },
     {
       "name": "db-nextcloud",
@@ -45,48 +50,32 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
-          "containerPath": "/var/lib/postgresql/data",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/var/lib/postgresql/data"
         }
       ]
     },
     {
       "name": "redis-nextcloud",
       "image": "redis:6.2.6",
+      "user": "1000:1000",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/redis",
-          "containerPath": "/data",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/data"
         }
-      ],
-      "user": "1000:1000"
+      ]
     },
     {
       "name": "cron",
-      "image": "nextcloud:25.0.13-apache",
+      "image": "nextcloud:31.0.7-apache",
+      "dependsOn": ["db-nextcloud", "redis-nextcloud"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
-          "containerPath": "/var/www/html",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/var/www/html"
         }
       ],
-      "entrypoint": "/cron.sh",
-      "dependsOn": {
-        "db-nextcloud": {
-          "condition": "service_started"
-        },
-        "redis-nextcloud": {
-          "condition": "service_started"
-        }
-      }
+      "entrypoint": "/cron.sh"
     }
   ]
 }
