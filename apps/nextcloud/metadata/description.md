@@ -31,7 +31,7 @@ Nextcloud does not support password resets from environment variables. If you wa
 Check Docker : 
 
 ```bash
-sudo docker ps
+docker ps
 ```
 
     
