@@ -28,7 +28,10 @@ You can also [get support for Nextcloud](https://nextcloud.com/support)!
 ## Reset password
 Nextcloud does not support password resets from environment variables. If you want to change your password run the following commands in your terminal:
 
-Check Docker : docker ps
+Check Docker : 
+´´´bash
+docker ps
+```
     
 ```bash
 sudo docker exec -u www-data -it namedocker /bin/bash
