@@ -28,11 +28,11 @@
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/data/db",
-                    "containerPath": "/var/lib/postgresql/data"
+                    "containerPath": "/var/lib/mysql/data"
                 }
             ],
             "environment": {
-                "MARIADB_ROOT_PASSWORD": "rootpassword"
+                "MARIADB_ROOT_PASSWORD": "rootpassword",
                 "MYSQL_DB": "nextcloud",
                 "MYSQL_USER": "nextcloud",
                 "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}"
