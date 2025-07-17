@@ -1,8 +1,37 @@
 {
   "services": [
     {
+      "name": "nextcloud-db",
+      "image": "mariadb:11",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "rootpassword",
+        "MYSQL_PASSWORD": "tipi",
+        "MYSQL_DATABASE": "database",
+        "MYSQL_USER": "tipi"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false
+        }
+      ],
+      "healthcheck": {
+        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p", "rootpassword"],
+        "interval": 10000000000,
+        "timeout": 3000000000,
+        "retries": 5,
+        "startPeriod": 10000000000
+      }
+    },
+    {
       "name": "nextcloud",
       "image": "nextcloud",
+      "dependsOn": {
+        "nextcloud-db": {
+          "condition": "service_healthy"
+        }
+      },
       "environment": {
         "MYSQL_PASSWORD": "tipi",
         "MYSQL_DATABASE": "database",
@@ -16,9 +45,7 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
           "containerPath": "/var/www/html",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "readOnly": false
         }
       ],
       "extraLabels": {
@@ -35,25 +62,6 @@
         "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme": "https",
         "traefik.http.routers.nextcloud-http.middlewares": "nextcloud-https@docker"
       }
-    },
-    {
-      "name": "nextcloud-db",
-      "image": "mariadb:11",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "rootpassword",
-        "MYSQL_PASSWORD": "tipi",
-        "MYSQL_DATABASE": "database",
-        "MYSQL_USER": "tipi"
-      },
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/db",
-          "containerPath": "/var/lib/mysql",
-          "readOnly": false,
-          "shared": false,
-          "private": false
-        }
-      ]
     }
   ]
 }
