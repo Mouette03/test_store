@@ -5,7 +5,7 @@
       "image": "nextcloud",
       "environment": {
         "MYSQL_PASSWORD": "tipi",
-        "MYSQL_DATABASE": "nextcloud",
+        "MYSQL_DATABASE": "database",
         "MYSQL_USER": "tipi",
         "MYSQL_HOST": "nextcloud-db",
         "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_ADMIN_USER}",
@@ -26,10 +26,10 @@
       "name": "nextcloud-db",
       "image": "mariadb:11",
       "environment": {
-        "MYSQL_ROOT_PASSWORD": "secretroot",
+        "MYSQL_ROOT_PASSWORD": "rootpassword",
         "MYSQL_PASSWORD": "tipi",
-        "MYSQL_DATABASE": "nextcloud",
-        "MYSQL_USER": "nextcloud"
+        "MYSQL_DATABASE": "database",
+        "MYSQL_USER": "tipi"
       },
       "volumes": [
         {
