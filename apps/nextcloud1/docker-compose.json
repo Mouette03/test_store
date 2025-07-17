@@ -13,13 +13,15 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/mysql",
-          "readOnly": false
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
       ],
       "healthcheck": {
-        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p", "rootpassword"],
+        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpassword"],
         "interval": 10000000000,
-        "timeout": 3000000000,
+        "timeout": 5000000000,
         "retries": 5,
         "startPeriod": 10000000000
       }
@@ -27,11 +29,6 @@
     {
       "name": "nextcloud",
       "image": "nextcloud",
-      "dependsOn": {
-        "nextcloud-db": {
-          "condition": "service_healthy"
-        }
-      },
       "environment": {
         "MYSQL_PASSWORD": "tipi",
         "MYSQL_DATABASE": "database",
@@ -45,9 +42,16 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
           "containerPath": "/var/www/html",
-          "readOnly": false
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
       ],
+      "depends_on": {
+        "nextcloud-db": {
+          "condition": "service_healthy"
+        }
+      },
       "extraLabels": {
         "traefik.http.middlewares.nextcloud.headers.browserXSSFilter": "true",
         "traefik.http.middlewares.nextcloud.headers.contentTypeNosniff": "true",
