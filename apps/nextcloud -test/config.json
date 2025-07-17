@@ -1,6 +1,6 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "Nextcloud",
+  "name": "Nextcloud-test",
   "available": true,
   "exposable": true,
   "dynamic_config": true,
