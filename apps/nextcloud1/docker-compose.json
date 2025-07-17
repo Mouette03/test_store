@@ -4,7 +4,7 @@
       "name": "nextcloud",
       "image": "nextcloud",
       "environment": {
-        "MYSQL_PASSWORD": "tipi",
+        "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}",
         "MYSQL_DATABASE": "database",
         "MYSQL_USER": "tipi",
         "MYSQL_HOST": "nextcloud-db",
@@ -20,14 +20,15 @@
           "shared": false,
           "private": false
         }
-      ]
+      ],
+      "isMain": true
     },
     {
       "name": "nextcloud-db",
       "image": "mariadb:11",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpassword",
-        "MYSQL_PASSWORD": "tipi",
+        "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}",
         "MYSQL_DATABASE": "database",
         "MYSQL_USER": "tipi"
       },
