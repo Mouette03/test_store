@@ -23,7 +23,7 @@
       ]
     },
     {
-      "name": "db",
+      "name": "nextcloud-db",
       "image": "mariadb:11",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "secretroot",
