@@ -29,7 +29,7 @@
       "min": 10,
       "required": true,
       "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
-    }
+    },
     {
       "type": "text",
       "label": "Nextcloud trusted domains",
