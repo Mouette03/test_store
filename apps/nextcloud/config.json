@@ -29,10 +29,11 @@
       "min": 10,
       "required": true,
       "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
+    },
     {
       "type": "text",
       "label": "Nextcloud trusted domains",
-      "hint": "Add all of your trusted domains separated by a space.",
+      "hint": "Add all of your domains separated by a space.",
       "required": false,
       "env_variable": "APP_DOMAIN"
     }
