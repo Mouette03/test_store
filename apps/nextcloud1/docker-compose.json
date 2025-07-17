@@ -13,10 +13,10 @@
                 }
             ],
             "environment": {
-                "MYSQL_DB": "nextcloud",
-                "MYSQL_USER": "nextcloud",
-                "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}",
-                "MYSQL_HOST": "nextcloud-db",
+                "MARIADB_DB": "database",
+                "MARIADB_USER": "nextcloud",
+                "MARIADB_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}",
+                "MARIADB_HOST": "nextcloud-db",
                 "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_ADMIN_USER}",
                 "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_ADMIN_PASSWORD}",
                 "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_TRUSTED_DOMAINS}"
@@ -33,9 +33,9 @@
             ],
             "environment": {
                 "MARIADB_ROOT_PASSWORD": "rootpassword",
-                "MYSQL_DB": "nextcloud",
-                "MYSQL_USER": "nextcloud",
-                "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}"
+                "MARIADB_DB": "database",
+                "MARIADB_USER": "nextcloud",
+                "MARIADB_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}"
             }
         }
     ]
