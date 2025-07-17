@@ -1,0 +1,46 @@
+{
+  "services": [
+    {
+      "name": "nextcloud",
+      "image": "nextcloud",
+      "environment": {
+        "MYSQL_PASSWORD": "tipi",
+        "MYSQL_DATABASE": "nextcloud",
+        "MYSQL_USER": "tipi",
+        "MYSQL_HOST": "db",
+        "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_ADMIN_USER}",
+        "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_ADMIN_PASSWORD}"
+      },
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nextcloud",
+          "containerPath": "/var/www/html",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "db",
+      "image": "mariadb:11",
+      "command": "--transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "secretroot",
+        "MYSQL_PASSWORD": "tipi",
+        "MYSQL_DATABASE": "nextcloud",
+        "MYSQL_USER": "tipi"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    }
+  ]
+}
