@@ -26,7 +26,7 @@
         "nextcloud-db"
       ],
       "networks": ["nextcloud-network"],
-      "entrypoint": "/bin/sh -c 'while ! mysqladmin -h nextcloud-db -u nextcloud -p${NEXTCLOUD_DB_PASSWORD} ping --silent; do echo \"Waiting for MariaDB to be ready...\"; sleep 2; done; apache2-foreground'"
+      "entrypoint": "/bin/sh -c 'while ! nc -z nextcloud-db 3306; do echo \"Waiting for MariaDB to be ready...\"; sleep 2; done; apache2-foreground'"
     },
     {
       "name": "nextcloud-db",
