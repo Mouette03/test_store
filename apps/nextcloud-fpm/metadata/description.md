@@ -1,47 +1,27 @@
-test
+# Nextcloud-FPM
 
+Nextcloud server, a safe home for all your data.
 
-## A safe home for all your data.
+Remote collaboration made easy.
 
-* 📁 **Access your Data** You can store your files, contacts, calendars and more on a server of your choosing.
-* 🔄 **Sync your Data** You keep your files, contacts, calendars and more synchronized amongst your devices.
-* 🙌 **Share your Data** …by giving others access to the stuff you want them to see or to collaborate with.
-* 🚀 **Expandable with hundreds of Apps** ...like [Calendar](https://github.com/nextcloud/calendar), [Contacts](https://github.com/nextcloud/contacts), [Mail](https://github.com/nextcloud/mail), [Video Chat](https://github.com/nextcloud/spreed) and all those you can discover in our [App Store](https://apps.nextcloud.com)
-* 🔒 **Security** with our encryption mechanisms, [HackerOne bounty program](https://hackerone.com/nextcloud) and two-factor authentication.
+php-fpm version
 
-You want to learn more about how you can use Nextcloud to access, share and protect your files, calendars, contacts, communication & more at home and at your organization? [**Learn about all our Features**](https://nextcloud.com/athome/).
+## Links
 
-## Get your Nextcloud 🚚
+<https://nextcloud.com/>
 
-- ☑️ [**Simply sign up**](https://nextcloud.com/signup/) at one of our providers either through our website or through the apps directly.
-- 🖥 [**Install** a server by yourself](https://nextcloud.com/install/#instructions-server) on your own hardware or by using one of our ready to use **appliances**
-- 📦 Buy one of the [awesome **devices** coming with a preinstalled Nextcloud](https://nextcloud.com/devices/)
-- 🏢 Find a [service **provider**](https://nextcloud.com/providers/) who hosts Nextcloud for you or your company
+<https://github.com/nextcloud/server>
 
+<https://hub.docker.com/_/nextcloud>
 
-## Get in touch 💬
+## Installation
 
-* [📋 Forum](https://help.nextcloud.com)
-* [👥 Facebook](https://www.facebook.com/nextclouders)
-* [🐣 Twitter](https://twitter.com/Nextclouders)
-* [🐘 Mastodon](https://mastodon.xyz/@nextcloud)
+Due to tipi's nature of handling the APP_DOMAIN environment variable and the way Nextcloud handles trusted domains and virtual host, it is important to install Nextcloud-FPM by using either:
 
-You can also [get support for Nextcloud](https://nextcloud.com/support)!
+- Expose app on local network
 
-## Reset password
-Nextcloud does not support password resets from environment variables. If you want to change your password run the following commands in your terminal:
+or
 
-Check Docker : 
+- Expose app on the internet
 
-```bash
-sudo docker ps
-```
-
-    
-```bash
-sudo docker exec -u www-data -it namedocker /bin/bash
-php occ user:resetpassword username
-```
-Replace with your information namedocker and username
-
-![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
+You can change the apps behavior by editing `runtipi/app-data/nextcloud-fpm/data/nextcloud-fpm/config/config.php` afterwards
