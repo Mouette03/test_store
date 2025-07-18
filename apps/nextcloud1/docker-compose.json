@@ -19,8 +19,14 @@
         "MYSQL_HOST": "nextcloud-db",
         "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_ADMIN_USER}",
         "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_ADMIN_PASSWORD}",
-        "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_TRUSTED_DOMAINS}"
-      }
+        "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_TRUSTED_DOMAINS}",
+        "APACHE_SERVER_NAME": "localhost"
+      },
+      "depends_on": [
+        "nextcloud-db"
+      ],
+      "networks": ["nextcloud-network"],
+      "entrypoint": "/bin/sh -c 'while ! mysqladmin -h nextcloud-db -u nextcloud -p${NEXTCLOUD_DB_PASSWORD} ping --silent; do echo \"Waiting for MariaDB to be ready...\"; sleep 2; done; apache2-foreground'"
     },
     {
       "name": "nextcloud-db",
@@ -36,7 +42,13 @@
         "MYSQL_DATABASE": "database",
         "MYSQL_USER": "nextcloud",
         "MYSQL_PASSWORD": "${NEXTCLOUD_DB_PASSWORD}"
-      }
+      },
+      "networks": ["nextcloud-network"]
     }
-  ]
+  ],
+  "networks": {
+    "nextcloud-network": {
+      "driver": "bridge"
+    }
+  }
 }
