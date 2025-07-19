@@ -1,6 +1,6 @@
-App Store pour Runtipi
+App Store de test pour Runtipi
 
-Quelques applications que j'utilise au quotidien, j'ai recupéré quelques applications du store officiel que j'ai mis à jour égalament.
+Applications en test ! bon fonctionnement non garanti !
 
 ## Documentation
 
