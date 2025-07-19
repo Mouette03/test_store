@@ -37,7 +37,7 @@
     },
     {
       "name": "db-nextcloud",
-      "image": "postgres:14.2",
+      "image": "postgres:17",
       "environment": {
         "POSTGRES_PASSWORD": "tipi",
         "POSTGRES_USER": "tipi",
