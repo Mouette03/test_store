@@ -1,0 +1,50 @@
+{
+  "services": [
+    {
+      "name": "website",
+      "image": "ghcr.io/bewcloud/bewcloud:v2.3.0",
+      "internalPort": 8000,
+      "volumes": [
+        {
+          "hostPath": "./data-files",
+          "containerPath": "/app/data-files",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "./bewcloud.config.ts",
+          "containerPath": "/app/bewcloud.config.ts",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "postgresql",
+      "image": "postgres:17",
+      "environment": {
+        "POSTGRES_USER": "postgres",
+        "POSTGRES_PASSWORD": "fake",
+        "POSTGRES_DB": "bewcloud"
+      },
+      "internalPort": 5432,
+      "volumes": [
+        {
+          "hostPath": "bewcloud-db",
+          "containerPath": "/var/lib/postgresql/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "ulimits": {
+        "memlock": {
+          "soft": -1,
+          "hard": -1
+        }
+      }
+    }
+  ]
+}
