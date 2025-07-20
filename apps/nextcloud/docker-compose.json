@@ -13,14 +13,8 @@
         "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_ADMIN_PASSWORD}",
         "NEXTCLOUD_TRUSTED_DOMAINS": "${APP_DOMAIN}",
         "TRUSTED_PROXIES": "172.16.0.0/12",
-        "OVERWRITEPROTOCOL": "${APP_PROTOCOL:-http}",
-        "PGPASSWORD": "tipi"
+        "OVERWRITEPROTOCOL": "${APP_PROTOCOL:-http}"
       },
-      "entrypoint": [
-        "/bin/sh",
-        "-c",
-        "until pg_isready -h db-nextcloud -U tipi; do sleep 1; done; apache2-foreground"
-      ],
       "internalPort": 80,
       "volumes": [
         {
@@ -61,7 +55,7 @@
     },
     {
       "name": "redis-nextcloud",
-      "image": "redis:6.2.6",
+      "image": "redis:8.0.3",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/redis",
