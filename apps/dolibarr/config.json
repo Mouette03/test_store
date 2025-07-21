@@ -1,26 +1,26 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "Nextcloud",
+  "name": "Dolibarr",
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 8083,
-  "id": "nextcloud",
+  "port": 8073,
+  "id": "dolibarr",
   "tipi_version": 1,
-  "version": "31.0.7-apache",
+  "version": "21.0.1",
   "categories": ["data"],
-  "description": "Nextcloud is a self-hosted, open source, and fully-featured cloud storage solution for your personal files, office documents, and photos.",
-  "short_desc": "Productivity platform that keeps you in control",
-  "author": "Nextcloud GmbH",
-  "source": "https://github.com/nextcloud/server",
+  "description": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
+  "short_desc": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
+  "author": "Dolibarr",
+  "source": "https://github.com/",
   "form_fields": [
     {
       "type": "text",
       "label": "Username",
       "max": 50,
-      "min": 3,
+      "min": 10,
       "required": true,
-      "env_variable": "NEXTCLOUD_ADMIN_USER"
+      "env_variable": "DOLI_ADMIN_LOGIN"
     },
     {
       "type": "password",
@@ -28,8 +28,32 @@
       "max": 50,
       "min": 10,
       "required": true,
-      "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
-    }
+      "env_variable": "DOLI_ADMIN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Company",
+      "max": 50,
+      "min": 10,
+      "required": true,
+      "env_variable": "DOLI_COMPANY_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Enable CRON 1 Disable CRON 0 ",
+      "max": 1,
+      "min": 1,
+      "required": false,
+      "env_variable": "DOLI_CRON",
+    },
+    {
+      "type": "text",
+      "env_variable": "DOLI_CRON_KEY",
+      "max": 30,
+      "min": 5,
+      "required": false,
+      "label": "CRON key if activate",
+     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

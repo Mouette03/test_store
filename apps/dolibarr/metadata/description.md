@@ -1,16 +1,12 @@
 # Dolibarr ERP/CRM
 
-Dolibarr est un logiciel ERP et CRM open source tout-en-un pour gérer une entreprise.
+Dolibarr est un ERP & CRM open source complet pour les entreprises.
 
 ### ⚙️ Fonctionnalités
-- Gestion des clients, fournisseurs, produits, services
-- Facturation, devis, commandes
-- Suivi des projets et interventions
-- Modules RH, finance, stock
+- Gestion des clients, devis, factures, stocks
+- Modules RH, finance, projets
+- Interface Web intuitive
 
-### 🚀 Intégration Runtipi
-Accessible via : `http://dolibarr.runtipi.local`  
-Login admin par défaut : `admin` / `admin`  
-Base de données incluse avec MariaDB.
+💡 Les identifiants admin et paramètres base de données sont personnalisables à l’installation.
 
-💡 Changez les identifiants dans `docker-compose.yml` après le premier déploiement.
+Accessible à l’adresse : `http://${APP_DOMAIN}`

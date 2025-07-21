@@ -1,0 +1,59 @@
+{
+  "services": [
+    {
+      "name": "mariadb",
+      "image": "mariadb:11.8.2",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${DB_ROOT_PASSWORD}",
+        "MYSQL_DATABASE": "dolibarr-db",
+        "MYSQL_USER": "dolidbuser",
+        "MYSQL_PASSWORD": "${DB_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/home/dolibarr_mariadb",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "web",
+      "image": "dolibarr/dolibarr:21.0.1",
+      "environment": {
+        "DOLI_INIT_DEMO": "${DOLI_INIT_DEMO:-0}",
+        "DOLI_DB_HOST": "mariadb",
+        "DOLI_DB_NAME": "dolibarr-db",
+        "DOLI_DB_USER": "${DOLI_DB_USER:-dolidbuser}",
+        "DOLI_DB_PASSWORD": "${DOLI_DB_PASSWORD:-dolidbpass}",
+        "DOLI_URL_ROOT": "${DOLI_URL_ROOT:-http://0.0.0.0}",
+       * "DOLI_ADMIN_LOGIN": "${DOLI_ADMIN_LOGIN}",
+       * "DOLI_ADMIN_PASSWORD": "${DOLI_ADMIN_PASSWORD}",
+       * "DOLI_CRON": "${DOLI_CRON:-0}",
+       * "DOLI_CRON_KEY": "${DOLI_CRON_KEY:-mycronsecurekey}",
+       * "DOLI_COMPANY_NAME": "${DOLI_COMPANY_NAME}",
+        "WWW_USER_ID": "${WWW_USER_ID:-1000}",
+        "WWW_GROUP_ID": "${WWW_GROUP_ID:-1000}"
+      },
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "/home/dolibarr_documents",
+          "containerPath": "/var/www/documents",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "/home/dolibarr_custom",
+          "containerPath": "/var/www/html/custom",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    }
+  ]
+}
