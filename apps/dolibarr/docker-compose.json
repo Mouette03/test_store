@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dolibarr",
-      "image": "tuxgasy/dolibarr:21.0.1-php8.2",
+      "image": "tuxgasy/dolibarr:lastest",
       "environment": {
         "DOLI_INIT_DEMO": "0",
         "DOLI_DB_HOST": "mariadb",
