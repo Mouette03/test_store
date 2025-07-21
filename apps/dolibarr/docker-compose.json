@@ -20,7 +20,7 @@
       "internalPort": 80,
       "volumes": [
         {
-          "hostPath": ""${APP_DATA_DIR}/dolibarr_data",
+          "hostPath": "${APP_DATA_DIR}/dolibarr_data",
           "containerPath": "/var/www/html",
           "readOnly": false,
           "shared": false,
