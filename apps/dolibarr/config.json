@@ -43,7 +43,7 @@
       "label": "Enable CRON 1 Disable CRON 0 ",
       "max": 1,
       "min": 1,
-      "required": false,
+      "required": true,
       "env_variable": "DOLI_CRON"
     },
     {
