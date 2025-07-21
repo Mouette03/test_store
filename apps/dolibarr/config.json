@@ -17,7 +17,7 @@
     {
       "type": "text",
       "label": "Username",
-      "max": 30,
+      "max": 50,
       "min": 5,
       "required": true,
       "env_variable": "DOLI_ADMIN_LOGIN"
