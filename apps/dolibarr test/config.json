@@ -17,42 +17,42 @@
     {
       "type": "text",
       "label": "Username",
-      "env_variable": "DOLI_ADMIN_LOGIN"
       "max": 50,
       "min": 10,
       "required": true,
+      "env_variable": "DOLI_ADMIN_LOGIN"
     },
     {
       "type": "password",
       "label": "Password",
-      "env_variable": "DOLI_ADMIN_PASSWORD"
       "max": 50,
       "min": 10,
       "required": true,
+      "env_variable": "DOLI_ADMIN_PASSWORD"
     },
     {
       "type": "text",
       "label": "Company",
-      "env_variable": "DOLI_COMPANY_NAME"
       "max": 50,
       "min": 10,
       "required": true,
+      "env_variable": "DOLI_COMPANY_NAME"
     },
     {
       "type": "text",
       "label": "Enable CRON 1 Disable CRON 0 ",
-      "env_variable": "DOLI_CRON",
       "max": 1,
       "min": 1,
       "required": false,
+      "env_variable": "DOLI_CRON",
     },
     {
       "type": "text",
-      "label": "CRON key if activate",
       "env_variable": "DOLI_CRON_KEY",
       "max": 30,
       "min": 5,
       "required": false,
+      "label": "CRON key if activate",
      }
   ],
   "supported_architectures": ["arm64", "amd64"],
