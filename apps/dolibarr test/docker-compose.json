@@ -9,7 +9,6 @@
         "DOLI_DB_NAME": "dolibarrdb",
         "DOLI_DB_USER": "dolibarruser",
         "DOLI_DB_PASSWORD": "dolibarrpwd",
-        "DOLI_URL_ROOT": "http://${APP_DOMAIN}",
         "DOLI_ADMIN_LOGIN": "${DOLI_ADMIN_LOGIN}",
         "DOLI_ADMIN_PASSWORD": "${DOLI_ADMIN_PASSWORD}",
         "DOLI_CRON": "${DOLI_CRON}",
