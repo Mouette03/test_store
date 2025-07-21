@@ -44,15 +44,15 @@
       "max": 1,
       "min": 1,
       "required": false,
-      "env_variable": "DOLI_CRON",
+      "env_variable": "DOLI_CRON"
     },
     {
       "type": "text",
-      "env_variable": "DOLI_CRON_KEY",
+      "label": "CRON key if activate",
       "max": 30,
       "min": 5,
       "required": false,
-      "label": "CRON key if activate",
+      "env_variable": "DOLI_CRON_KEY"
      }
   ],
   "supported_architectures": ["arm64", "amd64"],
