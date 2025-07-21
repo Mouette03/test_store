@@ -20,7 +20,7 @@
       "internalPort": 80,
       "volumes": [
         {
-          "hostPath": "dolibarr_data",
+          "hostPath": ""${APP_DATA_DIR}/dolibarr_data",
           "containerPath": "/var/www/html",
           "readOnly": false,
           "shared": false,
@@ -44,7 +44,7 @@
       },
       "volumes": [
         {
-          "hostPath": "db_data",
+          "hostPath": "${APP_DATA_DIR}/db_data",
           "containerPath": "/var/lib/mysql",
           "readOnly": false,
           "shared": false,
