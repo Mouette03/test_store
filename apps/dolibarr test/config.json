@@ -1,12 +1,18 @@
 {
-  "id": "dolibarr",
   "name": "Dolibarr",
-  "type": "app",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8073,
+  "id": "dolibarr",
+  "tipi_version": 1,
+  "version": "21.0.1",
+  "categories": ["data"],
   "description": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
-  "port": 80,
-  "previewUrl": "http://${APP_DOMAIN}",
-  "icon": "logo.jpg",
-  "env": [
+  "short_desc": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
+  "author": "Dolibarr",
+  "source": "https://github.com/",
+  "form_fields": [
     {
       "name": "DOLI_ADMIN_LOGIN",
       "default": "admin",
