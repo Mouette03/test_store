@@ -7,7 +7,7 @@
         "DOLI_INIT_DEMO": "0",
         "DOLI_DB_HOST": "mariadb",
         "MYSQL_DATABASE": "dolibarrdb",
-        "MYSQL_USER": "dolibarruser",
+        "MYSQL_USER": "doli",
         "MYSQL_PASSWORD": "dolibarrpwd",
         "DOLI_ADMIN_LOGIN": "${DOLI_ADMIN_LOGIN}",
         "DOLI_ADMIN_PASSWORD": "${DOLI_ADMIN_PASSWORD}",
@@ -39,7 +39,7 @@
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "dolibarrdb",
-        "MYSQL_USER": "dolibarruser",
+        "MYSQL_USER": "doli",
         "MYSQL_PASSWORD": "dolibarrpwd"
       },
       "volumes": [
