@@ -39,7 +39,7 @@
           "private": false
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data"
+          "hostPath": "${APP_DATA_DIR}/data",
           "containerPath": "/var/www/galette/data",
           "readOnly": false,
           "shared": false,
