@@ -6,9 +6,9 @@
       "environment": {
         "DOLI_INIT_DEMO": "0",
         "DOLI_DB_HOST": "mariadb",
-        "MYSQL_DATABASE": "dolibarrdb",
-        "MYSQL_USER": "doli",
-        "MYSQL_PASSWORD": "dolibarrpwd",
+        "DOLI_DB_NAME": "dolibarrdb",
+        "DOLI_DB_USER": "doli",
+        "DOLI_DB_PASSWORD": "dolibarrpwd",
         "DOLI_ADMIN_LOGIN": "${DOLI_ADMIN_LOGIN}",
         "DOLI_ADMIN_PASSWORD": "${DOLI_ADMIN_PASSWORD}",
         "DOLI_CRON": "${DOLI_CRON}",
