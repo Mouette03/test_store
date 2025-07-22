@@ -45,7 +45,7 @@
           "shared": false,
           "private": false
         }
-       ],
+      ],
       "dependsOn": {
         "mariadb": {
           "condition": "service_started"
