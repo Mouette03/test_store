@@ -44,7 +44,7 @@
           "readOnly": false,
           "shared": false,
           "private": false
-        },
+        }
        ],
       "dependsOn": {
         "mariadb": {
