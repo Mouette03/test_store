@@ -1,10 +1,10 @@
 {
   "services": [
     {
-      "name": "galette-db",
-      "image": "mariadb:10.5",
+      "name": "mariadb",
+      "image": "mariadb:11",
       "environment": {
-        "MYSQL_ROOT_PASSWORD": "rootpass",
+        "MARIADB_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "galettedb",
         "MYSQL_USER": "galetteuser",
         "MYSQL_PASSWORD": "galettepwd"
@@ -31,6 +31,13 @@
       },
       "internalPort": 80,
       "volumes": [
+	{
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/var/www/galette/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
         {
           "hostPath": "${APP_DATA_DIR}/galette_config",
           "containerPath": "/var/www/galette/config",
@@ -69,6 +76,27 @@
         {
           "hostPath": "${APP_DATA_DIR}/galette_photos",
           "containerPath": "/var/www/galette/data/photos",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/galette_documents",
+          "containerPath": "/var/www/galette/data/documents",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/galette_exports",
+          "containerPath": "/var/www/galette/data/exports",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/galette_imports",
+          "containerPath": "/var/www/galette/data/imports",
           "readOnly": false,
           "shared": false,
           "private": false
