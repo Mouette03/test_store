@@ -13,6 +13,7 @@
     {
       "name": "web",
       "image": "dolibarr/dolibarr",
+      "isMain": true,
       "environment": {
         "DOLI_DB_HOST": "mariadb",
         "DOLI_DB_NAME": "dolidb",
