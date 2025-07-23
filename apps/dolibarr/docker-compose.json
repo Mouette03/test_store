@@ -30,14 +30,14 @@
       "internalPort": 80,
       "volumes": [
         {
-          "hostPath": "volume-scripts",
+          "hostPath": "${APP_DATA_DIR}/docker-init.d",
           "containerPath": "/var/www/scripts/docker-init.d",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "before-starting-scripts",
+          "hostPath": "${APP_DATA_DIR}/before-starting.d",
           "containerPath": "/var/www/scripts/before-starting.d",
           "readOnly": false,
           "shared": false,
