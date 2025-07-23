@@ -13,48 +13,7 @@
   "short_desc": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
   "author": "Dolibarr",
   "source": "https://github.com/",
-  "form_fields": [
-    {
-      "type": "text",
-      "label": "Username",
-      "max": 50,
-      "min": 5,
-      "required": true,
-      "env_variable": "DOLI_ADMIN_LOGIN"
-    },
-    {
-      "type": "password",
-      "label": "Password",
-      "max": 50,
-      "min": 10,
-      "required": true,
-      "env_variable": "DOLI_ADMIN_PASSWORD"
-    },
-    {
-      "type": "text",
-      "label": "Company",
-      "max": 50,
-      "min": 5,
-      "required": true,
-      "env_variable": "DOLI_COMPANY_NAME"
-    },
-    {
-      "type": "text",
-      "label": "Enable CRON 1 Disable CRON 0 ",
-      "max": 1,
-      "min": 1,
-      "required": true,
-      "env_variable": "DOLI_CRON"
-    },
-    {
-      "type": "text",
-      "label": "CRON key if activate",
-      "max": 30,
-      "min": 5,
-      "required": false,
-      "env_variable": "DOLI_CRON_KEY"
-     }
-  ],
+  "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1753138178187,
   "updated_at": 1753138178187
