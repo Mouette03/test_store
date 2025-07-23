@@ -25,7 +25,7 @@
           "readOnly": false,
           "shared": false,
           "private": false
-        }
+        },
 	{
           "hostPath": "${APP_DATA_DIR}/dolibarr_custom",
           "containerPath": "/var/www/html/custom",
