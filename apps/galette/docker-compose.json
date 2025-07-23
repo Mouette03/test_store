@@ -4,7 +4,7 @@
       "name": "mariadb",
       "image": "mariadb:11",
       "environment": {
-        "MYSQL_ROOT_PASSWORD": "rootpass",
+        "MARIADB_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "galettedb",
         "MYSQL_USER": "galetteuser",
         "MYSQL_PASSWORD": "galettepwd"
