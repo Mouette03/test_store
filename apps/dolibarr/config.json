@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8015,
   "id": "dolibarr",
-  "tipi_version": 11,
+  "tipi_version": 12,
   "version": "21.0.1",
   "categories": ["data"],
   "description": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
@@ -26,7 +26,7 @@
       "type": "password",
       "label": "Password",
       "max": 50,
-      "min": 10,
+      "min": 6,
       "required": true,
       "env_variable": "DOLIBARR_ADMIN_PASSWORD"
     },
