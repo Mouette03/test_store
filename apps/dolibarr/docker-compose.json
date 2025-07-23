@@ -1,48 +1,49 @@
 {
   "services": [
     {
-      "name": "mariadb",
-      "image": "mariadb:latest",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "root",
-        "MYSQL_DATABASE": "dolidb",
-        "MYSQL_USER": "dolidbuser",
-        "MYSQL_PASSWORD": "dolidbpass"
-      }
-    },
-    {
-      "name": "web",
-      "image": "dolibarr/dolibarr",
+      "name": "dolibarr",
+      "image": "tuxgasy/dolibarr:latest",
+      "internalPort": 80,
       "isMain": true,
       "environment": {
+        "DOLI_INIT_DEMO": "0",
         "DOLI_DB_HOST": "mariadb",
-        "DOLI_DB_NAME": "dolidb",
-        "DOLI_DB_USER": "dolidbuser",
-        "DOLI_DB_PASSWORD": "dolidbpass",
-        "DOLI_URL_ROOT": "${DOLI_URL_ROOT:-http://192.168.1.5}",
+        "DOLI_DB_NAME": "dolibarrdb",
+        "DOLI_DB_USER": "doli",
+        "DOLI_DB_PASSWORD": "dolibarrpwd",
         "DOLI_ADMIN_LOGIN": "admin",
-        "DOLI_ADMIN_PASSWORD": "admin",
-        "DOLI_CRON": "${DOLI_CRON}",
-        "DOLI_CRON_KEY": "${DOLI_CRON_KEY}",
+        "DOLI_ADMIN_PASSWORD": "admin1234",
+        "DOLI_CRON": "yes",
+        "DOLI_CRON_KEY": "securekey",
+        "DOLI_COMPANY_NAME": "MonEntreprise",
         "WWW_USER_ID": "1000",
         "WWW_GROUP_ID": "1000"
       },
-      "internalPort": 80,
-      "isMain": true,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/docker-init.d",
-          "containerPath": "/var/www/scripts/docker-init.d",
-          "readOnly": false,
-          "shared": false,
-          "private": false
-        },
+          "hostPath": "${APP_DATA_DIR}/dolibarr_data",
+          "containerPath": "/var/www/html"
+        }
+      ],
+      "dependsOn": {
+        "mariadb": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "mariadb",
+      "image": "mariadb:10.6",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "rootpass",
+        "MYSQL_DATABASE": "dolibarrdb",
+        "MYSQL_USER": "doli",
+        "MYSQL_PASSWORD": "dolibarrpwd"
+      },
+      "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/before-starting.d",
-          "containerPath": "/var/www/scripts/before-starting.d",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "hostPath": "${APP_DATA_DIR}/db_data",
+          "containerPath": "/var/lib/mysql"
         }
       ]
     }
