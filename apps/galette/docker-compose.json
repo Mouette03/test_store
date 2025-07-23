@@ -36,6 +36,13 @@
           "containerPath": "/var/www/galette/config",
           "readOnly": false,
           "shared": false,
+          "private": falseplugins
+        },
+ 	{
+          "hostPath": "${APP_DATA_DIR}/galette_plugins",
+          "containerPath": "/var/www/galette/plugins",
+          "readOnly": false,
+          "shared": false,
           "private": false
         },
         {
