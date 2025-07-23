@@ -31,6 +31,13 @@
       },
       "internalPort": 80,
       "volumes": [
+	{
+          "hostPath": "${APP_DATA_DIR}/galette_data",
+          "containerPath": "/var/www/galette/data/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
         {
           "hostPath": "${APP_DATA_DIR}/galette_config",
           "containerPath": "/var/www/galette/config",
@@ -66,6 +73,13 @@
           "shared": false,
           "private": false
         },
+ 	{
+          "hostPath": "${APP_DATA_DIR}/galette_documents",
+          "containerPath": "/var/www/galette/data/documents",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
         {
           "hostPath": "${APP_DATA_DIR}/galette_logs",
           "containerPath": "/var/www/galette/data/logs",
@@ -80,8 +94,22 @@
           "shared": false,
           "private": false
         },
+	{
+          "hostPath": "${APP_DATA_DIR}/galette_exports",
+          "containerPath": "/var/www/galette/data/exports",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+	{
+          "hostPath": "${APP_DATA_DIR}/galette_imports",
+          "containerPath": "/var/www/galette/data/imports",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
         {
-          "hostPath": "${APP_DATA_DIR}/galette_templates",
+          "hostPath": "${APP_DATA_DIR}/galette_templates_c",
           "containerPath": "/var/www/galette/data/templates_c",
           "readOnly": false,
           "shared": false,
