@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dolibarr",
-      "image": "tuxgasy/dolibarr:latest",
+      "image": "dolibarr/dolibarr:latest",
       "environment": {
         "DOLI_INIT_DEMO": "0",
         "DOLI_DB_HOST": "mariadb",
@@ -20,8 +20,15 @@
       "internalPort": 80,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/dolibarr_docs",
-          "containerPath": "/var/www/html/document",
+          "hostPath": "${APP_DATA_DIR}/dolibarr_documents",
+          "containerPath": "/var/www/documents",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+	{
+          "hostPath": "${APP_DATA_DIR}/dolibarr_custom",
+          "containerPath": "/var/www/html/custom",
           "readOnly": false,
           "shared": false,
           "private": false
@@ -44,7 +51,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/db_data",
+          "hostPath": "${APP_DATA_DIR}/dolibarr_mariadb",
           "containerPath": "/var/lib/mysql",
           "readOnly": false,
           "shared": false,
