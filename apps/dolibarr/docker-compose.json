@@ -22,11 +22,15 @@
       "volumes": [
         {
    	  "hostPath": "${APP_DATA_DIR}/dolibarr/documents",
-   	  "containerPath": "/var/www/html/documents"
+   	  "containerPath": "/var/www/documents"
   	},
  	{
           "hostPath": "${APP_DATA_DIR}/dolibarr/conf",
           "containerPath": "/var/www/html/conf"
+        },
+	{
+          "hostPath": "${APP_DATA_DIR}/dolibarr/custom",
+          "containerPath": "/var/www/html/custom"
         }
       ],
       "dependsOn": {
