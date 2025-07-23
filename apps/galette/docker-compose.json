@@ -1,8 +1,8 @@
 {
   "services": [
     {
-      "name": "galette-db",
-      "image": "mariadb:10.5",
+      "name": "mariadb",
+      "image": "mariadb:11",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "galettedb",
