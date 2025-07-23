@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dolibarr",
-      "image": "tuxgasy/dolibarr:latest",
+      "image": "dolibarr/dolibarr:21.0.1",
       "internalPort": 80,
       "isMain": true,
       "environment": {
