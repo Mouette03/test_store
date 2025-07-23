@@ -27,6 +27,7 @@
         "WWW_GROUP_ID": "1000"
       },
       "internalPort": 80,
+      "port": 8073,
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/docker-init.d",
