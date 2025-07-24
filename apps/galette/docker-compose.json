@@ -35,6 +35,10 @@
 	{
           "hostPath": "${APP_DATA_DIR}/data/data/config",
           "containerPath": "/var/www/galette/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/data/plugins",
+          "containerPath": "/var/www/galette/plugins"
         }
       ],
       "dependsOn": {
