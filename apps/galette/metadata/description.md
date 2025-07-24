@@ -2,7 +2,54 @@
 
 
 
-👉Après installation redémarrer celle-ci pour que les permissions soient accordées.
+
+
+##### 🇬🇧 Description (English)
+
+
+
+👉Database connection information on first launch:
+
+
+
+HOST: mariadb
+
+DATABASE\_NAME: galettedb
+
+DB\_USER: galetteuser
+
+DB\_PASS: To be chosen at installation
+
+
+
+
+
+Galette is a membership management web application towards non profit organizations.
+
+This is before all a free software (as in free speech), community and free (as in beer)!
+
+* Members management
+* Manage cotisations and transactions
+* Manage groups and their managers
+* Import and Export (open formats)
+* Improved accessibility (use and follow web standards)
+* Configure lists and forms
+* Add dynamic fields to members, contributions and transactions forms
+* Multilingual
+* Simple and advanced search
+* Calculate fees due dates
+* Members mailings
+* Edit labels (for postal mail)
+* Member card with photo (facultative)
+* Each member can edit his informations
+* Multi criteria diplay filters
+* Usage history
+
+👉  More information : [galette.eu](https://galette.eu/)
+
+&nbsp;
+
+##### 🇫🇷 Description (Français)
 
 
 
@@ -16,7 +63,7 @@
 
         DB\_USER : galetteuser
 
-        DB\_PASS : galettepwd
+        DB\_PASS : A choisir a l'installation
 
 
 
@@ -49,4 +96,6 @@ Galette est une application web de gestion d’adhérents, adaptée aux associat
 
 
 
+
+Thanks @sergi0g
 
