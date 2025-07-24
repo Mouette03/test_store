@@ -7,7 +7,7 @@
         "MARIADB_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "galettedb",
         "MYSQL_USER": "galetteuser",
-        "MYSQL_PASSWORD": "galettepwd"
+        "MYSQL_PASSWORD": "${GALETTE_MYSQL_PASSWORD}"
       },
       "volumes": [
         {
@@ -24,7 +24,7 @@
         "DB_HOST": "mariadb",
         "DB_NAME": "galettedb",
         "DB_USER": "galetteuser",
-        "DB_PASS": "galettepwd"
+        "DB_PASS": "${GALETTE_MYSQL_PASSWORD}"
       },
       "internalPort": 80,
       "volumes": [
