@@ -11,11 +11,8 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/galette_db",
+          "hostPath": "${APP_DATA_DIR}/data/galette_db",
           "containerPath": "/var/lib/mysql",
-          "readOnly": false,
-          "shared": false,
-          "private": false
         }
       ]
     },
@@ -31,12 +28,9 @@
       },
       "internalPort": 80,
       "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/galette_data",
+	{
+          "hostPath": "${APP_DATA_DIR}/data/data",
           "containerPath": "/var/www/galette/data",
-          "readOnly": false,
-          "shared": false,
-          "private": false
         }
       ],
       "dependsOn": {
