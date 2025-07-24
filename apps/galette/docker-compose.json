@@ -29,7 +29,7 @@
       "internalPort": 80,
       "volumes": [
 	{
-          "hostPath": "${APP_DATA_DIR}/data",
+          "hostPath": "${APP_DATA_DIR}/data/data",
           "containerPath": "/var/www/galette/data"
         },
 	{
@@ -37,7 +37,7 @@
           "containerPath": "/var/www/galette/config"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data/plugins",
+          "hostPath": "${APP_DATA_DIR}/data/data/plugins",
           "containerPath": "/var/www/galette/plugins"
         }
       ],
