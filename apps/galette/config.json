@@ -13,16 +13,7 @@
   "author": "galette",
   "source": "https://github.com/galette-community/docker",
   "website": "https://galette.eu/",
-  "form_fields": [
-    {
-      "type": "password",
-      "label": "Password Database",
-      "max": 50,
-      "min": 6,
-      "required": true,
-      "env_variable": "GALETTE_MYSQL_PASSWORD"
-    }
-  ],
+  "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1752437249000,
   "updated_at": 1753377126653
