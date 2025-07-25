@@ -50,7 +50,7 @@ This is before all a free software (as in free speech), community and free (as i
 * Multi criteria diplay filters
 * Usage history
 
-👉  More information : Galette Docker
+👉  More information : https://galette.eu https://github.com/galette-community/docker
 
  
 
@@ -69,7 +69,7 @@ DB\_PASS : A choisir à l'installation
 services:
   galette:
     volumes:
-      - /(chemin vers favicon.png):/var/www/galette/webroot/themes/default/images/favicon.png
+      - /(chemin vers favicon.png sur hote):/var/www/galette/webroot/themes/default/images/favicon.png
 ```
 
 👉Pour avoir la persistance des plugins désactivés lors des redémmarages de l'application, vous pouver spécifier un répértoire sur l'hote ou vous stockez les plugins télécharger ici : https://doc.galette.eu/fr/master/plugins/index.html
@@ -105,7 +105,7 @@ Galette est une application web de gestion d’adhérents, adaptée aux associat
 * Filtres d'affichage multi-critères
 * Historique d'utilisation
 
-👉 Plus d’info : Galette Docker
+👉 Plus d’info : https://galette.eu https://github.com/galette-community/docker
 
 
 Thanks @sergi0g
