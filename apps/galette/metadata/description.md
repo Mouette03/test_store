@@ -26,7 +26,7 @@ DB\_PASS: To be chosen at installation
 
 
 
-```bash
+```yaml
 
 services:
 
@@ -34,7 +34,7 @@ services:
 
 &nbsp;   volumes:
 
-&nbsp;     - /path to storage directory favicon.png on host/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
+&nbsp;     - "/path to storage directory favicon.png on host/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png"
 
 ```
 
@@ -44,7 +44,7 @@ services:
 
 
 
-```bash
+```yaml
 
 services:
 
@@ -52,7 +52,7 @@ services:
 
 &nbsp;   volumes:
 
-&nbsp;     - /path to plugin storage directory on host:/var/www/galette/plugins
+&nbsp;     - "/path to plugin storage directory on host:/var/www/galette/plugins"
 
 ```
 
@@ -81,7 +81,7 @@ This is before all a free software (as in free speech), community and free (as i
 * Multi criteria diplay filters
 * Usage history
 
-👉  More information : [galette.eu](https://galette.eu/)
+👉  More information : [galette.eu](https://galette.eu/) [Docker](https://github.com/galette-community/docker)
 
  
 
@@ -107,7 +107,7 @@ This is before all a free software (as in free speech), community and free (as i
 
 
 
-```bash
+```yaml
 
 services:
 
@@ -115,7 +115,7 @@ services:
 
 &nbsp;   volumes:
 
-&nbsp;     - /chemin vers répértoire de stockage favicon.png sur hote/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
+&nbsp;     - "/chemin vers répertoire/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png"
 
 ```
 
@@ -127,12 +127,16 @@ et ajouter ceci à votre USER CONFIG
 
 
 
-```bash
+```yaml
+
 services:
 
 &nbsp; galette:
-    volumes:
-      - /chemin vers répértoire de stockage plugins sur hote:/var/www/galette/plugins
+
+&nbsp;   volumes:
+
+&nbsp;     - "/chemin vers répértoire de stockage plugins sur hote:/var/www/galette/plugins"
+
 ```
 
 
@@ -159,7 +163,7 @@ Galette est une application web de gestion d’adhérents, adaptée aux associat
 * Filtres d'affichage multi-critères
 * Historique d'utilisation
 
-👉 Plus d’info : [galette.eu](https://galette.eu/)
+👉 Plus d’info : [galette.eu](https://galette.eu/) [Docker](https://github.com/galette-community/docker)
 
 
 
