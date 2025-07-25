@@ -1,4 +1,4 @@
-### \# Galette
+### Galette
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-\##### 🇬🇧 Description (English)
+🇬🇧 Description (English)
 
 
 
@@ -116,7 +116,7 @@ This is before all a free software (as in free speech), community and free (as i
 
 
 
-\##### 🇫🇷 Description (Français)
+🇫🇷 Description (Français)
 
 
 
