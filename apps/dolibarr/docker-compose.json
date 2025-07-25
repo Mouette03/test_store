@@ -13,8 +13,8 @@
         "DOLI_DB_PASSWORD": "dolibarrpwd",
         "DOLI_ADMIN_LOGIN": "${DOLIBARR_ADMIN_USER}",
         "DOLI_ADMIN_PASSWORD": "${DOLIBARR_ADMIN_PASSWORD}",
-        "DOLI_CRON": "yes",
-        "DOLI_CRON_KEY": "securekey",
+        "DOLI_CRON": "${DOLI_CRON_ON}",
+        "DOLI_CRON_KEY": "${DOLI_CRON_KEY}",
         "DOLI_COMPANY_NAME": "${DOLI_COMPANY_NAME}",
         "WWW_USER_ID": "1000",
         "WWW_GROUP_ID": "1000"

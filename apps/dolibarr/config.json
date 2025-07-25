@@ -37,6 +37,22 @@
       "min": 1,
       "required": true,
       "env_variable": "DOLI_COMPANY_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Enable CRON service: 0=stop 1=enabled",
+      "max": 50,
+      "min": 1,
+      "required": true,
+      "env_variable": "DOLI_CRON_ON"
+    },
+    {
+      "type": "password",
+      "label": "Security key to launch cron jobs",
+      "max": 30,
+      "min": 10,
+      "required": true,
+      "env_variable": "DOLI_CRON_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
