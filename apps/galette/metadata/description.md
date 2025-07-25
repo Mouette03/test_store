@@ -22,6 +22,42 @@ DB\_PASS: To be chosen at installation
 
 
 
+👉To change the site's favicon, add this to your USER CONFIG
+
+
+
+```bash
+
+services:
+
+&nbsp; galette:
+
+&nbsp;   volumes:
+
+&nbsp;     - /path to storage directory favicon.png on host/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
+
+```
+
+
+
+👉To persist disabled plugins across application restarts, you can specify a directory on the host where you store plugins (download here: https://doc.galette.eu/fr/master/plugins/index.html) and add this to your USER CONFIG
+
+
+
+```bash
+
+services:
+
+&nbsp; galette:
+
+&nbsp;   volumes:
+
+&nbsp;     - /path to plugin storage directory on host:/var/www/galette/plugins
+
+```
+
+
+
 
 
 Galette is a membership management web application towards non profit organizations.
@@ -47,7 +83,7 @@ This is before all a free software (as in free speech), community and free (as i
 
 👉  More information : [galette.eu](https://galette.eu/)
 
-&nbsp;
+ 
 
 ##### 🇫🇷 Description (Français)
 
@@ -63,9 +99,41 @@ This is before all a free software (as in free speech), community and free (as i
 
         DB\_USER : galetteuser
 
-        DB\_PASS : A choisir a l'installation
+        DB\_PASS : A choisir à l'installation
 
 
+
+👉Pour changer le favicon du site ajouter ceci à votre USER CONFIG
+
+
+
+```bash
+
+services:
+
+&nbsp; galette:
+
+&nbsp;   volumes:
+
+&nbsp;     - /chemin vers répértoire de stockage favicon.png sur hote/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
+
+```
+
+
+
+👉Pour avoir la persistance des plugins désactivés lors des redémmarages de l'application, vous pouver spécifier un répértoire sur l'hote ou vous stockez les plugins télécharger ici : https://doc.galette.eu/fr/master/plugins/index.html
+
+et ajouter ceci à votre USER CONFIG
+
+
+
+```bash
+services:
+
+&nbsp; galette:
+    volumes:
+      - /chemin vers répértoire de stockage plugins sur hote:/var/www/galette/plugins
+```
 
 
 
