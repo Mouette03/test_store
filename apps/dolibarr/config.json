@@ -9,8 +9,8 @@
   "tipi_version": 14,
   "version": "21.0.1",
   "categories": ["data"],
-  "description": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
-  "short_desc": "Dolibarr ERP & CRM auto-hébergé pour Runtipi",
+  "description": "Dolibarr ERP & CRM auto-heberge pour Runtipi",
+  "short_desc": "Dolibarr ERP & CRM auto-heberge pour Runtipi",
   "author": "Dolibarr",
   "source": "https://github.com/",
   "form_fields": [
