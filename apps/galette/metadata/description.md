@@ -50,7 +50,7 @@ This is before all a free software (as in free speech), community and free (as i
 * Multi criteria diplay filters
 * Usage history
 
-👉  More information : https://galette.eu https://github.com/galette-community/docker
+👉  More information : https://galette.eu		https://github.com/galette-community/docker
 
  
 
@@ -105,7 +105,7 @@ Galette est une application web de gestion d’adhérents, adaptée aux associat
 * Filtres d'affichage multi-critères
 * Historique d'utilisation
 
-👉 Plus d’info : https://galette.eu https://github.com/galette-community/docker
+👉 Plus d’info : https://galette.eu			https://github.com/galette-community/docker
 
 
 Thanks @sergi0g
