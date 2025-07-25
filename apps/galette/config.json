@@ -21,6 +21,7 @@
       "min": 6,
       "required": true,
       "default": "galettepwd",
+      "hint": "Password to protect the database",
       "env_variable": "GALETTE_MYSQL_PASSWORD"
     }
   ],

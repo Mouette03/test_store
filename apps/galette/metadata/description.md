@@ -22,7 +22,7 @@ DB\_PASS: To be chosen at installation
 services:
   galette:
     volumes:
-      - "/path to storage directory favicon.png on host/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png"
+      - /path to storage directory favicon.png on host/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
 ```
 
 👉To persist disabled plugins across application restarts, you can specify a directory on the host where you store plugins (download here: https://doc.galette.eu/fr/master/plugins/index.html) and add this to your USER CONFIG
@@ -31,7 +31,7 @@ services:
 services:
   galette:
     volumes:
-      - "/path to plugin storage directory on host:/var/www/galette/plugins"
+      - /path to plugin storage directory on host:/var/www/galette/plugins
 ```
 
 Galette is a membership management web application towards non profit organizations.
@@ -79,7 +79,7 @@ This is before all a free software (as in free speech), community and free (as i
 services:
   galette:
     volumes:
-      - "/chemin vers répertoire/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png"
+      - /chemin vers répertoire/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
 ```
 
 👉Pour avoir la persistance des plugins désactivés lors des redémmarages de l'application, vous pouver spécifier un répértoire sur l'hote ou vous stockez les plugins télécharger ici : https://doc.galette.eu/fr/master/plugins/index.html
@@ -90,7 +90,7 @@ et ajouter ceci à votre USER CONFIG
 services:
   galette:
     volumes:
-      - "/chemin vers répértoire de stockage plugins sur hote:/var/www/galette/plugins"
+      - /chemin vers répértoire de stockage plugins sur hote:/var/www/galette/plugins
 ```
 
 Galette est une application web de gestion d’adhérents, adaptée aux associations.
