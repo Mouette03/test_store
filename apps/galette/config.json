@@ -20,6 +20,7 @@
       "max": 50,
       "min": 6,
       "required": true,
+      "default": "galettepwd",
       "env_variable": "GALETTE_MYSQL_PASSWORD"
     }
   ],
