@@ -1,26 +1,26 @@
 {
-  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/refs/heads/master/apps/app-info-schema.json",
   "name": "Home Assistant",
   "id": "homeassistant",
   "available": true,
-  "short_desc": "Open source home automation that puts local control and privacy first.",
+  "short_desc": "Open source home automation.",
   "author": "home-assistant",
-  "port": 9013,
+  "port": 8469,
   "categories": [
     "automation"
   ],
-  "description": "Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
+  "description": "Home Assistant is an open-source home automation platform that lets you control, automate, and monitor all your smart devices from a single interface — locally and without relying on the cloud.",
   "tipi_version": 1,
-  "version": "2025.7.2",
+  "version": "2025.7.4",
   "source": "https://github.com/home-assistant/core",
   "website": "https://www.home-assistant.io",
+  "dynamic_config": true,
   "exposable": true,
+  "form_fields": [],
   "supported_architectures": [
     "arm64",
     "amd64"
   ],
-  "form_fields": [],
   "created_at": 1752620152000,
-  "updated_at": 1752620152000,
-  "dynamic_config": true
+  "updated_at": 1754145439430
+  
 }

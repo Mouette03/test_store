@@ -1,9 +1,7 @@
-{
-  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/refs/heads/master/apps/dynamic-compose-schema.json",
-  "services": [
+"services": [
     {
       "name": "homeassistant",
-      "image": "ghcr.io/home-assistant/home-assistant:2025.7.2",
+      "image": "ghcr.io/home-assistant/home-assistant:2025.7.4",
       "internalPort": 8123,
       "isMain": true,
       "volumes": [
