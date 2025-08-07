@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "libreoffice",
+      "image": "lscr.io/linuxserver/libreoffice:latest",
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "Etc/UTC"
+      },
+      "internalPort": 3000,
+      "addPorts": [
+        {
+          "containerPort": 3001,
+          "hostPort": 3001,
+          "tcp": true,
+          "udp": false
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "/path/to/config",
+          "containerPath": "/config",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "securityOpt": [
+        "seccomp:unconfined"
+      ]
+    }
+  ]
+}

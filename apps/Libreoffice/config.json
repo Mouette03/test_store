@@ -1,0 +1,18 @@
+{
+  "name": "LibreOffice",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 9654,
+  "id": "libreoffice",
+  "tipi_version": 1,
+  "version": "1",
+  "categories": ["data"],
+  "description": "traitement de text",
+  "short_desc": "Suite bureautique",
+  "author": "LibreOffice",
+  "source": "https://github.com/",
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1753138178187,
+  "updated_at": 1753138178187
+}
