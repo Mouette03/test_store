@@ -10,7 +10,7 @@
   "categories": ["data"],
   "description": "traitement de text",
   "short_desc": "Suite bureautique",
-  "author": "Libreoffice",
+  "author": "libreoffice",
   "source": "https://github.com/",
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1753138178187,
