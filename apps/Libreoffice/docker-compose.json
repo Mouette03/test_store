@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "libreoffice",
-      "image": "libreoffice:25.2.5",
+      "image": "linuxserver/libreoffice:25.2.5",
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
