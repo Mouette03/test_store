@@ -1,0 +1,21 @@
+{
+    "services": {
+        "firefox": {
+            "image": "ghcr.io/runtipi/firefox:latest",
+            "container_name": "firefox",
+            "restart": "unless-stopped",
+            "ports": [
+                "5800:5800"
+            ],
+            "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/firefox/config:/config"
+        }
+            ],
+            "environment": {
+                "TZ": "Europe/Paris"
+            }
+        }
+    }
+}
