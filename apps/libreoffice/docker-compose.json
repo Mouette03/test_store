@@ -6,9 +6,10 @@
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
-        "TZ": "Etc/UTC"
+        "TZ": "Etc/UTC",
+        "ENABLE_GAMEPAD": "false"
       },
-      "internalPort": 3000,
+      "internalPort": 3001,
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",

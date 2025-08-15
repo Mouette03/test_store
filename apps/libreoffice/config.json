@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 9654,
   "id": "libreoffice",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1",
   "categories": ["data"],
   "description": "traitement de text",
