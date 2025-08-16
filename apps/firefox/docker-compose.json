@@ -21,7 +21,7 @@
       "volumes": [
         {
           "hostPath": "/path/to/firefox/config",
-          "containerPath": "/config",
+          "containerPath": "/config"
         }
       ],
       "securityOpt": [
