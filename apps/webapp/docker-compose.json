@@ -16,8 +16,8 @@
         "APACHE_DOCUMENT_ROOT": "/var/www/html"
       },
       "dependsOn": {
-        "db": {
-          "condition": "service_healthy"
+        "mariadb": {
+          "condition": "service_started"
         }
       },
       "healthCheck": {
@@ -28,7 +28,7 @@
       }
     },
     {
-      "name": "db",
+      "name": "mariadb",
       "image": "mariadb:12",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "${MYSQL_ROOT_PASSWORD}",
