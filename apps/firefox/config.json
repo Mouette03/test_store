@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 3001,
   "id": "firefox",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "21.0.1",
   "categories": ["data"],
   "description": "Firefox ",
