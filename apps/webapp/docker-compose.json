@@ -44,20 +44,10 @@
         }
       ],
       "healthCheck": {
-        "test": [
-          "CMD",
-          "mysqladmin",
-          "-u",
-          "ping",
-          "-h",
-          "127.0.0.1",
-          "-u",
-          "root",
-          "--password=${MYSQL_ROOT_PASSWORD}"
-        ],
-        "retries": 10,
-        "interval": "5s",
-        "timeout": "5s"
+          "test": "mysqladmin ping -h 127.0.0.1 -u root --password=${MYSQL_ROOT_PASSWORD}",
+          "retries": 10,
+          "interval": "5s",
+          "timeout": "5s"
       }
     }
   ]
