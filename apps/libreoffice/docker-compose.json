@@ -3,13 +3,14 @@
     {
       "name": "libreoffice",
       "image": "linuxserver/libreoffice:25.2.5",
+      "internalPort": 3001,
+      "isMain": true,
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
         "TZ": "Etc/UTC",
         "ENABLE_GAMEPAD": "false"
-      },
-      "internalPort": 3001,
+      },  
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
