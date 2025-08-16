@@ -20,10 +20,10 @@
       ],
       "volumes": [
         {
-          "hostPath": "/path/to/firefox/config",
+          "hostPath": "${APP_DATA_DIR}/data/firefox/config",
           "containerPath": "/config"
         }
-      ],
+      ]
     }
   ]
 }
