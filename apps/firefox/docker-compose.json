@@ -3,21 +3,13 @@
     {
       "name": "firefox",
       "image": "lscr.io/linuxserver/firefox:latest",
+      "internalPort": 3000,
+      "isMain": true,
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
-        "TZ": "Etc/UTC",
-        "FIREFOX_CLI": "https://www.linuxserver.io/"
+        "TZ": "Etc/UTC"
       },
-      "internalPort": 3000,
-      "addPorts": [
-        {
-          "containerPort": 3001,
-          "hostPort": 3001,
-          "tcp": true,
-          "udp": false
-        }
-      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/firefox/config",
