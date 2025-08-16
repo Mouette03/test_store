@@ -24,10 +24,6 @@
           "containerPath": "/config"
         }
       ],
-      "securityOpt": [
-        "seccomp:unconfined"
-      ],
-      "shmSize": "1gb"
     }
   ]
 }
