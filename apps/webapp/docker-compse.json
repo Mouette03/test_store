@@ -1,0 +1,54 @@
+{
+  "services": [
+    {
+      "name": "webapp",
+      "image": "php:8.3-apache",
+      "internalPort": 80,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/www",
+          "containerPath": "/var/www/html",
+          "readOnly": false
+        }
+      ],
+      "environment": {
+        "APACHE_DOCUMENT_ROOT": "/var/www/html"
+      },
+      "dependsOn": {
+        "db": {
+          "condition": "service_healthy"
+        }
+      },
+      "healthCheck": {
+        "test": "curl --fail http://localhost || exit 1",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
+    },
+    {
+      "name": "db",
+      "image": "mariadb:12",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${MYSQL_ROOT_PASSWORD}",
+        "MYSQL_DATABASE": "${MYSQL_DATABASE}",
+        "MYSQL_USER": "${MYSQL_USER}",
+        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false
+        }
+      ],
+      "healthCheck": {
+        "test": "mysqladmin ping -h localhost -u root --password=${MYSQL_ROOT_PASSWORD}",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
+    }
+  ]
+}
