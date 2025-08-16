@@ -3,7 +3,7 @@
     {
       "name": "firefox",
       "image": "lscr.io/linuxserver/firefox:latest",
-      "internalPort": 3000,
+      "internalPort": 3001,
       "isMain": true,
       "environment": {
         "PUID": "1000",
