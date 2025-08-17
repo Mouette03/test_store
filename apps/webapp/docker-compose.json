@@ -49,7 +49,7 @@
         }
       ],
       "healthCheck": {
-          "test": "mysqladmin ping -h localhost -u root --password=${MYSQL_ROOT_PASSWORD}",
+          "test": "mysqladmin ping -h webapp_test-db-1 -u root --password=${MYSQL_ROOT_PASSWORD}",
           "retries": 15,
           "interval": "10s",
           "timeout": "5s"
