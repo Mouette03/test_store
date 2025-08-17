@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "webdevops/php-apache:8.4",
+      "image": "webdevops/php-apache:8.4-alpine",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
