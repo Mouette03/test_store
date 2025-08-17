@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "serversideup/php:8.4-fpm-apache",
+      "image": "sigblue/apache-php:83-full",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
