@@ -15,10 +15,15 @@
       "environment": {
         "APACHE_DOCUMENT_ROOT": "/var/www/html"
       },
+      "command": [
+        "sh",
+        "-c",
+        "apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libicu-dev libcurl4-openssl-dev libxml2-dev libonig-dev libxslt-dev libzip-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install pdo pdo_mysql gd intl mbstring xml zip curl bcmath exif sockets fileinfo opcache && a2enmod rewrite && chown -R www-data:www-data /var/www/html && apache2-foreground"
+      ],
       "dependsOn": {
         "mariadb": {
           "condition": "service_started"
-        }
+        }  
       },
       "healthCheck": {
         "test": "curl --fail http://localhost || exit 1",
@@ -38,13 +43,13 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/db",
+          "hostPath": "${APP_DATA_DIR}/data/database",
           "containerPath": "/var/lib/mysql",
           "readOnly": false
         }
       ],
       "healthCheck": {
-          "test": "mysqladmin ping -h webapp_test-db-1 -u root --password=${MYSQL_ROOT_PASSWORD}",
+          "test": "mysqladmin ping -h localhost -u root --password=${MYSQL_ROOT_PASSWORD}",
           "retries": 15,
           "interval": "10s",
           "timeout": "5s"
