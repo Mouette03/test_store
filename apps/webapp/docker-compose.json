@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "php:8.3-apache",
+      "image": "serversideup/php:8.4-fpm-apache",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
