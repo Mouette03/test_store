@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "chialab/php:8.3-apache",
+      "image": "mouette03/php-apache-ext-on:1.0",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
