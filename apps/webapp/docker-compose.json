@@ -16,9 +16,7 @@
         "APACHE_DOCUMENT_ROOT": "/var/www/html"
       },
       "command": [
-        "sh",
-        "-c",
-        "apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libicu-dev libcurl4-openssl-dev libxml2-dev libonig-dev libxslt-dev libzip-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install pdo pdo_mysql gd intl mbstring xml zip curl bcmath exif sockets fileinfo opcache && a2enmod rewrite && chown -R www-data:www-data /var/www/html && apache2-foreground"
+        "apache2-foreground"
       ],
       "dependsOn": {
         "mariadb": {
