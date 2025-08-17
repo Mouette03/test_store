@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "webdevops/php-apache:8.4-alpine",
+      "image": "luri/php-apache:arm",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
