@@ -10,8 +10,8 @@
   "categories": ["utilities", "network", "development"],
   "description": "Conteneur PHP générique (Apache + extensions communes) pour héberger des sites PHP.",
   "short_desc": "Hebergement de site Web",
-  "author": "Apache",
-  "source": "https://github.com/",
+  "author": "Mouette03",
+  "source": "https://github.com/Mouette03",
   "form_fields": [
      {
       "type": "text",
