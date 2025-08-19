@@ -7,7 +7,7 @@
   "id": "webapp",
   "tipi_version": 26,
   "version": "1",
-  "categories": ["utilities", "network", "development",],
+  "categories": ["utilities", "network", "development"],
   "description": "Conteneur PHP générique (Apache + extensions communes) pour héberger des sites PHP.",
   "short_desc": "Hebergement de site Web",
   "author": "Apache",
