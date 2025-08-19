@@ -7,7 +7,7 @@
   "id": "webapp",
   "tipi_version": 26,
   "version": "1",
-  "categories": ["finance"],
+  "categories": ["utilities", "network", "development",],
   "description": "Conteneur PHP générique (Apache + extensions communes) pour héberger des sites PHP.",
   "short_desc": "Hebergement de site Web",
   "author": "Apache",
@@ -51,7 +51,7 @@
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1753138178187,
-  "updated_at": 1755036599098
+  "created_at": 1755645300000,
+  "updated_at": 1755645300000
 }
 
