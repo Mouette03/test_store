@@ -56,7 +56,7 @@
       "environment": {
         "TZ": "${TZ}"
       },
-      "networkMode": "host",
+      "networkMode": "homeassistant_test_network",
       "restartPolicy": "unless-stopped",
       "securityOpt": [
         "apparmor=unconfined"
