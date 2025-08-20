@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "name": "homeassistant",
+      "name": "Home-Assistant",
       "image": "homeassistant/home-assistant:2025.8.2",
       "internalPort": 8123,
       "isMain": true,
