@@ -12,55 +12,19 @@
           "readOnly": true
         },
         {
-          "hostPath": "${APP_DATA_DIR}/homeassistant/config",
+          "hostPath": "${APP_DATA_DIR}/data/config",
           "containerPath": "/config"
-        },
-        {
-          "hostPath": "/run/dbus",
-          "containerPath": "/run/dbus"
-        },
-        {
-          "hostPath": "/var/run/dbus",
-          "containerPath": "/var/run/dbus"
         }
       ],
       "environment": {
         "TZ": "${TZ}"
       },
       "restartPolicy": "unless-stopped",
-      "capAdd": [
-        "NET_ADMIN",
-        "NET_RAW"
-      ],
       "resources": {
         "limits": {
           "memory": "512m"
         }
       }
-    },
-    {
-      "name": "matter-server",
-      "image": "ghcr.io/home-assistant-libs/python-matter-server:stable",
-      "internalPort": 5580,
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/matter-server/data",
-          "containerPath": "/data"
-        },
-        {
-          "hostPath": "/run/dbus",
-          "containerPath": "/run/dbus",
-          "readOnly": true
-        }
-      ],
-      "environment": {
-        "TZ": "${TZ}"
-      },
-      "networkMode": "homeassistant_test_network",
-      "restartPolicy": "unless-stopped",
-      "securityOpt": [
-        "apparmor=unconfined"
-      ]
     }
   ]
 }
