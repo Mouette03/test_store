@@ -4,7 +4,7 @@
   "available": true,
   "short_desc": "Open source home automation.",
   "author": "home-assistant",
-  "port": 8469,
+  "port": 7659,
   "categories": ["automation"],
   "description": "Home Assistant is an open-source home automation platform that lets you control, automate, and monitor all your smart devices from a single interface — locally and without relying on the cloud.",
   "tipi_version": 3,
