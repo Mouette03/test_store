@@ -1,7 +1,8 @@
-"services": [
+{
+  "services": [
     {
       "name": "homeassistant",
-      "image": "ghcr.io/home-assistant/home-assistant:2025.7.4",
+      "image": "homeassistant/home-assistant:2025.8.2",
       "internalPort": 8123,
       "isMain": true,
       "volumes": [
@@ -11,13 +12,71 @@
           "readOnly": true
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data/config",
+          "hostPath": "${APP_DATA_DIR}/homeassistant/config",
           "containerPath": "/config"
+        },
+        {
+          "hostPath": "/run/dbus",
+          "containerPath": "/run/dbus"
+        },
+        {
+          "hostPath": "/var/run/dbus",
+          "containerPath": "/var/run/dbus"
         }
       ],
       "environment": {
         "TZ": "${TZ}"
+      },
+      "restartPolicy": "unless-stopped",
+      "devices": [
+        {
+          "hostPath": "/dev/bus/usb",
+          "containerPath": "/dev/bus/usb"
+        },
+        {
+          "hostPath": "/dev/ttyAMA0",
+          "containerPath": "/dev/ttyAMA0",
+          "optional": true
+        },
+        {
+          "hostPath": "/dev/serial",
+          "containerPath": "/dev/serial",
+          "optional": true
+        }
+      ],
+      "capAdd": [
+        "NET_ADMIN",
+        "NET_RAW"
+      ],
+      "resources": {
+        "limits": {
+          "memory": "512m"
+        }
       }
+    },
+    {
+      "name": "matter-server",
+      "image": "ghcr.io/home-assistant-libs/python-matter-server:stable",
+      "internalPort": 5580,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/matter-server/data",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "/run/dbus",
+          "containerPath": "/run/dbus",
+          "readOnly": true
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "networkMode": "host",
+      "restartPolicy": "unless-stopped",
+      "securityOpt": [
+        "apparmor=unconfined"
+      ]
     }
   ]
 }
