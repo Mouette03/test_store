@@ -28,22 +28,6 @@
         "TZ": "${TZ}"
       },
       "restartPolicy": "unless-stopped",
-      "devices": [
-        {
-          "hostPath": "/dev/bus/usb",
-          "containerPath": "/dev/bus/usb"
-        },
-        {
-          "hostPath": "/dev/ttyAMA0",
-          "containerPath": "/dev/ttyAMA0",
-          "optional": true
-        },
-        {
-          "hostPath": "/dev/serial",
-          "containerPath": "/dev/serial",
-          "optional": true
-        }
-      ],
       "capAdd": [
         "NET_ADMIN",
         "NET_RAW"
