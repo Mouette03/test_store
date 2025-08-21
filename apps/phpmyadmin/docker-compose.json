@@ -9,7 +9,7 @@
         "PMA_HOSTS": "${PMA_HOSTS}",
         "PMA_PORTS": "${PMA_PORTS}"
       },
-      "extraHosts": ["galette_damien-db-galette-1:172.18.0.5"]
+      "extraHosts": ["galette_damien-db-galette-1:172.18.0.9"]
     }
   ]
 }
