@@ -9,7 +9,7 @@
         "PMA_HOSTS": "${PMA_HOSTS}",
         "PMA_PORTS": "${PMA_PORTS}"
       },
-      "extraHosts": ["EXTRA_HOSTS"]
+      "extraHosts": ["db-galette:172.18.0.5"]
     }
   ]
 }
