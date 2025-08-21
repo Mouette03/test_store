@@ -7,7 +7,7 @@
   "port": 7459,
   "categories": ["data"],
   "description": "Interface Web pour gérer vos bases MySQL/MariaDB.",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "2",
   "source": "https://github.com/home-assistant/core",
   "website": "https://www.home-assistant.io",
@@ -24,19 +24,19 @@
     },
     {
       "type": "text",
-      "label": "network names",
-      "max": 100,
-      "min": 1,
-      "required": true,
-      "env_variable": "PMA_NETWORKS"
-    },
-    {
-      "type": "text",
       "label": "host ports",
       "max": 100,
       "min": 4,
       "required": true,
       "env_variable": "PMA_PORTS"
+    },
+    {
+      "type": "text",
+      "label": "extra hosts",
+      "max": 200,
+      "min": 1,
+      "required": false,
+      "env_variable": "EXTRA_HOSTS"
     }
   ],
   "supported_architectures": [
@@ -45,5 +45,4 @@
   ],
   "created_at": 1752620152000,
   "updated_at": 1754145439430
-  
 }
