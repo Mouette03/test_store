@@ -7,7 +7,7 @@
   "port": 7459,
   "categories": ["data"],
   "description": "Interface Web pour gérer vos bases MySQL/MariaDB.",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "2",
   "source": "https://github.com/home-assistant/core",
   "website": "https://www.home-assistant.io",
