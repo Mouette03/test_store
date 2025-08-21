@@ -1,0 +1,14 @@
+{
+  "services": [
+    {
+      "name": "phpmyadmin",
+      "image": "phpmyadmin:latest",
+      "internalPort": 80,
+      "isMain": true,
+      "environment": {
+        "PMA_HOSTS": "${PMA_HOSTS}",
+        "PMA_PORTS": "${PMA_PORTS}"
+      }
+    }
+  ]
+}

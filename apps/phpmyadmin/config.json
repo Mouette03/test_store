@@ -1,0 +1,41 @@
+{
+  "name": "phpmyadmin",
+  "id": "phpMyAdmin",
+  "available": true,
+  "short_desc": "Open source home automation.",
+  "author": "home-assistant",
+  "port": 7659,
+  "categories": ["database"],
+  "description": "Interface Web pour gérer vos bases MySQL/MariaDB.",
+  "tipi_version": 1,
+  "version": "1",
+  "source": "https://github.com/home-assistant/core",
+  "website": "https://www.home-assistant.io",
+  "dynamic_config": true,
+  "exposable": true,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "hosts names",
+      "max": 100,
+      "min": 1,
+      "required": true,
+      "env_variable": "PMA_HOSTS"
+    },
+    {
+      "type": "text",
+      "label": "host ports",
+      "max": 100,
+      "min": 4,
+      "required": true,
+      "env_variable": "PMA_PORTS"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1752620152000,
+  "updated_at": 1754145439430
+  
+}
