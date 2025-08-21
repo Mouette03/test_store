@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "phpmyadmin",
-      "image": "phpmyadmin:latest",
+      "image": "docker pull phpmyadmin:5.2.2-fpm-alpine",
       "internalPort": 80,
       "isMain": true,
       "environment": {
