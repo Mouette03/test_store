@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "phpmyadmin",
-      "image": "phpmyadmin:5.2.2-fpm",
+      "image": "phpmyadmin:5.2-apache",
       "internalPort": 80,
       "isMain": true,
       "environment": {
