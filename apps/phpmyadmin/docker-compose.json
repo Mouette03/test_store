@@ -7,6 +7,7 @@
       "isMain": true,
       "environment": {
         "PMA_HOSTS": "${PMA_HOSTS}",
+        "PMA_NETWORKS": "${PMA_NETWORKS}",
         "PMA_PORTS": "${PMA_PORTS}"
       }
     }

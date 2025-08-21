@@ -24,6 +24,14 @@
     },
     {
       "type": "text",
+      "label": "network names",
+      "max": 100,
+      "min": 1,
+      "required": true,
+      "env_variable": "PMA_NETWORKS"
+    },
+    {
+      "type": "text",
       "label": "host ports",
       "max": 100,
       "min": 4,
