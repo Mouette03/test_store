@@ -5,7 +5,7 @@
   "short_desc": "Open source home automation.",
   "author": "home-assistant",
   "port": 7659,
-  "categories": ["database"],
+  "categories": ["data"],
   "description": "Interface Web pour gérer vos bases MySQL/MariaDB.",
   "tipi_version": 1,
   "version": "1",
