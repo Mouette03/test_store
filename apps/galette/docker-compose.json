@@ -30,7 +30,7 @@
     },
     {
       "name": "db-galette",
-      "image": "mariadb:11",
+      "image": "mariadb:12",
       "environment": {
         "MARIADB_ROOT_PASSWORD": "rootpass",
         "MYSQL_DATABASE": "galettedb",
