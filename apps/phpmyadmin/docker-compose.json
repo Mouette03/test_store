@@ -11,7 +11,8 @@
       },
       "networks": [
         "runtipi_tipi_main_network",
-        "webapp_damien_network"
+        "webapp_damien_network",
+        "dolibarr_damien_network"
       ]
     }
   ],
@@ -20,6 +21,9 @@
       "external": true
     },
     "webapp_damien_network": {
+      "external": true
+    },
+    "dolibarr_damien_network": {
       "external": true
     }
   }
