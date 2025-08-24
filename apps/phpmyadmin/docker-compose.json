@@ -10,9 +10,10 @@
         "PMA_PORTS": "${PMA_PORTS}"
       },
       "networks": [
+        "dolibarr_damien_network",
         "runtipi_tipi_main_network",
-        "webapp_damien_network",
-        "dolibarr_damien_network"
+        "webapp_damien_network"
+        
       ]
     }
   ],
