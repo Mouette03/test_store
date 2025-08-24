@@ -8,7 +8,19 @@
       "environment": {
         "PMA_HOSTS": "${PMA_HOSTS}",
         "PMA_PORTS": "${PMA_PORTS}"
-      }
+      },
+      "networks": [
+        "runtipi_tipi_main_network",
+        "webapp_damien_network"
+      ]
     }
-  ]
+  ],
+  "networks": {
+    "runtipi_tipi_main_network": {
+      "external": true
+    },
+    "webapp_damien_network": {
+      "external": true
+    }
+  }
 }
