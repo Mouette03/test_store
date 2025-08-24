@@ -6,6 +6,7 @@
       "internalPort": 80,
       "isMain": true,
       "environment": {
+        "PMA_ARBITRARY": "1"
       },
       "extraHosts": [
         "galette_test_network:10.128.12.0",
