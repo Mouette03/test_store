@@ -10,8 +10,8 @@
         "PMA_PORTS": "${PMA_PORTS}"
       },
       "extraHosts": [
-        "galette_test_network:10.128.12.0",
-        "dolibarr_damien_network:10.128.22.0"
+        "galette_test-db-galette-1:10.128.12.2",
+        "dolibarr_damien-db-dolibarr-1:10.128.22.2"
       ]
     }
   ]
