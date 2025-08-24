@@ -9,23 +9,10 @@
         "PMA_HOSTS": "${PMA_HOSTS}",
         "PMA_PORTS": "${PMA_PORTS}"
       },
-      "networks": [
-        "dolibarr_damien_network",
-        "runtipi_tipi_main_network",
-        "webapp_damien_network"
-        
+      "extraHosts": [
+        "galette_db:172.18.0.10",
+        "webapp_db:10.128.16.2"
       ]
     }
-  ],
-  "networks": {
-    "runtipi_tipi_main_network": {
-      "external": true
-    },
-    "webapp_damien_network": {
-      "external": true
-    },
-    "dolibarr_damien_network": {
-      "external": true
-    }
-  }
+  ]
 }
