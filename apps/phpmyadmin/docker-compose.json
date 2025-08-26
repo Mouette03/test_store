@@ -3,7 +3,7 @@
     {
       "name": "phpmyadmin",
       "image": "phpmyadmin:5.2-apache",
-      "internalPort": 80,
+      "internalPort": 8082,
       "isMain": true,
       "networkMode": "host",
       "environment": {
