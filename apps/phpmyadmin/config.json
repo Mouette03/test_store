@@ -2,31 +2,25 @@
   "name": "phpmyadmin",
   "id": "phpMyAdmin",
   "available": true,
-  "short_desc": "Open source home automation.",
-  "author": "home-assistant",
+  "short_desc": "Manage your MySQL/MariaDB.",
+  "author": "phpmyadmin",
   "port": 80,
   "categories": ["data"],
-  "description": "Interface Web pour gérer vos bases MySQL/MariaDB.",
-  "tipi_version": 35,
+  "description": "Web interface to manage your MySQL/MariaDB databases.",
+  "tipi_version": 1,
   "version": "2",
-  "source": "https://github.com/home-assistant/core",
-  "website": "https://www.home-assistant.io",
+  "source": "https://github.com/phpmyadmin/docker",
+  "website": "https://www.phpmyadmin.net/",
   "dynamic_config": true,
   "exposable": true,
   "form_fields": [
     {
       "type": "text",
-      "label": "hosts names",
-      "max": 100,
-      "min": 1,
-      "required": false,
-      "env_variable": "PMA_HOSTS"
-    },
-    {
-      "type": "text",
       "label": "host ports",
       "max": 100,
       "min": 4,
+      "default": "3306",
+      "hint": "Database listening port.",
       "required": false,
       "env_variable": "PMA_PORTS"
     }
@@ -35,6 +29,6 @@
     "arm64",
     "amd64"
   ],
-  "created_at": 1752620152000,
-  "updated_at": 1754145439430
+  "created_at": 1756245952146,
+  "updated_at": 1756245952146
 }

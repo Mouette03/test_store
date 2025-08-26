@@ -12,5 +12,13 @@
 
 #### \- Possibilité de définir plusieurs hôtes et ports pour des bases situées sur des serveurs différents.
 
-# 
+
+
+en ssh : docker network ls
+
+
+
+
+
+# root@rpi5:~# docker network connect dolibarr\_damien\_network phpmyadmin\_test-phpmyadmin-1
 
