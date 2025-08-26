@@ -5,6 +5,7 @@
       "image": "phpmyadmin:5.2-apache",
       "internalPort": 8082,
       "isMain": true,
+      "networkMode": "bridge",
       "environment": {
         "PMA_ARBITRARY": "1",
         "PMA_PORTS": "${PMA_PORTS}"
