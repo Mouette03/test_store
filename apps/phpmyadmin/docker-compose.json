@@ -6,7 +6,8 @@
       "internalPort": 80,
       "isMain": true,
       "networks": [
-        "runtipi_tipi_main_network"
+        "runtipi_tipi_main_network",
+        "dolibarr_damien_network"
       ],
       "environment": {
         "PMA_ARBITRARY": "1",
