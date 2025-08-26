@@ -9,9 +9,10 @@
         "PMA_ARBITRARY": "1",
         "PMA_PORTS": "${PMA_PORTS}"
       },
-      "extraHosts": [
-        "galette_test_network:10.128.12.3",
-        "dolibarr_damien_network:10.128.22.3"
+       "networksJoin": [
+        "runtipi_tipi_main_network",
+        "dolibarr_damien_network",
+        "galette_damien_default"
       ]
     }
   ]
