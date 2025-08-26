@@ -5,7 +5,9 @@
       "image": "phpmyadmin:5.2-apache",
       "internalPort": 80,
       "isMain": true,
-      "networkMode": "",
+      "networks": [
+        "runtipi_tipi_main_network"
+      ],
       "environment": {
         "PMA_ARBITRARY": "1",
         "PMA_PORTS": "${PMA_PORTS}"
