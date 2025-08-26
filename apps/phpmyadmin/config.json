@@ -4,7 +4,7 @@
   "available": true,
   "short_desc": "Manage your MySQL/MariaDB.",
   "author": "phpmyadmin",
-  "port": 80,
+  "port": 6985,
   "categories": ["data"],
   "description": "Web interface to manage your MySQL/MariaDB databases.",
   "tipi_version": 1,
