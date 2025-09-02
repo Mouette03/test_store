@@ -1,0 +1,18 @@
+{
+  "id": "homeassistant",
+  "name": "Home Assistant",
+  "available": true,
+  "short_desc": "Plateforme domotique",
+  "description": "Home Assistant vous permet de piloter tous vos objets connect\u00e9s, de cr\u00e9er des automatisations et d'exploiter vos donn\u00e9es en local.",
+  "version": "2025.7.4",
+  "tipi_version": 2,
+  "categories": ["automation"],
+  "author": "homeassistant",
+  "port": 8123,
+  "exposable": true,
+  "dynamic_config": true,
+  "supported_architectures": ["arm64","amd64"],
+  "source": "https://github.com/home-assistant/core",
+  "website": "https://www.home-assistant.io",
+  "form_fields": []
+}

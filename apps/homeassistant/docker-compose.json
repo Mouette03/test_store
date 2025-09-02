@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "homeassistant",
+      "image": "ghcr.io/home-assistant/home-assistant:2025.7.4",
+      "isMain": true,
+      "internalPort": 8123,
+      "addPorts": [
+        {
+          "containerPort": 8123,
+          "hostPort": "${config.app_port}",
+          "tcp": true
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/homeassistant",
+          "containerPath": "/config",
+          "readOnly": false
+        }
+      ],
+      "environment": {
+        "TZ": "Europe/Paris"
+      },
+      "networkMode": "host",
+      "healthCheck": {
+        "test": "curl --fail http://localhost:8123 || exit 1",
+        "retries": 3,
+        "interval": "30s",
+        "timeout": "10s"
+      }
+    }
+  ]
+}
