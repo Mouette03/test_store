@@ -1,6 +1,6 @@
 App Store de test pour Runtipi
 
-Applications en test ! bon fonctionnement non garanti !
+Applications runtipi pour test ! fonctionnement non garanti et aucune maintenance en cas de problèmes !
 
 ## Documentation
 
