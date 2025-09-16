@@ -15,20 +15,21 @@ You want to learn more about how you can use Nextcloud to access, share and prot
 - 📦 Buy one of the [awesome **devices** coming with a preinstalled Nextcloud](https://nextcloud.com/devices/)
 - 🏢 Find a [service **provider**](https://nextcloud.com/providers/) who hosts Nextcloud for you or your company
 
-Enterprise? Public Sector or Education user? You may want to have a look into [**Nextcloud Enterprise**](https://nextcloud.com/enterprise/) provided by Nextcloud GmbH.
-
-## Get in touch 💬
-
-* [📋 Forum](https://help.nextcloud.com)
-* [👥 Facebook](https://www.facebook.com/nextclouders)
-* [🐣 Twitter](https://twitter.com/Nextclouders)
-* [🐘 Mastodon](https://mastodon.xyz/@nextcloud)
-
 You can also [get support for Nextcloud](https://nextcloud.com/support)!
 
-## To configure the file storage folder on an external drive
-Insert these lines into the USER CONFIG parameter docker-compose.yml
 
+## To configure the file storage folder on an external drive
+⚠️WARNING: if you choose to change the original DATA storage directory, the backup via Runtipi of your Nextcloud application will not save the files contained in the new location.
+
+1) Create a file named  .ncdata at the root of your external drive or in the folder of your external drive, the owner of the location must be ( www-data [33] ) and permissions 770 that will receive the files next, insert this text into the file:
+
+```bash
+# Nextcloud data directory
+# Do not change this file
+```
+
+2) In the /home/runtipi/user-config/ folder, create a folder with the name of the store, and create a folder in it called nextcloud. In this folder, create a docker-compose.yml file and put the following data into it by modifying (mounting point of your external drive) by the mounting point of your external drive. Then start the installation of the application.
+ 
 ```bash
 services:
   nextcloud:
@@ -40,6 +41,7 @@ services:
       - /mounting point of your external drive/nextcloud:/var/www/html/data
     entrypoint: /cron.sh
 ```
+
 
 ## Reset password
 Nextcloud does not support password resets from environment variables. If you want to change your password run the following commands in your terminal:
