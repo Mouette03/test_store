@@ -20,7 +20,6 @@
       "max": 2,
       "min": 1,
       "required": false,
-      "default": "",
       "hint": "Maximum number of simultaneous downloads (auto-scales based on system memory if not set)",
       "env_variable": "DOWNLOAD_MAX_CONCURRENT"
     },
