@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "palmr",
-      "image": "kyantech/palmr:3.2.2-beta",
+      "image": "kyantech/palmr:3.2.2",
       "internalPort": 5487,
       "isMain": true,
       "environment": {
@@ -11,7 +11,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/server",
+          "hostPath": "${APP_DATA_DIR}/palmr/server",
           "containerPath": "/app/server"
         }
       ]
