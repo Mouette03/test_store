@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "palmr",
   "description": "Palmr is a fast and secure platform for sharing files, built with performance and privacy in mind.",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "latest",
   "categories": ["social"],
   "short_desc": "Self-hosted application",
@@ -25,16 +25,6 @@
     },
     {
       "type": "text",
-      "label": "Active memory management",
-      "max": 3,
-      "min": 3,
-      "required": false,
-      "default": "3.0",
-      "hint": "Minimum file size before enabling active memory management (1.0,2.0,3.0)",
-      "env_variable": "ACTIVATE_MEMORY_MANAGEMENT"
-    },
-    {
-      "type": "text",
       "label": "Reverse proxy",
       "max": 5,
       "min": 4,
@@ -42,6 +32,16 @@
       "default": "false",
       "hint": "Enabling behind reverse proxy (false or true)",
       "env_variable": "SECURE"
+    },
+    {
+      "type": "text",
+      "label": "Active memory management",
+      "max": 3,
+      "min": 3,
+      "required": false,
+      "default": "3.0",
+      "hint": "Minimum file size before enabling active memory management (1.0,2.0,3.0)",
+      "env_variable": "ACTIVATE_MEMORY_MANAGEMENT"
     }
   ],
   "supported_architectures": ["amd64", "arm64"],
