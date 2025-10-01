@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "palmr",
-      "image": "kyantech/palmr:3.2.2",
+      "image": "kyantech/palmr:latest",
       "internalPort": 5487,
       "isMain": true,
       "environment": {
