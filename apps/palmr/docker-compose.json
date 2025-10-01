@@ -6,12 +6,13 @@
       "internalPort": 5487,
       "isMain": true,
       "environment": {
-        "DOWNLOAD_MAX_CONCURRENT": "3",
-        "SECURE_SITE": "false"
+        "DOWNLOAD_MAX_CONCURRENT": "DOWNLOAD_MAX_CONCURRENT",
+        "SECURE_SITE": "SECURE_SITE",
+        "DOWNLOAD_MIN_FILE_SIZE_GB": "ACTIVATE_MEMORY_MANAGEMENT"
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/palmr/server",
+          "hostPath": "${APP_DATA_DIR}/data/server",
           "containerPath": "/app/server"
         }
       ]
