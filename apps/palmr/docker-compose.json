@@ -7,7 +7,7 @@
       "isMain": true,
       "environment": {
         "DOWNLOAD_MAX_CONCURRENT": "3",
-        "SECURE_SITE": "false"
+        "SECURE_SITE": "true"
       },
       "volumes": [
         {
