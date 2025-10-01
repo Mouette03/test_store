@@ -1,0 +1,34 @@
+{
+  "name": "Palmr",
+  "available": true,
+  "port": 5487,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "palmr",
+  "description": "WordPress is a popular content management system for creating websites and blogs.",
+  "tipi_version": 1,
+  "version": "3.2.2",
+  "categories": ["social"],
+  "short_desc": "Popular CMS for websites and blogs",
+  "author": "WordPress.org",
+  "source": "https://github.com/kyantech/Palmr",
+  "website": "https://palmr.kyantech.com.br/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database Password",
+      "min": 32,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Database Root Password",
+      "min": 32,
+      "env_variable": "DB_ROOT_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1752457249000,
+  "$schema": "../app-info-schema.json"
+}
