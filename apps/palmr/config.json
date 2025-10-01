@@ -7,7 +7,7 @@
   "id": "palmr",
   "description": "Palmr is a fast and secure platform for sharing files, built with performance and privacy in mind.",
   "tipi_version": 8,
-  "version": "latest",
+  "version": "v3.2.2-beta",
   "categories": ["social"],
   "short_desc": "Self-hosted application",
   "author": "Kyantech",
@@ -48,7 +48,7 @@
       "label": "Reverse proxy",
       "max": 5,
       "min": 4,
-      "required": false,
+      "required": true,
       "default": "false",
       "hint": "Enabling behind reverse proxy (false or true)",
       "env_variable": "SECURE_SITE"
