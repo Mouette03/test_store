@@ -8,7 +8,8 @@
       "environment": {
         "DOWNLOAD_MAX_CONCURRENT": "${DOWNLOAD_MAX_CONCURRENT}",
         "SECURE_SITE": "${SECURE_SITE}",
-        "DOWNLOAD_MIN_FILE_SIZE_GB": "${ACTIVATE_MEMORY_MANAGEMENT}"
+        "DOWNLOAD_MIN_FILE_SIZE_GB": "${ACTIVATE_MEMORY_MANAGEMENT}",
+        "DEFAULT_LANGUAGE": "${DEFAULT_LANGUAGE}"
       },
       "volumes": [
         {
