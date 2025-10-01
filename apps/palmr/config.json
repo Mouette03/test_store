@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "palmr",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "3.2.2",
   "categories": ["social"],
   "short_desc": "Popular CMS for websites and blogs",

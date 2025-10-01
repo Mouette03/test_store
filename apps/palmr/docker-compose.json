@@ -2,16 +2,16 @@
   "services": [
     {
       "name": "palmr",
-      "image": "kyantech/palmr:latest",
+      "image": "kyantech/palmr:3.2.2",
       "internalPort": 5487,
       "isMain": true,
       "environment": {
         "DOWNLOAD_MAX_CONCURRENT": "3",
-        "SECURE_SITE": "true"
+        "SECURE_SITE": "false"
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/palmr/server",
+          "hostPath": "${APP_DATA_DIR}/data/server",
           "containerPath": "/app/server"
         }
       ]
