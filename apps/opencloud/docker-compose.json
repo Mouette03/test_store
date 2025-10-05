@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "opencloud",
-      "image": "opencloudeu/opencloud-rolling:latest",
+      "image": "opencloudeu/opencloud:2.0.4",
       "internalPort": 9200,
       "isMain": true,
       "volumes": [
@@ -16,14 +16,15 @@
         }
       ],
       "environment": {
+        "OC_DOMAIN": "http://${APP_DOMAIN}",
+
         "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
-        "OC_DOMAIN": "http://192.168.1.35:9200",
         "OC_INSECURE": "true",
-        "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g",
-        "OC_TRANSFER_SECRET": "jde56fgszert4t564drt899sfr4ddfgdpqcbdz84564g",
-        "OC_MACHINEAUTH_API_KEY": "c62e0c9d45c83a84c85e3f7c2b4d7a13fabc98b120d34567890abcdeffedcba09"
-      },
-      "restart": "unless-stopped"
+
+        "OC_JWT_SECRET": "9a3e5efb1234cbd9df8e726c6fbd8aa5a9e2165fa65b7c9e99e212345678abcd",
+        "OC_TRANSFER_SECRET": "c3e1a8db81234ceffcf8bcdda8e5123456789abcd1234ef8aa5a9e21f7cc3d4b",
+        "OC_MACHINEAUTH_API_KEY": "f6d7a2bced13456789abcdeffedcba0987654321aaaabbbbccccddddeeeeffff"
+      }
     }
   ]
 }
