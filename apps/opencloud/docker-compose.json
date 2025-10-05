@@ -19,7 +19,8 @@
         "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
         "OC_INSECURE": "true",
         "PROXY_HTTP_ADDR": "0.0.0.0:9200",
-        "OC_URL": "https://${APP_DOMAIN}"
+        "OC_URL": "https://${APP_DOMAIN}",
+        "JWT_SECRET": "${OPEN_CLOUD_JWT_SECRET}"
       },
       "restart": "unless-stopped"
     }
