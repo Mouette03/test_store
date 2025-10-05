@@ -20,7 +20,8 @@
         "OC_DOMAIN": "192.168.1.35:9200",
         "OC_INSECURE": "true",
         "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g",
-        "OC_TRANSFER_SECRET": "jde56fgszert4t564drt899sfr4ddfgdpqcbdz84564g"
+        "OC_TRANSFER_SECRET": "jde56fgszert4t564drt899sfr4ddfgdpqcbdz84564g",
+        "OC_MACHINEAUTH_API_KEY": "c62e0c9d45c83a84c85e3f7c2b4d7a13fabc98b120d34567890abcdeffedcba09"
       },
       "restart": "unless-stopped"
     }
