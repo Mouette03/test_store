@@ -23,6 +23,15 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "JWT Secret",
+      "hint": "Clé secrète JWT pour la sécurité, 32 caractères minimum",
+      "min": 32,
+      "max": 128,
+      "required": true,
+      "env_variable": "OPEN_CLOUD_JWT_SECRET"
     }
   ]
 }
