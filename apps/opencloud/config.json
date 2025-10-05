@@ -23,6 +23,6 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
-    },
+    }
   ]
 }
