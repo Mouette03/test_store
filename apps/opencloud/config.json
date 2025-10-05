@@ -6,7 +6,7 @@
   "port": 9200,
   "dynamic_config": true,
   "version": "3.5.0",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "categories": ["data", "utilities"],
   "description": "OpenCloud est une plateforme open-source qui offre un moyen sécurisé et privé de stocker, accéder et partager vos fichiers. Fork d'ownCloud avec des améliorations de performance.",
   "short_desc": "Solution de stockage cloud sécurisée et privée",
@@ -23,6 +23,15 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "JWT Secret",
+      "hint": "Clé secrète JWT pour la sécurité, 32 caractères minimum",
+      "min": 32,
+      "max": 128,
+      "required": true,
+      "env_variable": "OPEN_CLOUD_JWT_SECRET"
     }
   ]
 }

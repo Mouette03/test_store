@@ -17,9 +17,8 @@
       ],
       "environment": {
         "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
+        "OC_DOMAIN": "192.168.1.35:9200",
         "OC_INSECURE": "true",
-        "PROXY_HTTP_ADDR": "0.0.0.0:9200",
-        "OC_URL": "https://${APP_DOMAIN}",
         "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g"
       },
       "restart": "unless-stopped"
