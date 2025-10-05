@@ -6,7 +6,7 @@
   "port": 9200,
   "dynamic_config": true,
   "version": "3.5.0",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "categories": ["data", "utilities"],
   "description": "OpenCloud est une plateforme open-source qui offre un moyen sécurisé et privé de stocker, accéder et partager vos fichiers. Fork d'ownCloud avec des améliorations de performance.",
   "short_desc": "Solution de stockage cloud sécurisée et privée",
