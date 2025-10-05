@@ -27,7 +27,6 @@
         "COLLABORATION_WOPI_SRC": "http://opencloud-wopiserver:9300",
         "JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdçz84564g"
       },
-      "restart": "unless-stopped",
       "dependsOn": ["opencloud-collabora", "opencloud-wopiserver"]
     },
     {
@@ -47,8 +46,7 @@
         "extra_params": "--o:ssl.enable=false --o:ssl.termination=true",
         "dictionaries": "fr_FR en_US de_DE es_ES",
         "TZ": "Europe/Paris"
-      },
-      "restart": "unless-stopped"
+      }
     },
     {
       "name": "opencloud-wopiserver",
@@ -64,8 +62,7 @@
         "WOPISERVER_INSECURE": "true",
         "WOPISECRET": "${WOPI_SECRET}",
         "WOPISERVER_DOMAIN": "opencloud-wopiserver"
-      },
-      "restart": "unless-stopped"
+      }
     }
   ]
 }
