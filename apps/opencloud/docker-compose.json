@@ -16,14 +16,7 @@
         }
       ],
       "environment": {
-        "OC_DOMAIN": "http://${APP_DOMAIN}",
-
-        "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
-        "OC_INSECURE": "true",
-
-        "OC_JWT_SECRET": "9a3e5efb1234cbd9df8e726c6fbd8aa5a9e2165fa65b7c9e99e212345678abcd",
-        "OC_TRANSFER_SECRET": "c3e1a8db81234ceffcf8bcdda8e5123456789abcd1234ef8aa5a9e21f7cc3d4b",
-        "OC_MACHINEAUTH_API_KEY": "f6d7a2bced13456789abcdeffedcba0987654321aaaabbbbccccddddeeeeffff"
+        "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}"
       }
     }
   ]
