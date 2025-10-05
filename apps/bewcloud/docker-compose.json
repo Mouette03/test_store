@@ -4,20 +4,15 @@
       "name": "website",
       "image": "ghcr.io/bewcloud/bewcloud:v2.3.0",
       "internalPort": 8000,
+      "isMain": true,
       "volumes": [
         {
           "hostPath": "./data-files",
-          "containerPath": "/app/data-files",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/app/data-files"
         },
         {
           "hostPath": "./bewcloud.config.ts",
-          "containerPath": "/app/bewcloud.config.ts",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/app/bewcloud.config.ts"
         }
       ]
     },
@@ -33,10 +28,7 @@
       "volumes": [
         {
           "hostPath": "bewcloud-db",
-          "containerPath": "/var/lib/postgresql/data",
-          "readOnly": false,
-          "shared": false,
-          "private": false
+          "containerPath": "/var/lib/postgresql/data"
         }
       ],
       "ulimits": {
