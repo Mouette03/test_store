@@ -1,0 +1,70 @@
+{
+  "services": [
+    {
+      "name": "opencloud",
+      "image": "opencloudeu/opencloud-rolling:3.5.0",
+      "internalPort": 9200,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/etc/opencloud"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/data",
+          "containerPath": "/var/lib/opencloud"
+        }
+      ],
+      "environment": {
+        "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
+        "OC_INSECURE": "true",
+        "PROXY_HTTP_ADDR": "0.0.0.0:9200",
+        "OC_URL": "https://${APP_DOMAIN}",
+        "COLLABORATION_APP_NAME": "CollaboraOnline",
+        "COLLABORATION_APP_PRODUCT": "Collabora",
+        "COLLABORATION_APP_ADDR": "http://opencloud-collabora:9980",
+        "COLLABORATION_APP_INSECURE": "true",
+        "COLLABORATION_WOPI_SRC": "http://opencloud-wopiserver:9300"
+      },
+      "restart": "unless-stopped",
+      "dependsOn": ["opencloud-collabora", "opencloud-wopiserver"]
+    },
+    {
+      "name": "opencloud-collabora",
+      "image": "collabora/code:latest",
+      "internalPort": 9980,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/collabora",
+          "containerPath": "/opt/collabora/share"
+        }
+      ],
+      "environment": {
+        "aliasgroup1": "http://opencloud-wopiserver:9300",
+        "username": "${COLLABORA_USERNAME}",
+        "password": "${COLLABORA_PASSWORD}",
+        "extra_params": "--o:ssl.enable=false --o:ssl.termination=true",
+        "dictionaries": "fr_FR en_US de_DE es_ES",
+        "TZ": "Europe/Paris"
+      },
+      "restart": "unless-stopped"
+    },
+    {
+      "name": "opencloud-wopiserver",
+      "image": "cs3org/wopiserver:latest",
+      "internalPort": 9300,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/wopi",
+          "containerPath": "/var/wopi_local_storage"
+        }
+      ],
+      "environment": {
+        "WOPISERVER_INSECURE": "true",
+        "WOPISECRET": "${WOPI_SECRET}",
+        "WOPISERVER_DOMAIN": "opencloud-wopiserver"
+      },
+      "restart": "unless-stopped"
+    }
+  ]
+}
