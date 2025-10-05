@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "version": "3.5.0",
   "tipi_version": 1,
-  "categories": ["data", "utilities", "productivity"],
+  "categories": ["data"],
   "description": "OpenCloud avec Collabora Online et serveur WOPI intégrés. Suite complète de stockage cloud et d'édition de documents bureautiques en ligne (Word, Excel, PowerPoint).",
   "short_desc": "Cloud privé avec éditeur de documents intégré",
   "author": "https://opencloud.eu",
