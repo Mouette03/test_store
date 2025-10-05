@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "opencloud",
-      "image": "opencloudeu/opencloud:2.0.4",
+      "image": "opencloudeu/opencloud-rolling:latest",
       "internalPort": 9200,
       "isMain": true,
       "volumes": [
