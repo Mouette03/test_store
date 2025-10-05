@@ -19,7 +19,8 @@
         "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}",
         "OC_DOMAIN": "192.168.1.35:9200",
         "OC_INSECURE": "true",
-        "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g"
+        "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g",
+        "OC_TRANSFER_SECRET": "jde56fgszert4t564drt899sfr4ddfgdpqcbdz84564g",
       },
       "restart": "unless-stopped"
     }
