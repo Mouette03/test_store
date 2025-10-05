@@ -25,7 +25,7 @@
         "COLLABORATION_APP_ADDR": "http://opencloud-collabora:9980",
         "COLLABORATION_APP_INSECURE": "true",
         "COLLABORATION_WOPI_SRC": "http://opencloud-wopiserver:9300",
-        "JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdçz84564g"
+        "OC_JWT_SECRET": "jde56fgszert4hd4drt899sfr4dsdkpqcbdz84564g"
       },
       "dependsOn": ["opencloud-collabora", "opencloud-wopiserver"]
     },
