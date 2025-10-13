@@ -1,0 +1,20 @@
+{
+  "name": "Stremio",
+  "available": true,
+  "port": 5487,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "palmr",
+  "description": "Stremio est un centre multimédia moderne qui vous permet d’organiser, découvrir et diffuser.",
+  "tipi_version": 1,
+  "version": "v4.20.12",
+  "categories": ["streaming"],
+  "short_desc": "Stremio streaming Server",
+  "author": "Stremio",
+  "source": "https://github.com/Stremio/server-docker/tree/main",
+  "website": "https://www.stremio.com/",
+  "form_fields": [],
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1759326300000,
+  "updated_at": 1759326300000
+}
