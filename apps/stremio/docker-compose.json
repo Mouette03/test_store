@@ -8,17 +8,7 @@
       "environment": {
         "FFMPEG_BIN": "/bin/ffmpeg",
         "FFPROBE_BIN": "/bin/ffprobe"
-      },
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/bin/ffmpeg",
-          "containerPath": "/bin/ffmpeg"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/bin/ffprobe",
-          "containerPath": "/bin/ffprobe"
-        }
-      ]
+      }
     }
   ]
 }
