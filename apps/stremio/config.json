@@ -8,7 +8,7 @@
   "description": "Stremio est un centre multimédia moderne qui vous permet d’organiser, découvrir et diffuser.",
   "tipi_version": 1,
   "version": "v4.20.12",
-  "categories": ["streaming"],
+  "categories": ["media"],
   "short_desc": "Stremio streaming Server",
   "author": "Stremio",
   "source": "https://github.com/Stremio/server-docker/tree/main",
