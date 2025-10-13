@@ -11,11 +11,11 @@
       },
       "volumes": [
         {
-          "hostPath": "/bin/ffmpeg",
+          "hostPath": "${APP_DATA_DIR}/bin/ffmpeg",
           "containerPath": "/bin/ffmpeg"
         },
         {
-          "hostPath": "/bin/ffprobe",
+          "hostPath": "${APP_DATA_DIR}/bin/ffprobe",
           "containerPath": "/bin/ffprobe"
         }
       ]

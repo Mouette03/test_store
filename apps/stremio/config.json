@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "palmr",
   "description": "Stremio est un centre multimédia moderne qui vous permet d’organiser, découvrir et diffuser.",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "v4.20.12",
   "categories": ["media"],
   "short_desc": "Stremio streaming Server",
