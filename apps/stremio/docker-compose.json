@@ -3,7 +3,7 @@
     {
       "name": "stremio_server",
       "image": "stremio/server:v4.20.12",
-      "internalPort": 12470,
+      "internalPort": 11470,
       "isMain": true,
       "environment": {
         "FFMPEG_BIN": "/bin/ffmpeg",
