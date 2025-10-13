@@ -3,19 +3,12 @@
     {
       "name": "stremio_server",
       "image": "stremio/server:v4.20.12",
+      "internalPort": 12470,
+      "isMain": true,
       "environment": {
         "FFMPEG_BIN": "/bin/ffmpeg",
         "FFPROBE_BIN": "/bin/ffprobe"
       },
-      "internalPort": 11470,
-      "addPorts": [
-        {
-          "containerPort": 12470,
-          "hostPort": 12470,
-          "tcp": true,
-          "udp": false
-        }
-      ],
       "volumes": [
         {
           "hostPath": "/bin/ffmpeg",
