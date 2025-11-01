@@ -25,16 +25,15 @@
       "depends_on": ["matter-server"]
     },
     {
-      "name": "matter-server",
       "container_name": "matter-server",
       "image": "ghcr.io/home-assistant-libs/python-matter-server:stable",
+      "networkMode": "host",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/matter",
           "containerPath": "/data"
         }
       ],
-      "network_mode": "host",
       "restart": "unless-stopped"
     }
   ]
