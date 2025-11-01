@@ -24,7 +24,6 @@
           "read_only": true
         }
       ],
-      "network_mode": "host",
       "restart": "unless-stopped",
       "depends_on": ["matter-server"]
     },
