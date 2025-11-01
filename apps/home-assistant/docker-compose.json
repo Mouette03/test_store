@@ -5,7 +5,7 @@
     {
       "name": "homeassistant",
       "container_name": "homeassistant",
-      "image": "ghcr.io/home-assistant/home-assistant:stable",
+      "image": "ghcr.io/home-assistant/home-assistant:2025.10.4",
       "internalPort": 8123,
       "isMain": true,
       "volumes": [
