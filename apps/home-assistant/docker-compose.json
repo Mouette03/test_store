@@ -14,12 +14,12 @@
           "containerPath": "/config"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data//localtime",
+          "hostPath": "${APP_DATA_DIR}/data/localtime",
           "containerPath": "/etc/localtime",
           "read_only": true
         },
         {
-          "hostPath": "${APP_DATA_DIR}/dbus",
+          "hostPath": "${APP_DATA_DIR}/data/dbus",
           "containerPath": "/run/dbus",
           "read_only": true
         }
