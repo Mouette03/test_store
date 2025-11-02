@@ -6,6 +6,7 @@
       "name": "homeassistant",
       "image": "ghcr.io/home-assistant/home-assistant:2025.10.4",
       "internalPort": 8123,
+      "privileged": true,
       "isMain": true,
       "volumes": [
         {
