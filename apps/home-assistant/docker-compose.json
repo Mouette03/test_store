@@ -3,7 +3,7 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "container_name": "homeassistant",
+      "name": "homeassistant",
       "image": "ghcr.io/home-assistant/home-assistant:2025.10.4",
       "internalPort": 8123,
       "isMain": true,
@@ -25,7 +25,7 @@
       "depends_on": ["matter-server"]
     },
     {
-      "container_name": "matter-server",
+      "name": "matter-server",
       "image": "ghcr.io/home-assistant-libs/python-matter-server:stable",
       "networkMode": "host",
       "volumes": [
