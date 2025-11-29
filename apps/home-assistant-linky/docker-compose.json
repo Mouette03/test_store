@@ -57,6 +57,10 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/ha-linky",
           "containerPath": "/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/ha-linky/config",
+          "containerPath": "/config"
         }
       ],
       "restart": "unless-stopped",
