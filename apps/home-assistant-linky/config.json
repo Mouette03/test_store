@@ -19,7 +19,7 @@
       "label": "Supervisor Token Home Assistant",
       "max": 300,
       "min": 3,
-      "default": "base-user",
+      "default": "token",
       "hint": "Do not use space.",
       "required": true,
       "env_variable": "SUPERVISOR_TOKEN"
@@ -29,7 +29,7 @@
       "label": "TimeZone",
       "max": 50,
       "min": 5,
-      "default": "base-pwd",
+      "default": "Europe/Paris",
       "required": true,
       "env_variable": "TIMEZONE"
     }
