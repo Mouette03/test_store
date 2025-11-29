@@ -38,7 +38,7 @@
     },
     {
       "name": "ha-linky",
-      "image": "ha-linky",
+      "image": "https://github.com/bokub/ha-linky.git#standalone.Dockerfile",
       "environment": [
         {
           "key": "SUPERVISOR_TOKEN",
