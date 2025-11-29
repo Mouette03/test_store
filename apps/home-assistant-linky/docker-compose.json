@@ -38,7 +38,7 @@
     },
     {
       "name": "ha-linky",
-      "image": "ha-linky:standalone-1.6.0",
+      "image": "ha-linky:standalone-latest",
       "environment": [
         {
           "key": "SUPERVISOR_TOKEN",
