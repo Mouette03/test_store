@@ -1,0 +1,55 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Strapi Headless CMS",
+  "port": 8118,
+  "available": true,
+  "exposable": true,
+  "id": "strapi",
+  "tipi_version": 172,
+  "version": "5.0.0",
+  "categories": ["cms", "media"],
+  "description": "Strapi is an open-source headless CMS that gives developers freedom while allowing editors to manage and distribute content across any platform. Perfect for building APIs, mobile apps, and multi-channel content delivery with Node.js.",
+  "short_desc": "Headless CMS for modern developers and content creators.",
+  "author": "Strapi Solutions SAS",
+  "source": "https://github.com/strapi/strapi",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database Password",
+      "min": 20,
+      "env_variable": "MYSQL_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Root Database Password",
+      "min": 20,
+      "env_variable": "MYSQL_ROOT_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "JWT Secret",
+      "min": 32,
+      "hint": "Secret used to sign JWT for Users-Permissions plugin",
+      "env_variable": "JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "Admin JWT Secret",
+      "min": 32,
+      "hint": "Secret used to sign JWT for Admin panel",
+      "env_variable": "ADMIN_JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "App Keys",
+      "min": 32,
+      "hint": "Secret keys used to sign session cookies (comma-separated)",
+      "env_variable": "APP_KEYS"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "created_at": 1701388800000,
+  "updated_at": 1733020800000,
+  "min_tipi_version": "4.5.0"
+}
