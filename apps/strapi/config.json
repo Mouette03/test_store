@@ -6,7 +6,7 @@
   "id": "strapi",
   "tipi_version": 172,
   "version": "5.0.0",
-  "categories": ["cms", "media"],
+  "categories": ["media"],
   "description": "Strapi is an open-source headless CMS that gives developers freedom while allowing editors to manage and distribute content across any platform. Perfect for building APIs, mobile apps, and multi-channel content delivery with Node.js.",
   "short_desc": "Headless CMS for modern developers and content creators.",
   "author": "Strapi Solutions SAS",
