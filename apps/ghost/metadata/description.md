@@ -2,6 +2,36 @@
 
 **Modern open-source CMS** for professional publishing.
 
+##  Configurable Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GHOST_DATABASE_PASSWORD` | Database password (auto-generated) | Yes |
+| `GHOST_MAIL_SERVICE` | Mail service name (SendGrid, Mailjet) | No |
+| `GHOST_MAIL_HOST` | SMTP Server | No |
+| `GHOST_MAIL_PORT` | SMTP Port (587/465) | No |
+| `GHOST_MAIL_USER` | SMTP Username | No |
+| `GHOST_MAIL_PASSWORD` | SMTP Password | No |
+| `GHOST_MAIL_FROM` | Newsletter sender email | No |
+
+##  Key Features
+
+- **Markdown Editor**: Real-time editing, history, emoji autocomplete
+- **Newsletters**: SMTP + open/click tracking
+- **Native Analytics**: Traffic, subscriptions
+- **ActivityPub**: Mastodon, Bluesky, Threads
+- **SEO Tools**: XML sitemap, meta tags, Open Graph
+- **Memberships**: Paid subscriptions
+- **Themes**: Source, Solo, Taste, Episode
+
+Showcase site + news + voter newsletter
+
+---
+
+# Ghost CMS 6
+
+**CMS open-source moderne** pour publication professionnelle.
+
 ##  Variables configurables
 
 | Variable | Description | Requis |
@@ -14,15 +44,14 @@
 | `GHOST_MAIL_PASSWORD` | Mot de passe SMTP | Non |
 | `GHOST_MAIL_FROM` | Email d'envoi newsletters | Non |
 
-##  Key Features
+##  Fonctionnalités clés
 
-- **Markdown Editor** : Édition temps réel, historique, emojis
+- **Éditeur Markdown** : Édition temps réel, historique, emojis
 - **Newsletters** : SMTP + tracking ouvert/clicks
-- **Analytics natifs** : Trafic, abonnements (sans cookies) [web:136]
-- **ActivityPub** : Mastodon, Bluesky, Threads [web:136][web:139]
-- **SEO Tools** : Sitemap XML, meta tags, Open Graph [web:152]
-- **Memberships** : Abonnements payants (135 devises)
-- **Thèmes** : Source, Solo, Taste, Episode [web:138]
-
+- **Analytics natifs** : Trafic, abonnements (sans cookies)
+- **ActivityPub** : Mastodon, Bluesky, Threads
+- **Outils SEO** : Sitemap XML, meta tags, Open Graph
+- **Memberships** : Abonnements payants
+- **Thèmes** : Source, Solo, Taste, Episode
 
 Site vitrine + actualités + newsletter électeurs
