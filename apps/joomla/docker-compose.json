@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "joomla",
@@ -8,9 +8,12 @@
       "dependsOn": {
         "db-joomla": {
           "condition": "service_healthy"
+        },
+        "nginx-joomla": {
+          "condition": "service_started"
         }
       },
-      "internalPort": 80,
+      "internalPort": 9000,
       "environment": [
         {
           "key": "JOOMLA_DB_HOST",
@@ -35,7 +38,42 @@
           "containerPath": "/var/www/html"
         }
       ],
-      "isMain": true
+      "healthCheck": {
+        "test": "sh -c 'echo PING | socat - UNIX-CONNECT:/var/run/php-fpm.sock || exit 1'",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3,
+        "startPeriod": "60s"
+      }
+    },
+    {
+      "name": "nginx-joomla",
+      "image": "nginx:alpine",
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/html",
+          "containerPath": "/var/www/html",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nginx.conf",
+          "containerPath": "/etc/nginx/conf.d/default.conf"
+        }
+      ],
+      "dependsOn": {
+        "joomla": {
+          "condition": "service_healthy"
+        }
+      },
+      "isMain": true,
+      "healthCheck": {
+        "test": "wget -q -O- http://localhost:80/ || exit 1",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3,
+        "startPeriod": "30s"
+      }
     },
     {
       "name": "db-joomla",
@@ -65,9 +103,11 @@
         }
       ],
       "healthCheck": {
-        "test": "mysqladmin ping -h localhost -u joomlauser -p${MYSQL_PASSWORD}",
-        "timeout": "20s",
-        "retries": 10
+        "test": "mysqladmin ping -h localhost || exit 1",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3,
+        "startPeriod": "60s"
       }
     }
   ]
