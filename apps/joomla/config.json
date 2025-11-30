@@ -19,7 +19,7 @@
       "min": 10,
       "required": true,
       "default": "joomlarootpass",
-      "hint": "Mot de passe root pour la base de données MySQL",
+      "hint": "Root Password for MySQL Database",
       "env_variable": "MYSQL_ROOT_PASSWORD"
     },
     {
@@ -28,12 +28,12 @@
       "min": 10,
       "required": true,
       "default": "joomlapassword",
-      "hint": "Mot de passe utilisateur MySQL pour Joomla",
+      "hint": "MySQL User Password for Joomla",
       "env_variable": "MYSQL_PASSWORD"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1764511908031,
-  "updated_at": 1764511908031,
+  "created_at": 1764536382715,
+  "updated_at": 1764536382715,
   "min_tipi_version": "4.5.0"
 }
