@@ -1,5 +1,5 @@
 {
-  "name": "Ghost Production",
+  "name": "Ghost",
   "port": 5846,
   "available": true,
   "exposable": true,
