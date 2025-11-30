@@ -4,16 +4,13 @@
   "services": [
     {
       "name": "joomla",
-      "image": "joomla:6.0.1-php8.3-fpm-alpine",
+      "image": "joomla:6.0.1-php8.3-apache",
       "dependsOn": {
         "db-joomla": {
           "condition": "service_healthy"
-        },
-        "nginx-joomla": {
-          "condition": "service_started"
         }
       },
-      "internalPort": 9000,
+      "internalPort": 80,
       "environment": [
         {
           "key": "JOOMLA_DB_HOST",
@@ -39,45 +36,17 @@
         }
       ],
       "healthCheck": {
-        "test": "sh -c 'echo PING | socat - UNIX-CONNECT:/var/run/php-fpm.sock || exit 1'",
+        "test": "curl -f http://localhost:80/ || exit 1",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3,
-        "startPeriod": "60s"
-      }
-    },
-    {
-      "name": "nginx-joomla",
-      "image": "nginx:alpine",
-      "internalPort": 80,
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/html",
-          "containerPath": "/var/www/html",
-          "readOnly": true
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/nginx.conf",
-          "containerPath": "/etc/nginx/conf.d/default.conf"
-        }
-      ],
-      "dependsOn": {
-        "joomla": {
-          "condition": "service_healthy"
-        }
+        "startPeriod": "90s"
       },
-      "isMain": true,
-      "healthCheck": {
-        "test": "wget -q -O- http://localhost:80/ || exit 1",
-        "interval": "30s",
-        "timeout": "10s",
-        "retries": 3,
-        "startPeriod": "30s"
-      }
+      "isMain": true
     },
     {
       "name": "db-joomla",
-      "image": "mariadb:12",
+      "image": "mariadb:11",
       "environment": [
         {
           "key": "MYSQL_ROOT_PASSWORD",
