@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "strapi",
-      "image": "strapi/community-edition:latest",
+      "image": "strapi:latest",
       "dependsOn": {
         "db-strapi": {
           "condition": "service_started"
