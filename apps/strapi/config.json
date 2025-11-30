@@ -17,6 +17,8 @@
       "label": "Database Password",
       "min": 8,
       "required": true,
+      "default": "strapiuser",
+      "hint": "Password for the Strapi MySQL User",
       "env_variable": "MYSQL_PASSWORD"
     },
     {
@@ -24,6 +26,8 @@
       "label": "Root Database Password",
       "min": 8,
       "required": true,
+      "default": "rootpassword",
+      "hint": "Root Password for MySQL Database",
       "env_variable": "MYSQL_ROOT_PASSWORD"
     },
     {
