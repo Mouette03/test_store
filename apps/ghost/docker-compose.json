@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "ghost",
-      "image": "ghost:6-6.9.1",
+      "image": "ghost:6.9.1",
       "dependsOn": ["db-ghost"],
       "internalPort": 2368,
       "environment": [
