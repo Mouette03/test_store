@@ -8,8 +8,8 @@
   "tipi_version": 1,
   "version": "6.0.1",
   "categories": ["social"],
-  "description": "Joomla est un CMS open-source puissant et flexible pour sites web complexes, blogs et applications avec support multilingue natif.",
-  "short_desc": "CMS open-source flexible pour sites web et blogs.",
+  "description": "Joomla is a powerful and flexible open-source CMS for complex websites, blogs and applications with native multilingual support.",
+  "short_desc": "Flexible open-source CMS for websites and blogs.",
   "author": "Joomla",
   "source": "https://github.com/joomla/joomla-cms",
   "form_fields": [
