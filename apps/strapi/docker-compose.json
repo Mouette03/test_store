@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "strapi",
-      "image": "strapi:latest",
+      "image": "vshadbolt/strapi:5.31.0",
       "dependsOn": {
         "db-strapi": {
           "condition": "service_started"
