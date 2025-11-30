@@ -1,6 +1,5 @@
 # Joomla
 
-![Joomla Logo](https://joomla.org/images/joomla-logo.png)
 
 **English**
 
