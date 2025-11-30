@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "joomla",
-      "image": "joomla:6.0.1-php8.3-apache",
+      "image": "joomla:6.0.1-php8.3-fpm-alpine",
       "dependsOn": {
         "db-joomla": {
           "condition": "service_healthy"
