@@ -1,6 +1,6 @@
 {
   "name": "Joomla",
-  "port": 80,
+  "port": 7614,
   "available": true,
   "exposable": true,
   "dynamic_config": true,
