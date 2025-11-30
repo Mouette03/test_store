@@ -13,15 +13,17 @@
   "source": "https://github.com/strapi/strapi",
   "form_fields": [
     {
-      "type": "random",
+      "type": "password",
       "label": "Database Password",
-      "min": 20,
+      "min": 8,
+      "required": true,
       "env_variable": "MYSQL_PASSWORD"
     },
     {
-      "type": "random",
+      "type": "password",
       "label": "Root Database Password",
-      "min": 20,
+      "min": 8,
+      "required": true,
       "env_variable": "MYSQL_ROOT_PASSWORD"
     },
     {
