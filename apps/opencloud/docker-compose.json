@@ -32,28 +32,20 @@
           "value": "true"
         },
         {
-          "key": "PROXY_TLS",
-          "value": "false"
-        },
-        {
           "key": "PROXY_HTTP_ADDR",
           "value": "0.0.0.0:9200"
         },
         {
-          "key": "WEB_UI_CONFIG_SERVER",
-          "value": "https://${APP_DOMAIN}"
-        },
-        {
-          "key": "WEB_UI_THEME_SERVER",
-          "value": "https://${APP_DOMAIN}"
-        },
-        {
-          "key": "WEB_UI_THEME_PATH",
-          "value": "/themes/opencloud/theme.json"
+          "key": "PROXY_TLS",
+          "value": "false"
         },
         {
           "key": "IDM_ADMIN_PASSWORD",
           "value": "${OPENCLOUD_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "IDM_CREATE_DEMO_USERS",
+          "value": "true"
         },
         {
           "key": "OCIS_LOG_LEVEL",
