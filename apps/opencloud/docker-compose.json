@@ -44,6 +44,26 @@
           "value": "0.0.0.0:9200"
         },
         {
+          "key": "WEB_UI_CONFIG_SERVER",
+          "value": "http://${APP_DOMAIN}"
+        },
+        {
+          "key": "WEB_UI_THEME_SERVER",
+          "value": "http://${APP_DOMAIN}"
+        },
+        {
+          "key": "WEB_UI_THEME_PATH",
+          "value": "/themes/opencloud/theme.json"
+        },
+        {
+          "key": "WEB_OIDC_METADATA_URL",
+          "value": "http://${APP_DOMAIN}/.well-known/openid-configuration"
+        },
+        {
+          "key": "WEB_OIDC_AUTHORITY",
+          "value": "http://${APP_DOMAIN}"
+        },
+        {
           "key": "IDM_ADMIN_PASSWORD",
           "value": "${OPENCLOUD_ADMIN_PASSWORD}"
         },
