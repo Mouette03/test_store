@@ -41,6 +41,50 @@
           "value": "false"
         },
         {
+          "key": "PROXY_ENABLE_BASIC_AUTH",
+          "value": "false"
+        },
+        {
+          "key": "GATEWAY_GRPC_ADDR",
+          "value": "127.0.0.1:9142"
+        },
+        {
+          "key": "USERS_GRPC_ADDR",
+          "value": "127.0.0.1:9144"
+        },
+        {
+          "key": "GROUPS_GRPC_ADDR",
+          "value": "127.0.0.1:9160"
+        },
+        {
+          "key": "AUTH_BASIC_GRPC_ADDR",
+          "value": "127.0.0.1:9146"
+        },
+        {
+          "key": "AUTH_MACHINE_GRPC_ADDR",
+          "value": "127.0.0.1:9166"
+        },
+        {
+          "key": "STORAGE_GRPC_ADDR",
+          "value": "127.0.0.1:9215"
+        },
+        {
+          "key": "IDM_GRPC_ADDR",
+          "value": "127.0.0.1:9230"
+        },
+        {
+          "key": "NATS_NATS_HOST",
+          "value": "127.0.0.1"
+        },
+        {
+          "key": "NATS_NATS_PORT",
+          "value": "9233"
+        },
+        {
+          "key": "WEB_HTTP_ADDR",
+          "value": "127.0.0.1:9100"
+        },
+        {
           "key": "WEB_UI_CONFIG_SERVER",
           "value": "http://${APP_DOMAIN}"
         },
@@ -54,11 +98,11 @@
         },
         {
           "key": "WEB_OIDC_METADATA_URL",
-          "value": "http://192.168.1.35:9200/.well-known/openid-configuration"
+          "value": "http://${APP_DOMAIN}/.well-known/openid-configuration"
         },
         {
           "key": "WEB_OIDC_AUTHORITY",
-          "value": "http://192.168.1.35:9200"
+          "value": "http://${APP_DOMAIN}"
         },
         {
           "key": "IDM_ADMIN_PASSWORD",
