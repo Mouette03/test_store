@@ -7,11 +7,7 @@
       "image": "opencloudeu/opencloud:4.0.0",
       "internalPort": 9200,
       "isMain": true,
-      "entrypoint": "/bin/sh",
-      "command": [
-        "-c",
-        "opencloud init --insecure true || true; opencloud server"
-      ],
+      "command": "server",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -24,12 +20,12 @@
       ],
       "environment": [
         {
-          "key": "IDM_ADMIN_PASSWORD",
-          "value": "${OPENCLOUD_ADMIN_PASSWORD}"
-        },
-        {
           "key": "OCIS_INSECURE",
           "value": "true"
+        },
+        {
+          "key": "OCIS_URL",
+          "value": "https://${APP_DOMAIN}"
         },
         {
           "key": "PROXY_HTTP_ADDR",
@@ -40,14 +36,23 @@
           "value": "false"
         },
         {
-          "key": "OCIS_URL",
-          "value": "http://192.168.1.35:9200"
+          "key": "IDM_ADMIN_PASSWORD",
+          "value": "${OPENCLOUD_ADMIN_PASSWORD}"
         },
         {
           "key": "IDM_CREATE_DEMO_USERS",
           "value": "false"
+        },
+        {
+          "key": "OCIS_LOG_LEVEL",
+          "value": "info"
+        },
+        {
+          "key": "OCIS_LOG_PRETTY",
+          "value": "true"
         }
       ]
     }
   ]
 }
+
