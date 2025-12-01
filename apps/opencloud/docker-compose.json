@@ -1,8 +1,10 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "opencloud",
-      "image": "opencloudeu/opencloud-rolling:latest",
+      "image": "opencloudeu/opencloud:4.0.0",
       "internalPort": 9200,
       "isMain": true,
       "volumes": [
@@ -15,9 +17,12 @@
           "containerPath": "/var/lib/opencloud"
         }
       ],
-      "environment": {
-        "IDM_ADMIN_PASSWORD": "${OPENCLOUD_ADMIN_PASSWORD}"
-      }
+      "environment": [
+        {
+          "key": "IDM_ADMIN_PASSWORD",
+          "value": "${OPENCLOUD_ADMIN_PASSWORD}"
+        }
+      ]
     }
   ]
 }

@@ -26,7 +26,7 @@
         },
         {
           "key": "JOOMLA_DB_NAME",
-          "value": "joomladb"
+          "value": "${JOOMLA_DB_NAME}"
         }
       ],
       "volumes": [
@@ -46,7 +46,7 @@
     },
     {
       "name": "db-joomla",
-      "image": "mariadb:11",
+      "image": "mariadb:12",
       "environment": [
         {
           "key": "MYSQL_ROOT_PASSWORD",
@@ -62,7 +62,7 @@
         },
         {
           "key": "MYSQL_DATABASE",
-          "value": "joomladb"
+          "value": "${JOOMLA_DB_NAME}"
         }
       ],
       "volumes": [
@@ -70,14 +70,7 @@
           "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/mysql"
         }
-      ],
-      "healthCheck": {
-        "test": "mysqladmin ping -h localhost || exit 1",
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 30,
-        "startPeriod": "120s"
-      }
+      ]
     }
   ]
 }

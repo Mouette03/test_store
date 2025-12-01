@@ -14,13 +14,13 @@
   "source": "https://github.com/joomla/joomla-cms",
   "form_fields": [
     {
-      "type": "password",
-      "label": "Mot de passe root MySQL",
-      "min": 10,
+      "type": "text",
+      "label": "Joomla DB name",
+      "min": 5,
       "required": true,
-      "default": "joomlarootpass",
-      "hint": "Root Password for MySQL Database",
-      "env_variable": "MYSQL_ROOT_PASSWORD"
+      "default": "joomladb",
+      "hint": "MySQL Database Name for Joomla",
+      "env_variable": "JOOMLA_DB_NAME"
     },
     {
       "type": "password",
@@ -30,6 +30,15 @@
       "default": "joomlapassword",
       "hint": "MySQL User Password for Joomla",
       "env_variable": "MYSQL_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "Mot de passe root MySQL",
+      "min": 10,
+      "required": true,
+      "default": "joomlarootpass",
+      "hint": "Root Password for MySQL Database",
+      "env_variable": "MYSQL_ROOT_PASSWORD"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
