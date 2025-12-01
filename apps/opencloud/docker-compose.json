@@ -7,6 +7,11 @@
       "image": "opencloudeu/opencloud:4.0.0",
       "internalPort": 9200,
       "isMain": true,
+      "entrypoint": "/bin/sh",
+      "command": [
+        "-c",
+        "opencloud init || true; opencloud server"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
