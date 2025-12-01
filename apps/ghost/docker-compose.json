@@ -5,7 +5,11 @@
     {
       "name": "ghost",
       "image": "ghost:6.9.1",
-      "dependsOn": ["db-ghost"],
+      "dependsOn": {
+        "db-ghost": {
+          "condition": "service_healthy"
+        }
+      },
       "internalPort": 2368,
       "environment": [
         {
@@ -99,7 +103,14 @@
           "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/mysql"
         }
-      ]
+      ],
+      "healthCheck": {
+        "test": "healthcheck.sh --connect --innodb_initialized",
+        "interval": "5s",
+        "timeout": "5s",
+        "retries": 20,
+        "startPeriod": "30s"
+      }
     }
   ]
 }

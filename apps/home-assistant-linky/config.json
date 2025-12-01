@@ -35,7 +35,7 @@
     }
   ],
   "supported_architectures": [ "arm64"],
-  "created_at": 1764428116829,
-  "updated_at": 1764428116829,
+  "created_at": 1764631031590,
+  "updated_at": 1764631031590,
   "min_tipi_version": "4.5.0"
 }
