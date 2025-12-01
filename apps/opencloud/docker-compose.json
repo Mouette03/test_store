@@ -29,6 +29,10 @@
           "value": "true"
         },
         {
+          "key": "OCIS_LOG_LEVEL",
+          "value": "debug"
+        },
+        {
           "key": "OCIS_URL",
           "value": "http://${APP_DOMAIN}"
         },
