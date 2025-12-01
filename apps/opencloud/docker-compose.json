@@ -10,7 +10,7 @@
       "entrypoint": "/bin/sh",
       "command": [
         "-c",
-        "echo yes | opencloud init || true; opencloud server"
+        "opencloud init --insecure || true; opencloud server"
       ],
       "volumes": [
         {
