@@ -28,12 +28,20 @@
           "value": "${OPENCLOUD_ADMIN_PASSWORD}"
         },
         {
-          "key": "OC_INSECURE",
+          "key": "OCIS_INSECURE",
           "value": "true"
         },
         {
           "key": "PROXY_HTTP_ADDR",
           "value": "0.0.0.0:9200"
+        },
+        {
+          "key": "PROXY_TLS",
+          "value": "false"
+        },
+        {
+          "key": "OCIS_URL",
+          "value": "http://localhost:9200"
         },
         {
           "key": "IDM_CREATE_DEMO_USERS",
