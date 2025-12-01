@@ -7,6 +7,7 @@
       "image": "opencloudeu/opencloud:4.0.0",
       "internalPort": 9200,
       "isMain": true,
+      "user": "1000:1000",
       "entrypoint": "/bin/sh",
       "command": [
         "-c",
@@ -29,11 +30,7 @@
         },
         {
           "key": "OCIS_URL",
-          "value": "http://${APP_DOMAIN}:${APP_PORT}"
-        },
-        {
-          "key": "WEB_UI_CONFIG_SERVER",
-          "value": "http://${APP_DOMAIN}:${APP_PORT}"
+          "value": "http://${APP_DOMAIN}"
         },
         {
           "key": "PROXY_HTTP_ADDR",
@@ -42,6 +39,26 @@
         {
           "key": "PROXY_TLS",
           "value": "false"
+        },
+        {
+          "key": "WEB_UI_CONFIG_SERVER",
+          "value": "http://${APP_DOMAIN}"
+        },
+        {
+          "key": "WEB_UI_THEME_SERVER",
+          "value": "http://${APP_DOMAIN}"
+        },
+        {
+          "key": "WEB_UI_THEME_PATH",
+          "value": "/themes/opencloud/theme.json"
+        },
+        {
+          "key": "WEB_OIDC_METADATA_URL",
+          "value": "http://192.168.1.35:9200/.well-known/openid-configuration"
+        },
+        {
+          "key": "WEB_OIDC_AUTHORITY",
+          "value": "http://192.168.1.35:9200"
         },
         {
           "key": "IDM_ADMIN_PASSWORD",
