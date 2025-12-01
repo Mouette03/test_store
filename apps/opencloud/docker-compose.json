@@ -21,6 +21,10 @@
         {
           "key": "IDM_ADMIN_PASSWORD",
           "value": "${OPENCLOUD_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "IDM_JWT_SECRET",
+          "value": "${OPENCLOUD_JWT_SECRET}"
         }
       ]
     }
