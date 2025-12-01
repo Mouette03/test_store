@@ -24,32 +24,24 @@
       ],
       "environment": [
         {
-          "key": "INSECURE",
+          "key": "OC_URL",
+          "value": "https://${APP_DOMAIN}"
+        },
+        {
+          "key": "OC_INSECURE",
           "value": "true"
         },
         {
-          "key": "OC_URL",
-          "value": "http://${APP_DOMAIN}"
+          "key": "PROXY_TLS",
+          "value": "false"
+        },
+        {
+          "key": "PROXY_HTTP_ADDR",
+          "value": "0.0.0.0:9200"
         },
         {
           "key": "IDM_ADMIN_PASSWORD",
           "value": "${OPENCLOUD_ADMIN_PASSWORD}"
-        },
-        {
-          "key": "IDM_CREATE_DEMO_USERS",
-          "value": "true"
-        },
-        {
-          "key": "WEB_UI_CONFIG_SERVER",
-          "value": "http://${APP_DOMAIN}"
-        },
-        {
-          "key": "WEB_UI_THEME_SERVER",
-          "value": "http://${APP_DOMAIN}"
-        },
-        {
-          "key": "WEB_UI_THEME_PATH",
-          "value": "/themes/opencloud/theme.json"
         },
         {
           "key": "OCIS_LOG_LEVEL",
