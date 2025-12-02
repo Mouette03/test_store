@@ -1,6 +1,6 @@
 # Joomla
 
-
+Host Database = db-joomla
 **English**
 
 Joomla is a powerful open-source Content Management System (CMS) used to build websites and powerful online applications. It is one of the most popular website softwares, thanks to its global community of developers and volunteers.

@@ -27,7 +27,7 @@
         },
         {
           "key": "JOOMLA_DB_NAME",
-          "value": "joomladb"
+          "value": "joomla_db"
         },
         {
           "key": "JOOMLA_DB_TYPE",
