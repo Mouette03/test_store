@@ -1,5 +1,5 @@
 {
-  "name": "Joomla!",
+  "name": "Joomla",
   "available": true,
   "exposable": true,
   "port": 7614,
@@ -19,7 +19,7 @@
       "min": 6,
       "required": true,
       "default": "joomlauser",
-      "hint": "MySQL User Password for Joomla",
+      "hint": "Username for MySQL User",
       "env_variable": "MYSQL_USER"
     },
     {
@@ -27,7 +27,7 @@
       "label": "Password MySQL User",
       "min": 10,
       "required": true,
-      "default": "joomlarootpass",
+      "default": "joomlapass",
       "hint": "Password for MySQL User",
       "env_variable": "MYSQL_PASSWORD"
     },
