@@ -5,12 +5,13 @@
     {
       "name": "joomla",
       "image": "joomla:6.0.1-php8.3-apache",
+      "internalPort": 80,
+      "isMain": true,
       "dependsOn": {
         "db-joomla": {
-          "condition": "service_started"
+          "condition": "service_healthy"
         }
       },
-      "internalPort": 80,
       "environment": [
         {
           "key": "JOOMLA_DB_HOST",
@@ -18,7 +19,7 @@
         },
         {
           "key": "JOOMLA_DB_USER",
-          "value": "joomlauser"
+          "value": "${MYSQL_USER}"
         },
         {
           "key": "JOOMLA_DB_PASSWORD",
@@ -26,7 +27,11 @@
         },
         {
           "key": "JOOMLA_DB_NAME",
-          "value": "${JOOMLA_DB_NAME}"
+          "value": "joomladb"
+        },
+        {
+          "key": "JOOMLA_DB_TYPE",
+          "value": "mysqli"
         }
       ],
       "volumes": [
@@ -36,13 +41,12 @@
         }
       ],
       "healthCheck": {
-        "test": "curl -f http://localhost:80/ || exit 1",
+        "test": "curl -f http://127.0.0.1:80/ || exit 1",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3,
         "startPeriod": "90s"
-      },
-      "isMain": true
+      }
     },
     {
       "name": "db-joomla",
@@ -54,7 +58,7 @@
         },
         {
           "key": "MYSQL_USER",
-          "value": "joomlauser"
+          "value": "${MYSQL_USER}"
         },
         {
           "key": "MYSQL_PASSWORD",
@@ -62,7 +66,7 @@
         },
         {
           "key": "MYSQL_DATABASE",
-          "value": "${JOOMLA_DB_NAME}"
+          "value": "joomladb"
         }
       ],
       "volumes": [
@@ -70,7 +74,14 @@
           "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/mysql"
         }
-      ]
+      ],
+      "healthCheck": {
+        "test": "mariadb-admin ping -h 127.0.0.1 -u root -p${MYSQL_ROOT_PASSWORD} || exit 1",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "30s"
+      }
     }
   ]
 }

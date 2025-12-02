@@ -1,5 +1,5 @@
 {
-  "name": "Joomla",
+  "name": "Joomla!",
   "available": true,
   "exposable": true,
   "port": 7614,
@@ -15,29 +15,29 @@
   "form_fields": [
     {
       "type": "text",
-      "label": "Joomla DB name",
-      "min": 5,
+      "label": "User MySQL Joomla",
+      "min": 6,
       "required": true,
-      "default": "joomladb",
-      "hint": "MySQL Database Name for Joomla",
-      "env_variable": "JOOMLA_DB_NAME"
+      "default": "joomlauser",
+      "hint": "MySQL User Password for Joomla",
+      "env_variable": "MYSQL_USER"
     },
     {
       "type": "password",
-      "label": "Mot de passe MySQL Joomla",
+      "label": "Password MySQL User",
       "min": 10,
       "required": true,
-      "default": "joomlapassword",
-      "hint": "MySQL User Password for Joomla",
+      "default": "joomlarootpass",
+      "hint": "Password for MySQL User",
       "env_variable": "MYSQL_PASSWORD"
     },
     {
       "type": "password",
-      "label": "Mot de passe root MySQL",
+      "label": "Password MySQL Root",
       "min": 10,
       "required": true,
-      "default": "joomlarootpass",
-      "hint": "Root Password for MySQL Database",
+      "default": "joomladbrootpass",
+      "hint": "Root password for MySQL Database",
       "env_variable": "MYSQL_ROOT_PASSWORD"
     }
   ],
