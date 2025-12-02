@@ -41,7 +41,7 @@
         },
         {
           "hostPath": "${RUNTIPI_APP_DATA_PATH}/php.ini",
-          "containerPath": "/usr/local/etc/php/conf.d/custom.ini"
+          "containerPath": "/usr/local/etc/php/conf.d/php.ini"
         }
       ],
       "healthCheck": {
