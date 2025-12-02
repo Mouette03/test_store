@@ -38,6 +38,10 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/html",
           "containerPath": "/var/www/html"
+        },
+        {
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/php.ini",
+          "containerPath": "/usr/local/etc/php/conf.d/custom.ini"
         }
       ],
       "healthCheck": {
