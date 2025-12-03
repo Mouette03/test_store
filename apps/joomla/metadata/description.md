@@ -30,6 +30,8 @@ Upon first launch, you'll be guided through Joomla's intuitive setup wizard to c
 
 **Admin Access:** To access the administration panel, add `/administrator` to your site URL (e.g., `https://yoursite.com/administrator`)
 
+**PHP Configuration:** A custom `php.ini` file is available in `joomla/data/php.ini`. You can modify PHP settings like upload limits, memory limit, and execution time by editing this file and restarting the container.
+
 ---
 
 ## Français
@@ -61,3 +63,5 @@ Joomla est un système de gestion de contenu (CMS) open-source puissant et polyv
 Au premier lancement, vous serez guidé par l'assistant de configuration intuitif de Joomla pour configurer le nom de votre site, le compte administrateur et finaliser l'installation.
 
 **Accès Administration:** Pour accéder au panneau d'administration, ajoutez `/administrator` à l'URL de votre site (ex: `https://votresite.com/administrator`)
+
+**Configuration PHP:** Un fichier `php.ini` personnalisé est disponible dans `joomla/data/php.ini`. Vous pouvez modifier les paramètres PHP comme les limites d'upload, la mémoire ou le temps d'exécution en éditant ce fichier puis en redémarrant le conteneur.
