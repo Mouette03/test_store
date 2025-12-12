@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "mouette03/php-apache-tipi-webapp:1.0",
+      "image": "mouette03/php-apache-full:1.0.1",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
