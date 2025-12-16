@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "webapp",
-      "image": "ghcr.io/mouette03/webapp:v1.0.1",
+      "image": "ghcr.io/mouette03/webapp:v1.0.0",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
