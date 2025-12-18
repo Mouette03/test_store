@@ -5,6 +5,8 @@
     {
       "name": "music-assistant",
       "image": "ghcr.io/music-assistant/server:2.7.0",
+      "internalPort": 8095,
+      "isMain": true,
       "networkMode": "host",
       "volumes": [
         {
