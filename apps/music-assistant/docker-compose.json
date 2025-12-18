@@ -8,6 +8,7 @@
       "internalPort": 8095,
       "isMain": true,
       "networkMode": "host",
+      "addToMainNetwork": true,
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/musicassistant",
