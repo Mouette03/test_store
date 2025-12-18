@@ -5,7 +5,7 @@
   "short_desc": "Open source home automation.",
   "author": "music-assistant",
   "port": 7661,
-  "categories": ["music"],
+  "categories": ["utilities"],
   "description": "Music Assistant is an open source music management and playback system.",
   "tipi_version": 1,
   "version": "2.7.0",
