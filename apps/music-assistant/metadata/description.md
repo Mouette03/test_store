@@ -1,50 +1,57 @@
-Home Assistant – Smart Home with Matter & Music Assistant 🏠🎵
-Home Assistant – Domotique intelligente avec Matter & Music Assistant 🏠🎵
+Music Assistant – Smart Multiroom Audio 🎵🏠
+Music Assistant – Audio multiroom intelligent 🎵🏠
 English 🇬🇧
 
-Turn your home into a smart and musical space with Home Assistant! With the built-in Matter server and Music Assistant integration, control your smart devices and stream music everywhere effortlessly.
+Music Assistant unifies all your music sources (Spotify, local files, YouTube Music, etc.) and players (Chromecast, Sonos, AirPlay) in a single interface. Perfect for Home Assistant integration!
 
 Key Features:
 
-    🌐 Matter Server: Connect all Matter devices seamlessly.
+    🎵 Multi-sources: Spotify, Tidal, Qobuz, YouTube, local files, radio.
 
-    🎵 Music Assistant: Multi-room audio from Spotify, local files, YouTube Music, and more.
+    📶 All your players: Chromecast, Sonos, AirPlay, DLNA, Bluetooth, Squeezebox.
 
-    📶 Bluetooth & Network Players: Chromecast, Sonos, AirPlay unified in one interface.
+    🤖 HA Integration: media_player entities for automations and scripts.
 
-    🤖 Powerful Automations: Lights + music scenes triggered by voice or sensors.
+    🖥️ Web Interface: http://SERVER_IP:8095
 
-    🖥️ Modern Dashboard: Accessible on phone, tablet, or PC.
+    🔒 Local only: No cloud required, everything local.
 
-    🔒 Local & Open-source: Full privacy, no cloud required.
+    ⚙️ Simple Setup: Single Docker container.
 
-Post-install Configuration:
+Home Assistant Configuration:
 
-    Music Assistant Integration: Settings → Devices & Services → Add Integration → "Music Assistant" → URL: http://YOUR_SERVER_IP:8095
+    Settings → Devices & Services → Add Integration
 
-    Matter Integration: Settings → Devices & Services → Add Integration → "Matter" → WebSocket URL: ws://YOUR_SERVER_IP:5580/ws
+    Search "Music Assistant"
 
+    Server URL: http://SERVER_IP:8095
+
+    Submit → Done!
 
 Français 🇫🇷
 
-Transformez votre maison en un espace intelligent et musical avec Home Assistant ! Grâce au serveur Matter intégré et à Music Assistant, contrôlez vos appareils connectés et diffusez votre musique partout facilement.
+Music Assistant unifie toutes vos sources musicales (Spotify, fichiers locaux, YouTube Music, etc.) et vos lecteurs (Chromecast, Sonos, AirPlay) dans une interface unique. Parfait pour l'intégration avec Home Assistant !
 
 Fonctionnalités clés :
 
-    🌐 Serveur Matter : Connectez tous vos appareils Matter sans effort.
+    🎵 Multi-sources : Spotify, Tidal, Qobuz, YouTube, fichiers locaux, radios.
 
-    🎵 Music Assistant : Audio multiroom depuis Spotify, fichiers locaux, YouTube Music, etc.
+    📶 Tous vos lecteurs : Chromecast, Sonos, AirPlay, DLNA, Bluetooth, Squeezebox.
 
-    📶 Lecteurs Bluetooth & réseau : Chromecast, Sonos, AirPlay unifiés en une interface.
+    🤖 Intégration HA : media_player pour automatisations et scripts.
 
-    🤖 Automatisations puissantes : Scénarios lumière + musique déclenchés par voix ou capteurs.
+    🖥️ Interface web : http://IP_SERVEUR:8095
 
-    🖥️ Tableau de bord moderne : Accessible sur smartphone, tablette ou PC.
+    🔒 Local only : Pas de cloud obligatoire, tout en local.
 
-    🔒 Local & open-source : Confidentialité totale, sans cloud.
+    ⚙️ Configuration simple : Un seul conteneur Docker.
 
-Configuration post-installation :
+Configuration Home Assistant :
 
-    Intégration Music Assistant : Paramètres → Appareils & services → Ajouter → "Music Assistant" → URL : http://IP_SERVEUR:8095
+    Paramètres → Appareils & services → Ajouter une intégration
 
-    Intégration Matter : Paramètres → Appareils & services → Ajouter → "Matter" → URL WebSocket : ws://IP_SERVEUR:5580/ws
+    Chercher "Music Assistant"
+
+    URL du serveur : http://IP_SERVEUR:8095
+
+    Soumettre → Prêt !

@@ -3,47 +3,6 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "name": "homeassistant",
-      "image": "ghcr.io/home-assistant/home-assistant:2025.12.3",
-      "internalPort": 8123,
-      "isMain": true,
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/config",
-          "containerPath": "/config"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/localtime",
-          "containerPath": "/etc/localtime"
-        },
-        {
-          "hostPath": "/run/dbus",
-          "containerPath": "/run/dbus"
-        }
-      ],
-      "restart": "unless-stopped",
-      "dependsOn": {
-        "matter-server": {
-          "condition": "service_started"
-        },
-        "music-assistant": {
-          "condition": "service_started"
-        }
-      }
-    },
-    {
-      "name": "matter-server",
-      "image": "ghcr.io/home-assistant-libs/python-matter-server:stable",
-      "networkMode": "host",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/matter",
-          "containerPath": "/data"
-        }
-      ],
-      "restart": "unless-stopped"
-    },
-    {
       "name": "music-assistant",
       "image": "ghcr.io/music-assistant/server:2.7.0",
       "networkMode": "host",
