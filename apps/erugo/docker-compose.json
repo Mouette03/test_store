@@ -1,15 +1,37 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "erugo",
       "image": "wardy784/erugo:latest-rc",
       "internalPort": 80,
+      "isMain": true,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "hostPath": "${APP_DATA_DIR}/storage",
           "containerPath": "/var/www/html/storage"
         }
-      ]
+      ],
+      "restart": "unless-stopped"
+    },
+    {
+      "name": "tusd",
+      "image": "tusproject/tusd:latest",
+      "command": "-hooks-http http://erugo:80/api/tusd-hooks -upload-dir /data/app/uploads -base-path /files/ -behind-proxy",
+      "user": "1000:1000",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/storage",
+          "containerPath": "/data"
+        }
+      ],
+      "restart": "unless-stopped",
+      "dependsOn": {
+        "erugo": {
+          "condition": "service_started"
+        }
+      }
     }
   ]
 }
