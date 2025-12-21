@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
+  "services": [
+    {
+      "name": "strapi",
+      "image": "vshadbolt/strapi:5.31.0-arm64",
+      "dependsOn": {
+        "db-strapi": {
+          "condition": "service_started"
+        }
+      },
+      "internalPort": 1337,
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "DATABASE_CLIENT",
+          "value": "mysql"
+        },
+        {
+          "key": "DATABASE_HOST",
+          "value": "db-strapi"
+        },
+        {
+          "key": "DATABASE_PORT",
+          "value": "3306"
+        },
+        {
+          "key": "DATABASE_NAME",
+          "value": "strapi"
+        },
+        {
+          "key": "DATABASE_USERNAME",
+          "value": "strapiuser"
+        },
+        {
+          "key": "DATABASE_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        },
+        {
+          "key": "JWT_SECRET",
+          "value": "${JWT_SECRET}"
+        },
+        {
+          "key": "ADMIN_JWT_SECRET",
+          "value": "${ADMIN_JWT_SECRET}"
+        },
+        {
+          "key": "APP_KEYS",
+          "value": "${APP_KEYS}"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/app/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/public/uploads",
+          "containerPath": "/app/public/uploads"
+        }
+      ],
+      "healthCheck": {
+        "test": "curl -f http://localhost:1337/admin || exit 1",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3,
+        "startPeriod": "120s"
+      },
+      "isMain": true
+    },
+    {
+      "name": "db-strapi",
+      "image": "mariadb:12",
+      "environment": [
+        {
+          "key": "MYSQL_USER",
+          "value": "strapiuser"
+        },
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${MYSQL_ROOT_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "strapi"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ]
+    }
+  ]
+}
