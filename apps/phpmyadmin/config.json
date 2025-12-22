@@ -7,11 +7,10 @@
   "port": 6985,
   "categories": ["data"],
   "description": "Web interface to manage your MySQL/MariaDB databases.",
-  "tipi_version": 1,
-  "version": "2",
+  "tipi_version": 2,
+  "version": "5.2.3",
   "source": "https://github.com/phpmyadmin/docker",
   "website": "https://www.phpmyadmin.net/",
-  "dynamic_config": true,
   "exposable": true,
   "form_fields": [
     {
@@ -29,6 +28,7 @@
     "arm64",
     "amd64"
   ],
-  "created_at": 1756245952146,
-  "updated_at": 1756245952146
+  "created_at": 1766443911500,
+  "updated_at": 1766443911500,
+  "min_tipi_version": "4.5.0"
 }
