@@ -22,34 +22,47 @@
         {
           "key": "PMA_PORTS",
           "value": "${PMA_PORTS}"
+        },
+        {
+          "key": "PMA_HOST",
+          "value": "mariadb"
+        },
+        {
+          "key": "PMA_USER",
+          "value": "${MYSQL_USER:-root}"
+        },
+        {
+          "key": "PMA_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
         }
       ],
       "dependsOn": {
-        "sqlite": {
-          "condition": "service_started"
+        "mariadb": {
+          "condition": "service_healthy"
         }
       }
     },
     {
-      "name": "sqlite",
-      "image": "tianon/sqlite:latest",
+      "name": "mariadb",
+      "image": "mariadb:11",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${MYSQL_ROOT_PASSWORD}",
+        "MYSQL_DATABASE": "${MYSQL_DATABASE:-madb}",
+        "MYSQL_USER": "${MYSQL_USER:-root}",
+        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}"
+      },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/sqlite/data",
-          "containerPath": "/data",
+          "hostPath": "${APP_DATA_DIR}/database",
+          "containerPath": "/var/lib/mysql",
           "readOnly": false
         }
       ],
-      "environment": {
-        "SQLITE_DATABASE": "${SQLITE_DATABASE:-madb}",
-        "SQLITE_USER": "${SQLITE_USER:-root}",
-        "SQLITE_PASSWORD": "${SQLITE_PASSWORD}"
-      },
       "healthCheck": {
-        "test": ["CMD", "sqlite3", "/data/${SQLITE_DATABASE:-madb}.db", "SELECT 1;"],
-        "interval": "30s",
-        "timeout": "10s",
-        "retries": 3
+        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=${MYSQL_ROOT_PASSWORD}"],
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 15
       }
     }
   ]
