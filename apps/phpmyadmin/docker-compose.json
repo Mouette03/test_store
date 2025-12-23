@@ -40,19 +40,19 @@
       "environment": [
         {
           "key": "MYSQL_ROOT_PASSWORD",
-          "value": "${MYSQL_ROOT_PASSWORD}"
+          "value": "test"
         },
         {
           "key": "MYSQL_DATABASE",
-          "value": "${MYSQL_DATABASE}"
+          "value": "test"
         },
         {
           "key": "MYSQL_USER",
-          "value": "${MYSQL_USER}"
+          "value": "test"
         },
         {
           "key": "MYSQL_PASSWORD",
-          "value": "${MYSQL_PASSWORD}"
+          "value": "test"
         }
       ],
       "volumes": [
