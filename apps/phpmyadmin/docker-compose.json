@@ -4,13 +4,13 @@
   "services": [
     {
       "name": "phpmyadmin",
-      "image": "phpmyadmin:5.2-apache",
+      "image": "phpmyadmin:5.2.3-apache",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/config.user.inc.php",
-          "containerPath": "/etc/phpmyadmin/config.user.inc.php",
+          "hostPath": "${APP_DATA_DIR}/config/phpmyadmin/config.inc.php",
+          "containerPath": "/var/www/html/config.inc.php",
           "readOnly": true
         }
       ],
@@ -22,52 +22,8 @@
         {
           "key": "PMA_PORTS",
           "value": "${PMA_PORTS}"
-        },
-        {
-          "key": "PMA_HOST",
-          "value": "mariadb"
         }
-      ],
-      "dependsOn": {
-        "mariadb": {
-          "condition": "service_started"
-        }
-      }
-    },
-    {
-      "name": "mariadb",
-      "image": "mariadb:11",
-      "environment": [
-        {
-          "key": "MYSQL_ROOT_PASSWORD",
-          "value": "test"
-        },
-        {
-          "key": "MYSQL_DATABASE",
-          "value": "test"
-        },
-        {
-          "key": "MYSQL_USER",
-          "value": "test"
-        },
-        {
-          "key": "MYSQL_PASSWORD",
-          "value": "test"
-        }
-      ],
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/database",
-          "containerPath": "/var/lib/mysql",
-          "readOnly": false
-        }
-      ],
-      "healthCheck": {
-        "test": "mysqladmin ping -h localhost -u root -p${MYSQL_ROOT_PASSWORD}",
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 15
-      }
+      ]
     }
   ]
 }
