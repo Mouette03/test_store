@@ -26,31 +26,35 @@
         {
           "key": "PMA_HOST",
           "value": "mariadb"
-        },
-        {
-          "key": "PMA_USER",
-          "value": "${MYSQL_USER:-root}"
-        },
-        {
-          "key": "PMA_PASSWORD",
-          "value": "${MYSQL_PASSWORD}"
         }
       ],
       "dependsOn": {
         "mariadb": {
-          "condition": "service_healthy"
+          "condition": "service_started"
         }
       }
     },
     {
       "name": "mariadb",
       "image": "mariadb:11",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${MYSQL_ROOT_PASSWORD}",
-        "MYSQL_DATABASE": "${MYSQL_DATABASE:-madb}",
-        "MYSQL_USER": "${MYSQL_USER:-root}",
-        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${MYSQL_ROOT_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "${MYSQL_DATABASE}"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "${MYSQL_USER}"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/database",
@@ -59,7 +63,7 @@
         }
       ],
       "healthCheck": {
-        "test": ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=${MYSQL_ROOT_PASSWORD}"],
+        "test": "mysqladmin ping -h localhost -u root -p${MYSQL_ROOT_PASSWORD}",
         "interval": "10s",
         "timeout": "5s",
         "retries": 15
