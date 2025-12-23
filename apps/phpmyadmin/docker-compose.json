@@ -10,7 +10,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config.inc.php",
-          "containerPath": "/var/www/html/config.inc.php",
+          "containerPath": "/etc/phpmyadmin/config.user.inc.php",
           "readOnly": true
         }
       ],
