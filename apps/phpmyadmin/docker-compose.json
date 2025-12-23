@@ -3,17 +3,54 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "name": "adminer",
-      "image": "adminer:5.4.1",
-      "internalPort": 8080,
+      "name": "phpmyadmin",
+      "image": "phpmyadmin:5.2-apache",
+      "internalPort": 80,
       "isMain": true,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/var/www/html/data",
+          "hostPath": "${APP_DATA_DIR}/config.user.inc.php",
+          "containerPath": "/etc/phpmyadmin/config.user.inc.php",
+          "readOnly": true
+        }
+      ],
+      "environment": [
+        {
+          "key": "PMA_ARBITRARY",
+          "value": "1"
+        },
+        {
+          "key": "PMA_PORTS",
+          "value": "${PMA_PORTS}"
+        }
+      ],
+      "dependsOn": {
+        "sqlite": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "sqlite",
+      "image": "tianon/sqlite:latest",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/sqlite/data",
+          "containerPath": "/data",
           "readOnly": false
         }
-      ]
+      ],
+      "environment": {
+        "SQLITE_DATABASE": "${SQLITE_DATABASE:-madb}",
+        "SQLITE_USER": "${SQLITE_USER:-root}",
+        "SQLITE_PASSWORD": "${SQLITE_PASSWORD}"
+      },
+      "healthCheck": {
+        "test": ["CMD", "sqlite3", "/data/${SQLITE_DATABASE:-madb}.db", "SELECT 1;"],
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
     }
   ]
 }

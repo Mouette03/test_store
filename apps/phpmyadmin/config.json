@@ -7,12 +7,23 @@
   "port": 6985,
   "categories": ["data"],
   "description": "Web interface to manage your MySQL/MariaDB databases.",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "5.2.3",
   "source": "https://github.com/phpmyadmin/docker",
   "website": "https://www.phpmyadmin.net/",
   "exposable": true,
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "host ports",
+      "max": 100,
+      "min": 4,
+      "default": "3306",
+      "hint": "Database listening port.",
+      "required": false,
+      "env_variable": "PMA_PORTS"
+    }
+  ],
   "supported_architectures": [
     "arm64",
     "amd64"
