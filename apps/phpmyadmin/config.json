@@ -7,7 +7,7 @@
   "port": 6985,
   "categories": ["data"],
   "description": "Web interface to manage your MySQL/MariaDB databases.",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "5.2.3",
   "source": "https://github.com/phpmyadmin/docker",
   "website": "https://www.phpmyadmin.net/",
