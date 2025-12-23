@@ -2,16 +2,20 @@
   "name": "phpmyadmin",
   "id": "phpMyAdmin",
   "available": true,
-  "short_desc": "Manage your MySQL/MariaDB.",
-  "author": "phpmyadmin",
-  "port": 6985,
-  "categories": ["data"],
-  "description": "Web interface to manage your MySQL/MariaDB databases.",
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 6986,
   "tipi_version": 9,
   "version": "5.2.3",
+  "short_desc": "Manage your MySQL/MariaDB.",
+  "author": "phpmyadmin",
+  
+  "categories": ["data"],
+  "description": "Web interface to manage your MySQL/MariaDB databases.",
+  
   "source": "https://github.com/phpmyadmin/docker",
   "website": "https://www.phpmyadmin.net/",
-  "exposable": true,
+  
   "form_fields": [
     {
       "type": "text",
