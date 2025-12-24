@@ -1,43 +1,189 @@
-# PHPMyAdmin 🖥️💾
 
-PHPMyAdmin is a web interface to manage MySQL and MariaDB databases visually. Browse databases, tables, users, and permissions with a clean graphical interface.
 
-## Connecting to other Docker containers / networks 🔗
+# 🇬🇧 phpMyAdmin - RunTiPi App Description
 
-- **Server field in phpMyAdmin 📝:**  
-  - Enter the **IP address of the database container** you want to connect to.  
-  - Use the database **username** and **password**.  
-  - Specify the **port** if it is different from the default `3306`.  
-
-- **Connect networks together 🌐:**  
-  - If the database container is on a different Docker network, you must connect the networks.  
-  - **Via SSH 🔑:** Log in to the host system where Docker runs and execute:  
-    ```bash
-    docker network connect <phpmyadmin-network> <database-container>
-    ```
-  - **Via Portainer 🛠️:** Use the network management interface to attach the phpMyAdmin container to the target database network.  
-
-**Tip 💡:** Knowing the container’s IP, port, and credentials is enough to connect phpMyAdmin to any database, even across networks.
+Multi-database graphical interface: external connections + Docker networks + automatic configuration!
 
 ---
 
-# PHPMyAdmin 🖥️💾 (Français)
+## Features
 
-PHPMyAdmin est une interface web pour gérer visuellement des bases MySQL et MariaDB. Parcourez bases, tables, utilisateurs et permissions via une interface graphique claire et intuitive.
+- ✅ External databases: MySQL / MariaDB / PostgreSQL
+- ✅ Docker networks: access to RunTiPi container databases
+- ✅ Configurable fixed port
+- ✅ Backup / export: SQL / CSV / JSON
+- ✅ Pre-configured connections: `config.user.inc.php` (0 login entry)
 
-## Se connecter à d’autres containers / réseaux Docker 🔗
+---
 
-- **Champ “Server” dans phpMyAdmin 📝 :**  
-  - Saisissez l’**adresse IP du container de base de données** auquel vous voulez vous connecter.  
-  - Entrez le **nom d’utilisateur** et le **mot de passe**.  
-  - Indiquez le **port** si ce n’est pas le port par défaut `3306`.  
+## 🚀 Advanced Configuration
 
-- **Connecter les réseaux entre eux 🌐 :**  
-  - Si le container de base est sur un réseau Docker différent, il faut connecter les réseaux.  
-  - **Via SSH 🔑 :** Connectez-vous à l’hôte Docker et exécutez :  
-    ```bash
-    docker network connect <réseau-de-phpmyadmin> <container-de-la-base>
-    ```
-  - **Via Portainer 🛠️ :** Utilisez l’interface de gestion des réseaux pour attacher le container phpMyAdmin au réseau du container de base.  
+### 1. Connecting to Docker Networks (Container Databases)
 
-**Astuce 💡 :** Avec l’adresse IP, le port et les identifiants, phpMyAdmin peut se connecter à n’importe quelle base, même sur un autre réseau Docker.
+**Retrieve network names:**
+
+```
+sudo docker network ls 
+```
+
+Example output:
+```
+app1_network
+app2_network
+app3_network
+```
+
+RunTiPi user configuration → docker-compose.yml:
+
+```
+services:
+  phpmyadmin:
+    networks:
+      - runtipi_tipi_main_network
+      - APP1_test_network
+      - APP2_test_network
+
+networks:
+  runtipi_tipi_main_network:
+    external: true
+  APP1_network:
+    external: true
+  APP2_network:
+    external: true
+  ```
+
+### 2. Pre-configured Connections (config.user.inc.php)###
+
+Edit the file: ${APP_DATA_DIR}/data/config.user.inc.php
+
+Generic template (adapt your credentials):
+```
+<?php
+$cfg['blowfish_secret'] = 'string32caracteresUniqeiciPourLaSecurite';
+
+$i = 1;
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['host'] = 'HOST DATABASE 1';
+$cfg['Servers'][$i]['user'] = 'USER1';
+$cfg['Servers'][$i]['password'] = 'PASSWORD1';
+$cfg['Servers'][$i]['port'] = 3306;
+$cfg['Servers'][$i]['verbose'] = 'NAME BASE 1';
+
+$i = 2;
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['host'] = 'HOST DATABASE 2';
+$cfg['Servers'][$i]['user'] = 'USER 2';
+$cfg['Servers'][$i]['password'] = 'PASSWORD 2';
+$cfg['Servers'][$i]['port'] = 3306;
+$cfg['Servers'][$i]['verbose'] = 'NAME BASE 2';
+
+$cfg['ServerDefault'] = 1;
+$cfg['ShowServerChoice'] = true;
+?>
+```
+
+Benefits:
+
+    ✅ Automatic login (0 entry)
+
+    ✅ Dropdown switch between servers
+
+    ✅ Unified multi-databases
+
+User configuration + config.user.inc.php = automatic login! 🎉
+
+---
+
+---
+
+# 🇫🇷 phpMyAdmin - RunTiPi App Description
+
+Interface graphique multi-bases : connexions externes + Docker networks + configuration automatique !
+
+---
+
+## Fonctionnalités
+
+- ✅ Bases externes : MySQL / MariaDB / PostgreSQL
+- ✅ Docker networks : accès aux bases des conteneurs RunTiPi
+- ✅ Port fixe configurable
+- ✅ Sauvegarde / export : SQL / CSV / JSON
+- ✅ Connexions pré-configurées : `config.user.inc.php` (0 saisie de login)
+
+---
+
+## 🚀 Configuration avancée
+
+### 1. Connexion aux réseaux Docker (bases conteneurs)
+
+**Récupérer les noms des réseaux :**
+
+```
+sudo docker network ls 
+```
+
+Exemple de sortie :
+```
+app1_network
+app2_network
+app3_network
+```
+
+Configuration utilisateur RunTiPi → docker-compose.yml :
+
+```
+services:
+  phpmyadmin:
+    networks:
+      - runtipi_tipi_main_network
+      - APP1_test_network
+      - APP2_test_network
+
+networks:
+  runtipi_tipi_main_network:
+    external: true
+  APP1_network:
+    external: true
+  APP2_network:
+    external: true
+  ```
+
+### 2. Connexions pré-configurées (config.user.inc.php)###
+
+Modifier le fichier : ${APP_DATA_DIR}/data/config.user.inc.php
+
+Template générique (adaptez vos identifiants) :
+```
+<?php
+$cfg['blowfish_secret'] = 'string32caracteresUniqeiciPourLaSecurite';
+
+$i = 1;
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['host'] = 'HOST DATABASE 1';
+$cfg['Servers'][$i]['user'] = 'USER1';
+$cfg['Servers'][$i]['password'] = 'MOT_DE_PASSE1';
+$cfg['Servers'][$i]['port'] = 3306;
+$cfg['Servers'][$i]['verbose'] = 'NAME BASE 1';
+
+$i = 2;
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['host'] = 'HOST DATABASE 2';
+$cfg['Servers'][$i]['user'] = 'USER 2';
+$cfg['Servers'][$i]['password'] = 'PASSWORD 2';
+$cfg['Servers'][$i]['port'] = 3306;
+$cfg['Servers'][$i]['verbose'] = 'NAME BASE 2';
+
+$cfg['ServerDefault'] = 1;
+$cfg['ShowServerChoice'] = true;
+?>
+```
+
+Avantages :
+
+    ✅ Login automatique (0 saisie)
+
+    ✅ Switch dropdown entre serveurs
+
+    ✅ Multi-bases unifiées
+
+Configuration utilisateur + config.user.inc.php = login automatique ! 🎉
