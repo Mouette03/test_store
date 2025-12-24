@@ -4,18 +4,15 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 6986,
+  "port": 5485,
   "tipi_version": 1,
   "version": "5.2.3",
   "short_desc": "Manage your MySQL/MariaDB.",
   "author": "phpmyadmin",
-  
   "categories": ["data"],
   "description": "Web interface to manage your MySQL/MariaDB databases.",
-  
   "source": "https://github.com/phpmyadmin/docker",
   "website": "https://www.phpmyadmin.net/",
-  
   "form_fields": [
     {
       "type": "text",
