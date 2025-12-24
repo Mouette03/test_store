@@ -57,6 +57,7 @@ networks:
 Edit the file: ${APP_DATA_DIR}/data/config.user.inc.php
 
 Generic template (adapt your credentials):
+
 ```
 <?php
 $cfg['blowfish_secret'] = 'string32caracteresUniqeiciPourLaSecurite';
@@ -80,6 +81,7 @@ $cfg['Servers'][$i]['verbose'] = 'NAME BASE 2';
 $cfg['ServerDefault'] = 1;
 $cfg['ShowServerChoice'] = true;
 ?>
+
 ```
 
 Benefits:
@@ -153,6 +155,7 @@ networks:
 Modifier le fichier : ${APP_DATA_DIR}/data/config.user.inc.php
 
 Template générique (adaptez vos identifiants) :
+
 ```
 <?php
 $cfg['blowfish_secret'] = 'string32caracteresUniqeiciPourLaSecurite';
@@ -176,6 +179,7 @@ $cfg['Servers'][$i]['verbose'] = 'NAME BASE 2';
 $cfg['ServerDefault'] = 1;
 $cfg['ShowServerChoice'] = true;
 ?>
+
 ```
 
 Avantages :
