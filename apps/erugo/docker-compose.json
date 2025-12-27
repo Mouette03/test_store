@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "erugo",
-      "image": "wardy784/erugo:0.2.3",
+      "image": "wardy784/erugo:2fcd64e-rc",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
