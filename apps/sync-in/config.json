@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.9.6",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
@@ -70,7 +70,7 @@
       "max": 128,
       "min": 16,
       "required": true,
-      "default": "change_me_onlyoffice_secret",
+      "default": "",
       "hint": "JWT secret shared between Sync-in and OnlyOffice for document editing.",
       "env_variable": "SYNCIN_ONLYOFFICE_SECRET"
     },

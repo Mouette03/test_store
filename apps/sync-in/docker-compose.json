@@ -83,6 +83,10 @@
         {
           "key": "SYNCIN_SECURE",
           "value": "${SYNCIN_SECURE}"
+        },
+        {
+          "key": "SYNCIN_DATAPATH",
+          "value": "/data"
         }
       ],
       "volumes": [
