@@ -97,6 +97,10 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/data",
           "containerPath": "/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config/environment.yaml",
+          "containerPath": "/app/config/environment.yaml"
         }
       ],
       "dependsOn": {
