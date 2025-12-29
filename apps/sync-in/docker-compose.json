@@ -9,6 +9,18 @@
       "isMain": true,
       "environment": [
         {
+          "key": "SYNCIN_DATAPATH",
+          "value": "/data"
+        },
+        {
+          "key": "SYNCIN_SERVER_HOST",
+          "value": "0.0.0.0"
+        },
+        {
+          "key": "SYNCIN_SERVER_PORT",
+          "value": "8080"
+        },
+        {
           "key": "INIT_ADMIN",
           "value": "true"
         },
@@ -83,10 +95,6 @@
         {
           "key": "SYNCIN_SECURE",
           "value": "${SYNCIN_SECURE}"
-        },
-        {
-          "key": "SYNCIN_DATAPATH",
-          "value": "/data"
         }
       ],
       "volumes": [
