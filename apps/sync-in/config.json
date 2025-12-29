@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "1.9.6",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
@@ -92,7 +92,7 @@
       "required": false,
       "default": "",
       "hint": "SMTP host (e.g. smtp.gmail.com, relay.mydomain.com)",
-      "env_variable": "SYNCIN_HOST"
+      "env_variable": "SYNCIN_MAIL_HOST"
     },
     {
       "type": "number",
@@ -102,7 +102,7 @@
       "required": false,
       "default": "587",
       "hint": "SMTP port (587=STARTTLS, 465=SSL, 25=unsecured)",
-      "env_variable": "SYNCIN_PORT"
+      "env_variable": "SYNCIN_MAIL_PORT"
     },
     {
       "type": "text",
@@ -112,7 +112,7 @@
       "required": false,
       "default": "",
       "hint": "Visible address (e.g. Sync-in <notification@mydomain.com>)",
-      "env_variable": "SYNCIN_SENDER"
+      "env_variable": "SYNCIN_MAIL_SENDER"
     },
     {
       "type": "text",
@@ -122,7 +122,7 @@
       "required": false,
       "default": "",
       "hint": "SMTP login (often = email address)",
-      "env_variable": "SYNCIN_USER"
+      "env_variable": "SYNCIN_MAIL_USER"
     },
     {
       "type": "password",
@@ -132,7 +132,7 @@
       "required": false,
       "default": "",
       "hint": "Password SMTP",
-      "env_variable": "SYNCIN_PASS"
+      "env_variable": "SYNCIN_MAIL_PASSWORD"
     },
     {
       "type": "text",
@@ -144,7 +144,7 @@
         {"label": "true", "value": "true"}
       ],
       "hint": "Enable SMTP security",
-      "env_variable": "SYNCIN_SECURE"
+      "env_variable": "SYNCIN_MAIL_SECURE"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

@@ -8,7 +8,7 @@
       "internalPort": 8080,
       "isMain": true,
       "environment": [
-        {
+         {
           "key": "SYNCIN_DATAPATH",
           "value": "/data"
         },
@@ -49,6 +49,10 @@
           "value": "mysql://root:${SYNCIN_DB_ROOT_PASSWORD}@db-syncin:3306/sync_in"
         },
         {
+          "key": "SYNCIN_LOGGER_LEVEL",
+          "value": "info"
+        },
+        {
           "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_ENABLED",
           "value": "true"
         },
@@ -57,44 +61,36 @@
           "value": "${SYNCIN_ONLYOFFICE_SECRET}"
         },
         {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_EXTERNAL_SERVER",
+          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_EXTERNALSERVER",
           "value": "http://onlyoffice:80"
         },
         {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_VERIFY_SSL",
+          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_VERIFYSSL",
           "value": "false"
         },
         {
-          "key": "SYNCIN_APPLICATIONS_FILES_DATA_PATH",
-          "value": "/data"
+          "key": "SYNCIN_MAIL_HOST",
+          "value": "${SYNCIN_MAIL_HOST}"
         },
         {
-          "key": "SYNCIN_LOGGER_LEVEL",
-          "value": "warn"
+          "key": "SYNCIN_MAIL_PORT",
+          "value": "${SYNCIN_MAIL_PORT}"
         },
         {
-          "key": "SYNCIN_HOST",
-          "value": "${SYNCIN_HOST}"
+          "key": "SYNCIN_MAIL_SENDER",
+          "value": "${SYNCIN_MAIL_SENDER}"
         },
         {
-          "key": "SYNCIN_PORT",
-          "value": "${SYNCIN_PORT}"
+          "key": "SYNCIN_MAIL_AUTH_USER",
+          "value": "${SYNCIN_MAIL_USER}"
         },
         {
-          "key": "SYNCIN_SENDER",
-          "value": "${SYNCIN_SENDER}"
+          "key": "SYNCIN_MAIL_AUTH_PASS",
+          "value": "${SYNCIN_MAIL_PASSWORD}"
         },
         {
-          "key": "SYNCIN_AUTH_USER",
-          "value": "${SYNCIN_USER}"
-        },
-        {
-          "key": "SYNCIN_AUTH_PASS",
-          "value": "${SYNCIN_PASS}"
-        },
-        {
-          "key": "SYNCIN_SECURE",
-          "value": "${SYNCIN_SECURE}"
+          "key": "SYNCIN_MAIL_SECURE",
+          "value": "${SYNCIN_MAIL_SECURE}"
         }
       ],
       "volumes": [
