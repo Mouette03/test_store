@@ -7,7 +7,7 @@
   "id": "syncin",
   "tipi_version": 1,
   "version": "1.9.6",
-  "categories": ["productivity"],
+  "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
   "description": "Sync-in is a self-hosted file synchronization and collaboration solution, including user management and secure sharing.",
   "author": "Sync-in",
