@@ -66,6 +66,16 @@
     },
     {
       "type": "password",
+      "label": "OnlyOffice secret (JWT)",
+      "max": 128,
+      "min": 16,
+      "required": true,
+      "default": "change_me_onlyoffice_secret",
+      "hint": "JWT secret shared between Sync-in and OnlyOffice for document editing.",
+      "env_variable": "SYNCIN_ONLYOFFICE_SECRET"
+    },
+    {
+      "type": "password",
       "label": "MariaDB root password",
       "max": 128,
       "min": 8,
