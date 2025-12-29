@@ -9,7 +9,7 @@
       "isMain": true,
       "environment": [
          {
-          "key": "SYNCIN_DATAPATH",
+          "key": "SYNCIN_SERVER_DATAPATH",
           "value": "/data"
         },
         {
