@@ -7,11 +7,10 @@
       "image": "ghcr.io/autobrr/netronome:v0.8.0",
       "internalPort": 7575,
       "isMain": true,
-      "user": "1000:1000",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/data"
+          "containerPath": "/data/config/netronome"
         }
       ]
     }
