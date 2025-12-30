@@ -10,7 +10,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/data/config/netronome"
+          "containerPath": "/data"
         }
       ]
     }
