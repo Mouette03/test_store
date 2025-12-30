@@ -7,7 +7,7 @@
       "image": "ghcr.io/autobrr/netronome:v0.8.0",
       "internalPort": 7575,
       "isMain": true,
-      "command": "sh -c 'mkdir -p /data && netronome serve'",
+      "user": "0:0",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
