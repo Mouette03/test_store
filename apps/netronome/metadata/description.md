@@ -1,57 +1,43 @@
-# Ghost CMS 6
+🇬🇧 English Description
 
-**Modern open-source CMS** for professional publishing.
+🌐 Netronome is a lightweight and modern network monitoring tool that gives you clear insight into your network activity.
 
-##  Configurable Variables
+📊 Monitor network traffic in real time, keep track of connected devices, and analyze performance through a clean and intuitive dashboard.
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GHOST_DATABASE_PASSWORD` | Database password (auto-generated) | Yes |
-| `GHOST_MAIL_SERVICE` | Mail service name (SendGrid, Mailjet) | No |
-| `GHOST_MAIL_HOST` | SMTP Server | No |
-| `GHOST_MAIL_PORT` | SMTP Port (587/465) | No |
-| `GHOST_MAIL_USER` | SMTP Username | No |
-| `GHOST_MAIL_PASSWORD` | SMTP Password | No |
-| `GHOST_MAIL_FROM` | Newsletter sender email | No |
+⚡ Designed to be efficient and easy to use, Netronome runs with low resource usage, making it ideal for home servers, self-hosted setups, and small infrastructures.
 
-##  Key Features
+✨ Key features:
 
-- **Markdown Editor**: Real-time editing, history, emoji autocomplete
-- **Newsletters**: SMTP + open/click tracking
-- **Native Analytics**: Traffic, subscriptions
-- **ActivityPub**: Mastodon, Bluesky, Threads
-- **SEO Tools**: XML sitemap, meta tags, Open Graph
-- **Memberships**: Paid subscriptions
-- **Themes**: Source, Solo, Taste, Episode
+📡 Real-time network traffic monitoring
 
-Showcase site + news + voter newsletter
+🖥️ Visibility into connected devices and active connections
 
----
+🧭 Clean and intuitive dashboard
 
-# Ghost CMS 6
+🪶 Lightweight and self-hosted
 
-**CMS open-source moderne** pour publication professionnelle.
+🔧 Easy to deploy and maintain
 
-##  Variables configurables
+Netronome is perfect for users who want a simple, efficient, and reliable way to monitor their network.
 
-| Variable | Description | Requis |
-|----------|-------------|--------|
-| `GHOST_DATABASE_PASSWORD` | Mot de passe DB (généré auto) | Oui |
-| `GHOST_MAIL_SERVICE` | Nom service (SendGrid, Mailjet) | Non |
-| `GHOST_MAIL_HOST` | Serveur SMTP | Non |
-| `GHOST_MAIL_PORT` | Port SMTP (587/465) | Non |
-| `GHOST_MAIL_USER` | Utilisateur SMTP | Non |
-| `GHOST_MAIL_PASSWORD` | Mot de passe SMTP | Non |
-| `GHOST_MAIL_FROM` | Email d'envoi newsletters | Non |
+🇫🇷 Description Française
 
-##  Fonctionnalités clés
+🌐 Netronome est un outil de surveillance réseau léger et moderne qui offre une vision claire de l’activité de votre réseau.
 
-- **Éditeur Markdown** : Édition temps réel, historique, emojis
-- **Newsletters** : SMTP + tracking ouvert/clicks
-- **Analytics natifs** : Trafic, abonnements (sans cookies)
-- **ActivityPub** : Mastodon, Bluesky, Threads
-- **Outils SEO** : Sitemap XML, meta tags, Open Graph
-- **Memberships** : Abonnements payants
-- **Thèmes** : Source, Solo, Taste, Episode
+📊 Suivez le trafic réseau en temps réel, surveillez les appareils connectés et analysez les performances grâce à un tableau de bord clair et intuitif.
 
-Site vitrine + actualités + newsletter électeurs
+⚡ Conçu pour être simple et efficace, Netronome consomme peu de ressources et convient parfaitement aux serveurs personnels, aux environnements auto-hébergés et aux petites infrastructures.
+
+✨ Fonctionnalités principales :
+
+📡 Surveillance du trafic réseau en temps réel
+
+🖥️ Visibilité des appareils connectés et des connexions actives
+
+🧭 Tableau de bord clair et intuitif
+
+🪶 Application légère et auto-hébergée
+
+🔧 Déploiement et maintenance simplifiés
+
+Netronome est idéal pour ceux qui souhaitent surveiller leur réseau de manière simple, efficace et fiable.
