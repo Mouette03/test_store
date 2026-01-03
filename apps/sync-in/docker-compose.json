@@ -53,22 +53,6 @@
           "value": "info"
         },
         {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_ENABLED",
-          "value": "true"
-        },
-        {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_SECRET",
-          "value": "${SYNCIN_ONLYOFFICE_SECRET}"
-        },
-        {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_EXTERNALSERVER",
-          "value": "http://onlyoffice:80"
-        },
-        {
-          "key": "SYNCIN_APPLICATIONS_FILES_ONLYOFFICE_VERIFYSSL",
-          "value": "false"
-        },
-        {
           "key": "SYNCIN_MAIL_HOST",
           "value": "${SYNCIN_MAIL_HOST}"
         },
@@ -106,9 +90,6 @@
       "dependsOn": {
         "db-syncin": {
           "condition": "service_started"
-        },
-        "onlyoffice": {
-          "condition": "service_started"
         }
       }
     },
@@ -129,17 +110,6 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/mysql"
-        }
-      ]
-    },
-    {
-      "name": "onlyoffice",
-      "image": "onlyoffice/documentserver:latest",
-      "internalPort": 80,
-      "environment": [
-        {
-          "key": "JWT_SECRET",
-          "value": "${SYNCIN_ONLYOFFICE_SECRET}"
         }
       ]
     }
