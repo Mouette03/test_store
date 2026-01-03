@@ -1,5 +1,6 @@
 {
-  "name": "Arcane Docker UI",
+  "name": "Arcane",
+  "id": "arcane",
   "port": 3552,
   "available": true,
   "dynamic_config": true,
