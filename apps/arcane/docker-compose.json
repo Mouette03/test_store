@@ -1,6 +1,5 @@
 {
   "schemaVersion": 2,
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "arcane",
@@ -40,7 +39,7 @@
         }
       ],
       "user": "1000:1000",
-      "depends_on": [
+      "dependsOn": [
         "docker-socket-proxy"
       ],
       "healthCheck": {
@@ -111,10 +110,10 @@
           "value": "1"
         }
       ],
-      "security_opt": [
+      "securityOpt": [
         "no-new-privileges:true"
       ],
-      "cap_add": [
+      "capAdd": [
         "SYS_ADMIN"
       ]
     }
