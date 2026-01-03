@@ -1,13 +1,12 @@
 {
   "name": "Arcane Docker UI",
-  "id": "arcane",
   "available": true,
   "short_desc": "Modern Docker management UI.",
   "author": "getarcaneapp",
   "port": 3552,
-  "categories": ["management"],
+  "categories": ["data"],
   "description": "Arcane is a modern Docker management interface designed for self-hosted environments. Secure socket proxy included. Manage containers, images, networks with granular permissions.",
-  "tipi_version": 5,
+  "tipi_version": 1,
   "version": "latest",
   "source": "https://github.com/getarcaneapp/arcane",
   "website": "https://getarcane.app",
@@ -19,7 +18,6 @@
       "label": "Encryption Key",
       "max": 100,
       "min": 32,
-      "default": "",
       "hint": "32+ chars (openssl rand -base64 32)",
       "required": true,
       "env_variable": "ENCRYPTION_KEY"
@@ -29,7 +27,6 @@
       "label": "JWT Secret",
       "max": 100,
       "min": 32,
-      "default": "",
       "hint": "32+ chars (openssl rand -base64 32)",
       "required": true,
       "env_variable": "JWT_SECRET"
