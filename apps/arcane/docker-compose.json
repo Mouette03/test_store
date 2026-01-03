@@ -36,11 +36,11 @@
         },
         {
           "key": "APP_URL",
-          "value": "http://localhost:3552"
+          "value": "${APP_URL}"
         }
       ],
       "user": "1000:1000",
-      "dependsOn": [
+      "depends_on": [
         "docker-socket-proxy"
       ],
       "healthCheck": {
@@ -111,10 +111,10 @@
           "value": "1"
         }
       ],
-      "securityOpt": [
+      "security_opt": [
         "no-new-privileges:true"
       ],
-      "capAdd": [
+      "cap_add": [
         "SYS_ADMIN"
       ]
     }
