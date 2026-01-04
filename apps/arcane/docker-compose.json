@@ -37,6 +37,10 @@
         {
           "key": "APP_URL",
           "value": "${APP_URL}"
+        },
+        {
+          "key": "ANALYTICS_DISABLED",
+          "value": "true"
         }
       ],
       "user": "1000:1000",
