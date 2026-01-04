@@ -1,39 +1,45 @@
-# WordPress - The Ultimate Content Management System
+﻿# Vert
 
-WordPress is the quintessential content management system (CMS) that has revolutionized the way websites and blogs are created, managed, and published on the internet. With its robust features, unparalleled flexibility, and user-friendly interface, WordPress has become the go-to choice for individuals, businesses, and organizations of all sizes.
+## English
 
-## Unleash Your Creativity
+**Vert** is the file converter you'll love. A powerful, privacy-focused conversion tool that handles all your media processing needs directly on your device.
 
-Whether you're a seasoned web developer or a novice blogger, WordPress empowers you to bring your digital vision to life. Create stunning websites, blogs, portfolios, e-commerce platforms, and more with ease. Customize every aspect of your site, from layout and design to functionality and user experience.
+### Key Features
 
-## Endless Possibilities with Themes and Plugins
+- **Universal Format Support**: Convert images, audio files, documents, and videos with ease
+- **Local Processing**: All image, audio, and document conversions happen on your device for maximum privacy
+- **Lightning-Fast Video Conversion**: Videos are processed on optimized cloud servers for speed
+- **No Limitations**: No file size limits, completely free to use
+- **Ad-Free Experience**: Clean interface without advertisements
+- **Open Source**: Fully transparent and community-driven development
 
-WordPress boasts an extensive library of themes and plugins that cater to every niche and purpose. Choose from thousands of free and premium themes to give your website a unique and polished look. Enhance your site's functionality with plugins that add features like contact forms, SEO optimization, e-commerce capabilities, and social media integration.
+### Supported Formats
 
-## SEO-Friendly and Mobile-Responsive
+- **Images**: PNG, JPEG, JPG, WebP, GIF, SVG, AVIF, HEIC, and more
+- **Audio**: MP3, WAV, FLAC, OGA, M4A, AAC, and more
+- **Documents**: DOCX, DOC, RTF, HTML, Markdown, PDF, EPUB, and more
+- **Video**: MKV, MP4, WebM, AVI, WMV, MOV, and many others
 
-WordPress is designed with search engine optimization (SEO) in mind, making it easier for your content to rank higher on search engine results pages. Additionally, WordPress themes are mobile-responsive by default, ensuring that your site looks great and functions seamlessly on smartphones, tablets, and desktops.
+Vert combines convenience with privacy, giving you complete control over your file conversions.
 
-## Community and Support
+## Français
 
-Join a global community of WordPress enthusiasts, developers, and experts who are always ready to lend a helping hand. With an extensive array of documentation, forums, and tutorials, you'll never be alone on your WordPress journey. Stay up-to-date with the latest trends and best practices in web development and design.
+**Vert** est le convertisseur de fichiers que vous allez adorer. Un outil de conversion puissant et respectueux de la vie privée qui gère tous vos besoins de traitement multimédia directement sur votre appareil.
 
-## Open Source and Constant Innovation
+### Fonctionnalités principales
 
-WordPress is open-source software, which means it's free to use, modify, and distribute. The platform is continually evolving, with regular updates and improvements to enhance security, performance, and usability. Benefit from a future-proof CMS that adapts to the ever-changing digital landscape.
+- **Support universel des formats**: Convertissez des images, fichiers audio, documents et vidéos en toute simplicité
+- **Traitement local**: Toutes les conversions d'images, audio et documents se font sur votre appareil pour une confidentialité maximale
+- **Conversion vidéo ultra-rapide**: Les vidéos sont traitées sur des serveurs cloud optimisés pour la vitesse
+- **Sans limitations**: Aucune limite de taille de fichier, entièrement gratuit
+- **Sans publicité**: Interface épurée sans annonces
+- **Open Source**: Développement entièrement transparent et communautaire
 
-## Get Started Today
+### Formats supportés
 
-Whether you're building a personal blog, a corporate website, an online store, or a community forum, WordPress provides the tools and resources you need to succeed. Begin your WordPress journey today and experience the limitless possibilities of the web.
+- **Images**: PNG, JPEG, JPG, WebP, GIF, SVG, AVIF, HEIC, et plus
+- **Audio**: MP3, WAV, FLAC, OGA, M4A, AAC, et plus
+- **Documents**: DOCX, DOC, RTF, HTML, Markdown, PDF, EPUB, et plus
+- **Vidéo**: MKV, MP4, WebM, AVI, WMV, MOV, et bien d'autres
 
-**Official Website:** [WordPress.org](https://wordpress.org)
-
-**GitHub Repository:** [WordPress on GitHub](https://github.com/WordPress/WordPress)
-
-**Documentation:** [WordPress Codex](https://codex.wordpress.org/)
-
-**Support and Community:** [WordPress Support Forums](https://wordpress.org/support/)
-
-**WordPress Plugins:** [WordPress Plugin Directory](https://wordpress.org/plugins/)
-
-**WordPress Themes:** [WordPress Theme Directory](https://wordpress.org/themes/)
+Vert combine commodité et confidentialité, vous donnant un contrôle total sur vos conversions de fichiers.

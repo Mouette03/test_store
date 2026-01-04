@@ -3,7 +3,7 @@
   "id": "vert",
   "exposable": true,
   "dynamic_config": true,
-  "port": 3000,
+  "port": 6428,
   "available": true,
   "tipi_version": 1,
   "version": "838a6c7",
