@@ -13,14 +13,32 @@
           "containerPath": "/app/data"
         }
       ],
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "ENCRYPTION_KEY": "${ENCRYPTION_KEY}",
-        "JWT_SECRET": "${JWT_SECRET}",
-        "DOCKER_HOST": "tcp://docker-socket-proxy:2375",
-        "APP_URL": "${APP_URL}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "ENCRYPTION_KEY",
+          "value": "${ENCRYPTION_KEY}"
+        },
+        {
+          "key": "JWT_SECRET",
+          "value": "${JWT_SECRET}"
+        },
+        {
+          "key": "DOCKER_HOST",
+          "value": "tcp://docker-socket-proxy:2375"
+        },
+        {
+          "key": "APP_URL",
+          "value": "${APP_URL}"
+        }
+      ],
       "user": "1000:1000",
       "depends_on": [
         "docker-socket-proxy"
@@ -43,20 +61,56 @@
           "containerPath": "/var/run/docker.sock:ro"
         }
       ],
-      "environment": {
-        "EVENTS": "1",
-        "PING": "1",
-        "VERSION": "1",
-        "AUTH": "0",
-        "SECRETS": "0",
-        "POST": "1",
-        "CONTAINERS": "1",
-        "EXEC": "1",
-        "IMAGES": "1",
-        "INFO": "1",
-        "NETWORKS": "1",
-        "VOLUMES": "1"
-      },
+      "environment": [
+        {
+          "key": "EVENTS",
+          "value": "1"
+        },
+        {
+          "key": "PING",
+          "value": "1"
+        },
+        {
+          "key": "VERSION",
+          "value": "1"
+        },
+        {
+          "key": "AUTH",
+          "value": "0"
+        },
+        {
+          "key": "SECRETS",
+          "value": "0"
+        },
+        {
+          "key": "POST",
+          "value": "1"
+        },
+        {
+          "key": "CONTAINERS",
+          "value": "1"
+        },
+        {
+          "key": "EXEC",
+          "value": "1"
+        },
+        {
+          "key": "IMAGES",
+          "value": "1"
+        },
+        {
+          "key": "INFO",
+          "value": "1"
+        },
+        {
+          "key": "NETWORKS",
+          "value": "1"
+        },
+        {
+          "key": "VOLUMES",
+          "value": "1"
+        }
+      ],
       "security_opt": [
         "no-new-privileges:true"
       ],
