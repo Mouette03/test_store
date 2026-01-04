@@ -9,7 +9,7 @@
   "categories": ["utilities"],
   "description": "Arcane is a modern Docker management interface designed for self-hosted environments. Secure socket proxy included. Manage containers, images, networks with granular permissions.",
   "short_desc": "Modern Docker management interface.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1",
   "source": "https://github.com/getarcaneapp/arcane",
   "website": "https://getarcane.app",
