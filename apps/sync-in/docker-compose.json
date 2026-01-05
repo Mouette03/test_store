@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "syncin",
-      "image": "syncin/server:V1.9.6",
+      "image": "syncin/server:1.9.6",
       "internalPort": 8080,
       "isMain": true,
       "environment": [
