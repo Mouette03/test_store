@@ -4,21 +4,13 @@
   "services": [
     {
       "name": "syncin",
-      "image": "syncin/server:latest",
+      "image": "syncin/server:V1.9.6",
       "internalPort": 8080,
       "isMain": true,
       "environment": [
         {
           "key": "SYNCIN_APPLICATIONS_FILES_DATAPATH",
           "value": "/data"
-        },
-        {
-          "key": "SYNCIN_SERVER_HOST",
-          "value": "0.0.0.0"
-        },
-        {
-          "key": "SYNCIN_SERVER_PORT",
-          "value": "8080"
         },
         {
           "key": "INIT_ADMIN",
@@ -79,12 +71,8 @@
       ],
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data",
+          "hostPath": "${APP_DATA_DIR}/data/sync-in",
           "containerPath": "/data"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/config/environment.yaml",
-          "containerPath": "/app/config/environment.yaml"
         }
       ],
       "dependsOn": {
