@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "1.9.6",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
@@ -17,10 +17,7 @@
     {
       "type": "text",
       "label": "Sync-in admin login",
-      "max": 64,
-      "min": 3,
       "required": true,
-      "default": "",
       "hint": "Username for the initial Sync-in administrator account.",
       "env_variable": "SYNCIN_ADMIN_LOGIN"
     },
@@ -30,7 +27,6 @@
       "max": 128,
       "min": 8,
       "required": true,
-      "default": "",
       "hint": "Password for the initial Sync-in administrator account.",
       "env_variable": "SYNCIN_ADMIN_PASSWORD"
     },
@@ -38,9 +34,8 @@
       "type": "password",
       "label": "Encryption key",
       "max": 128,
-      "min": 16,
+      "min": 32,
       "required": true,
-      "default": "",
       "hint": "Key used to encrypt sensitive Sync-in data. Do not change after deployment.",
       "env_variable": "SYNCIN_ENCRYPTION_KEY"
     },
@@ -48,9 +43,8 @@
       "type": "password",
       "label": "Access token secret",
       "max": 128,
-      "min": 16,
+      "min": 32,
       "required": true,
-      "default": "",
       "hint": "Secret to sign access tokens (sessions).",
       "env_variable": "SYNCIN_ACCESS_SECRET"
     },
@@ -58,9 +52,8 @@
       "type": "password",
       "label": "Refresh token secret",
       "max": 128,
-      "min": 16,
+      "min": 32,
       "required": true,
-      "default": "",
       "hint": "Secret to sign refresh tokens.",
       "env_variable": "SYNCIN_REFRESH_SECRET"
     },
@@ -70,26 +63,20 @@
       "max": 128,
       "min": 8,
       "required": true,
-      "default": "",
       "hint": "MariaDB root account password used by Sync-in.",
       "env_variable": "SYNCIN_DB_ROOT_PASSWORD"
     },
     {
       "type": "text",
       "label": "SMTP host",
-      "max": 255,
-      "min": 4,
-      "required": false,
-      "default": "",
+      "required": true,
       "hint": "SMTP host (e.g. smtp.gmail.com, relay.mydomain.com)",
       "env_variable": "SYNCIN_MAIL_HOST"
     },
     {
       "type": "number",
       "label": "SMTP port",
-      "max": 65535,
-      "min": 25,
-      "required": false,
+      "required": true,
       "default": "587",
       "hint": "SMTP port (587=STARTTLS, 465=SSL, 25=unsecured)",
       "env_variable": "SYNCIN_MAIL_PORT"
@@ -97,41 +84,31 @@
     {
       "type": "text",
       "label": "Sender",
-      "max": 255,
-      "min": 5,
-      "required": false,
-      "default": "",
+      "required": true,
       "hint": "Visible address (e.g. Sync-in <notification@mydomain.com>)",
       "env_variable": "SYNCIN_MAIL_SENDER"
     },
     {
       "type": "text",
       "label": "SMTP user",
-      "max": 255,
-      "min": 1,
-      "required": false,
-      "default": "",
+      "required": true,
       "hint": "SMTP login (often = email address)",
       "env_variable": "SYNCIN_MAIL_USER"
     },
     {
       "type": "password",
       "label": "SMTP password",
-      "max": 128,
-      "min": 6,
-      "required": false,
-      "default": "",
+      "required": true,
       "hint": "Password SMTP",
       "env_variable": "SYNCIN_MAIL_PASSWORD"
     },
     {
       "type": "text",
       "label": "SMTP security",
-      "required": false,
-      "default": "false",
+      "required": true,
       "options": [
-        {"label": "false", "value": "false"},
-        {"label": "true", "value": "true"}
+        {"label": "true", "value": "true"},
+        {"label": "false", "value": "false"}
       ],
       "hint": "Enable SMTP security",
       "env_variable": "SYNCIN_MAIL_SECURE"
