@@ -1,5 +1,13 @@
 ﻿# Vert
 
+## Important Note
+
+**English**: The conversion of videos uses VERT's servers due to GPU requirements. For this functionality to work, you need to use Runtipi's Inverse Proxy Setting to set a Custom Address for this app. [Self-hosting of the video converter is available for those who wish to set it up themselves](https://github.com/VERT-sh/VERT/blob/main/docs/VIDEO_CONVERSION.md).
+
+**Français**: La conversion de vidéos utilise les serveurs de VERT en raison des besoins GPU. Pour que cette fonctionnalité fonctionne, vous devez utiliser le paramètre Proxy Inverse de Runtipi pour définir une adresse personnalisée pour cette application. [L'auto-hébergement du convertisseur vidéo est disponible pour ceux qui souhaitent le configurer eux-mêmes](https://github.com/VERT-sh/VERT/blob/main/docs/VIDEO_CONVERSION.md).
+
+---
+
 ## English
 
 **Vert** is the file converter you'll love. A powerful, privacy-focused conversion tool that handles all your media processing needs directly on your device.

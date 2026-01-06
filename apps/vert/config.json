@@ -15,7 +15,7 @@
   "website": "https://vert.sh",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1767567901180,
-  "updated_at": 1767567901180,
+  "created_at": 1767733346392,
+  "updated_at": 1767733346392,
   "min_tipi_version": "4.5.0"
 }
