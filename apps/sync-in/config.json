@@ -74,11 +74,15 @@
       "env_variable": "SYNCIN_MAIL_HOST"
     },
     {
-      "type": "number",
+      "type": "text",
       "label": "SMTP port",
       "required": true,
-      "default": "587",
-      "hint": "SMTP port (587=STARTTLS, 465=SSL, 25=unsecured)",
+      "options": [
+        {"label": "587 (STARTTLS)", "value": "587"},
+        {"label": "465 (SSL)", "value": "465"},
+        {"label": "25 (unsecured)", "value": "25"}
+      ],
+      "hint": "SMTP port",
       "env_variable": "SYNCIN_MAIL_PORT"
     },
     {
