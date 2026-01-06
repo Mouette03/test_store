@@ -114,7 +114,7 @@
         {"label": "true", "value": "true"},
         {"label": "false", "value": "false"}
       ],
-      "hint": "Defines if the connection should use SSL (if true) or not (if false) Note: setting `secure: false` does not necessarily mean messages are sent in plaintext. If the server supports STARTTLS, the connection is usually upgraded to TLS automatically",
+      "hint": "Defines if the connection should use SSL (if true) or not (if false) Note: setting `false` does not necessarily mean messages are sent in plaintext. If the server supports STARTTLS, the connection is usually upgraded to TLS automatically",
       "env_variable": "SYNCIN_MAIL_SECURE"
     }
   ],
