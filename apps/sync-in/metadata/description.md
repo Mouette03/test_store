@@ -30,7 +30,7 @@ With features like collaborative spaces, secure file sharing, and granular permi
 **Generate authentication tokens:**  
 Run this command to generate the 3 required tokens:
 ```bash
-for i in 1 2 3; do openssl rand -base64 24; done
+for i in 1 2 3; do openssl rand -base64 48; done
 ```
 
 ---
@@ -65,5 +65,5 @@ Avec des fonctionnalités comme les espaces collaboratifs, le partage sécurisé
 **Générer les tokens d'authentification :**  
 Exécutez cette commande pour générer les 3 tokens requis :
 ```bash
-for i in 1 2 3; do openssl rand -base64 24; done
+for i in 1 2 3; do openssl rand -base64 48; done
 ```
