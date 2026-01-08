@@ -5,8 +5,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 1,
-  "version": "1.9.6",
+  "tipi_version": 2,
+  "version": "1.10.0",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
   "description": "Sync-in is a self-hosted file synchronization and collaboration solution, including user management and secure sharing.",
@@ -82,8 +82,15 @@
         {"label": "465 (SSL)", "value": "465"},
         {"label": "25 (unsecured)", "value": "25"}
       ],
-      "hint": "SMTP port",
+      "hint": "SMTP server port. Use 587 for STARTTLS (recommended), 465 for SSL, or 25 for unencrypted connections",
       "env_variable": "SYNCIN_MAIL_PORT"
+    },
+    {
+      "type": "boolean",
+      "label": "Enable SMTP security",
+      "required": false,
+      "hint": "Defines whether the connection should use SSL. Note: disabling does not necessarily mean that messages are sent in plain text. If the server supports STARTTLS, the connection is usually automatically upgraded to TLS.",
+      "env_variable": "SYNCIN_MAIL_SECURE"
     },
     {
       "type": "text",
@@ -105,21 +112,10 @@
       "required": true,
       "hint": "Password SMTP",
       "env_variable": "SYNCIN_MAIL_PASSWORD"
-    },
-    {
-      "type": "text",
-      "label": "SMTP security",
-      "required": true,
-      "options": [
-        {"label": "true", "value": "true"},
-        {"label": "false", "value": "false"}
-      ],
-      "hint": "Defines if the connection should use SSL (if true) or not (if false) Note: setting `false` does not necessarily mean messages are sent in plaintext. If the server supports STARTTLS, the connection is usually upgraded to TLS automatically",
-      "env_variable": "SYNCIN_MAIL_SECURE"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1767659165292,
-  "updated_at": 1767659165292,
+  "updated_at": 1767832205271,
   "min_tipi_version": "4.5.0"
 }
