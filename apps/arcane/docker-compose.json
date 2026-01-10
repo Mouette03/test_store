@@ -40,7 +40,7 @@
         "docker-socket-proxy"
       ],
       "healthCheck": {
-        "test": "curl -fsS http://localhost:3552/api/health || exit 1",
+        "test": "curl -fsS http://127.0.0.1:3552/api/health || exit 1",
         "interval": "10s",
         "timeout": "3s",
         "retries": 5,
