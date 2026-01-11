@@ -1,16 +1,36 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "palmr",
-      "image": "kyantech/palmr:v3.2.2-beta",
+      "image": "kyantech/palmr:v3.3.2-beta",
       "internalPort": 5487,
       "isMain": true,
-      "environment": {
-        "DOWNLOAD_MAX_CONCURRENT": "${DOWNLOAD_MAX_CONCURRENT}",
-        "SECURE_SITE": "${SECURE_SITE}",
-        "DOWNLOAD_MIN_FILE_SIZE_GB": "${ACTIVATE_MEMORY_MANAGEMENT}",
-        "DEFAULT_LANGUAGE": "${DEFAULT_LANGUAGE}"
-      },
+      "addPorts": [
+        {
+          "containerPort": 9379,
+          "hostPort": 9379
+        }
+      ],
+      "environment": [
+        {
+          "key": "STORAGE_URL",
+          "value": "${APP_PROTOCOL}://${APP_HOST}:9379"
+        },
+        {
+          "key": "SECURE_SITE",
+          "value": "${SECURE_SITE}"
+        },
+        {
+          "key": "DEFAULT_LANGUAGE",
+          "value": "${DEFAULT_LANGUAGE}"
+        },
+        {
+          "key": "PRESIGNED_URL_EXPIRATION",
+          "value": "${PRESIGNED_URL_EXPIRATION}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/server",
