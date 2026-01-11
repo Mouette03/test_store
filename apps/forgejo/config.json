@@ -1,0 +1,54 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Forgejo",
+  "id": "forgejo",
+  "port": 6349,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "tipi_version": 1,
+  "version": "13.0.4",
+  "categories": ["development"],
+  "description": "Forgejo self-hosted Git avec MariaDB + Actions CI/CD. Français, SSH 222, RPi5 optimisé.",
+  "short_desc": "Beyond coding. We forge. · Léger · 100% FOSS · Actions RPi5",
+  "author": "VotrePseudo",
+  "source": "https://codeberg.org/forgejo/forgejo/",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "MariaDB root password",
+      "max": 32,
+      "min": 8,
+      "required": true,
+      "env_variable": "FORGEJO_DB_ROOT_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "Forgejo DB password",
+      "max": 32,
+      "min": 8,
+      "required": true,
+      "env_variable": "FORGEJO_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Forgejo DB username",
+      "max": 32,
+      "min": 6,
+      "required": true,
+      "default": "forgejo",
+      "env_variable": "FORGEJO_DB_USERNAME"
+    },
+    {
+      "type": "boolean",
+      "label": "Actions CI/CD",
+      "required": false,
+      "hint": "Enable Forgejo Actions runner for continuous integration and deployment. Compatible with GitHub Actions workflows.",
+      "env_variable": "FORGEJO_ACTIONS"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1768174322925,
+  "updated_at": 1768174322925,
+  "min_tipi_version": "4.5.0"
+}
