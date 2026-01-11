@@ -7,7 +7,6 @@
       "image": "codeberg.org/forgejo/forgejo:13.0.4",
       "isMain": true,
       "internalPort": 3000,
-      "user": "1000:1000",
       "addPorts": [
         {
           "hostPort": 222,
