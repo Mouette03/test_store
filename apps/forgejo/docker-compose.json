@@ -16,14 +16,6 @@
       ],
       "environment": [
         {
-          "key": "USER_UID",
-          "value": "1000"
-        },
-        {
-          "key": "USER_GID",
-          "value": "1000"
-        },
-        {
           "key": "FORGEJO__database__DB_TYPE",
           "value": "mysql"
         },
@@ -37,7 +29,7 @@
         },
         {
           "key": "FORGEJO__database__USER",
-          "value": "forgejo"
+          "value": "${FORGEJO_DB_USERNAME}"
         },
         {
           "key": "FORGEJO__database__PASSWD",
@@ -49,7 +41,7 @@
         },
         {
           "key": "FORGEJO__actions__ENABLED",
-          "value": "true"
+          "value": "${FORGEJO_ACTIONS}"
         }
       ],
       "dependsOn": ["forgejo-db"],
@@ -60,7 +52,7 @@
         }
       ],
       "healthCheck": {
-        "test": ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000"],
+        "test": "wget --quiet --tries=1 --spider http://127.0.0.1:3000 || exit 1",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
@@ -76,7 +68,7 @@
         },
         {
           "key": "MYSQL_USER",
-          "value": "forgejo"
+          "value": "${FORGEJO_DB_USERNAME}"
         },
         {
           "key": "MYSQL_ROOT_PASSWORD",
@@ -94,7 +86,7 @@
         }
       ],
       "healthCheck": {
-        "test": ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "--password=${FORGEJO_DB_ROOT_PASSWORD}"],
+        "test": "mariadb-admin ping -h 127.0.0.1 -u root --password=${FORGEJO_DB_ROOT_PASSWORD} || exit 1",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
