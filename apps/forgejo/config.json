@@ -15,11 +15,9 @@
   "source": "https://codeberg.org/forgejo/forgejo/",
   "form_fields": [
     {
-      "type": "password",
-      "label": "MariaDB root password",
-      "max": 32,
-      "min": 8,
-      "required": true,
+      "type": "random",
+      "label": "FORGEJO_DB_PASSWORD",
+      "min": 16,
       "env_variable": "FORGEJO_DB_ROOT_PASSWORD"
     },
     {
