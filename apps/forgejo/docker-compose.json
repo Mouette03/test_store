@@ -97,7 +97,7 @@
       "environment": [
         {
           "key": "FORGEJO_URL",
-          "value": "http://forgejo:3000"
+          "value": "${APP_PROTOCOL}://${APP_DOMAIN}"
         },
         {
           "key": "FORGEJO_TOKEN",
