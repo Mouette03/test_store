@@ -59,7 +59,7 @@
     },
     {
       "name": "forgejo-db",
-      "image": "mariadb:12",
+      "image": "mariadb:11",
       "environment": [
         {
           "key": "MYSQL_DATABASE",
@@ -90,32 +90,6 @@
         "timeout": "10s",
         "retries": 3
       }
-    },
-    {
-      "name": "forgejo-runner",
-      "image": "code.forgejo.org/forgejo/runner:12",
-      "command": "forgejo-runner daemon",
-      "environment": [
-        {
-          "key": "FORGEJO_URL",
-          "value": "http://forgejo:3000"
-        },
-        {
-          "key": "FORGEJO_TOKEN",
-          "value": "z1c9jL9vqFBX1hrTBLGOV7i9tHR2wqTuB1H5U3BA"
-        },
-        {
-          "key": "FORGEJO_RUNNER_LABELS",
-          "value": "docker:dind"
-        }
-      ],
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/runner",
-          "containerPath": "/data"
-        }
-      ],
-      "dependsOn": ["forgejo"]
     }
   ]
 }
