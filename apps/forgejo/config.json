@@ -9,8 +9,8 @@
   "tipi_version": 1,
   "version": "13.0.4",
   "categories": ["development"],
-  "description": "Forgejo self-hosted Git avec MariaDB + Actions CI/CD. Français, SSH 222, RPi5 optimisé.",
-  "short_desc": "Beyond coding. We forge. · Léger · 100% FOSS · Actions RPi5",
+  "description": "Self-hosted Git service with MariaDB and optional CI/CD Actions runner. Lightweight, secure, and 100% FOSS.",
+  "short_desc": "Beyond coding. We forge.",
   "author": "VotrePseudo",
   "source": "https://codeberg.org/forgejo/forgejo/",
   "form_fields": [
