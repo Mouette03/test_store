@@ -90,6 +90,31 @@
         "timeout": "10s",
         "retries": 3
       }
+    },
+    {
+      "name": "forgejo-runner",
+      "image": "codeberg.org/forgejo/runner:3.5.0-rootless",
+      "environment": [
+        {
+          "key": "FORGEJO_URL",
+          "value": "http://forgejo:3000"
+        },
+        {
+          "key": "FORGEJO_TOKEN",
+          "value": "${FORGEJO_RUNNER_TOKEN}"
+        },
+        {
+          "key": "FORGEJO_RUNNER_LABELS",
+          "value": "docker:dind"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/runner",
+          "containerPath": "/data"
+        }
+      ],
+      "dependsOn": ["forgejo"]
     }
   ]
 }
