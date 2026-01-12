@@ -94,7 +94,6 @@
     {
       "name": "forgejo-runner",
       "image": "code.forgejo.org/forgejo/runner:12",
-      "command": "forgejo-runner daemon",
       "environment": [
         {
           "key": "FORGEJO_URL",
