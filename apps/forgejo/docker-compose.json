@@ -102,7 +102,7 @@
         },
         {
           "key": "FORGEJO_TOKEN",
-          "value": "${FORGEJO_RUNNER_TOKEN}"
+          "value": "z1c9jL9vqFBX1hrTBLGOV7i9tHR2wqTuB1H5U3BA"
         },
         {
           "key": "FORGEJO_RUNNER_LABELS",
