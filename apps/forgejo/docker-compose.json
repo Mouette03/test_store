@@ -93,11 +93,11 @@
     },
     {
       "name": "forgejo-runner",
-      "image": "codeberg.org/forgejo/runner:3.5.0-rootless",
+      "image": "code.forgejo.org/forgejo/runner:12",
       "environment": [
         {
           "key": "FORGEJO_URL",
-          "value": "${APP_PROTOCOL}://${APP_DOMAIN}"
+          "value": "http://forgejo:3000"
         },
         {
           "key": "FORGEJO_TOKEN",
