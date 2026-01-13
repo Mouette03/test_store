@@ -43,12 +43,14 @@
       "type": "random",
       "encoding": "base64",
       "min": 16,
+      "max" : 16,
       "env_variable": "SYNCIN_ACCESS_SECRET"
     },
     {
       "type": "random",
       "encoding": "base64",
       "min": 16,
+      "max" : 16,
       "env_variable": "SYNCIN_REFRESH_SECRET"
     },
     {
