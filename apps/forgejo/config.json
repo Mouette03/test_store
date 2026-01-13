@@ -6,7 +6,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "13.0.4",
   "categories": ["development"],
   "description": "Self-hosted Git service with MariaDB and optional CI/CD Actions runner. Lightweight, secure, and 100% FOSS.",
@@ -36,6 +36,13 @@
       "required": true,
       "default": "forgejo",
       "env_variable": "FORGEJO_DB_USERNAME"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable SSH service",
+      "required": false,
+      "hint": "Defines whether the SSH service should be enabled. Disabling SSH can enhance security by preventing SSH access to the server.",
+      "env_variable": "APP_SSH_DISABLED"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

@@ -49,6 +49,10 @@
         {
           "key": "FORGEJO__actions__ENABLED",
           "value": "false"
+        },
+        {
+          "key": "FORGEJO__server__DISABLE_SSH",
+          "value": "${APP_SSH_DISABLED}"
         }
       ],
       "dependsOn": {
