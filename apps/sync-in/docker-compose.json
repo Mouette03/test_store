@@ -96,10 +96,6 @@
         {
           "key": "MYSQL_DATABASE",
           "value": "sync_in"
-        },
-        {
-          "key": "MARIADB_AUTO_UPGRADE",
-          "value": "1"
         }
       ],
       "volumes": [
