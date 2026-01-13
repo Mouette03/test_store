@@ -40,7 +40,7 @@
         },
         {
           "key": "FORGEJO__server__DOMAIN",
-          "value": "${APP_DOMAIN}"
+          "value": "${APP_HOST}"
         },
         {
           "key": "FORGEJO__server__SSH_PORT",
