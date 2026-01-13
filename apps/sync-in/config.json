@@ -42,15 +42,15 @@
     {
       "type": "random",
       "label": "Access token secret",
-      "min": 32,
-      "max" : 32,
+      "min": 64,
+      "max" : 64,
       "env_variable": "SYNCIN_ACCESS_SECRET"
     },
     {
       "type": "random",
       "label": "Refresh token secret",
-      "min": 32,
-      "max" : 32,
+      "min": 64,
+      "max" : 64,
       "env_variable": "SYNCIN_REFRESH_SECRET"
     },
     {
