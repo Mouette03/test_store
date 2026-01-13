@@ -40,10 +40,14 @@
         },
         {
           "key": "FORGEJO__actions__ENABLED",
-          "value": "${FORGEJO_ACTIONS}"
+          "value": "false"
         }
       ],
-      "dependsOn": ["forgejo-db"],
+      "dependsOn": {
+        "forgejo-db": {
+          "condition": "service_healthy"
+        }
+      },
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/forgejo",
@@ -86,9 +90,10 @@
       ],
       "healthCheck": {
         "test": "mariadb-admin ping -h 127.0.0.1 -u root --password=${FORGEJO_DB_ROOT_PASSWORD} || exit 1",
-        "interval": "30s",
-        "timeout": "10s",
-        "retries": 3
+        "interval": "5s",
+        "timeout": "5s",
+        "retries": 20,
+        "startPeriod": "30s"
       }
     }
   ]

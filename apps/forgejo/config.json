@@ -6,7 +6,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 10,
+  "tipi_version": 11,
   "version": "13.0.4",
   "categories": ["development"],
   "description": "Self-hosted Git service with MariaDB and optional CI/CD Actions runner. Lightweight, secure, and 100% FOSS.",
@@ -36,13 +36,6 @@
       "required": true,
       "default": "forgejo",
       "env_variable": "FORGEJO_DB_USERNAME"
-    },
-    {
-      "type": "boolean",
-      "label": "Actions CI/CD",
-      "required": false,
-      "hint": "Enable Forgejo Actions runner for continuous integration and deployment. Compatible with GitHub Actions workflows.",
-      "env_variable": "FORGEJO_ACTIONS"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
