@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 25,
+  "tipi_version": 19,
   "version": "1.10.1",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
@@ -42,17 +42,13 @@
     {
       "type": "random",
       "encoding": "base64",
-      "max": 16,
       "min": 16,
-      "required": true,
       "env_variable": "SYNCIN_ACCESS_SECRET"
     },
     {
       "type": "random",
       "encoding": "base64",
-      "max": 16,
       "min": 16,
-      "required": true,
       "env_variable": "SYNCIN_REFRESH_SECRET"
     },
     {
