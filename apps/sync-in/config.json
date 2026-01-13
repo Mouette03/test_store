@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 16,
+  "tipi_version": 17,
   "version": "1.10.0",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
