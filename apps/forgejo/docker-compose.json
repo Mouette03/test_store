@@ -74,12 +74,15 @@
           "containerPath": "/data"
         }
       ],
-      "healthCheck": {
-        "test": "wget --quiet --tries=1 --spider http://127.0.0.1:3000/api/healthz || exit 1",
+      "healthcheck": {
+        "test": [
+        "CMD-SHELL",
+        "HEALTH_RESPONSE=$(curl -fsS http://127.0.0.1:3000/api/healthz) && echo \"$HEALTH_RESPONSE\" | grep -Eq '\"status\"\\s*:\\s*\"pass\"' || (echo \"Healthcheck failed: ${HEALTH_RESPONSE:-<no response>}\" >&2; exit 1)"],
+        "start_period": "1m",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
-      }
+     }
     },
     {
       "name": "forgejo-db",
