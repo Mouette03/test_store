@@ -80,7 +80,7 @@
       ],
       "healthCheck": {
         "test": "curl -fsS http://127.0.0.1:3000/api/healthz | grep -Eq '\"status\"[[:space:]]*:[[:space:]]*\"pass\"' || (echo \"Healthcheck failed\" >&2; exit 1)",
-        "startPeriod": "2m",
+        "startPeriod": "1m",
         "interval": "1m",
         "timeout": "10s",
         "retries": 3
