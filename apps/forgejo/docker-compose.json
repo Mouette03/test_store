@@ -75,12 +75,12 @@
         }
       ],
       "healthCheck": {
-        "test": "HEALTH_RESPONSE=$(curl -fsS http://127.0.0.1:3000/api/healthz) && echo \"$HEALTH_RESPONSE\" | grep -Eq '\"status\"\\s*:\\s*\"pass\"' || (echo \"Healthcheck failed: ${HEALTH_RESPONSE:-<no response>}\" >&2; exit 1)",
-        "startPeriod": "1m",
+        "test": "HEALTH_RESPONSE=$(curl -fsS http://127.0.0.1:3000/api/healthz) && echo \"$HEALTH_RESPONSE\" | grep -Eq '\"status\"[[:space:]]*:[[:space:]]*\"pass\"' || (echo \"Healthcheck failed: ${HEALTH_RESPONSE:-<no response>}\" >&2; exit 1)",
+        "startPeriod": "2m",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
-     }
+}
     },
     {
       "name": "forgejo-db",
