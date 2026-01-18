@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "forgejo",
-      "image": "codeberg.org/forgejo/forgejo:13.0.4",
+      "image": "codeberg.org/forgejo/forgejo:14.0.1",
       "isMain": true,
       "internalPort": 3000,
       "addPorts": [
@@ -43,6 +43,14 @@
           "value": "${APP_HOST}"
         },
         {
+          "key": "FORGEJO__server__PROTOCOL",
+          "value": "http"
+        },
+        {
+          "key": "FORGEJO__server__SSH_DOMAIN",
+          "value": "${APP_HOST}"
+        },
+        {
           "key": "FORGEJO__server__SSH_PORT",
           "value": "222"
         },
@@ -67,7 +75,7 @@
         }
       ],
       "healthCheck": {
-        "test": "wget --quiet --tries=1 --spider http://127.0.0.1:3000 || exit 1",
+        "test": "wget --quiet --tries=1 --spider http://127.0.0.1:3000/api/healthz || exit 1",
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
@@ -75,7 +83,7 @@
     },
     {
       "name": "forgejo-db",
-      "image": "mariadb:12",
+      "image": "mariadb:11",
       "environment": [
         {
           "key": "MYSQL_DATABASE",
