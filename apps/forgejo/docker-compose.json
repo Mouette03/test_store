@@ -63,6 +63,14 @@
           "value": "${APP_SSH_DISABLED}"
         },
         {
+          "key": "FORGEJO__log.router__MODE",
+          "value": "console"
+        },
+        {
+          "key": "FORGEJO__log.router__LEVEL",
+          "value": "INFO"
+        },
+        {
           "key": "FORGEJO__log.router__EXCLUSION",
           "value": "(\\/api\\/healthz|\\/metrics)"
         }
