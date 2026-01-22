@@ -6,8 +6,8 @@
   "force_expose": true,
   "port": 9200,
   "dynamic_config": true,
-  "version": "4.1.0",
-  "tipi_version": 16,
+  "version": "4.0.1",
+  "tipi_version": 17,
   "categories": ["data"],
   "description": "OpenCloud est une plateforme open-source qui offre un moyen sécurisé et privé de stocker, accéder et partager vos fichiers. Fork d'ownCloud avec des améliorations de performance.",
   "short_desc": "Solution de stockage cloud sécurisée et privée",
@@ -23,6 +23,67 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Activer le service de notifications",
+      "required": true,
+      "env_variable": "OPENCLOUD_ENABLE_NOTIFICATIONS",
+      "options": [
+        { "label": "Oui", "value": "true" },
+        { "label": "Non", "value": "false" }
+     ]
+    },
+    {
+      "type": "text",
+      "label": "SMTP host",
+      "hint": "Ex: smtp.mailjet.com",
+      "required": true,
+      "env_variable": "OPENCLOUD_SMTP_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP port",
+      "required": true,
+      "env_variable": "OPENCLOUD_SMTP_PORT",
+      "options": [
+        { "label": "587 (STARTTLS)", "value": "587" },
+        { "label": "465 (SSL/TLS)", "value": "465" },
+        { "label": "25 (non chiffré)", "value": "25" },
+        { "label": "1025 (Mailhog/Mailpit)", "value": "1025" }
+     ]
+    },
+    {
+      "type": "text",
+      "label": "SMTP sender (From)",
+      "hint": "Ex: noreply@domaine.tld",
+      "required": true,
+      "env_variable": "OPENCLOUD_SMTP_SENDER"
+    },
+    {
+      "type": "text",
+      "label": "SMTP username",
+      "hint": "Utilisateur/login SMTP",
+      "required": false,
+      "env_variable": "OPENCLOUD_SMTP_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "SMTP password",
+      "hint": "Mot de passe SMTP",
+      "required": false,
+      "env_variable": "OPENCLOUD_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP encryption",
+      "required": true,
+      "env_variable": "OPENCLOUD_SMTP_TRANSPORT_ENCRYPTION",
+      "options": [
+        { "label": "STARTTLS (587)", "value": "starttls" },
+        { "label": "SSL/TLS (465) (ssltls)", "value": "ssltls" },
+        { "label": "Aucun (none)", "value": "none" }
+     ]
     }
   ],
   "supported_architectures": ["amd64", "arm64"],
