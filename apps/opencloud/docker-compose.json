@@ -7,11 +7,6 @@
       "image": "opencloudeu/opencloud-rolling:4.1.0",
       "internalPort": 9200,
       "isMain": true,
-      "entrypoint": "/bin/sh",
-      "command": [
-        "-c",
-        "opencloud init --insecure true --force-overwrite || true; opencloud server"
-      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
