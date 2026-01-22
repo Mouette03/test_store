@@ -27,7 +27,7 @@
     {
       "type": "text",
       "label": "Activer le service de notifications",
-      "required": true,
+      "required": false,
       "env_variable": "OPENCLOUD_ENABLE_NOTIFICATIONS",
       "options": [
         { "label": "Oui", "value": "true" },
@@ -38,13 +38,13 @@
       "type": "text",
       "label": "SMTP host",
       "hint": "Ex: smtp.mailjet.com",
-      "required": true,
+      "required": false,
       "env_variable": "OPENCLOUD_SMTP_HOST"
     },
     {
       "type": "text",
       "label": "SMTP port",
-      "required": true,
+      "required": false,
       "env_variable": "OPENCLOUD_SMTP_PORT",
       "options": [
         { "label": "587 (STARTTLS)", "value": "587" },
@@ -57,7 +57,7 @@
       "type": "text",
       "label": "SMTP sender (From)",
       "hint": "Ex: noreply@domaine.tld",
-      "required": true,
+      "required": false,
       "env_variable": "OPENCLOUD_SMTP_SENDER"
     },
     {
@@ -77,7 +77,7 @@
     {
       "type": "text",
       "label": "SMTP encryption",
-      "required": true,
+      "required": false,
       "env_variable": "OPENCLOUD_SMTP_TRANSPORT_ENCRYPTION",
       "options": [
         { "label": "STARTTLS (587)", "value": "starttls" },
