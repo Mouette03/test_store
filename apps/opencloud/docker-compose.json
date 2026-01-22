@@ -25,7 +25,7 @@
       "environment": [
         {
           "key": "OC_URL",
-          "value": "http://${APP_DOMAIN}"
+          "value": "https://${APP_DOMAIN}"
         },
         {
           "key": "OC_INSECURE",
