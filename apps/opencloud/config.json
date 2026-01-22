@@ -22,12 +22,6 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
-    },
-    {
-      "type": "random",
-      "label": "JWT Secret",
-      "min": 32,
-      "env_variable": "OPENCLOUD_JWT_SECRET"
     }
   ],
   "supported_architectures": ["amd64", "arm64"],
