@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi/master/apps/schema.json",
+  "name": "OpnForm",
+  "id": "opnform",
+  "available": true,
+  "short_desc": "Form builder open-source (OpnForm)",
+  "author": "OpnForm",
+  "port": 3000,
+  "exposable": true,
+  "categories": ["Productivity"],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "description": "OpnForm self-hosted with ui+api+postgres+redis.",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "URL publique (FRONT_URL)",
+      "env_variable": "FRONT_URL",
+      "required": true,
+      "placeholder": "https://forms.example.com"
+    },
+    {
+      "type": "text",
+      "label": "URL API (APP_URL)",
+      "env_variable": "APP_URL",
+      "required": true,
+      "placeholder": "https://forms.example.com/api"
+    },
+    {
+      "type": "password",
+      "label": "APP_KEY (Laravel)",
+      "env_variable": "APP_KEY",
+      "required": true
+    },
+    {
+      "type": "password",
+      "label": "JWT_SECRET",
+      "env_variable": "JWT_SECRET",
+      "required": true
+    },
+    {
+      "type": "password",
+      "label": "NUXT_API_SECRET",
+      "env_variable": "NUXT_API_SECRET",
+      "required": true
+    },
+    {
+      "type": "text",
+      "label": "DB name",
+      "env_variable": "DB_DATABASE",
+      "required": true,
+      "default": "opnform"
+    },
+    {
+      "type": "text",
+      "label": "DB user",
+      "env_variable": "DB_USERNAME",
+      "required": true,
+      "default": "opnform"
+    },
+    {
+      "type": "password",
+      "label": "DB password",
+      "env_variable": "DB_PASSWORD",
+      "required": true
+    }
+  ]
+}

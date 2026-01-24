@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "services": [
+    {
+      "name": "opnform-ui",
+      "image": "opnform/ui:latest",
+      "internalPort": 3000,
+      "isMain": true,
+      "dependsOn": ["opnform-api"],
+      "environment": [
+        { "key": "NUXT_PUBLIC_APP_URL", "value": "${FRONT_URL}" },
+        { "key": "NUXT_PUBLIC_API_BASE", "value": "${APP_URL}" },
+        { "key": "NUXT_API_SECRET", "value": "${FRONT_API_SECRET}" }
+      ],
+      "healthCheck": {
+        "test": "wget -qO- http://127.0.0.1:3000/ >/dev/null 2>&1 || exit 1",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 10,
+        "startPeriod": "20s"
+      }
+    },
+    {
+      "name": "opnform-api",
+      "image": "opnform/api:latest",
+      "dependsOn": {
+        "opnform-db": { "condition": "service_healthy" },
+        "opnform-redis": { "condition": "service_started" }
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/api-storage",
+          "containerPath": "/var/www/html/storage"
+        }
+      ],
+      "environment": [
+        { "key": "APP_ENV", "value": "production" },
+        { "key": "APP_DEBUG", "value": "false" },
+        { "key": "SELF_HOSTED", "value": "true" },
+
+        { "key": "APP_URL", "value": "${APP_URL}" },
+        { "key": "FRONT_URL", "value": "${FRONT_URL}" },
+        { "key": "FRONT_API_SECRET", "value": "${FRONT_API_SECRET}" },
+
+        { "key": "JWT_SECRET", "value": "${JWT_SECRET}" },
+
+        { "key": "DB_CONNECTION", "value": "pgsql" },
+        { "key": "DB_HOST", "value": "opnform-db" },
+        { "key": "DB_PORT", "value": "5432" },
+        { "key": "DB_DATABASE", "value": "${DB_DATABASE}" },
+        { "key": "DB_USERNAME", "value": "${DB_USERNAME}" },
+        { "key": "DB_PASSWORD", "value": "${DB_PASSWORD}" },
+
+        { "key": "REDIS_HOST", "value": "opnform-redis" },
+        { "key": "REDIS_PORT", "value": "6379" },
+
+        { "key": "CACHE_DRIVER", "value": "redis" },
+        { "key": "QUEUE_CONNECTION", "value": "redis" },
+        { "key": "SESSION_DRIVER", "value": "redis" },
+
+        { "key": "OPNFORM_ANONYMOUS_TELEMETRY_DISABLED", "value": "true" }
+      ]
+    },
+    {
+      "name": "opnform-db",
+      "image": "postgres:16-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "environment": [
+        { "key": "POSTGRES_DB", "value": "${DB_DATABASE}" },
+        { "key": "POSTGRES_USER", "value": "${DB_USERNAME}" },
+        { "key": "POSTGRES_PASSWORD", "value": "${DB_PASSWORD}" }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE} -h 127.0.0.1 || exit 1",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 10,
+        "startPeriod": "10s"
+      }
+    },
+    {
+      "name": "opnform-redis",
+      "image": "redis:7-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "redis-cli ping | grep -q PONG || exit 1",
+        "interval": "10s",
+        "timeout": "3s",
+        "retries": 10,
+        "startPeriod": "10s"
+      }
+    }
+  ]
+}
