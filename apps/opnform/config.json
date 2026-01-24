@@ -1,65 +1,64 @@
 {
-  "name": "opnform",
+  "name": "OpnForm",
   "id": "opnform",
   "available": true,
   "short_desc": "Form builder open-source (OpnForm)",
-  "author": "opnform",
+  "author": "OpnForm",
   "port": 3000,
   "exposable": true,
   "categories": ["utilities"],
   "tipi_version": 1,
   "version": "1.0.0",
-  "description": "OpnForm self-hosted with ui+api+postgres+redis.",
+  "description": "OpnForm (ui+api+postgres+redis).",
   "form_fields": [
     {
       "type": "text",
-      "label": "URL publique",
+      "label": "URL publique (FRONT_URL)",
       "env_variable": "FRONT_URL",
-      "required": true
+      "required": true,
+      "placeholder": "https://forms.example.com"
     },
     {
       "type": "text",
-      "label": "URL API",
+      "label": "URL API (APP_URL)",
       "env_variable": "APP_URL",
+      "required": true,
+      "placeholder": "https://forms.example.com/api"
+    },
+    {
+      "type": "password",
+      "label": "Secret partagé UI/API (FRONT_API_SECRET)",
+      "env_variable": "FRONT_API_SECRET",
       "required": true
     },
     {
       "type": "password",
-      "label": "APP_KEY",
-      "env_variable": "APP_KEY",
-      "required": true
-    },
-    {
-      "type": "password",
-      "label": "JWT_SECRET",
+      "label": "JWT secret (JWT_SECRET)",
       "env_variable": "JWT_SECRET",
       "required": true
     },
     {
-      "type": "password",
-      "label": "NUXT_API_SECRET",
-      "env_variable": "NUXT_API_SECRET",
-      "required": true
-    },
-    {
       "type": "text",
-      "label": "DB name",
+      "label": "Nom DB (DB_DATABASE)",
       "env_variable": "DB_DATABASE",
       "required": true,
       "default": "opnform"
     },
     {
       "type": "text",
-      "label": "DB user",
+      "label": "User DB (DB_USERNAME)",
       "env_variable": "DB_USERNAME",
       "required": true,
       "default": "opnform"
     },
     {
       "type": "password",
-      "label": "DB password",
+      "label": "Mot de passe DB (DB_PASSWORD)",
       "env_variable": "DB_PASSWORD",
       "required": true
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1752437249000,
+  "updated_at": 1753812972983
 }
