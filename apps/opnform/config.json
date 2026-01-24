@@ -4,7 +4,7 @@
   "id": "opnform",
   "available": true,
   "short_desc": "Form builder open-source (OpnForm)",
-  "author": "OpnForm",
+  "author": "opnform",
   "port": 3000,
   "exposable": true,
   "categories": ["data"],

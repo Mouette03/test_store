@@ -3,7 +3,7 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "name": "opnform-ui",
+      "name": "opnform",
       "image": "opnform/ui:latest",
       "internalPort": 3000,
       "isMain": true,
@@ -30,7 +30,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/api-storage",
+          "hostPath": "${APP_DATA_DIR}/data/api-storage",
           "containerPath": "/var/www/html/storage"
         }
       ],
@@ -67,7 +67,7 @@
       "image": "postgres:16-alpine",
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/db",
+          "hostPath": "${APP_DATA_DIR}/data/db",
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
@@ -89,7 +89,7 @@
       "image": "redis:7-alpine",
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/redis",
+          "hostPath": "${APP_DATA_DIR}/data/redis",
           "containerPath": "/data"
         }
       ],
