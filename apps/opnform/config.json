@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/runtipi/runtipi/master/apps/schema.json",
-  "name": "OpnForm",
+  "name": "opnform",
   "id": "opnform",
   "available": true,
   "short_desc": "Form builder open-source (OpnForm)",
