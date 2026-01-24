@@ -7,7 +7,7 @@
   "author": "OpnForm",
   "port": 3000,
   "exposable": true,
-  "categories": ["Productivity"],
+  "categories": ["data"],
   "tipi_version": 1,
   "version": "1.0.0",
   "description": "OpnForm self-hosted with ui+api+postgres+redis.",
