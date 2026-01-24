@@ -44,7 +44,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/api-storage",
-          "containerPath": "/var/www/html/storage"
+          "containerPath": "/usr/share/nginx/html/storage"
         }
       ],
       "environment": [
