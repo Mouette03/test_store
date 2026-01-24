@@ -13,21 +13,19 @@
   "form_fields": [
     {
       "type": "text",
-      "label": "URL publique (FRONT_URL)",
+      "label": "URL publique",
       "env_variable": "FRONT_URL",
-      "required": true,
-      "placeholder": "https://forms.example.com"
+      "required": true
     },
     {
       "type": "text",
-      "label": "URL API (APP_URL)",
+      "label": "URL API",
       "env_variable": "APP_URL",
-      "required": true,
-      "placeholder": "https://forms.example.com/api"
+      "required": true
     },
     {
       "type": "password",
-      "label": "APP_KEY (Laravel)",
+      "label": "APP_KEY",
       "env_variable": "APP_KEY",
       "required": true
     },
