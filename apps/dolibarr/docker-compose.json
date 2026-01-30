@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dolibarr",
-      "image": "dolibarr/dolibarr:22.0.0",
+      "image": "dolibarr/dolibarr:22.0.4",
       "internalPort": 80,
       "isMain": true,
       "environment": {
@@ -19,15 +19,15 @@
       },
       "volumes": [
         {
-   	  "hostPath": "${APP_DATA_DIR}/dolibarr/documents",
+   	  "hostPath": "${APP_DATA_DIR}/data/dolibarr/documents",
    	  "containerPath": "/var/www/documents"
   	},
  	{
-          "hostPath": "${APP_DATA_DIR}/dolibarr/conf",
+          "hostPath": "${APP_DATA_DIR}/data/dolibarr/conf",
           "containerPath": "/var/www/html/conf"
         },
 	{
-          "hostPath": "${APP_DATA_DIR}/dolibarr/custom",
+          "hostPath": "${APP_DATA_DIR}/data/dolibarr/custom",
           "containerPath": "/var/www/html/custom"
         }
       ],
@@ -48,7 +48,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/db_data",
+          "hostPath": "${APP_DATA_DIR}/data/db_data",
           "containerPath": "/var/lib/mysql"
         }
       ]
