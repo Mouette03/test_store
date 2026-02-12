@@ -49,6 +49,10 @@
           "value": "info"
         },
         {
+          "key": "SYNCIN_AUTH_PROVIDER",
+          "value": "${SYNCIN_AUTH_PROVIDER}"
+        },
+        {
           "key": "SYNCIN_MAIL_HOST",
           "value": "${SYNCIN_MAIL_HOST}"
         },

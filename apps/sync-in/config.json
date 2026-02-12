@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "syncin",
-  "tipi_version": 22,
+  "tipi_version": 23,
   "version": "2",
   "categories": ["data"],
   "short_desc": "File synchronization and collaboration suite.",
@@ -14,6 +14,19 @@
   "source": "https://github.com/Sync-in",
   "website": "https://sync-in.com/",
   "form_fields": [
+    {
+      "type": "text",
+      "label": "Authentication provider",
+      "required": false,
+      "default": "mysql",
+      "options": [
+        {"label": "mysql", "value": "mysql"},
+        {"label": "ldap", "value": "ldap"},
+        {"label": "oidc", "value": "oidc"}
+      ],
+      "hint": "Authentication provider to use for Sync-in (mysql, ldap, or oidc).",
+      "env_variable": "SYNCIN_AUTH_PROVIDER"
+    },
     {
       "type": "text",
       "label": "Sync-in admin login",
