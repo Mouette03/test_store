@@ -24,7 +24,7 @@
     },
     {
       "type": "text",
-      "label": "${FILYO_LOG_LEVEL}",
+      "label": "Log Level",
       "env_variable": "LOG_LEVEL",
       "required": false,
       "default": "info",
