@@ -10,7 +10,7 @@
       "environment": [
         { "key": "NODE_ENV", "value": "production" },
         { "key": "JWT_SECRET", "value": "${JWT_SECRET}" },
-        { "key": "LOG_LEVEL", "value": "${FILYO_LOG_LEVEL}" }
+        { "key": "LOG_LEVEL", "value": "${LOG_LEVEL}" }
       ],
       "volumes": [
         {
