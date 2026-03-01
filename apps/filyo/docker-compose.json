@@ -9,8 +9,8 @@
       "internalPort": 3001,
       "environment": [
         { "key": "NODE_ENV", "value": "production" },
-        { "key": "JWT_SECRET", "value": "hbY6yIRrxdgjNIFWWxQcn8poUfxOZ6XqlyITolCwwbE" },
-        { "key": "LOG_LEVEL", "value": "info" }
+        { "key": "JWT_SECRET", "value": "${FILYO_JWT_SECRET}" },
+        { "key": "LOG_LEVEL", "value": "${FILYO_LOG_LEVEL}" }
       ],
       "volumes": [
         {
