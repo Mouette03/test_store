@@ -13,7 +13,24 @@
   "short_desc": "Gestionnaire de fichiers self-hosted",
   "author": "Filyo",
   "source": "https://github.com/mouette03/filyo",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "JWT Secret",
+      "env_variable": "JWT_SECRET",
+      "required": true,
+      "min": 32,
+      "placeholder": "filyo-super-secret-change-me-in-production"
+    },
+    {
+      "type": "text",
+      "label": "Log Level",
+      "env_variable": "LOG_LEVEL",
+      "required": false,
+      "default": "info",
+      "placeholder": "info"
+    }
+  ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1740776400000,
   "updated_at": 1740776400000,
