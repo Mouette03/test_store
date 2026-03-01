@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "filyo",
-      "image": "ghcr.io/mouette03/filyo:latest",
+      "image": "ghcr.io/mouette03/filyo:main",
       "isMain": true,
       "internalPort": 3001,
       "environment": [
