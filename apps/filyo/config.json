@@ -1,0 +1,38 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Filyo",
+  "id": "filyo",
+  "port": 3587,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "categories": ["utilities"],
+  "description": "Filyo est une application de gestion de fichiers avec frontend et backend intégrés dans un seul conteneur, utilisant SQLite comme base de données.",
+  "short_desc": "Gestionnaire de fichiers self-hosted",
+  "author": "Filyo",
+  "source": "https://github.com/mouette03/filyo",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "JWT Secret",
+      "env_variable": "JWT_SECRET",
+      "required": true,
+      "min": 32,
+      "placeholder": "filyo-super-secret-change-me-in-production"
+    },
+    {
+      "type": "text",
+      "label": "Log Level",
+      "env_variable": "LOG_LEVEL",
+      "required": false,
+      "default": "info",
+      "placeholder": "info"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1740776400000,
+  "updated_at": 1740776400000,
+  "min_tipi_version": "4.5.0"
+}
