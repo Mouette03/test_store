@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "filyo",
-      "image": "docker pull ghcr.io/mouette03/filyo:sha-4f72099",
+      "image": "ghcr.io/mouette03/filyo:sha-4f72099",
       "isMain": true,
       "internalPort": 3001,
       "environment": [
