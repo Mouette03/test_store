@@ -1,0 +1,14 @@
+services:
+  music-assistant:
+    image: 'ghcr.io/music-assistant/server:2.7.0'
+    restart: 'unless-stopped'
+    volumes:
+      - '${APP_DATA_DIR}/data/musicassistant:/data'
+      - '${APP_DATA_DIR}/data/media:/media'
+    environment:
+      - 'TZ=Europe/Paris'
+    x-runtipi:
+      internal_port: 8095
+      is_main: true
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,73 @@
+services:
+  opnform:
+    image: 'jhumanj/opnform-client:latest'
+    environment:
+      - 'NUXT_PUBLIC_APP_URL=${FRONT_URL}'
+      - 'NUXT_PUBLIC_API_BASE=${APP_URL}'
+      - 'NUXT_API_SECRET=${FRONT_API_SECRET}'
+    depends_on:
+      - 'opnform-api'
+    healthcheck:
+      test: 'wget -qO- http://127.0.0.1:3000/ >/dev/null 2>&1 || exit 1'
+      interval: '10s'
+      timeout: '5s'
+      retries: 10
+      start_period: '20s'
+    x-runtipi:
+      internal_port: 3000
+      is_main: true
+  opnform-api:
+    image: 'jhumanj/opnform-api:latest'
+    volumes:
+      - '${APP_DATA_DIR}/data/api-storage:/usr/share/nginx/html/storage'
+    environment:
+      - 'APP_ENV=production'
+      - 'APP_DEBUG=false'
+      - 'SELF_HOSTED=true'
+      - 'APP_URL=${APP_URL}'
+      - 'FRONT_URL=${FRONT_URL}'
+      - 'FRONT_API_SECRET=${FRONT_API_SECRET}'
+      - 'JWT_SECRET=${JWT_SECRET}'
+      - 'DB_CONNECTION=pgsql'
+      - 'DB_HOST=opnform-db'
+      - 'DB_PORT=5432'
+      - 'DB_DATABASE=${DB_DATABASE}'
+      - 'DB_USERNAME=${DB_USERNAME}'
+      - 'DB_PASSWORD=${DB_PASSWORD}'
+      - 'REDIS_HOST=opnform-redis'
+      - 'REDIS_PORT=6379'
+      - 'CACHE_DRIVER=redis'
+      - 'QUEUE_CONNECTION=redis'
+      - 'SESSION_DRIVER=redis'
+      - 'OPNFORM_ANONYMOUS_TELEMETRY_DISABLED=true'
+    depends_on:
+      opnform-db:
+        condition: 'service_healthy'
+      opnform-redis:
+        condition: 'service_started'
+  opnform-db:
+    image: 'postgres:16'
+    volumes:
+      - '${APP_DATA_DIR}/data/db:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_DB=${DB_DATABASE}'
+      - 'POSTGRES_USER=${DB_USERNAME}'
+      - 'POSTGRES_PASSWORD=${DB_PASSWORD}'
+    healthcheck:
+      test: 'pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE} -h 127.0.0.1 || exit 1'
+      interval: '10s'
+      timeout: '5s'
+      retries: 10
+      start_period: '10s'
+  opnform-redis:
+    image: 'redis:7-alpine'
+    volumes:
+      - '${APP_DATA_DIR}/data/redis:/data'
+    healthcheck:
+      test: 'redis-cli ping | grep -q PONG || exit 1'
+      interval: '10s'
+      timeout: '3s'
+      retries: 10
+      start_period: '10s'
+x-runtipi:
+  schema_version: 2

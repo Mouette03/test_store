@@ -1,0 +1,11 @@
+services:
+  stremio_server:
+    image: 'stremio/server:v4.20.12'
+    environment:
+      - 'FFMPEG_BIN=/bin/ffmpeg'
+      - 'FFPROBE_BIN=/bin/ffprobe'
+    x-runtipi:
+      internal_port: 11470
+      is_main: true
+x-runtipi:
+  schema_version: 2

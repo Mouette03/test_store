@@ -1,0 +1,48 @@
+services:
+  arcane:
+    image: 'ghcr.io/getarcaneapp/arcane:v1.13.2'
+    user: '1000:1000'
+    volumes:
+      - '${APP_DATA_DIR}/data:/app/data'
+    environment:
+      - 'ENCRYPTION_KEY=${ENCRYPTION_KEY}'
+      - 'JWT_SECRET=${JWT_SECRET}'
+      - 'DOCKER_HOST=tcp://docker-socket-proxy:2375'
+      - 'APP_URL=${APP_URL}'
+      - 'ANALYTICS_DISABLED=true'
+    depends_on:
+      - 'docker-socket-proxy'
+    healthcheck:
+      test: 'curl -fsS http://127.0.0.1:3552/api/health || exit 1'
+      interval: '10s'
+      timeout: '3s'
+      retries: 5
+      start_period: '15s'
+    x-runtipi:
+      internal_port: 3552
+      is_main: true
+  docker-socket-proxy:
+    image: 'tecnativa/docker-socket-proxy:latest'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    environment:
+      - 'EVENTS=1'
+      - 'PING=1'
+      - 'VERSION=1'
+      - 'AUTH=0'
+      - 'SECRETS=0'
+      - 'POST=1'
+      - 'CONTAINERS=1'
+      - 'EXEC=1'
+      - 'IMAGES=1'
+      - 'INFO=1'
+      - 'NETWORKS=1'
+      - 'VOLUMES=1'
+    cap_add:
+      - 'SYS_ADMIN'
+    security_opt:
+      - 'no-new-privileges:true'
+    x-runtipi:
+      internal_port: 2375
+x-runtipi:
+  schema_version: 2

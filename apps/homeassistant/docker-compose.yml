@@ -1,0 +1,20 @@
+services:
+  homeassistant:
+    image: 'ghcr.io/home-assistant/home-assistant:2025.7.4'
+    ports:
+      - 'NaN:8123/tcp'
+    volumes:
+      - '${APP_DATA_DIR}/data/homeassistant:/config'
+    environment:
+      - 'TZ=Europe/Paris'
+    network_mode: 'host'
+    healthcheck:
+      test: 'curl --fail http://localhost:8123 || exit 1'
+      interval: '30s'
+      timeout: '10s'
+      retries: 3
+    x-runtipi:
+      internal_port: 8123
+      is_main: true
+x-runtipi:
+  schema_version: 2

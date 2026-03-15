@@ -1,0 +1,17 @@
+services:
+  libreoffice:
+    image: 'linuxserver/libreoffice:25.2.5'
+    volumes:
+      - '${APP_DATA_DIR}/data/config:/config'
+    environment:
+      - 'PUID=1000'
+      - 'PGID=1000'
+      - 'TZ=Etc/UTC'
+      - 'ENABLE_GAMEPAD=false'
+    security_opt:
+      - 'seccomp:unconfined'
+    x-runtipi:
+      internal_port: 3001
+      is_main: true
+x-runtipi:
+  schema_version: 2
