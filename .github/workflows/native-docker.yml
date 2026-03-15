@@ -15,11 +15,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Install @runtipi/common globally
         run: npm install -g @runtipi/common
 
-      - name: Install project dependencies
-        run: npm install
+      - name: Set NODE_PATH
+        run: echo "NODE_PATH=$(npm root -g)" >> $GITHUB_ENV
 
       - name: Run codemod (dry-run)
         run: npx codemod@latest @runtipi/native-docker
