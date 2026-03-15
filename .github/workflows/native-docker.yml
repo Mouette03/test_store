@@ -3,6 +3,9 @@ name: Runtipi Native Docker Migration
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   codemod:
     runs-on: ubuntu-latest
