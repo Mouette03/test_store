@@ -1,4 +1,6 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "website",
@@ -19,11 +21,11 @@
     {
       "name": "postgresql",
       "image": "postgres:17",
-      "environment": {
-        "POSTGRES_USER": "postgres",
-        "POSTGRES_PASSWORD": "fake",
-        "POSTGRES_DB": "bewcloud"
-      },
+      "environment": [
+       { "name": "POSTGRES_USER", "value": "postgres" },
+       { "name": "POSTGRES_PASSWORD", "value": "fake" },
+       { "name": "POSTGRES_DB", "value": "bewcloud" }
+      ],
       "internalPort": 5432,
       "volumes": [
         {
