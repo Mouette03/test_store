@@ -1,7 +1,7 @@
 name: Runtipi Native Docker Migration
 
 on:
-  workflow_dispatch:          # déclenchement manuel depuis GitHub
+  workflow_dispatch:
 
 jobs:
   codemod:
@@ -14,6 +14,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Update @runtipi/common
+        run: npm install @runtipi/common@^1.0.3 --save
 
       - name: Install dependencies
         run: npm install
