@@ -15,10 +15,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Update @runtipi/common
-        run: npm install @runtipi/common@^1.0.3 --save
+      - name: Install @runtipi/common globally
+        run: npm install -g @runtipi/common
 
-      - name: Install dependencies
+      - name: Install project dependencies
         run: npm install
 
       - name: Run codemod (dry-run)
