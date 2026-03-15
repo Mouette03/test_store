@@ -5,20 +5,21 @@
   "dynamic_config": true,
   "port": 7580,
   "id": "webapp",
-  "tipi_version": 27,
+  "tipi_version": 6,
   "version": "1",
   "categories": ["utilities", "network", "development"],
-  "description": "Conteneur PHP générique (Apache + extensions communes) pour héberger des sites PHP.",
-  "short_desc": "Hebergement de site Web",
+  "description": "Generic PHP container (Apache + common extensions) for hosting PHP sites.",
+  "short_desc": "Website hosting",
   "author": "Mouette03",
-  "source": "https://github.com/Mouette03",
+  "website": "https://github.com/Mouette03/WebApp",
+  "source": "https://github.com/Mouette03/WebApp",
   "form_fields": [
      {
       "type": "text",
       "label": "Name database",
       "max": 50,
       "min": 1,
-      "default": "My-Website",
+      "default": "my-website",
       "hint": "Do not use space.",
       "required": true,
       "env_variable": "MYSQL_DATABASE"
@@ -28,7 +29,7 @@
       "label": "Username database",
       "max": 50,
       "min": 3,
-      "default": "user-Website",
+      "default": "base-user",
       "hint": "Do not use space.",
       "required": true,
       "env_variable": "MYSQL_USER"
@@ -38,7 +39,7 @@
       "label": "Password database",
       "max": 50,
       "min": 6,
-      "default": "Websitedatabasepwd",
+      "default": "base-pwd",
       "required": true,
       "env_variable": "MYSQL_PASSWORD"
     },
@@ -47,13 +48,13 @@
       "label": "Password root database",
       "max": 50,
       "min": 6,
-      "default": "Websitedatabaserootpwd",
+      "default": "base-root-pwd",
       "required": true,
       "env_variable": "MYSQL_ROOT_PASSWORD"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1755645300000,
-  "updated_at": 1755645300000
+  "updated_at": 1766009196408,
+  "min_tipi_version": "4.5.0"
 }
-
