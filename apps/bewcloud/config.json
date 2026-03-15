@@ -1,0 +1,21 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "bewCloud",
+  "id": "bewcloud",
+  "available": true,
+  "short_desc": "The Simple Web Cloud Solution.",
+  "author": "bewcloud",
+  "port": 8053,
+  "categories": ["data"],
+  "description": "A simpler alternative to Nextcloud and ownCloud, built with TypeScript and Deno using Fresh.",
+  "tipi_version": 1,
+  "version": "v2.3.0",
+  "source": "https://github.com/bewcloud/bewcloud",
+  "website": "https://bewcloud.com",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [],
+  "created_at": 1739004791872,
+  "updated_at": 1750500551724,
+  "dynamic_config": true
+}
