@@ -5,12 +5,13 @@
   "dynamic_config": true,
   "port": 8083,
   "id": "nextcloud",
-  "tipi_version": 14,
-  "version": "32.0.3-apache",
+  "tipi_version": 19,
+  "version": "33.0.0-apache",
   "categories": ["data"],
   "description": "Nextcloud is a self-hosted, open source, and fully-featured cloud storage solution for your personal files, office documents, and photos.",
   "short_desc": "Productivity platform that keeps you in control",
   "author": "Nextcloud GmbH",
+  "website": "https://nextcloud.com/",
   "source": "https://github.com/nextcloud/server",
   "form_fields": [
     {
@@ -32,10 +33,11 @@
     {
       "type": "text",
       "label": "Protocol (http or https)",
-      "max": 5,
-      "min": 4,
       "required": true,
-      "default": "http",
+      "options": [
+        {"label": "http", "value": "http"},
+        {"label": "https", "value": "https"}
+      ],
       "hint": "Protocol to use for the app HTTP or HTTPS",
       "env_variable": "APP_PROTOCOL"
     },
@@ -46,22 +48,22 @@
       "min": 4,
       "required": false,
       "default": "1024M",
-      "hint": "PHP memory limit (512M, 1024M, 2048M)",
+      "hint": "PHP memory limit (512M, 1024M, 2048M, 4096M)",
       "env_variable": "PHP_MEMORY_LIMIT"
     },
     {
       "type": "text",
-      "label": "PHP Memory Limit",
+      "label": "PHP Upload Limit",
       "max": 5,
       "min": 4,
       "required": false,
       "default": "1024M",
-      "hint": "PHP upload limit (512M, 1024M, 2048M)",
+      "hint": "PHP upload limit (512M, 1024M, 2048M, 4096M)",
       "env_variable": "PHP_UPLOAD_LIMIT"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1752437249000,
-  "updated_at": 1763766882081,
+  "updated_at": 1771076466423,
   "min_tipi_version": "4.5.0"
 }
