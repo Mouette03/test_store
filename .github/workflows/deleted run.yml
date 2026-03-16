@@ -1,6 +1,6 @@
 name: Nettoyer anciennes runs
 on:
-  schedule:
+ # schedule:
  #   - cron: '0 0 1 * *'  # 1er du mois à minuit
   workflow_dispatch:  # Manuel aussi
 
