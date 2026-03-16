@@ -1,4 +1,4 @@
-name: Runtipi Native Docker Migration beta
+name: Runtipi Native Docker Migration beta 2
 
 on:
   workflow_dispatch:
@@ -21,35 +21,25 @@ jobs:
       - name: Install project dependencies
         run: npm install
 
-      # 1) Télécharger le package du codemod DANS UN DOSSIER TEMP
-      - name: Télécharger le codemod dans un dossier temp
-        run: |
-          TMP_DIR="$HOME/runtipi_native_docker"
-          mkdir -p "$TMP_DIR"
-          cd "$TMP_DIR"
-          npm init -y
-          npm install @runtipi/native-docker
-          ls node_modules/@runtipi/native-docker
+      # 1) Forcer le téléchargement du codemod dans le cache Codemod
+      - name: Pre-cache le codemod
+        run: npx codemod@latest @runtipi/native-docker 2>&1 || true
 
-      # 2) Installer @runtipi/common dans ce même dossier
-      - name: Installer @runtipi/common pour le codemod
+      # 2) Installer @runtipi/common dans le cache du codemod
+      - name: Installer @runtipi/common dans le cache du codemod
         run: |
-          TMP_DIR="$HOME/runtipi_native_docker"
-          cd "$TMP_DIR"
-          npm install @runtipi/common
+          CACHE_DIR="$HOME/.local/share/codemod/cache/packages/@runtipi/native-docker/0.1.3"
+          echo "Cache dir: $CACHE_DIR"
+          ls "$CACHE_DIR"
+          npm install --prefix "$CACHE_DIR" @runtipi/common
 
-      # 3) Exécuter le codemod en pointant NODE_PATH sur ce dossier
+      # 3) Dry-run
       - name: Run codemod (dry-run)
-        run: |
-          TMP_DIR="$HOME/runtipi_native_docker"
-          export NODE_PATH="$TMP_DIR/node_modules"
-          npx codemod@latest @runtipi/native-docker
+        run: npx codemod@latest @runtipi/native-docker
 
+      # 4) Run réel
       - name: Run codemod (write)
-        run: |
-          TMP_DIR="$HOME/runtipi_native_docker"
-          export NODE_PATH="$TMP_DIR/node_modules"
-          npx codemod@latest @runtipi/native-docker --param write=true --param force=true
+        run: npx codemod@latest @runtipi/native-docker --param write=true --param force=true
         # --param delete_json=true
 
       - name: Commit changes
