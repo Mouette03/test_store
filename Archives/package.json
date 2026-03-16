@@ -1,5 +1,5 @@
 {
-  "name": "Runtipi-appstore",
+  "name": "test_store",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,14 +12,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.14.1",
     "arktype": "^2.1.29"
   },
   "dependencies": {
     "@runtipi/common": "^1.1.3",
     "bun": "^1.2.10",
-    "js-yaml": "^4.1.0",
     "zod-validation-error": "^3.4.0"
   },
   "peerDependencies": {
