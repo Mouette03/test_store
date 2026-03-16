@@ -1,4 +1,4 @@
-name: Runtipi Native Docker Migration
+name: Runtipi Native Docker Migration beta
 
 on:
   workflow_dispatch:
