@@ -1,8 +1,8 @@
 name: Nettoyer anciennes runs
 on:
-  schedule:
-    - cron: '0 0 1 * *'  # 1er du mois à minuit
-  workflow_dispatch:  # Manuel aussi
+ # schedule:
+ #   - cron: '0 0 1 * *'  # 1er du mois à minuit
+ # workflow_dispatch:  # Manuel aussi
 
 jobs:
   delete:
@@ -16,5 +16,5 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 30
+          retain_days: 10
           keep_minimum_runs: 6
