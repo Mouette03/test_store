@@ -5,6 +5,20 @@
     {
       "name": "nextcloud",
       "image": "nextcloud:33.0.0-apache",
+      "labels": [
+        {
+      "key": "traefik.http.middlewares.hsts.headers.stsSeconds",
+      "value": "15552000"
+        },
+        {
+      "key": "traefik.http.middlewares.hsts.headers.stsIncludeSubdomains",
+      "value": "true"
+        },
+        {
+      "key": "traefik.http.routers.nextcloud.middlewares",
+      "value": "hsts@docker"
+    }
+    ],
       "environment": [
         {
           "key": "POSTGRES_HOST",
