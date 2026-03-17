@@ -11,6 +11,11 @@ on:
         options:
         - dry-run
         - write
+      delete_json:
+        description: 'Supprimer les docker-compose.json après migration ?'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -33,10 +38,19 @@ jobs:
       - name: Run codemod
         run: |
           echo "Mode: ${{ github.event.inputs.mode }}"
+          echo "Supprimer JSON: ${{ github.event.inputs.delete_json }}"
+
           if [ "${{ github.event.inputs.mode }}" = "write" ]; then
-            echo "🚀 Lancement en mode WRITE (fichiers modifiés)"
-            npx codemod@latest @runtipi/native-docker --param write=true --param force=true
-            # --param delete_json=true   ← ICI : COMMENTÉ (ne supprime PAS les JSON)
+            echo "🚀 Lancement en mode WRITE"
+
+            if [ "${{ github.event.inputs.delete_json }}" = "true" ]; then
+              echo "🗑️ Suppression des JSON activée"
+              npx codemod@latest @runtipi/native-docker --param write=true --param force=true --param delete_json=true
+            else
+              echo "📁 JSON conservés"
+              npx codemod@latest @runtipi/native-docker --param write=true --param force=true
+            fi
+
           else
             echo "🔍 Lancement en mode DRY-RUN (simulation)"
             npx codemod@latest @runtipi/native-docker
