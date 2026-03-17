@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'Mode d\'exécution'
+        description: "Execution mode"
         required: true
         default: 'dry-run'
         type: choice
@@ -12,7 +12,7 @@ on:
         - dry-run
         - write
       delete_json:
-        description: 'Supprimer les docker-compose.json après migration ?'
+        description: "Delete docker-compose.json after migration? (write mode only)"
         required: false
         default: false
         type: boolean
@@ -38,30 +38,30 @@ jobs:
       - name: Run codemod
         run: |
           echo "Mode: ${{ github.event.inputs.mode }}"
-          echo "Supprimer JSON: ${{ github.event.inputs.delete_json }}"
+          echo "Delete JSON: ${{ github.event.inputs.delete_json }}"
 
           if [ "${{ github.event.inputs.mode }}" = "write" ]; then
-            echo "🚀 Lancement en mode WRITE"
+            echo "🚀 Running in WRITE mode"
 
             if [ "${{ github.event.inputs.delete_json }}" = "true" ]; then
-              echo "🗑️ Suppression des JSON activée"
+              echo "🗑️ JSON deletion enabled"
               npx codemod@latest @runtipi/native-docker --param write=true --param force=true --param delete_json=true
             else
-              echo "📁 JSON conservés"
+              echo "📁 JSON files kept"
               npx codemod@latest @runtipi/native-docker --param write=true --param force=true
             fi
 
           else
-            echo "🔍 Lancement en mode DRY-RUN (simulation)"
+            echo "🔍 Running in DRY-RUN mode (simulation)"
             npx codemod@latest @runtipi/native-docker
           fi
 
-      - name: Commit changes (seulement si write)
+      - name: Commit changes (write mode only)
         if: github.event.inputs.mode == 'write'
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "chore: migrate to native docker-compose.yml" || echo "Rien à commiter"
+          git commit -m "chore: migrate to native docker-compose.yml" || echo "No changes to commit"
           git pull --rebase origin main
           git push
