@@ -66,7 +66,6 @@
       ],
       "extraLabels": {
         "traefik.http.middlewares.hsts.headers.stsSeconds": "15552000",
-        "traefik.http.middlewares.hsts.headers.stsIncludeSubdomains": "true",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares": "hsts@docker"
       }
     },
