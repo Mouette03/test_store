@@ -2,8 +2,8 @@ services:
   open_notebook:
     image: ghcr.io/lfnovo/open-notebook:1.8.1
     user: "1000:1000"
-    volumes:
-      - ${APP_DATA_DIR}/data/notebook:/app/data
+    restart: unless-stopped
+
     environment:
       - OPEN_NOTEBOOK_ENCRYPTION_KEY=${OPEN_NOTEBOOK_ENCRYPTION_KEY}
       - SURREAL_URL=ws://surrealdb:8000/rpc
@@ -12,10 +12,14 @@ services:
       - SURREAL_NAMESPACE=open_notebook
       - SURREAL_DATABASE=open_notebook
       - UV_NO_CACHE=1
+
+    volumes:
+      - ${APP_DATA_DIR}/data/notebook:/app/data
+
     depends_on:
       surrealdb:
         condition: service_healthy
-    restart: unless-stopped
+
     x-runtipi:
       is_main: true
       internal_port: 8502
@@ -23,12 +27,12 @@ services:
   surrealdb:
     image: surrealdb/surrealdb:v2.2.1
     user: "1000:1000"
-    command: start memory --log info --user root --pass root
-    volumes:
-      - ${APP_DATA_DIR}/data/surreal:/data
+    command: start --log info --user root --pass root memory
+    restart: unless-stopped
+
     environment:
       - SURREAL_EXPERIMENTAL_GRAPHQL=true
-    restart: unless-stopped
+
     healthcheck:
       test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8000/health || exit 1"]
       interval: 10s
