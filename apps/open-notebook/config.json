@@ -4,7 +4,7 @@
   "port": 8487,
   "exposable": true,
   "dynamic_config": true,
-  "id": "open_notebook",
+  "id": "open-notebook",
   "tipi_version": 1,
   "version": "1.8.1",
   "categories": ["data"],
