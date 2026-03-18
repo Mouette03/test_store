@@ -46,15 +46,21 @@
           "containerPath": "/app/data"
         }
       ],
-
       "restart": "unless-stopped",
-      "depends_on": ["surrealdb"]
+      "dependsOn": ["surrealdb"],
+      "healthcheck": {
+        "test": ["CMD-SHELL", "curl -f http://localhost:8502/health || exit 1"],
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 5,
+        "startPeriod": "40s"
+      }
     },
     {
       "name": "surrealdb",
       "image": "surrealdb/surrealdb:v2",
-      "internalPort": 8000,
       "command": "start --log info --user root --pass root rocksdb:/mydata/mydatabase.db",
+      "user": "root",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/surreal",
@@ -67,7 +73,14 @@
           "value": "true"
         }
       ],
-      "restart": "unless-stopped"
+      "restart": "unless-stopped",
+      "healthcheck": {
+        "test": ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"],
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 10,
+        "startPeriod": "20s"
+      }
     }
   ]
 }
