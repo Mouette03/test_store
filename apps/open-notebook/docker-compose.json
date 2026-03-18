@@ -7,13 +7,10 @@
       "image": "ghcr.io/lfnovo/open-notebook:1.8.1",
       "isMain": true,
       "internalPort": 8502,
-      "ports": [
-        {
-          "containerPort": 8502,
-          "tcp": true
-        },
+      "addPorts": [
         {
           "containerPort": 5055,
+          "hostPort": 5055,
           "tcp": true
         }
       ],
