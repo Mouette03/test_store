@@ -32,11 +32,13 @@ services:
       - ./notebook_data:/app/data
     depends_on:
       - surrealdb
-    restart: always
-    pull_policy: always
     x-runtipi:
       is_main: true
       internal_port: 8502
+    restart: always
+    pull_policy: always
+    
+   
 
     x-runtipi:
   schema_version: 2
