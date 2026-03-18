@@ -90,13 +90,6 @@
         "timeout": "5s",
         "retries": 10,
         "startPeriod": "20s"
-      },
-      "deploy": {
-        "resources": {
-          "limits": {
-            "memory": "512M"
-          }
-        }
       }
     }
   ]
