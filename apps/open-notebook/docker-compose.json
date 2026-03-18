@@ -64,9 +64,7 @@
     },
     {
       "name": "surrealdb",
-      "image": "surrealdb/surrealdb:v2.2.1",
-      "user": "1000:1000",
-      "command": "start --log info --user root --pass root tikv://0.0.0.0:2379",
+      "image": "surrealdb/surrealdb:v2",
       "ports": [
         {
           "containerPort": 8000,
