@@ -7,7 +7,7 @@
   "id": "open_notebook",
   "tipi_version": 1,
   "version": "1.8.1",
-  "categories": ["productivity"],
+  "categories": ["data"],
   "short_desc": "Alternative open-source à NotebookLM avec IA locale ou distante.",
   "description": "Alternative open-source à NotebookLM avec IA locale ou distante.",
   "author": "LF Novo",
