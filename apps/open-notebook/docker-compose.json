@@ -53,13 +53,8 @@
     {
       "name": "surrealdb",
       "image": "surrealdb/surrealdb:v2",
+      "internalPort": 8000,
       "command": "start --log info --user root --pass root rocksdb:/mydata/mydatabase.db",
-      "ports": [
-        {
-          "containerPort": 8000,
-          "tcp": true
-        }
-      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/surreal",
