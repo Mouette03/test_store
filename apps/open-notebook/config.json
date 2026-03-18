@@ -1,0 +1,29 @@
+{
+  "name": "Open Notebook",
+  "available": true,
+  "port": 8502,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "open_notebook",
+  "tipi_version": 1,
+  "version": "1.8.1",
+  "categories": ["productivity"],
+  "short_desc": "Alternative open-source à NotebookLM avec IA locale ou distante.",
+  "description": "Alternative open-source à NotebookLM avec IA locale ou distante.",
+  "author": "LF Novo",
+  "source": "https://github.com/lfnovo/open-notebook",
+  "website": "https://www.open-notebook.ai",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Clé de chiffrement (générée automatiquement)",
+      "env_variable": "OPEN_NOTEBOOK_ENCRYPTION_KEY",
+      "required": true,
+      "encoding": "base64",
+      "length": 32
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1773838349534,
+  "updated_at": 1773838349534
+}
