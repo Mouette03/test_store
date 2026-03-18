@@ -60,7 +60,7 @@
       "name": "surrealdb",
       "image": "surrealdb/surrealdb:v2",
       "command": "start --log info --user root --pass root rocksdb:/mydata/mydatabase.db",
-      "user": "root",
+      "user": "1000:1000",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/surreal",
