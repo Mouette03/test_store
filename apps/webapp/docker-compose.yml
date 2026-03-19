@@ -20,7 +20,7 @@ services:
       internal_port: 80
       is_main: true
   db-webapp:
-    image: 'mariadb:12'
+    image: 'mariadb:11'
     volumes:
       - '${APP_DATA_DIR}/data/database:/var/lib/mysql'
     environment:
