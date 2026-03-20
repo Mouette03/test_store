@@ -1,44 +1,20 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/fliyo-test:v1.0.0-mariadb'
+    image: 'ghcr.io/mouette03/filyo:latest'
     volumes:
       - '${APP_DATA_DIR}/data:/data'
     environment:
       - 'NODE_ENV=production'
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
       - 'LOG_LEVEL=${FILYO_LOG_LEVEL}'
-      - 'DB_HOST=filyo-db'
-      - 'DB_USER=filyo'
-      - 'DB_PASSWORD=test'
-      - 'DB_NAME=filyo'
     healthcheck:
       test: 'wget -qO- http://localhost:3001/health'
       interval: '30s'
       timeout: '10s'
       retries: 3
       start_period: '20s'
-    depends_on:
-      filyo-db:
-        condition: service_healthy
     x-runtipi:
       internal_port: 3001
       is_main: true
-
-  filyo-db:
-    image: 'mariadb:11'
-    volumes:
-      - '${APP_DATA_DIR}/mariadb:/var/lib/mysql'
-    environment:
-      - 'MYSQL_ROOT_PASSWORD=test'
-      - 'MYSQL_DATABASE=filyo'
-      - 'MYSQL_USER=filyo'
-      - 'MYSQL_PASSWORD=test'
-    healthcheck:
-      test: 'healthcheck.sh --connect --innodb_initialized'
-      interval: '10s'
-      timeout: '5s'
-      retries: 5
-      start_period: '30s'
-
 x-runtipi:
   schema_version: 2
