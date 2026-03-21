@@ -2,7 +2,7 @@ services:
   filyo:
     image: 'ghcr.io/mouette03/fliyo-test:v1.3.0-mariadb'
     volumes:
-      - '${APP_DATA_DIR}/data:/data'
+      - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
       - 'NODE_ENV=production'
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
@@ -27,14 +27,14 @@ services:
   filyo-db:
     image: 'mariadb:11'
     volumes:
-      - '${APP_DATA_DIR}/mariadb:/var/lib/mysql'
+      - '${APP_DATA_DIR}/data/mariadb:/var/lib/mysql'
     environment:
       - 'MYSQL_ROOT_PASSWORD=test'
       - 'MYSQL_DATABASE=filyo'
       - 'MYSQL_USER=filyo'
       - 'MYSQL_PASSWORD=test'
     healthcheck:
-      test: 'healthcheck.sh --connect --innodb_initialized'
+      test: ['CMD', 'mariadb', '-u', 'filyo', '-ptest', '-e', 'SELECT 1', 'filyo']
       interval: '10s'
       timeout: '5s'
       retries: 5
