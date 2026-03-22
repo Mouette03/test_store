@@ -4,7 +4,6 @@ services:
     volumes:
       - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
-      - 'NODE_ENV=production'
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
       - 'LOG_LEVEL=${FILYO_LOG_LEVEL}'
       - 'DB_HOST=filyo-db'
