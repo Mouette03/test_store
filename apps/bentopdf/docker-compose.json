@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "bentopdf",
-      "image": "ghcr.io/alam00000/bentopdf:latest",
+      "image": "ghcr.io/alam00000/bentopdf-simple:latest",
       "internalPort": 8080,
       "isMain": true,
       "environment": [
