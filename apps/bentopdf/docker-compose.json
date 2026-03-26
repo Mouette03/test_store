@@ -11,6 +11,10 @@
         {
           "key": "DISABLE_IPV6",
           "value": "true"
+        },
+        {
+          "key": "SIMPLE_MODE",
+          "value": "true"
         }
       ]
     }
