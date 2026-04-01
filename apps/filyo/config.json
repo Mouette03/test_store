@@ -6,7 +6,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "starttls",
   "categories": ["utilities"],
   "description": "Filyo est une application de gestion de fichiers, utilisant SQLite comme base de données.",
