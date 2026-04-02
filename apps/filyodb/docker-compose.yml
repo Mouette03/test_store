@@ -1,6 +1,6 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:correction-envoi-plusieurs-adresses-mails-mariadb'
+    image: 'ghcr.io/mouette03/filyo:sha-81c7a37-mariadb'
     volumes:
       - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
