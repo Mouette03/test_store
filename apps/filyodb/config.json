@@ -1,6 +1,6 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "Filyodb",
+  "name": "Filyo with MariaDB",
   "id": "filyodb",
   "port": 3587,
   "available": true,
@@ -9,7 +9,7 @@
   "tipi_version": 12,
   "version": "1.0.9",
   "categories": ["utilities"],
-  "description": "Filyo est une application de gestion de fichiers, utilisant SQLite comme base de données.",
+  "description": "Filyo est une application de gestion de fichiers, utilisant MariaDB comme base de données.",
   "short_desc": "Gestionnaire de fichiers self-hosted",
   "author": "Filyo",
   "source": "https://github.com/mouette03/filyo",
