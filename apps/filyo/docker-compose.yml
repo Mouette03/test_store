@@ -1,6 +1,6 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:sha-258dfb5'
+    image: 'ghcr.io/mouette03/filyo:ajout-quota-utilisateur'
     volumes:
       - '${APP_DATA_DIR}/data:/data'
     environment:
