@@ -33,7 +33,7 @@ services:
       - 'MYSQL_USER=filyo'
       - 'MYSQL_PASSWORD=test'
     healthcheck:
-      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 --silent"]
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -ufilyo -ptest --silent"]
       interval: '10s'
       timeout: '5s'
       retries: 10
