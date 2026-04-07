@@ -33,7 +33,7 @@ services:
       - 'MYSQL_USER=filyo'
       - 'MYSQL_PASSWORD=test'
     healthcheck:
-      test: ['CMD', 'mariadb', '-u', 'filyo', '-ptest', '-e', 'SELECT 1', 'filyo']
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: '10s'
       timeout: '5s'
       retries: 5
