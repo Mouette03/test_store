@@ -33,10 +33,10 @@ services:
       - 'MYSQL_USER=filyo'
       - 'MYSQL_PASSWORD=test'
     healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 --silent"]
       interval: '10s'
       timeout: '5s'
-      retries: 5
+      retries: 10
       start_period: '60s'
 
 x-runtipi:
