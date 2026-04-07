@@ -1,18 +1,17 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:sha-b88baa1-mariadb'
+    image: 'ghcr.io/mouette03/filyo:v1.0.9-mariadb'
     volumes:
       - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
       - 'LOG_LEVEL=${FILYO_LOG_LEVEL}'
       - 'DB_HOST=filyo-db'
-      - 'DB_PORT=3306'
       - 'DB_USER=filyo'
       - 'DB_PASSWORD=test'
       - 'DB_NAME=filyo'
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://127.0.0.1:3001/health || exit 1"]
+      test: 'wget -qO- http://172.0.0.1:3001/health'
       interval: '30s'
       timeout: '10s'
       retries: 3
@@ -34,10 +33,11 @@ services:
       - 'MYSQL_USER=filyo'
       - 'MYSQL_PASSWORD=test'
     healthcheck:
-      test: 'mariadb-admin ping -h localhost -u root --password=${MYSQL_ROOT_PASSWORD}'
+      test: ['CMD', 'mariadb', '-u', 'filyo', '-ptest', '-e', 'SELECT 1', 'filyo']
       interval: '10s'
       timeout: '5s'
-      retries: 15
+      retries: 5
+      start_period: '30s'
 
 x-runtipi:
   schema_version: 2
