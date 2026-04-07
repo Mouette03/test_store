@@ -24,7 +24,7 @@ services:
       is_main: true
 
   filyo-db:
-    image: 'mariadb:11'
+    image: 'mariadb:12.2'
     volumes:
       - '${APP_DATA_DIR}/data/mariadb:/var/lib/mysql'
     environment:
