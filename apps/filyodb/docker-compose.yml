@@ -34,10 +34,10 @@ services:
       - 'MYSQL_PASSWORD=test'
     healthcheck:
        test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u\"$${MYSQL_USER}\" -p\"$${MYSQL_PASSWORD}\" --silent"]
-      interval: '10s'
-      timeout: '5s'
-      retries: 10
-      start_period: '60s'
+       interval: '10s'
+       timeout: '5s'
+       retries: 10
+       start_period: '60s'
 
 x-runtipi:
   schema_version: 2
