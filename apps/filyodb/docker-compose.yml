@@ -1,6 +1,6 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:sha-5969686-mariadb'
+    image: 'ghcr.io/mouette03/filyo:sha-cd4bd85-mariadb'
     volumes:
       - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
