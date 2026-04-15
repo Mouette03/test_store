@@ -11,7 +11,6 @@ A modern, privacy-first self-hosted file transfer app with dark glassmorphism UI
 - Brute-force protections, rate-limited login/reset/upload.
 - Dashboard for sent files, received requests, and stats.
 - Admin panel: users, roles, SMTP settings, branding, disk usage.
-- Multi-architecture Docker image (amd64 + arm64) and database support (SQLite/MariaDB).
 
 All data is stored locally (SQLite + local filesystem). No S3, no external dependencies.
 
@@ -30,6 +29,5 @@ Application d'échange de fichiers auto-hébergée, moderne et sécurisée, avec
 - Protection anti-force brute, limitation de débit sur connexion/réinitialisation/dépôt.
 - Tableau de bord : fichiers envoyés, dépôts reçus, statistiques.
 - Panneau admin : utilisateurs, rôles, SMTP, personnalisation, utilisation du disque.
-- Image Docker multi-arch (amd64 + arm64), support SQLite/MariaDB.
 
 Toutes les données sont stockées localement (SQLite + système de fichiers). Pas de S3, aucune dépendance externe.
