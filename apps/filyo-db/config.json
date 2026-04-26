@@ -5,7 +5,6 @@
   "port": 3588,
   "available": true,
   "exposable": true,
-  "force_expose": true,
   "dynamic_config": true,
   "tipi_version": 1,
   "version": "1.2.3",
