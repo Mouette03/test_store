@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "netronome",
   "tipi_version": 1,
-  "version": "0.8.0",
+  "version": "0.11.0",
   "categories": ["network"],
   "short_desc": "Advanced release monitoring and notification system.",
   "description": "Netronome is a powerful tool for monitoring release announcements across multiple sources and sending intelligent notifications.",
