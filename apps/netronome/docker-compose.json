@@ -17,6 +17,7 @@
     {
       "name": "netronome",
       "image": "ghcr.io/autobrr/netronome:v0.11.0",
+      "command": ["netronome", "generate-config"],
       "internalPort": 7575,
       "isMain": true,
       "dependsOn": {
