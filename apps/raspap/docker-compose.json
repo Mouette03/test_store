@@ -42,7 +42,7 @@
         }
       ],
       "capAdd": [
-        "SYS_ADMIN"
+        "SYS_ADMIN","NET_ADMIN"
       ]
     }
   ]
