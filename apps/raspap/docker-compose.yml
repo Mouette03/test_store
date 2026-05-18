@@ -3,7 +3,7 @@ services:
     image: 'ghcr.io/raspap/raspap-docker:latest'
     privileged: true
     network_mode: host
-    cgroupns: host
+    cgroup: host
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:rw'
     environment:
