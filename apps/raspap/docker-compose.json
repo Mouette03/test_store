@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "services": [
+    {
+      "name": "raspap",
+      "image": "ghcr.io/raspap/raspap-docker:latest",
+      "internalPort": 80,
+      "isMain": true,
+      "networkMode": "host",
+      "privileged": true,
+      "volumes": [
+        {
+          "hostPath": "/sys/fs/cgroup",
+          "containerPath": "/sys/fs/cgroup:ro"
+        }
+      ],
+      "environment": [
+        {
+          "key": "RASPAP_SSID",
+          "value": "${RASPAP_SSID}"
+        },
+        {
+          "key": "RASPAP_SSID_PASS",
+          "value": "${RASPAP_SSID_PASS}"
+        },
+        {
+          "key": "RASPAP_COUNTRY",
+          "value": "${RASPAP_COUNTRY}"
+        },
+        {
+          "key": "RASPAP_WEBGUI_USER",
+          "value": "${RASPAP_WEBGUI_USER}"
+        },
+        {
+          "key": "RASPAP_WEBGUI_PASS",
+          "value": "${RASPAP_WEBGUI_PASS}"
+        },
+        {
+          "key": "RASPAP_WEBGUI_PORT",
+          "value": "80"
+        }
+      ],
+      "capAdd": [
+        "SYS_ADMIN"
+      ]
+    }
+  ]
+}

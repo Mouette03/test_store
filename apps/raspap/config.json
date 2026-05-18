@@ -1,0 +1,73 @@
+{
+  "name": "RaspAP",
+  "id": "raspap",
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 80,
+  "available": true,
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "network",
+    "utilities"
+  ],
+  "description": "RaspAP is a feature-rich wireless router software for Debian-based devices. It lets you create a WiFi access point, manage hostapd, dnsmasq, OpenVPN, WireGuard and more through a clean web interface.",
+  "short_desc": "Wireless access point and router manager.",
+  "author": "RaspAP",
+  "source": "https://github.com/RaspAP/raspap-docker",
+  "website": "https://raspap.com",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "SSID Name",
+      "max": 32,
+      "min": 1,
+      "hint": "Name of the WiFi access point",
+      "required": true,
+      "env_variable": "RASPAP_SSID"
+    },
+    {
+      "type": "text",
+      "label": "SSID Password",
+      "max": 63,
+      "min": 8,
+      "hint": "Password for the WiFi access point (min. 8 characters)",
+      "required": true,
+      "env_variable": "RASPAP_SSID_PASS"
+    },
+    {
+      "type": "text",
+      "label": "Country Code",
+      "max": 2,
+      "min": 2,
+      "hint": "2-letter country code (e.g. FR, GB, US)",
+      "required": false,
+      "env_variable": "RASPAP_COUNTRY"
+    },
+    {
+      "type": "text",
+      "label": "Web GUI Username",
+      "max": 64,
+      "min": 1,
+      "hint": "Admin username for the RaspAP web interface",
+      "required": false,
+      "env_variable": "RASPAP_WEBGUI_USER"
+    },
+    {
+      "type": "password",
+      "label": "Web GUI Password",
+      "max": 64,
+      "min": 4,
+      "hint": "Admin password for the RaspAP web interface",
+      "required": false,
+      "env_variable": "RASPAP_WEBGUI_PASS"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1779139995328,
+  "updated_at": 1779139995328,
+  "min_tipi_version": "4.5.0"
+}
