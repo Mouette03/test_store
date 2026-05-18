@@ -5,7 +5,7 @@
     {
       "name": "raspap",
       "image": "ghcr.io/raspap/raspap-docker:latest",
-      "internalPort": 90,
+      "internalPort": 8080,
       "isMain": true,
       "privileged": true,
       "networkMode": "host",
