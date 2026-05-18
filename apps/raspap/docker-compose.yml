@@ -16,7 +16,7 @@ services:
     cap_add:
       - SYS_ADMIN
     x-runtipi:
-      internal_port: 90
+      internal_port: 80
       is_main: true
 
 x-runtipi:
