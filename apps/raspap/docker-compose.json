@@ -7,43 +7,24 @@
       "image": "ghcr.io/raspap/raspap-docker:latest",
       "internalPort": 90,
       "isMain": true,
-      "networkMode": "host",
       "privileged": true,
+      "networkMode": "host",
+      "cgroupns": "host",
       "volumes": [
         {
           "hostPath": "/sys/fs/cgroup",
-          "containerPath": "/sys/fs/cgroup:ro"
+          "containerPath": "/sys/fs/cgroup:rw"
         }
       ],
       "environment": [
-        {
-          "key": "RASPAP_SSID",
-          "value": "${RASPAP_SSID}"
-        },
-        {
-          "key": "RASPAP_SSID_PASS",
-          "value": "${RASPAP_SSID_PASS}"
-        },
-        {
-          "key": "RASPAP_COUNTRY",
-          "value": "${RASPAP_COUNTRY}"
-        },
-        {
-          "key": "RASPAP_WEBGUI_USER",
-          "value": "${RASPAP_WEBGUI_USER}"
-        },
-        {
-          "key": "RASPAP_WEBGUI_PASS",
-          "value": "${RASPAP_WEBGUI_PASS}"
-        },
-        {
-          "key": "RASPAP_WEBGUI_PORT",
-          "value": "80"
-        }
+        { "key": "RASPAP_SSID", "value": "${RASPAP_SSID}" },
+        { "key": "RASPAP_SSID_PASS", "value": "${RASPAP_SSID_PASS}" },
+        { "key": "RASPAP_COUNTRY", "value": "${RASPAP_COUNTRY}" },
+        { "key": "RASPAP_WEBGUI_USER", "value": "${RASPAP_WEBGUI_USER}" },
+        { "key": "RASPAP_WEBGUI_PASS", "value": "${RASPAP_WEBGUI_PASS}" },
+        { "key": "RASPAP_WEBGUI_PORT", "value": "80" }
       ],
-      "capAdd": [
-        "SYS_ADMIN","NET_ADMIN"
-      ]
+      "capAdd": ["SYS_ADMIN"]
     }
   ]
 }
