@@ -12,10 +12,10 @@ services:
       - 'OIDC_CLIENT_ID=256183448981-h8calcp6khevipotri0k5miardgn1qer.apps.googleusercontent.com'
       - 'OIDC_CLIENT_SECRET=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'
       - 'OIDC_REDIRECT_URI=http://192.168.1.69:5858/api/auth/oidc/callback'
-      - 'OIDC_PROVIDER_NAME=${FILYO_OIDC_PROVIDER_NAME:-oidc}'
-      - 'OIDC_SCOPE=${FILYO_OIDC_SCOPE:-openid email profile}'
-      - 'OIDC_AUTO_REGISTER=${FILYO_OIDC_AUTO_REGISTER:-auto_register}'
-      - 'OIDC_DEFAULT_ROLE=${FILYO_OIDC_DEFAULT_ROLE:-USER}'
+      - 'OIDC_PROVIDER_NAME=oidc'
+      - 'OIDC_SCOPE=openid email profile'
+      - 'OIDC_AUTO_REGISTER=auto_register'
+      - 'OIDC_DEFAULT_ROLE=USER'
     healthcheck:
       test: ["CMD-SHELL", "node -e \"require('http').get('http://127.0.0.1:3001/health', r => process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))\""]
       interval: '30s'
