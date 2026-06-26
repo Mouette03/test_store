@@ -5,7 +5,7 @@
   "port": 3587,
   "available": true,
   "exposable": true,
-  "force_expose": true,
+  "force_expose": false,
   "dynamic_config": true,
   "tipi_version": 1,
   "version": "password",
