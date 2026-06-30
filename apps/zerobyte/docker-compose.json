@@ -27,7 +27,7 @@
           "containerPath": "/var/lib/zerobyte"
         },
         {
-          "hostPath": "/opt/runtipi",
+          "hostPath": "${ZEROBYTE_BACKUP_PATH}",
           "containerPath": "/data",
           "readOnly": true
         },
