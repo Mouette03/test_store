@@ -1,66 +1,43 @@
+# Zerobyte — Installation Note
 
----
+## Post-installation step
 
-🇬🇧 **Post-installation step:**
+After the first launch, it is necessary to finish the initial setup in Zerobyte’s web interface. The folder to mount must be configured in the app settings during installation in Runtipi.
 
-After the first launch, you need to generate the configuration file.
-1. Run `sudo docker ps` to find the exact name of the Netronome container (for example, `netronome_test-netronome-1`, but it may differ depending on your setup).
-2. Then, execute the following command, replacing `<container_name>` with the actual name:
+In simplified installation mode, Zerobyte can only back up directories that are already mounted into the container. So if the host path `/opt/runtipi` is mounted as `/data`, you must select `/data` inside Zerobyte, not `/opt/runtipi`.
 
-	docker exec -it <container_name> netronome generate-config
+This mode improves security by removing remote-mount privileges, but it does not allow mounting NFS, SMB, WebDAV, or SFTP shares from inside the app.
 
----
+## English Description
 
-🇫🇷 **Étape après installation :**
+Zerobyte is a backup automation platform built on Restic with a web interface that simplifies backup management for self-hosted environments.
 
-Après le premier lancement, il est nécessaire de générer le fichier de configuration.
-1. Exécutez `sudo docker ps` pour trouver le nom exact du conteneur Netronome (par exemple `netronome_test-netronome-1`, mais il peut varier selon votre installation).
-2. Lancez ensuite la commande suivante en remplaçant `<nom_du_conteneur>` par le nom trouvé :
+In simplified installation mode, it supports directories already mounted into the container while still supporting repository targets such as local storage, S3, GCS, Azure, and rclone-compatible backends.
 
-	docker exec -it <nom_du_conteneur> netronome generate-config
+This reduced-privilege deployment improves security because it removes the extra permissions needed for remote share mounting from inside the container.
 
----
+## Key Features
 
-🇬🇧 English Description
+- Automated backups with encryption, compression, and retention policies.
+- Flexible scheduling for recurring backup jobs.
+- Support for locally mounted directories as backup sources in simplified mode.
+- Repository support for local storage, S3, GCS, Azure, and rclone backends.
+- Snapshot browsing and restore directly from the web interface.
+- Clean web UI designed for practical self-hosted backup workflows.
 
-🌐 Netronome is a lightweight and modern network monitoring tool that gives you clear insight into your network activity.
+## Description Française
 
-📊 Monitor network traffic in real time, keep track of connected devices, and analyze performance through a clean and intuitive dashboard.
+Zerobyte est une plateforme d’automatisation des sauvegardes basée sur Restic, avec une interface web qui simplifie la gestion des sauvegardes dans un environnement auto-hébergé.
 
-⚡ Designed to be efficient and easy to use, Netronome runs with low resource usage, making it ideal for home servers, self-hosted setups, and small infrastructures.
+En mode d’installation simplifié, elle prend en charge les dossiers déjà montés dans le conteneur tout en conservant la compatibilité avec des dépôts de sauvegarde locaux, S3, GCS, Azure et les backends compatibles rclone.
 
-✨ Key features:
+Ce déploiement à privilèges réduits améliore la sécurité, car il supprime les permissions supplémentaires normalement requises pour monter des partages distants depuis le conteneur.
 
-📡 Real-time network traffic monitoring
+## Fonctionnalités principales
 
-🖥️ Visibility into connected devices and active connections
-
-🧭 Clean and intuitive dashboard
-
-🪶 Lightweight and self-hosted
-
-🔧 Easy to deploy and maintain
-
-Netronome is perfect for users who want a simple, efficient, and reliable way to monitor their network.
-
-🇫🇷 Description Française
-
-🌐 Netronome est un outil de surveillance réseau léger et moderne qui offre une vision claire de l’activité de votre réseau.
-
-📊 Suivez le trafic réseau en temps réel, surveillez les appareils connectés et analysez les performances grâce à un tableau de bord clair et intuitif.
-
-⚡ Conçu pour être simple et efficace, Netronome consomme peu de ressources et convient parfaitement aux serveurs personnels, aux environnements auto-hébergés et aux petites infrastructures.
-
-✨ Fonctionnalités principales :
-
-📡 Surveillance du trafic réseau en temps réel
-
-🖥️ Visibilité des appareils connectés et des connexions actives
-
-🧭 Tableau de bord clair et intuitif
-
-🪶 Application légère et auto-hébergée
-
-🔧 Déploiement et maintenance simplifiés
-
-Netronome est idéal pour ceux qui souhaitent surveiller leur réseau de manière simple, efficace et fiable.
+- Sauvegardes automatiques avec chiffrement, compression et politiques de rétention.
+- Planification flexible des tâches de sauvegarde.
+- Prise en charge des dossiers locaux déjà montés dans le conteneur en mode simplifié.
+- Compatibilité des dépôts avec le stockage local, S3, GCS, Azure et les backends rclone.
+- Navigation dans les snapshots et restauration directement depuis l’interface web.
+- Interface web claire pensée pour des sauvegardes auto-hébergées concrètes et simples à gérer.
