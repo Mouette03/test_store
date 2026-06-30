@@ -3,27 +3,10 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "name": "zerobyte-init",
-      "image": "busybox:1.36",
-      "command": ["sh", "-c", "mkdir -p /data && chown -R 1000:1000 /data"],
-      "restart": "no",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/data"
-        }
-      ]
-    },
-    {
       "name": "zerobyte",
-      "image": "ghcr.io/nicotsx/zerobyte:v0.40",
+      "image": "ghcr.io/nicotsx/zerobyte:v0.40.0",
       "internalPort": 4096,
       "isMain": true,
-      "dependsOn": {
-        "zerobyte-init": {
-          "condition": "service_completed_successfully"
-        }
-      },
       "environment": [
         {
           "key": "TZ",
@@ -44,8 +27,13 @@
           "containerPath": "/var/lib/zerobyte"
         },
         {
-          "hostPath": "${ZEROBYTE_BACKUP_PATH}",
+          "hostPath": "/opt/runtipi",
           "containerPath": "/data",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
           "readOnly": true
         }
       ],
