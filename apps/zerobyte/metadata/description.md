@@ -8,6 +8,14 @@ In simplified installation mode, Zerobyte can only back up directories that are 
 
 This mode improves security by removing remote-mount privileges, but it does not allow mounting NFS, SMB, WebDAV, or SFTP shares from inside the app.
 
+## Étape après l’installation
+
+Après le premier lancement, il est nécessaire de terminer la configuration initiale dans l’interface web de Zerobyte. Le dossier à monter doit être configuré dans les paramètres de l’application lors de son installation dans Runtipi.
+
+En mode d’installation simplifié, Zerobyte ne peut sauvegarder que les dossiers déjà montés dans le conteneur. Ainsi, si le chemin hôte `/opt/runtipi` est monté comme `/data`, il faut sélectionner `/data` dans Zerobyte, et non `/opt/runtipi`.
+
+Ce mode améliore la sécurité en supprimant les privilèges de montage distant, mais il ne permet pas de monter des partages NFS, SMB, WebDAV ou SFTP depuis l’application.
+
 ## English Description
 
 Zerobyte is a backup automation platform built on Restic with a web interface that simplifies backup management for self-hosted environments.
