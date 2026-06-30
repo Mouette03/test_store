@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "zerobyte",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "0.40",
   "categories": ["utilities"],
   "short_desc": "Backup automation for self-hosters, built on top of Restic.",
