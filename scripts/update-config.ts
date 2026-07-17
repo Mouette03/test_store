@@ -100,8 +100,11 @@ export const updateAppConfig = async (packageFile: string, newVersion: string) =
   }
 };
 
-if (!packageFile || !newVersion) {
-  console.error("Usage: node update-config.js <packageFile> <newVersion>");
-  process.exit(1);
+if (import.meta.main) {
+  if (!packageFile || !newVersion) {
+    console.error("Usage: node update-config.js <packageFile> <newVersion>");
+    process.exit(1);
+  }
+
+  updateAppConfig(packageFile, newVersion);
 }
-updateAppConfig(packageFile, newVersion);
