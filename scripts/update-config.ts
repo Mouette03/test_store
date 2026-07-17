@@ -65,13 +65,13 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
 
   try {
     const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8"));
-    const parsedComposeYaml = dynamicComposeSchemaYaml.safeParse(composeYaml);
+    const isValidComposeYaml = dynamicComposeSchemaYaml.allows(composeYaml);
 
-    if (!parsedComposeYaml.success) {
+    if (!isValidComposeYaml) {
       throw new Error("Invalid docker-compose.yml");
     }
 
-    const primaryVersion = getPrimaryVersionFromYamlCompose(parsedComposeYaml.data as YamlCompose);
+    const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml as YamlCompose);
 
     if (primaryVersion) {
       return primaryVersion;
