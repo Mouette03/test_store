@@ -61,7 +61,7 @@ describe("primary service version resolution", () => {
     ).toBe("2.4.6");
   });
 
-  test("prefers docker-compose.json before docker-compose.yml", async () => {
+  test("prefers docker-compose.yml before docker-compose.json", async () => {
     const appDir = await createTempAppDir();
 
     await Promise.all([
@@ -85,7 +85,7 @@ describe("primary service version resolution", () => {
       ),
     ]);
 
-    expect(await getPrimaryVersionFromCompose(appDir)).toBe("9.9.9");
+    expect(await getPrimaryVersionFromCompose(appDir)).toBe("1.0.0");
   });
 });
 
@@ -130,6 +130,43 @@ describe("updateAppConfig", () => {
     expect(updatedConfig.tipi_version).toBe(5);
     expect(updatedConfig.version).toBe("33.0.0-apache");
     expect(updatedConfig.updated_at).toBeGreaterThan(0);
+  });
+
+  test("prefers the primary service from docker-compose.yml when both formats exist", async () => {
+    const appDir = await createTempAppDir();
+    const configPath = path.join(appDir, "config.json");
+
+    await Promise.all([
+      fs.writeFile(
+        configPath,
+        JSON.stringify({
+          tipi_version: 4,
+          version: "0.9.0",
+          updated_at: 0,
+        }),
+      ),
+      fs.writeFile(
+        path.join(appDir, "docker-compose.yml"),
+        `services:
+  app:
+    image: ghcr.io/example/app:2.1.0
+    x-runtipi:
+      is_main: true
+`,
+      ),
+      fs.writeFile(
+        path.join(appDir, "docker-compose.json"),
+        JSON.stringify({
+          services: [{ image: "ghcr.io/example/app:9.9.9", isMain: true }],
+        }),
+      ),
+    ]);
+
+    await updateAppConfig(path.join(appDir, "docker-compose.json"), "9.9.9");
+
+    const updatedConfig = JSON.parse(await fs.readFile(configPath, "utf-8"));
+
+    expect(updatedConfig.version).toBe("2.1.0");
   });
 
   test("falls back to the current config version when no primary service is declared", async () => {

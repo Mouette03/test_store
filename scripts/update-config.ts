@@ -58,24 +58,24 @@ export const getPrimaryVersionFromYamlCompose = (compose: YamlCompose) => {
 };
 
 export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
-  const composeJsonPath = path.join(packageRoot, "docker-compose.json");
+  const composeYamlPath = path.join(packageRoot, "docker-compose.yml");
 
   try {
-    const composeJson = JSON.parse(await fs.readFile(composeJsonPath, "utf-8")) as JsonCompose;
-    const primaryVersion = getPrimaryVersionFromJsonCompose(composeJson);
+    const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8")) as YamlCompose;
+    const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml);
 
     if (primaryVersion) {
       return primaryVersion;
     }
   } catch {
-    // Fallback to docker-compose.yml below.
+    // Fallback to docker-compose.json below.
   }
 
-  const composeYamlPath = path.join(packageRoot, "docker-compose.yml");
+  const composeJsonPath = path.join(packageRoot, "docker-compose.json");
 
   try {
-    const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8")) as YamlCompose;
-    return getPrimaryVersionFromYamlCompose(composeYaml);
+    const composeJson = JSON.parse(await fs.readFile(composeJsonPath, "utf-8")) as JsonCompose;
+    return getPrimaryVersionFromJsonCompose(composeJson);
   } catch {
     return null;
   }
