@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import {
+  determineConfigVersion,
   extractImageVersion,
   getPrimaryVersionFromCompose,
   getPrimaryVersionFromJsonCompose,
@@ -88,6 +89,14 @@ describe("primary service version resolution", () => {
   });
 });
 
+describe("determineConfigVersion", () => {
+  test("prefers the resolved primary version, then the current config version, then the incoming version", () => {
+    expect(determineConfigVersion("3.0.0", "2.0.0", "1.0.0")).toBe("3.0.0");
+    expect(determineConfigVersion(null, "2.0.0", "1.0.0")).toBe("2.0.0");
+    expect(determineConfigVersion(null, undefined, "1.0.0")).toBe("1.0.0");
+  });
+});
+
 describe("updateAppConfig", () => {
   test("keeps config.version aligned with the primary service image", async () => {
     const appDir = await createTempAppDir();
@@ -149,6 +158,7 @@ describe("updateAppConfig", () => {
 
     const updatedConfig = JSON.parse(await fs.readFile(configPath, "utf-8"));
 
+    expect(updatedConfig.tipi_version).toBe(2);
     expect(updatedConfig.version).toBe("1.0.0");
   });
 });

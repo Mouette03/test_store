@@ -6,7 +6,7 @@ const packageFile = process.argv[2];
 const newVersion = process.argv[3];
 
 export type AppConfig = {
-  tipi_version: number;
+  tipi_version: number | string;
   version: string;
   updated_at: number;
 };
@@ -81,6 +81,12 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
   }
 };
 
+export const determineConfigVersion = (
+  primaryVersion: string | null,
+  currentVersion: string | undefined,
+  newVersion: string,
+) => primaryVersion ?? currentVersion ?? newVersion;
+
 export const updateAppConfig = async (packageFile: string, newVersion: string) => {
   try {
     const packageRoot = path.dirname(packageFile);
@@ -90,8 +96,8 @@ export const updateAppConfig = async (packageFile: string, newVersion: string) =
     const configParsed = JSON.parse(config) as AppConfig;
     const primaryVersion = await getPrimaryVersionFromCompose(packageRoot);
 
-    configParsed.tipi_version = configParsed.tipi_version + 1;
-    configParsed.version = primaryVersion ?? configParsed.version ?? newVersion;
+    configParsed.tipi_version = Number(configParsed.tipi_version) + 1;
+    configParsed.version = determineConfigVersion(primaryVersion, configParsed.version, newVersion);
     configParsed.updated_at = new Date().getTime();
 
     await fs.writeFile(configPath, JSON.stringify(configParsed, null, 2));
