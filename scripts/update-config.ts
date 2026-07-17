@@ -57,12 +57,15 @@ const getYamlServiceMeta = (service: YamlComposeService) => {
   };
 };
 
+const hasErrorCode = (error: unknown): error is { code: string } =>
+  isRecord(error) && typeof error.code === "string";
+
 export const extractImageVersion = (image: string) => {
   const imageWithoutDigest = image.split("@")[0];
   const lastSlashIndex = imageWithoutDigest.lastIndexOf("/");
   const lastColonIndex = imageWithoutDigest.lastIndexOf(":");
 
-  if (lastColonIndex < lastSlashIndex) {
+  if (lastColonIndex === -1 || lastColonIndex < lastSlashIndex) {
     return null;
   }
 
@@ -100,7 +103,7 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
       return primaryVersion;
     }
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+    if (!hasErrorCode(error) || error.code !== "ENOENT") {
       console.warn(`Failed to read primary version from docker-compose.yml: ${error}`);
     }
   }
@@ -111,7 +114,7 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
     const composeJson = JSON.parse(await fs.readFile(composeJsonPath, "utf-8")) as JsonCompose;
     return getPrimaryVersionFromJsonCompose(composeJson);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+    if (!hasErrorCode(error) || error.code !== "ENOENT") {
       console.warn(`Failed to read primary version from docker-compose.json: ${error}`);
     }
 
@@ -148,8 +151,7 @@ export const updateAppConfig = async (packageFile: string, newVersion: string) =
   }
 };
 
-const isMainModule =
-  process.argv[1] !== undefined && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMainModule) {
   if (!packageFile || !newVersion) {
