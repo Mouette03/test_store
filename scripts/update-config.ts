@@ -1,5 +1,6 @@
 import path from "node:path";
 import fs from "fs/promises";
+import { fileURLToPath } from "node:url";
 import { parse as parseYaml } from "yaml";
 
 const packageFile = process.argv[2];
@@ -51,7 +52,7 @@ export const extractImageVersion = (image: string) => {
   const lastSlashIndex = imageWithoutDigest.lastIndexOf("/");
   const lastColonIndex = imageWithoutDigest.lastIndexOf(":");
 
-  if (lastColonIndex <= lastSlashIndex) {
+  if (lastColonIndex < lastSlashIndex) {
     return null;
   }
 
@@ -131,7 +132,10 @@ export const updateAppConfig = async (packageFile: string, newVersion: string) =
   }
 };
 
-if (import.meta.main) {
+const isMainModule =
+  process.argv[1] !== undefined && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
   if (!packageFile || !newVersion) {
     console.error("Usage: node update-config.js <packageFile> <newVersion>");
     process.exit(1);
