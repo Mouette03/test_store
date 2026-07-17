@@ -23,9 +23,7 @@ type JsonCompose = {
 
 type YamlComposeService = {
   image?: string;
-  "x-runtipi"?: {
-    is_main?: boolean;
-  };
+  "x-runtipi"?: Record<string, unknown>;
 };
 
 type YamlCompose = {
@@ -45,6 +43,18 @@ export const isYamlCompose = (value: unknown): value is YamlCompose => {
   }
 
   return isRecord(value.services);
+};
+
+const getYamlServiceMeta = (service: YamlComposeService) => {
+  const runtipiMeta = service["x-runtipi"];
+
+  if (!isRecord(runtipiMeta)) {
+    return {};
+  }
+
+  return {
+    isMain: typeof runtipiMeta.is_main === "boolean" ? runtipiMeta.is_main : undefined,
+  };
 };
 
 export const extractImageVersion = (image: string) => {
@@ -69,7 +79,7 @@ export const getPrimaryVersionFromJsonCompose = (compose: JsonCompose) => {
 
 export const getPrimaryVersionFromYamlCompose = (compose: YamlCompose) => {
   const primaryService = Object.values(compose.services ?? {}).find(
-    (service) => service["x-runtipi"]?.is_main,
+    (service) => getYamlServiceMeta(service).isMain,
   );
 
   return primaryService?.image ? extractImageVersion(primaryService.image) : null;
@@ -89,8 +99,10 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
     if (primaryVersion) {
       return primaryVersion;
     }
-  } catch {
-    // Fallback to docker-compose.json below.
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+      console.warn(`Failed to read primary version from docker-compose.yml: ${error}`);
+    }
   }
 
   const composeJsonPath = path.join(packageRoot, "docker-compose.json");
@@ -98,7 +110,11 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
   try {
     const composeJson = JSON.parse(await fs.readFile(composeJsonPath, "utf-8")) as JsonCompose;
     return getPrimaryVersionFromJsonCompose(composeJson);
-  } catch {
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+      console.warn(`Failed to read primary version from docker-compose.json: ${error}`);
+    }
+
     return null;
   }
 };
