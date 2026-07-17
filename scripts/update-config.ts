@@ -1,6 +1,7 @@
 import path from "node:path";
 import fs from "fs/promises";
 import { parse as parseYaml } from "yaml";
+import { dynamicComposeSchemaYaml } from "@runtipi/common/schemas";
 
 const packageFile = process.argv[2];
 const newVersion = process.argv[3];
@@ -40,7 +41,9 @@ export const extractImageVersion = (image: string) => {
     return null;
   }
 
-  return imageWithoutDigest.slice(lastColonIndex + 1);
+  const version = imageWithoutDigest.slice(lastColonIndex + 1);
+
+  return version.length > 0 ? version : null;
 };
 
 export const getPrimaryVersionFromJsonCompose = (compose: JsonCompose) => {
@@ -61,8 +64,14 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
   const composeYamlPath = path.join(packageRoot, "docker-compose.yml");
 
   try {
-    const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8")) as YamlCompose;
-    const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml);
+    const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8"));
+    const parsedComposeYaml = dynamicComposeSchemaYaml.safeParse(composeYaml);
+
+    if (!parsedComposeYaml.success) {
+      throw new Error("Invalid docker-compose.yml");
+    }
+
+    const primaryVersion = getPrimaryVersionFromYamlCompose(parsedComposeYaml.data as YamlCompose);
 
     if (primaryVersion) {
       return primaryVersion;
@@ -89,6 +98,10 @@ export const determineConfigVersion = (
 
 export const updateAppConfig = async (packageFile: string, newVersion: string) => {
   try {
+    if (!newVersion) {
+      throw new Error("newVersion is required");
+    }
+
     const packageRoot = path.dirname(packageFile);
     const configPath = path.join(packageRoot, "config.json");
 

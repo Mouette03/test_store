@@ -32,6 +32,7 @@ describe("extractImageVersion", () => {
 
   test("returns null when the image has no tag", () => {
     expect(extractImageVersion("ghcr.io/example/app")).toBeNull();
+    expect(extractImageVersion("ghcr.io/example/app:")).toBeNull();
   });
 });
 
