@@ -1,7 +1,6 @@
 import path from "node:path";
 import fs from "fs/promises";
 import { parse as parseYaml } from "yaml";
-import { dynamicComposeSchemaYaml } from "@runtipi/common/schemas";
 
 const packageFile = process.argv[2];
 const newVersion = process.argv[3];
@@ -30,6 +29,21 @@ type YamlComposeService = {
 
 type YamlCompose = {
   services?: Record<string, YamlComposeService>;
+};
+
+const isObject = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+export const isYamlCompose = (value: unknown): value is YamlCompose => {
+  if (!isObject(value)) {
+    return false;
+  }
+
+  if (!("services" in value) || value.services === undefined) {
+    return false;
+  }
+
+  return isObject(value.services);
 };
 
 export const extractImageVersion = (image: string) => {
@@ -65,13 +79,11 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
 
   try {
     const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8"));
-    const isValidComposeYaml = dynamicComposeSchemaYaml.allows(composeYaml);
-
-    if (!isValidComposeYaml) {
+    if (!isYamlCompose(composeYaml)) {
       throw new Error("Invalid docker-compose.yml");
     }
 
-    const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml as YamlCompose);
+    const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml);
 
     if (primaryVersion) {
       return primaryVersion;
