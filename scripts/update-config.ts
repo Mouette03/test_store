@@ -32,11 +32,11 @@ type YamlCompose = {
   services?: Record<string, YamlComposeService>;
 };
 
-const isObject = (value: unknown): value is Record<string, unknown> =>
-  typeof value === "object" && value !== null;
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
 
 export const isYamlCompose = (value: unknown): value is YamlCompose => {
-  if (!isObject(value)) {
+  if (!isRecord(value)) {
     return false;
   }
 
@@ -44,7 +44,7 @@ export const isYamlCompose = (value: unknown): value is YamlCompose => {
     return false;
   }
 
-  return isObject(value.services);
+  return isRecord(value.services);
 };
 
 export const extractImageVersion = (image: string) => {
@@ -81,7 +81,7 @@ export const getPrimaryVersionFromCompose = async (packageRoot: string) => {
   try {
     const composeYaml = parseYaml(await fs.readFile(composeYamlPath, "utf-8"));
     if (!isYamlCompose(composeYaml)) {
-      throw new Error("Invalid docker-compose.yml");
+      throw new Error("Invalid docker-compose.yml: missing or invalid services structure");
     }
 
     const primaryVersion = getPrimaryVersionFromYamlCompose(composeYaml);
