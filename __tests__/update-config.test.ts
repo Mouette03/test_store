@@ -82,6 +82,8 @@ describe("primary service version resolution", () => {
     image: ghcr.io/example/app:1.0.0
     x-runtipi:
       is_main: true
+x-runtipi:
+  schema_version: 2
 `,
       ),
     ]);
@@ -153,6 +155,8 @@ describe("updateAppConfig", () => {
     image: ghcr.io/example/app:2.1.0
     x-runtipi:
       is_main: true
+x-runtipi:
+  schema_version: 2
 `,
       ),
       fs.writeFile(
