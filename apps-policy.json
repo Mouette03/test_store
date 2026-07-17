@@ -1,0 +1,190 @@
+{
+  "_default": {
+    "lock": "patch"
+  },
+  "arcane": {
+    "images": {
+      "arcane": {
+        "lock": "minor"
+      },
+      "docker-socket-proxy": {
+        "lock": "minor",
+        "_comment": "Tag 'latest' has no version \u2014 auto-update skipped"
+      }
+    }
+  },
+  "dolibarr": {
+    "images": {
+      "dolibarr": {
+        "lock": "minor"
+      },
+      "db-dolibarr": {
+        "lock": "minor"
+      }
+    }
+  },
+  "duckdns": {
+    "images": {
+      "duckdns": {
+        "lock": "minor",
+        "_comment": "Tag 'version-d67e71cc' is a git hash \u2014 auto-update skipped"
+      }
+    }
+  },
+  "erugo": {
+    "images": {
+      "erugo": {
+        "lock": "minor"
+      }
+    }
+  },
+  "forgejo": {
+    "images": {
+      "forgejo": {
+        "lock": "minor"
+      },
+      "forgejo-db": {
+        "lock": "patch",
+        "_comment": "Tag 'mariadb:12.3' is a pinned minor version \u2014 only patch updates allowed"
+      }
+    }
+  },
+  "galette": {
+    "images": {
+      "galette": {
+        "lock": "minor"
+      },
+      "db-galette": {
+        "lock": "patch"
+      }
+    }
+  },
+  "ghost": {
+    "images": {
+      "ghost": {
+        "lock": "minor"
+      },
+      "db-ghost": {
+        "lock": "patch"
+      }
+    }
+  },
+  "home-assistant": {
+    "images": {
+      "homeassistant": {
+        "lock": "minor"
+      },
+      "matter-server": {
+        "lock": "minor",
+        "_comment": "Tag 'stable' has no version \u2014 auto-update skipped"
+      }
+    }
+  },
+  "home-assistant-linky": {
+    "images": {
+      "homeassistant": {
+        "lock": "minor"
+      },
+      "matter-server": {
+        "lock": "minor",
+        "_comment": "Tag 'stable' has no version \u2014 auto-update skipped"
+      },
+      "ha-linky": {
+        "lock": "minor"
+      }
+    }
+  },
+  "joomla": {
+    "images": {
+      "joomla": {
+        "lock": "minor"
+      },
+      "db-joomla": {
+        "lock": "patch"
+      }
+    }
+  },
+  "netronome": {
+    "images": {
+      "netronome": {
+        "lock": "minor"
+      }
+    }
+  },
+  "nextcloud": {
+    "images": {
+      "nextcloud": {
+        "lock": "minor"
+      },
+      "db-nextcloud": {
+        "lock": "patch",
+        "_comment": "Tag 'postgres:17' is a floating major version \u2014 auto-update skipped"
+      },
+      "redis-nextcloud": {
+        "lock": "minor"
+      },
+      "cron": {
+        "lock": "minor"
+      }
+    }
+  },
+  "phpmyadmin": {
+    "images": {
+      "phpmyadmin": {
+        "lock": "minor"
+      }
+    }
+  },
+  "portainer": {
+    "images": {
+      "portainer": {
+        "lock": "patch"
+      }
+    }
+  },
+  "sync-in": {
+    "images": {
+      "syncin": {
+        "lock": "minor"
+      },
+      "db-syncin": {
+        "lock": "patch",
+        "_comment": "Tag 'mariadb:11' is a floating major version \u2014 auto-update skipped"
+      }
+    }
+  },
+  "triliumnext": {
+    "images": {
+      "triliumnext": {
+        "lock": "minor"
+      }
+    }
+  },
+  "vert": {
+    "images": {
+      "vert": {
+        "lock": "minor"
+      }
+    }
+  },
+  "webapp": {
+    "images": {
+      "webapp": {
+        "lock": "minor"
+      },
+      "db-webapp": {
+        "lock": "patch"
+      }
+    }
+  },
+  "wordpress": {
+    "images": {
+      "wordpress": {
+        "lock": "minor"
+      },
+      "wordpress-db": {
+        "lock": "patch"
+      }
+    }
+  }
+}
