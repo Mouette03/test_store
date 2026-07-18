@@ -1,25 +1,25 @@
 services:
-  website:
-    image: 'ghcr.io/bewcloud/bewcloud:v2.3.0'
+  postgresql:
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=fake
+    - POSTGRES_DB=bewcloud
+    image: postgres:17
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
     volumes:
-      - './data-files:/app/data-files'
-      - './bewcloud.config.ts:/app/bewcloud.config.ts'
+    - bewcloud-db:/var/lib/postgresql/data
+    x-runtipi:
+      internal_port: 5432
+  website:
+    image: ghcr.io/bewcloud/bewcloud:v2.3.1
+    volumes:
+    - ./data-files:/app/data-files
+    - ./bewcloud.config.ts:/app/bewcloud.config.ts
     x-runtipi:
       internal_port: 8000
       is_main: true
-  postgresql:
-    image: 'postgres:17'
-    volumes:
-      - 'bewcloud-db:/var/lib/postgresql/data'
-    environment:
-      - 'POSTGRES_USER=postgres'
-      - 'POSTGRES_PASSWORD=fake'
-      - 'POSTGRES_DB=bewcloud'
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    x-runtipi:
-      internal_port: 5432
 x-runtipi:
   schema_version: 2

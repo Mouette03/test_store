@@ -1,15 +1,15 @@
 services:
   stalwart-mail:
-    image: 'stalwartlabs/stalwart:v0.13.2'
+    image: stalwartlabs/stalwart:v0.13.4
     ports:
-      - '${NETWORK_INTERFACE:-0.0.0.0}:25:25/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:143:143/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:465:465/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:587:587/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:993:993/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:4190:4190/tcp'
+    - ${NETWORK_INTERFACE:-0.0.0.0}:25:25/tcp
+    - ${NETWORK_INTERFACE:-0.0.0.0}:143:143/tcp
+    - ${NETWORK_INTERFACE:-0.0.0.0}:465:465/tcp
+    - ${NETWORK_INTERFACE:-0.0.0.0}:587:587/tcp
+    - ${NETWORK_INTERFACE:-0.0.0.0}:993:993/tcp
+    - ${NETWORK_INTERFACE:-0.0.0.0}:4190:4190/tcp
     volumes:
-      - '${APP_DATA_DIR}/data:/opt/stalwart-mail'
+    - ${APP_DATA_DIR}/data:/opt/stalwart-mail
     x-runtipi:
       internal_port: 8080
       is_main: true

@@ -1,51 +1,51 @@
 services:
-  nextcloud:
-    image: 'nextcloud:33.0.0-apache'
-    volumes:
-      - '${APP_DATA_DIR}/data/nextcloud:/var/www/html'
-    environment:
-      - 'POSTGRES_HOST=db-nextcloud'
-      - 'REDIS_HOST=redis-nextcloud'
-      - 'POSTGRES_PASSWORD=tipi'
-      - 'POSTGRES_USER=tipi'
-      - 'POSTGRES_DB=nextcloud'
-      - 'NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}'
-      - 'NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}'
-      - 'NEXTCLOUD_TRUSTED_DOMAINS=${APP_DOMAIN}'
-      - 'TRUSTED_PROXIES=172.16.0.0/12'
-      - 'OVERWRITEPROTOCOL=${APP_PROTOCOL}'
-      - 'PHP_MEMORY_LIMIT=${PHP_MEMORY_LIMIT}'
-      - 'PHP_UPLOAD_LIMIT=${PHP_UPLOAD_LIMIT}'
+  cron:
     depends_on:
-      - 'db-nextcloud'
-      - 'redis-nextcloud'
+    - db-nextcloud
+    - redis-nextcloud
+    entrypoint: /cron.sh
+    image: nextcloud:33.0.6-apache
+    volumes:
+    - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
+  db-nextcloud:
+    environment:
+    - POSTGRES_PASSWORD=tipi
+    - POSTGRES_USER=tipi
+    - POSTGRES_DB=nextcloud
+    image: postgres:17
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+  nextcloud:
+    depends_on:
+    - db-nextcloud
+    - redis-nextcloud
+    environment:
+    - POSTGRES_HOST=db-nextcloud
+    - REDIS_HOST=redis-nextcloud
+    - POSTGRES_PASSWORD=tipi
+    - POSTGRES_USER=tipi
+    - POSTGRES_DB=nextcloud
+    - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
+    - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+    - NEXTCLOUD_TRUSTED_DOMAINS=${APP_DOMAIN}
+    - TRUSTED_PROXIES=172.16.0.0/12
+    - OVERWRITEPROTOCOL=${APP_PROTOCOL}
+    - PHP_MEMORY_LIMIT=${PHP_MEMORY_LIMIT}
+    - PHP_UPLOAD_LIMIT=${PHP_UPLOAD_LIMIT}
+    image: nextcloud:33.0.6-apache
     labels:
-      'traefik.http.middlewares.hsts.headers.stsSeconds': '15552000'
-      'traefik.http.middlewares.hsts.headers.stsIncludeSubdomains': 'true'
-      'traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares': 'hsts@docker'
+      traefik.http.middlewares.hsts.headers.stsIncludeSubdomains: 'true'
+      traefik.http.middlewares.hsts.headers.stsSeconds: '15552000'
+      traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares: hsts@docker
+    volumes:
+    - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
     x-runtipi:
       internal_port: 80
       is_main: true
-  db-nextcloud:
-    image: 'postgres:17'
-    volumes:
-      - '${APP_DATA_DIR}/data/db:/var/lib/postgresql/data'
-    environment:
-      - 'POSTGRES_PASSWORD=tipi'
-      - 'POSTGRES_USER=tipi'
-      - 'POSTGRES_DB=nextcloud'
   redis-nextcloud:
-    image: 'redis:7.4.5'
-    user: '1000:1000'
+    image: redis:7.4.9
+    user: 1000:1000
     volumes:
-      - '${APP_DATA_DIR}/data/redis:/data'
-  cron:
-    image: 'nextcloud:33.0.0-apache'
-    entrypoint: '/cron.sh'
-    volumes:
-      - '${APP_DATA_DIR}/data/nextcloud:/var/www/html'
-    depends_on:
-      - 'db-nextcloud'
-      - 'redis-nextcloud'
+    - ${APP_DATA_DIR}/data/redis:/data
 x-runtipi:
   schema_version: 2
