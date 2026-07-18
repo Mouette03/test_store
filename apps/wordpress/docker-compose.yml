@@ -1,6 +1,6 @@
 services:
   wordpress:
-    image: 'wordpress:6.8.2'
+    image: 'wordpress:6.9.4'
     volumes:
       - '${APP_DATA_DIR}/data/wordpress:/var/www/html'
     environment:

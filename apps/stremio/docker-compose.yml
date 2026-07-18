@@ -1,6 +1,6 @@
 services:
   stremio_server:
-    image: 'stremio/server:v4.20.12'
+    image: 'stremio/server:v4.20.19'
     environment:
       - 'FFMPEG_BIN=/bin/ffmpeg'
       - 'FFPROBE_BIN=/bin/ffprobe'
