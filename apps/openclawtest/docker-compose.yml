@@ -1,6 +1,6 @@
 services:
   openclaw:
-    image: 'ghcr.io/openclaw/openclaw:2026.4.2'
+    image: 'ghcr.io/openclaw/openclaw:2026.4.24'
     volumes:
       - '${APP_DATA_DIR}/config:/home/node/.openclaw'
       - '${APP_DATA_DIR}/workspace:/home/node/.openclaw/workspace'

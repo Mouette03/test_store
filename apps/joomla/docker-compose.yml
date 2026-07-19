@@ -1,6 +1,6 @@
 services:
   joomla:
-    image: 'joomla:6.0.1-php8.3-apache'
+    image: 'joomla:6.1.2-php8.3-apache'
     volumes:
       - '${APP_DATA_DIR}/data/html:/var/www/html'
       - '${APP_DATA_DIR}/data/php.ini:/usr/local/etc/php/conf.d/php.ini'
