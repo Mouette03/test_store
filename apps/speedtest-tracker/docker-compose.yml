@@ -1,7 +1,6 @@
 services:
   speedtest-tracker:
     image: lscr.io/linuxserver/speedtest-tracker:1.14.5
-    container_name: speedtest-tracker
     environment:
       - PUID=1000
       - PGID=1000
@@ -20,3 +19,8 @@ services:
       - "8212:443"
     networks:
       - tipi_main_network
+    x-runtipi:
+      internal_port: 80
+      is_main: true
+x-runtipi:
+  schema_version: 2
