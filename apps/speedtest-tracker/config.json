@@ -18,9 +18,7 @@
       "type": "text",
       "label": "Application Key",
       "env_variable": "SPEEDTEST_APP_KEY",
-      "min": 40,
-      "max": 50,
-      "default": "",
+      "min": 44,
       "required": true,
       "hint": "Generate an app key at https://speedtest-tracker.dev/"
     },
