@@ -1,0 +1,41 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Speedtest Tracker",
+  "port": 8211,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "speedtest-tracker",
+  "tipi_version": 117,
+  "version": "1.14.5",
+  "categories": ["utilities"],
+  "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
+  "short_desc": "Internet performance tracking application.",
+  "author": "alexjustesen",
+  "source": "https://github.com/alexjustesen/speedtest-tracker",
+  "form_fields": [
+      {
+      "type": "text",
+      "label": "Application Key",
+      "env_variable": "SPEEDTEST_APP_KEY",
+      "min": 50,
+      "max": 40,
+      "default": "",
+      "required": true,
+      "hint": "Generate an app key at https://speedtest-tracker.dev/"
+    },
+    {
+      "type": "text",
+      "label": "Speedtest Schedule (cron format)",
+      "env_variable": "SPEEDTEST_SCHEDULE",
+      "default": "30 * * * *",
+      "min": 9,
+      "max": 100,
+      "hint": "https://crontab.guru is a good resource"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1782287773002,
+  "min_tipi_version": "4.5.0"
+}

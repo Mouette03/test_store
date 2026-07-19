@@ -1,0 +1,22 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:1.14.5
+    container_name: speedtest-tracker
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - APP_TIMEZONE=${TZ}
+      - DISPLAY_TIMEZONE=${TZ}
+      - APP_KEY=${SPEEDTEST_APP_KEY}
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=${SPEEDTEST_SCHEDULE:-'30 * * * *'}
+      - SPEEDTEST_SERVERS=${SPEEDTEST_SERVERS:-''}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
+    ports:
+      - ${APP_PORT}:80
+      - "8212:443"
+    networks:
+      - tipi_main_network
