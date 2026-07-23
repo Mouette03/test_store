@@ -3,7 +3,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 80,
+  "port": 5896,
   "id": "aliasvault",
   "tipi_version": 1,
   "version": "latest",
