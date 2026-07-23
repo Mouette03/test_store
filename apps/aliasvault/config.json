@@ -1,0 +1,36 @@
+{
+  "name": "AliasVault",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 80,
+  "id": "aliasvault",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["security"],
+  "description": "AliasVault est un gestionnaire de mots de passe et d'alias email auto-hébergé pour Runtipi.",
+  "short_desc": "AliasVault pour Runtipi",
+  "author": "AliasVault",
+  "source": "https://docs.aliasvault.com/installation/docker-compose/",
+  "website": "https://www.aliasvault.net",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Force HTTPS redirect",
+      "default": "false",
+      "required": true,
+      "env_variable": "FORCE_HTTPS_REDIRECT"
+    },
+    {
+      "type": "text",
+      "label": "Public registration enabled",
+      "default": "true",
+      "required": true,
+      "env_variable": "PUBLIC_REGISTRATION_ENABLED"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1782852420000,
+  "updated_at": 1782852420000,
+  "min_tipi_version": "4.5.0"
+}
