@@ -6,8 +6,8 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 2,
-  "version": "v1.2.8",
+  "tipi_version": 3,
+  "version": "v1.2.9",
   "categories": ["utilities"],
   "description": "Filyo est une application de gestion de fichiers, utilisant MariaDB comme base de données.",
   "short_desc": "Gestionnaire de fichiers self-hosted",
@@ -87,6 +87,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1777229291946,
-  "updated_at": 1784386768750,
+  "updated_at": 1784865815223,
   "min_tipi_version": "4.5.0"
 }
