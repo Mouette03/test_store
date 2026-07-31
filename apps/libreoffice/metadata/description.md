@@ -1,42 +1,29 @@
-# Dolibarr ERP/CRM
-
-
-
-
+# LibreOffice
 
 ##### 🇬🇧 Description (English)
 
-🧩 Dolibarr is an all-in-one open-source ERP/CRM solution, perfect for businesses, freelancers, and associations.
+🧩 LibreOffice is a powerful and free open-source office suite, perfect for individuals, students, and businesses.
 
 📦 With Runtipi, you can host it locally, without cloud dependency or subscriptions.
 
-🛠️ Manage clients, quotes, invoices, products, inventory, projects, HR, accounting... all from a clean, modular web interface.
+🛠️ Create and edit documents, spreadsheets, presentations, drawings, databases, and more from a clean, modern web interface.
 
-💼 Easy to install, lightweight yet powerful, Dolibarr adapts to your needs and scales with your growth.
+💼 Easy to install, lightweight yet full-featured, LibreOffice supports all major office formats and works with your existing files.
 
-🚀 Run your business management from home — with full freedom and control.
+🚀 Work on your office documents from home — with full freedom and control.
 
-
-
-🔗 Official Docker source: https://hub.docker.com/r/dolibarr/dolibarr
-
-
-
-
+🔗 Official Docker source: https://github.com/linuxserver/docker-libreoffice
 
 ##### 🇫🇷 Description (Français)
 
-🧩 Dolibarr est une solution ERP/CRM open-source tout-en-un, idéale pour les entreprises, indépendants et associations.
+🧩 LibreOffice est une suite bureautique open-source puissante et gratuite, idéale pour les particuliers, étudiants et entreprises.
 
-📦 Grâce à Runtipi, vous pouvez l’héberger en local, sans dépendre du cloud ni d’un abonnement.
+📦 Grâce à Runtipi, vous pouvez l'héberger en local, sans dépendre du cloud ni d'un abonnement.
 
-🛠️ Gérez vos clients, devis, factures, produits, stocks, projets, RH, comptabilité... tout cela depuis une interface web claire et modulable.
+🛠️ Créez et modifiez des documents texte, feuilles de calcul, présentations, dessins, bases de données et plus encore, depuis une interface web claire et moderne.
 
-💼 Simple à installer, léger et puissant, Dolibarr s’adapte à vos besoins et évolue avec vous.
+💼 Simple à installer, léger et complet, LibreOffice prend en charge tous les principaux formats de bureautique et fonctionne avec vos fichiers existants.
 
-🚀 Lancez votre gestion d’entreprise à domicile, avec liberté et contrôle total.
+🚀 Travaillez sur vos documents bureautiques à domicile, avec liberté et contrôle total.
 
-
-
-🔗 Source Docker officielle : https://hub.docker.com/r/dolibarr/dolibarr
-
+🔗 Source Docker officielle : https://github.com/linuxserver/docker-libreoffice
