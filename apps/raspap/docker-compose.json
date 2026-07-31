@@ -5,11 +5,11 @@
     {
       "name": "raspap",
       "image": "ghcr.io/raspap/raspap-docker:latest",
-      "internalPort": 80,
+      "internalPort": 8081,
       "isMain": true,
       "privileged": true,
       "networkMode": "host",
-      "cgroup": "host",
+      "cgroupnsMode": "host",
       "volumes": [
         {
           "hostPath": "/sys/fs/cgroup",
