@@ -9,6 +9,7 @@
       "isMain": true,
       "privileged": true,
       "networkMode": "host",
+      "cgroupnsMode": "host",
       "volumes": [
         {
           "hostPath": "/sys/fs/cgroup",
