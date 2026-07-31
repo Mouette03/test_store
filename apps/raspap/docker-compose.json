@@ -9,7 +9,6 @@
       "isMain": true,
       "privileged": true,
       "networkMode": "host",
-      "cgroupnsMode": "host",
       "volumes": [
         {
           "hostPath": "/sys/fs/cgroup",
@@ -22,7 +21,7 @@
         { "key": "RASPAP_COUNTRY", "value": "${RASPAP_COUNTRY}" },
         { "key": "RASPAP_WEBGUI_USER", "value": "${RASPAP_WEBGUI_USER}" },
         { "key": "RASPAP_WEBGUI_PASS", "value": "${RASPAP_WEBGUI_PASS}" },
-        { "key": "RASPAP_WEBGUI_PORT", "value": "80" }
+        { "key": "RASPAP_WEBGUI_PORT", "value": "8081" }
       ],
       "capAdd": ["SYS_ADMIN"]
     }
