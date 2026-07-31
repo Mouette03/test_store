@@ -9,7 +9,7 @@ services:
       - 'RASPAP_COUNTRY=${RASPAP_COUNTRY}'
       - 'RASPAP_WEBGUI_USER=${RASPAP_WEBGUI_USER}'
       - 'RASPAP_WEBGUI_PASS=${RASPAP_WEBGUI_PASS}'
-      - 'RASPAP_WEBGUI_PORT=8081'
+      - 'RASPAP_WEBGUI_PORT=4985'
     network_mode: 'host'
     privileged: true
     cgroupns_mode: 'host'
@@ -17,7 +17,7 @@ services:
       - 'SYS_ADMIN'
     restart: 'unless-stopped'
     x-runtipi:
-      internal_port: 8081
+      internal_port: 4985
       is_main: true
 x-runtipi:
   schema_version: 2
