@@ -8,7 +8,7 @@ services:
     volumes:
       - '${APP_DATA_DIR}/data:/data'
   netronome:
-    image: 'ghcr.io/autobrr/netronome:v0.12.0'
+    image: 'ghcr.io/autobrr/netronome:v0.13.0'
     volumes:
       - '${APP_DATA_DIR}/data:/data'
     depends_on:
