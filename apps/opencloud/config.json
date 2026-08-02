@@ -7,7 +7,7 @@
   "port": 9482,
   "dynamic_config": true,
   "tipi_version": 6,
-  "version": "4.0.8",
+  "version": "7.2.2",
   "categories": ["data"],
   "description": "OpenCloud is an open-source platform that provides a secure and private way to store, access and share your files. Fork of ownCloud with performance improvements.",
   "short_desc": "Secure and private cloud storage solution",
@@ -24,6 +24,22 @@
       "max": 50,
       "required": true,
       "env_variable": "OPENCLOUD_ADMIN_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Service account ID",
+      "hint": "Automatically generated, do not modify",
+      "description": "Internal service account identifier required by OpenCloud 7.x for the sharing service",
+      "min": 36,
+      "env_variable": "OPENCLOUD_SERVICE_ACCOUNT_ID"
+    },
+    {
+      "type": "random",
+      "label": "Service account secret",
+      "hint": "Automatically generated, do not modify",
+      "description": "Internal service account secret required by OpenCloud 7.x for the sharing service",
+      "min": 64,
+      "env_variable": "OPENCLOUD_SERVICE_ACCOUNT_SECRET"
     },
     {
       "type": "text",
@@ -99,6 +115,6 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1769123760487,
-  "updated_at": 1783720871328,
+  "updated_at": 1785786621000,
   "min_tipi_version": "4.5.0"
 }

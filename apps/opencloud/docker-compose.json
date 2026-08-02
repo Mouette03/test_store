@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "opencloud",
-      "image": "opencloudeu/opencloud:4.0.8",
+      "image": "opencloudeu/opencloud:7.2.2",
       "internalPort": 9200,
       "isMain": true,
       "entrypoint": "/bin/sh",
@@ -50,6 +50,14 @@
         {
           "key": "OC_SHARING_PUBLIC_SHARE_MUST_HAVE_PASSWORD",
           "value": "false"
+        },
+        {
+          "key": "OC_SERVICE_ACCOUNT_ID",
+          "value": "${OPENCLOUD_SERVICE_ACCOUNT_ID}"
+        },
+        {
+          "key": "OC_SERVICE_ACCOUNT_SECRET",
+          "value": "${OPENCLOUD_SERVICE_ACCOUNT_SECRET}"
         },
         {
           "key": "START_ADDITIONAL_SERVICES",
