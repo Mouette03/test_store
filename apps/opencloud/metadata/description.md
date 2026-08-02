@@ -1,8 +1,12 @@
 # OpenCloud
 
-> **⚠️ Beta Testing Phase**: This application is currently in testing. I welcome your feedback! If you encounter any issues or have suggestions for improvements, please report them to help me enhance OpenCloud on runtipi.
+> **⚠️ Beta Testing Phase**: This application is currently in testing. **Do not use in production environments.** I welcome your feedback! If you encounter any issues or have suggestions for improvements, please report them to help me enhance OpenCloud on runtipi.
 
-> **⚠️ Phase de Test Beta**: Cette application est actuellement en test. J'accueille vos retours ! Si vous rencontrez des problèmes ou avez des suggestions d'amélioration, veuillez les signaler pour m'aider à améliorer OpenCloud sur runtipi.
+> **🌐 Domain Required**: This application must be exposed through a domain name. Local IP access is disabled.
+
+> **⚠️ Phase de Test Beta**: Cette application est actuellement en test. **Ne pas utiliser en environnement de production.** J'accueille vos retours ! Si vous rencontrez des problèmes ou avez des suggestions d'amélioration, veuillez les signaler pour m'aider à améliorer OpenCloud sur runtipi.
+
+> **🌐 Domaine Requis**: Cette application doit obligatoirement être exposée via un nom de domaine. L'accès par IP locale est désactivé.
 
 ## 🌐 Overview
 
