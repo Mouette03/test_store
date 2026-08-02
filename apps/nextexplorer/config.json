@@ -23,7 +23,7 @@
       "env_variable": "FILES_PATH"
     },
     {
-      "type": "text",
+      "type": "password",
       "label": "Session secret",
       "max": 100,
       "min": 12,
