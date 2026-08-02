@@ -1,0 +1,38 @@
+{
+  "name": "NextExplorer",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 3000,
+  "id": "nextexplorer",
+  "tipi_version": 1,
+  "version": "2.2.0",
+  "categories": ["utilities", "network"],
+  "description": "NextExplorer is a modern, self-hosted web file explorer with a polished interface, secure access control, OIDC/SSO support, a built-in file editor, and thumbnail previews.",
+  "short_desc": "Modern, self-hosted file explorer",
+  "author": "nxzai",
+  "source": "https://github.com/nxzai/NextExplorer",
+  "website": "https://explorer.nxz.ai",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Files path",
+      "max": 255,
+      "min": 1,
+      "required": true,
+      "env_variable": "FILES_PATH"
+    },
+    {
+      "type": "password",
+      "label": "Session secret",
+      "max": 100,
+      "min": 12,
+      "required": true,
+      "env_variable": "SESSION_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1785712345678,
+  "updated_at": 1785712345678,
+  "min_tipi_version": "4.5.0"
+}
