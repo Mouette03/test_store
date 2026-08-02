@@ -29,6 +29,20 @@
       "min": 12,
       "required": true,
       "env_variable": "SESSION_SECRET"
+    },
+    {
+      "type": "number",
+      "label": "User ID (PUID)",
+      "default": 1000,
+      "required": false,
+      "env_variable": "PUID"
+    },
+    {
+      "type": "number",
+      "label": "Group ID (PGID)",
+      "default": 1000,
+      "required": false,
+      "env_variable": "PGID"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

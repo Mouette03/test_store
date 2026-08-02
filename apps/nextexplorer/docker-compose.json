@@ -19,6 +19,12 @@
         {
           "key": "SESSION_SECRET",
           "value": "${SESSION_SECRET}"
+        },
+        { "key": "PUID",
+          "value": "${PUID}"
+        },
+        { "key": "PGID",
+          "value": "${PGID}"
         }
       ],
       "volumes": [
