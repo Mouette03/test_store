@@ -3,7 +3,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 3000,
+  "port": 2962,
   "id": "nextexplorer",
   "tipi_version": 1,
   "version": "2.2.0",
@@ -23,7 +23,7 @@
       "env_variable": "FILES_PATH"
     },
     {
-      "type": "password",
+      "type": "text",
       "label": "Session secret",
       "max": 100,
       "min": 12,
@@ -32,7 +32,7 @@
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1785712345678,
-  "updated_at": 1785712345678,
+  "created_at": 1785711886523,
+  "updated_at": 1785711886523,
   "min_tipi_version": "4.5.0"
 }
