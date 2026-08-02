@@ -28,6 +28,37 @@ OpenCloud is a powerful, open-source cloud storage solution that puts you in com
 - Educational institutions
 - Anyone who values data privacy and control
 
+## ⬆️ Upgrading to OpenCloud 7.x
+
+Since version 7.x.x, OpenCloud requires a service account configured for the `sharing` service. Starting from this app update, the required `OC_SERVICE_ACCOUNT_ID` and `OC_SERVICE_ACCOUNT_SECRET` values are **automatically generated and injected** at update time — no manual action is required for most users.
+
+⏳ **First startup after the upgrade**: OpenCloud migrates existing Space memberships to a new backend format in the background. Depending on the number of Spaces and members, this can take several minutes. During this time, Space member lists may be incomplete, and creating/deleting Spaces or modifying shares may be temporarily unavailable. Do not restart the container during this migration — just wait until it completes.
+
+### If OpenCloud fails to start after the update
+
+If your instance was previously configured manually and container logs show an error like `The service account id has not been configured for sharing`, follow the official patch procedure:
+
+1. Stop the app from the Runtipi dashboard.
+2. Open a temporary shell mounted on your config volume:
+   ```
+   docker run --rm -it --entrypoint /bin/sh \
+     -v "<path-to-app-data>/data/config:/etc/opencloud" \
+     opencloudeu/opencloud:7.2.2
+   ```
+3. Generate the configuration diff:
+   ```
+   opencloud init --diff
+   ```
+4. Verify and apply the patch:
+   ```
+   cd /etc/opencloud
+   patch --dry-run opencloud.yaml < opencloud.config.patch
+   patch opencloud.yaml < opencloud.config.patch
+   ```
+5. Exit the container (`exit`) and restart the app from Runtipi.
+
+Full reference: [OpenCloud official upgrade guide](https://docs.opencloud.eu/docs/next/admin/maintenance/upgrade/upgrade-7.x.x/).
+
 ---
 
 ## 🌐 Présentation
@@ -49,3 +80,34 @@ OpenCloud est une solution de stockage cloud open-source puissante qui vous donn
 - Gestion documentaire d'entreprise
 - Institutions éducatives
 - Toute personne qui valorise la confidentialité et le contrôle des données
+
+## ⬆️ Migration vers OpenCloud 7.x
+
+Depuis la version 7.x.x, OpenCloud nécessite un compte de service configuré pour le service `sharing`. À partir de cette mise à jour de l'app, les valeurs requises `OC_SERVICE_ACCOUNT_ID` et `OC_SERVICE_ACCOUNT_SECRET` sont **générées et injectées automatiquement** lors de la mise à jour — aucune action manuelle n'est requise pour la majorité des utilisateurs.
+
+⏳ **Premier démarrage après la mise à jour** : OpenCloud migre en arrière-plan les informations de membres des Spaces vers un nouveau format. Selon le nombre de Spaces et de membres, cela peut prendre plusieurs minutes. Pendant ce temps, les listes de membres peuvent être incomplètes, et la création/suppression de Spaces ou la modification de partages peuvent être temporairement indisponibles. Ne redémarrez pas le conteneur pendant cette migration — attendez simplement qu'elle se termine.
+
+### Si OpenCloud ne démarre pas après la mise à jour
+
+Si votre instance a été configurée manuellement auparavant et que les logs du conteneur affichent une erreur du type `The service account id has not been configured for sharing`, suivez la procédure officielle de patch :
+
+1. Arrêtez l'application depuis le tableau de bord Runtipi.
+2. Ouvrez un shell temporaire monté sur votre volume de configuration :
+   ```
+   docker run --rm -it --entrypoint /bin/sh \
+     -v "<chemin-vers-app-data>/data/config:/etc/opencloud" \
+     opencloudeu/opencloud:7.2.2
+   ```
+3. Générez le diff de configuration :
+   ```
+   opencloud init --diff
+   ```
+4. Vérifiez puis appliquez le patch :
+   ```
+   cd /etc/opencloud
+   patch --dry-run opencloud.yaml < opencloud.config.patch
+   patch opencloud.yaml < opencloud.config.patch
+   ```
+5. Quittez le conteneur (`exit`) puis redémarrez l'application depuis Runtipi.
+
+Référence complète : [guide officiel de mise à jour OpenCloud](https://docs.opencloud.eu/docs/next/admin/maintenance/upgrade/upgrade-7.x.x/).
