@@ -13,10 +13,6 @@
           "value": "production"
         },
         {
-          "key": "PORT",
-          "value": "3000"
-        },
-        {
           "key": "PUBLIC_URL",
           "value": "${APP_PROTOCOL}://${APP_DOMAIN}"
         },
