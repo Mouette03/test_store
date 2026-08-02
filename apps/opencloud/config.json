@@ -30,7 +30,7 @@
       "label": "Service account ID",
       "hint": "Automatically generated, do not modify",
       "description": "Internal service account identifier required by OpenCloud 7.x for the sharing service",
-      "min": 36,
+      "min": 32,
       "env_variable": "OPENCLOUD_SERVICE_ACCOUNT_ID"
     },
     {
