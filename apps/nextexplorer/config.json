@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 2962,
   "id": "nextexplorer",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "2.2.0",
   "categories": ["utilities"],
   "description": "NextExplorer is a modern, self-hosted web file explorer with a polished interface, secure access control, OIDC/SSO support, a built-in file editor, and thumbnail previews.",
