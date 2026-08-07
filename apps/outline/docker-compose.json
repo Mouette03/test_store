@@ -26,7 +26,7 @@
         },
         {
           "key": "URL",
-          "value": "${APP_PROTOCOL:-https}://${APP_DOMAIN}"
+          "value": "${APP_PROTOCOL}://${APP_DOMAIN}"
         },
         {
           "key": "SECRET_KEY",
@@ -62,7 +62,7 @@
         },
         {
           "key": "FORCE_HTTPS",
-          "value": "true"
+          "value": "${OUTLINE_FORCE_HTTPS}"
         },
         {
           "key": "PROXY_HEADERS_TRUSTED",

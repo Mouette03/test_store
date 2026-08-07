@@ -40,6 +40,14 @@
       "env_variable": "OUTLINE_DEFAULT_LANGUAGE"
     },
     {
+      "type": "boolean",
+      "label": "Force HTTPS",
+      "required": false,
+      "default": true,
+      "hint": "Force redirects to https. Keep enabled when Runtipi handles TLS (recommended).",
+       "env_variable": "OUTLINE_FORCE_HTTPS"
+    },
+    {
       "type": "text",
       "label": "SMTP Host",
       "hint": "SMTP server required for magic-link sign-in",
