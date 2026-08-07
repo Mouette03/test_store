@@ -1,0 +1,110 @@
+{
+  "name": "Outline",
+  "port": 4235,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "outline",
+  "tipi_version": 1,
+  "version": "1.9.2",
+  "categories": ["utilities", "productivity"],
+  "description": "Outline is a fast, open-source knowledge base app for team documentation with real-time collaboration. It supports Markdown, sharing, version history and search.",
+  "short_desc": "Open source team wiki for knowledge sharing.",
+  "author": "Outline",
+  "website": "https://www.getoutline.com/",
+  "source": "https://github.com/outline/outline",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 32,
+      "env_variable": "OUTLINE_PG_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Secret key",
+      "min": 64,
+      "env_variable": "OUTLINE_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Utils secret",
+      "min": 32,
+      "env_variable": "OUTLINE_UTILS_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Default language",
+      "default": "fr_FR",
+      "required": false,
+      "env_variable": "OUTLINE_DEFAULT_LANGUAGE"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "SMTP server required for magic-link sign-in",
+      "required": false,
+      "env_variable": "OUTLINE_SMTP_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Port",
+      "hint": "usually 587 or 465",
+      "required": false,
+      "env_variable": "OUTLINE_SMTP_PORT"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Username",
+      "required": false,
+      "env_variable": "OUTLINE_SMTP_USER"
+    },
+    {
+      "type": "password",
+      "label": "SMTP Password",
+      "required": false,
+      "env_variable": "OUTLINE_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP From Email",
+      "hint": "Sender email for Outline emails",
+      "required": false,
+      "env_variable": "OUTLINE_SMTP_FROM"
+    },
+    {
+      "type": "text",
+      "label": "OIDC Client ID",
+      "required": false,
+      "env_variable": "OUTLINE_OIDC_CLIENT_ID"
+    },
+    {
+      "type": "password",
+      "label": "OIDC Client Secret",
+      "required": false,
+      "env_variable": "OUTLINE_OIDC_CLIENT_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "OIDC Authorization URI",
+      "required": false,
+      "env_variable": "OUTLINE_OIDC_AUTH_URI"
+    },
+    {
+      "type": "text",
+      "label": "OIDC Token URI",
+      "required": false,
+      "env_variable": "OUTLINE_OIDC_TOKEN_URI"
+    },
+    {
+      "type": "text",
+      "label": "OIDC UserInfo URI",
+      "required": false,
+      "env_variable": "OUTLINE_OIDC_USERINFO_URI"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1786134041260,
+  "updated_at": 1786134041260,
+  "min_tipi_version": "4.5.0"
+}

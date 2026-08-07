@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "services": [
+    {
+      "name": "outline",
+      "image": "outlinewiki/outline:1.9.2",
+      "internalPort": 3000,
+      "isMain": true,
+      "dependsOn": {
+        "db-outline": {
+          "condition": "service_healthy"
+        },
+        "redis-outline": {
+          "condition": "service_healthy"
+        }
+      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "PORT",
+          "value": "3000"
+        },
+        {
+          "key": "URL",
+          "value": "${APP_PROTOCOL:-https}://${APP_DOMAIN}"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${OUTLINE_SECRET_KEY}"
+        },
+        {
+          "key": "UTILS_SECRET",
+          "value": "${OUTLINE_UTILS_SECRET}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://outlinetipi:${OUTLINE_PG_PASSWORD}@db-outline:5432/outlinetipi"
+        },
+        {
+          "key": "PGSSLMODE",
+          "value": "disable"
+        },
+        {
+          "key": "REDIS_URL",
+          "value": "redis://redis-outline:6379"
+        },
+        {
+          "key": "FILE_STORAGE",
+          "value": "local"
+        },
+        {
+          "key": "FILE_STORAGE_LOCAL_ROOT_DIR",
+          "value": "/var/lib/outline/data"
+        },
+        {
+          "key": "FILE_STORAGE_UPLOAD_MAX_SIZE",
+          "value": "26214400"
+        },
+        {
+          "key": "FORCE_HTTPS",
+          "value": "true"
+        },
+        {
+          "key": "PROXY_HEADERS_TRUSTED",
+          "value": "true"
+        },
+        {
+          "key": "DEFAULT_LANGUAGE",
+          "value": "${OUTLINE_DEFAULT_LANGUAGE}"
+        },
+        {
+          "key": "SMTP_HOST",
+          "value": "${OUTLINE_SMTP_HOST}"
+        },
+        {
+          "key": "SMTP_PORT",
+          "value": "${OUTLINE_SMTP_PORT}"
+        },
+        {
+          "key": "SMTP_USERNAME",
+          "value": "${OUTLINE_SMTP_USER}"
+        },
+        {
+          "key": "SMTP_PASSWORD",
+          "value": "${OUTLINE_SMTP_PASSWORD}"
+        },
+        {
+          "key": "SMTP_FROM_EMAIL",
+          "value": "${OUTLINE_SMTP_FROM}"
+        },
+        {
+          "key": "OIDC_CLIENT_ID",
+          "value": "${OUTLINE_OIDC_CLIENT_ID}"
+        },
+        {
+          "key": "OIDC_CLIENT_SECRET",
+          "value": "${OUTLINE_OIDC_CLIENT_SECRET}"
+        },
+        {
+          "key": "OIDC_AUTH_URI",
+          "value": "${OUTLINE_OIDC_AUTH_URI}"
+        },
+        {
+          "key": "OIDC_TOKEN_URI",
+          "value": "${OUTLINE_OIDC_TOKEN_URI}"
+        },
+        {
+          "key": "OIDC_USERINFO_URI",
+          "value": "${OUTLINE_OIDC_USERINFO_URI}"
+        },
+        {
+          "key": "OIDC_USERNAME_CLAIM",
+          "value": "preferred_username"
+        },
+        {
+          "key": "OIDC_DISPLAY_NAME",
+          "value": "OpenID Connect"
+        },
+        {
+          "key": "OIDC_SCOPES",
+          "value": "openid profile email"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/var/lib/outline/data"
+        }
+      ]
+    },
+    {
+      "name": "db-outline",
+      "image": "postgres:16-alpine",
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "outlinetipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${OUTLINE_PG_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "outlinetipi"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -U outlinetipi -d outlinetipi",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 20,
+        "startPeriod": "30s"
+      }
+    },
+    {
+      "name": "redis-outline",
+      "image": "redis:7-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "redis-cli ping",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 20,
+        "startPeriod": "30s"
+      }
+    }
+  ]
+}
