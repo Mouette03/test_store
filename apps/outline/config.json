@@ -46,7 +46,7 @@
       "required": false,
       "default": true,
       "hint": "Force redirects to https. Keep enabled when Runtipi handles TLS (recommended).",
-       "env_variable": "OUTLINE_FORCE_HTTPS"
+      "env_variable": "OUTLINE_FORCE_HTTPS"
     },
     {
       "type": "text",
