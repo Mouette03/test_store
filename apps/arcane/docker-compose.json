@@ -15,6 +15,14 @@
       ],
       "environment": [
         {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
           "key": "ENCRYPTION_KEY",
           "value": "${ENCRYPTION_KEY}"
         },
@@ -28,14 +36,13 @@
         },
         {
           "key": "APP_URL",
-          "value": "${APP_URL}"
+          "value": "${APP_PROTOCOL}://${APP_DOMAIN}"
         },
         {
           "key": "ANALYTICS_DISABLED",
           "value": "true"
         }
       ],
-      "user": "1000:1000",
       "dependsOn": [
         "docker-socket-proxy"
       ],
