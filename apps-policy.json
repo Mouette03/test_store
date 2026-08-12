@@ -5,7 +5,7 @@
   "arcane": {
     "images": {
       "arcane": {
-        "lock": "minor"
+        "lock": "major"
       },
       "docker-socket-proxy": {
         "lock": "minor",
