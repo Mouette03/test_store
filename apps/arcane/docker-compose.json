@@ -47,7 +47,7 @@
         "docker-socket-proxy"
       ],
       "healthCheck": {
-        "test": ["CMD", "./arcane", "health", "--timeout", "2s"],
+        "test": "./arcane health --timeout 2s",
         "interval": "10s",
         "timeout": "3s",
         "retries": 5,
