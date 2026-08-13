@@ -1,0 +1,67 @@
+services:
+  outline:
+    image: 'outlinewiki/outline:1.9.2'
+    volumes:
+      - '${APP_DATA_DIR}/data/storage:/var/lib/outline/data'
+    environment:
+      - 'NODE_ENV=production'
+      - 'PORT=3000'
+      - 'URL=${APP_PROTOCOL}://${APP_DOMAIN}'
+      - 'SECRET_KEY=${OUTLINE_SECRET_KEY}'
+      - 'UTILS_SECRET=${OUTLINE_UTILS_SECRET}'
+      - 'DATABASE_URL=postgres://outlinetipi:${OUTLINE_PG_PASSWORD}@db-outline:5432/outlinetipi'
+      - 'PGSSLMODE=disable'
+      - 'REDIS_URL=redis://redis-outline:6379'
+      - 'FILE_STORAGE=local'
+      - 'FILE_STORAGE_LOCAL_ROOT_DIR=/var/lib/outline/data'
+      - 'FILE_STORAGE_UPLOAD_MAX_SIZE=26214400'
+      - 'FORCE_HTTPS=${OUTLINE_FORCE_HTTPS}'
+      - 'PROXY_HEADERS_TRUSTED=true'
+      - 'DEFAULT_LANGUAGE=${OUTLINE_DEFAULT_LANGUAGE}'
+      - 'SMTP_HOST=${OUTLINE_SMTP_HOST}'
+      - 'SMTP_PORT=${OUTLINE_SMTP_PORT}'
+      - 'SMTP_USERNAME=${OUTLINE_SMTP_USER}'
+      - 'SMTP_PASSWORD=${OUTLINE_SMTP_PASSWORD}'
+      - 'SMTP_FROM_EMAIL=${OUTLINE_SMTP_FROM}'
+      - 'OIDC_CLIENT_ID=${OUTLINE_OIDC_CLIENT_ID}'
+      - 'OIDC_CLIENT_SECRET=${OUTLINE_OIDC_CLIENT_SECRET}'
+      - 'OIDC_AUTH_URI=${OUTLINE_OIDC_AUTH_URI}'
+      - 'OIDC_TOKEN_URI=${OUTLINE_OIDC_TOKEN_URI}'
+      - 'OIDC_USERINFO_URI=${OUTLINE_OIDC_USERINFO_URI}'
+      - 'OIDC_USERNAME_CLAIM=preferred_username'
+      - 'OIDC_DISPLAY_NAME=OpenID Connect'
+      - 'OIDC_SCOPES=openid profile email'
+    depends_on:
+      db-outline:
+        condition: 'service_healthy'
+      redis-outline:
+        condition: 'service_healthy'
+    x-runtipi:
+      internal_port: 3000
+      is_main: true
+  db-outline:
+    image: 'postgres:16-alpine'
+    volumes:
+      - '${APP_DATA_DIR}/data/db:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_USER=outlinetipi'
+      - 'POSTGRES_PASSWORD=${OUTLINE_PG_PASSWORD}'
+      - 'POSTGRES_DB=outlinetipi'
+    healthcheck:
+      test: 'pg_isready -U outlinetipi -d outlinetipi'
+      interval: '10s'
+      timeout: '5s'
+      retries: 20
+      start_period: '30s'
+  redis-outline:
+    image: 'redis:7-alpine'
+    volumes:
+      - '${APP_DATA_DIR}/data/redis:/data'
+    healthcheck:
+      test: 'redis-cli ping'
+      interval: '10s'
+      timeout: '5s'
+      retries: 20
+      start_period: '30s'
+x-runtipi:
+  schema_version: 2
