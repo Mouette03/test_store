@@ -6,6 +6,7 @@ services:
     environment:
       - DATA_DIR=/data
       - APP_URL=${APP_URL}
+      - SSL_DISABLED=true
       - MAILER_TYPE=${MAILER_TYPE:-none}
       - SMTP_ADDRESS=${SMTP_ADDRESS:-}
       - SMTP_USERNAME=${SMTP_USERNAME:-}
