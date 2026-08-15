@@ -1,0 +1,65 @@
+{
+  "name": "Hoodik",
+  "id": "hoodik",
+  "port": 5698,
+  "available": true,
+  "exposable": true,
+  "tipi_version": 1,
+  "version": "1.6.0",
+  "categories": ["storage", "network"],
+  "description": "Hoodik est une solution de stockage cloud auto-hébergée avec chiffrement de bout en bout (E2EE). Les fichiers sont chiffrés/déchiffrés côté client (RSA hybride + AES), le serveur ne voit jamais les données en clair. Écrit en Rust (backend) et Vue (frontend), très léger (~20 Mo RAM).",
+  "short_desc": "Stockage cloud auto-hébergé chiffré de bout en bout.",
+  "author": "hudikhq",
+  "source": "https://github.com/hudikhq/hoodik",
+  "website": "https://hoodik.io",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "URL publique de l'application (APP_URL)",
+      "hint": "Ex: https://hoodik.tondomaine.fr - doit correspondre au domaine exposé via Traefik",
+      "required": true,
+      "env_variable": "APP_URL"
+    },
+    {
+      "type": "text",
+      "label": "Type de mailer (none ou smtp)",
+      "hint": "Laisser 'none' si tu ne veux pas d'emails de vérification/partage",
+      "required": false,
+      "default": "none",
+      "env_variable": "MAILER_TYPE"
+    },
+    {
+      "type": "text",
+      "label": "Adresse SMTP",
+      "required": false,
+      "env_variable": "SMTP_ADDRESS"
+    },
+    {
+      "type": "text",
+      "label": "Nom d'utilisateur SMTP",
+      "required": false,
+      "env_variable": "SMTP_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Mot de passe SMTP",
+      "required": false,
+      "env_variable": "SMTP_PASSWORD"
+    },
+    {
+      "type": "number",
+      "label": "Port SMTP",
+      "hint": "465 par défaut",
+      "required": false,
+      "default": 465,
+      "env_variable": "SMTP_PORT"
+    },
+    {
+      "type": "text",
+      "label": "Expéditeur par défaut (Nom <email>)",
+      "hint": "Ex: Hoodik Drive <no-reply@tondomaine.fr>",
+      "required": false,
+      "env_variable": "SMTP_DEFAULT_FROM"
+    }
+  ]
+}
