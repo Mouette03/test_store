@@ -55,18 +55,21 @@
     {
       "type": "text",
       "label": "SMTP address",
+      "hint": "SMTP server hostname, e.g. smtp.gmail.com",
       "required": false,
       "env_variable": "SMTP_ADDRESS"
     },
     {
       "type": "text",
       "label": "SMTP username",
+      "hint": "Login/email used to authenticate with the SMTP server, e.g. you@gmail.com",
       "required": false,
       "env_variable": "SMTP_USERNAME"
     },
     {
       "type": "password",
       "label": "SMTP password",
+      "hint": "SMTP account password",
       "required": false,
       "env_variable": "SMTP_PASSWORD"
     },
