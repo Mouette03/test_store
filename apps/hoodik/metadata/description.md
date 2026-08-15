@@ -1,112 +1,51 @@
-Galette
+# Hoodik
 
+Hoodik is a lightweight, self-hosted cloud storage solution focused on end-to-end encryption (E2EE). Files, file names, and even search queries are encrypted directly in your browser before they ever reach the server — the backend, written in Rust, never has access to your plaintext data or your encryption keys.
 
+## Key features
 
-🇬🇧 Description (English)
+- **End-to-end encryption**: files are encrypted client-side using a hybrid RSA/AES scheme, so the server administrator can never read your data.
+- **Lightweight**: the backend runs comfortably on ~20 MB of RAM, ideal for a Runtipi instance on modest hardware.
+- **Encrypted sharing**: share files and folders with other Hoodik users while keeping end-to-end encryption intact.
+- **Flexible storage**: use local disk storage or an S3-compatible provider as the backend for encrypted blobs.
+- **SQLite by default**: no external database required for a simple, self-contained install (an external Postgres database is also supported).
+- **Built for reverse proxies**: designed to run behind Traefik, Nginx, or Caddy, which is exactly how Runtipi exposes it.
 
-👉Database connection information on first launch:
+## Configuration notes
 
-HOST: db-galette
-DATABASE\_NAME: galettedb
-DB\_USER: galetteuser
-DB\_PASS: To be chosen at installation
+- Set `APP_URL` to the exact public URL you will use to reach the app (including scheme and port if non-standard).
+- Set a stable `JWT_SECRET`: if left unset, Hoodik generates a new random secret on every restart, which logs out every active session.
+- `SSL_DISABLED` should stay enabled (true) when running behind Runtipi's Traefik, since TLS termination is already handled at the proxy level.
+- SMTP settings are optional and only needed if you want email verification or share notifications.
 
-👉To change the site's favicon, add this to your USER CONFIG
+## Links
 
-```yaml
-services:
-  galette:
-    volumes:
-      - /(path to favicon.png on host)/favicon.png:/var/www/galette/webroot/themes/default/images/favicon.png
-```
+- Source code: [github.com/hudikhq/hoodik](https://github.com/hudikhq/hoodik)
+- Website: [hoodik.io](https://hoodik.io)
 
-👉To persist disabled plugins across application restarts, you can specify a directory on the host where you store plugins (download here: Plugins) and add this to your USER CONFIG
+---
 
-```yaml
-services:
-  galette:
-    volumes:
-      - "/(path to plugin storage directory on host):/var/www/galette/plugins"
-```
+# Hoodik (Français)
 
-Galette is a membership management web application towards non profit organizations.
+Hoodik est une solution de stockage cloud auto-hébergée, légère, centrée sur le chiffrement de bout en bout (E2EE). Les fichiers, leurs noms, et même les requêtes de recherche sont chiffrés directement dans le navigateur avant d'atteindre le serveur — le backend, écrit en Rust, n'a jamais accès à vos données en clair ni à vos clés de chiffrement.
 
-This is before all a free software (as in free speech), community and free (as in beer)!
+## Fonctionnalités principales
 
-* Members management
-* Manage cotisations and transactions
-* Manage groups and their managers
-* Import and Export (open formats)
-* Improved accessibility (use and follow web standards)
-* Configure lists and forms
-* Add dynamic fields to members, contributions and transactions forms
-* Multilingual
-* Simple and advanced search
-* Calculate fees due dates
-* Members mailings
-* Edit labels (for postal mail)
-* Member card with photo (facultative)
-* Each member can edit his informations
-* Multi criteria diplay filters
-* Usage history
+- **Chiffrement de bout en bout** : les fichiers sont chiffrés côté client via un schéma hybride RSA/AES, l'administrateur du serveur ne peut jamais lire vos données.
+- **Léger** : le backend tourne confortablement avec ~20 Mo de RAM, idéal pour une instance Runtipi sur du matériel modeste.
+- **Partage chiffré** : partagez fichiers et dossiers avec d'autres utilisateurs Hoodik en conservant le chiffrement de bout en bout.
+- **Stockage flexible** : stockage local sur disque ou fournisseur compatible S3 pour les blobs chiffrés.
+- **SQLite par défaut** : aucune base de données externe requise pour une installation simple et autonome (une base Postgres externe est également supportée).
+- **Pensé pour les reverse proxy** : conçu pour tourner derrière Traefik, Nginx ou Caddy, exactement comme Runtipi l'expose.
 
-👉  More information : https://galette.eu		https://github.com/galette-community/docker
+## Notes de configuration
 
- 
+- Définissez `APP_URL` avec l'URL publique exacte utilisée pour accéder à l'application (schéma et port inclus si non standard).
+- Fixez un `JWT_SECRET` stable : si non défini, Hoodik génère un nouveau secret aléatoire à chaque redémarrage, ce qui déconnecte toutes les sessions actives.
+- `SSL_DISABLED` doit rester activé (true) derrière le Traefik de Runtipi, puisque la terminaison TLS est déjà gérée au niveau du proxy.
+- Les réglages SMTP sont optionnels, uniquement nécessaires pour la vérification par email ou les notifications de partage.
 
-🇫🇷 Description (Français)
+## Liens
 
-👉Infos de connexion à la base de données au premier lancement:
-
-HOST: db-galette
-DATABASE\_NAME : galettedb
-DB\_USER : galetteuser
-DB\_PASS : A choisir à l'installation
-
-👉Pour changer le favicon du site ajouter ceci à votre USER CONFIG
-
-```yaml
-services:
-  galette:
-    volumes:
-      - /(chemin vers favicon.png sur hote):/var/www/galette/webroot/themes/default/images/favicon.png
-```
-
-👉Pour avoir la persistance des plugins désactivés lors des redémmarages de l'application, vous pouver spécifier un répértoire sur l'hote ou vous stockez les plugins télécharger ici : https://doc.galette.eu/fr/master/plugins/index.html
-
-et ajouter ceci à votre USER CONFIG
-
-```yaml
-services:
-  galette:
-    volumes:
-      - /(chemin vers répértoire de stockage plugins sur hote):/var/www/galette/plugins
-```
-
-Galette est une application web de gestion d’adhérents, adaptée aux associations.
-
-* Gestion des membres, cotisations, fiches PDF
-* Connexion base MariaDB
-* Interface claire et responsive
-* Gestion des adhérents
-* Gestion des cotisations et transactions
-* Gestion de groupes et de responsables
-* Imports et exports (formats ouverts)
-* Accessibilité accrue (utilisation et respect des standards du web)
-* Configuration des fiches et des listes
-* Ajout de champs dynamiques aux fiches adhérents, contributions et transactions
-* Multilingue
-* Recherche simple et avancée
-* Calcul de l'échéance des adhésions
-* Mailings adhérents
-* Edition d'étiquettes (pour envois postaux)
-* Fiches adhérents avec photo (facultative)
-* Chaque adhérent peut modifier sa fiche
-* Filtres d'affichage multi-critères
-* Historique d'utilisation
-
-👉 Plus d’info : https://galette.eu			https://github.com/galette-community/docker
-
-
-Thanks @sergi0g
-
+- Code source : [github.com/hudikhq/hoodik](https://github.com/hudikhq/hoodik)
+- Site web : [hoodik.io](https://hoodik.io)

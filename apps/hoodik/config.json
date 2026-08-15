@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 5698,
   "id": "hoodik",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2.4.1",
   "categories": ["data"],
   "description": "Hoodik est une solution de stockage cloud auto-hébergée avec chiffrement de bout en bout (E2EE). Les fichiers sont chiffrés/déchiffrés côté client (RSA hybride + AES), le serveur ne voit jamais les données en clair. Écrit en Rust (backend) et Vue (frontend), très léger (~20 Mo RAM).",
@@ -22,51 +22,68 @@
     },
     {
       "type": "text",
-      "label": "URL publique de l'application (APP_URL)",
-      "hint": "Ex: https://hoodik.tondomaine.fr - doit correspondre au domaine exposé via Traefik",
+      "label": "SMTP encryption",
+      "hint": "Set to false only for local HTTP testing (e.g. accessing via IP:port without TLS)",
+      "description": "Controls whether the session cookie is only sent over HTTPS. Keep this set to true in production behind Traefik/Runtipi, which already terminates TLS. Set it to false only when testing locally over plain HTTP, otherwise the browser will silently drop the cookie and every request will fail with a 'no_claims' authentication error.",
+      "required": true,
+      "default": "true",
+      "env_variable": "COOKIE_SECURE",
+      "options": [
+        { "label": "TRUE", "value": "true" },
+        { "label": "FALSE", "value": "false" }
+     ]
+    },
+    {
+      "type": "text",
+      "label": "Public application URL (APP_URL)",
+      "hint": "E.g. https://hoodik.yourdomain.com - must match the domain exposed via Traefik",
       "required": true,
       "env_variable": "APP_URL"
     },
     {
       "type": "text",
-      "label": "Type de mailer (none ou smtp)",
-      "hint": "Laisser 'none' si tu ne veux pas d'emails de vérification/partage",
+      "label": "Mailer type (none or smtp)",
+      "hint": "Leave as 'none' if you don't want verification/share emails",
       "required": false,
       "default": "none",
       "env_variable": "MAILER_TYPE"
     },
     {
       "type": "text",
-      "label": "Adresse SMTP",
+      "label": "SMTP address",
       "required": false,
       "env_variable": "SMTP_ADDRESS"
     },
     {
       "type": "text",
-      "label": "Nom d'utilisateur SMTP",
+      "label": "SMTP username",
       "required": false,
       "env_variable": "SMTP_USERNAME"
     },
     {
       "type": "password",
-      "label": "Mot de passe SMTP",
+      "label": "SMTP password",
       "required": false,
       "env_variable": "SMTP_PASSWORD"
     },
     {
       "type": "number",
-      "label": "Port SMTP",
-      "hint": "465 par défaut",
+      "label": "SMTP port",
+      "hint": "Default is 465",
       "required": false,
       "default": 465,
       "env_variable": "SMTP_PORT"
     },
     {
       "type": "text",
-      "label": "Expéditeur par défaut (Nom <email>)",
-      "hint": "Ex: Hoodik Drive <no-reply@tondomaine.fr>",
+      "label": "Default sender (Name <email>)",
+      "hint": "E.g. Hoodik Drive <no-reply@yourdomain.com>",
       "required": false,
       "env_variable": "SMTP_DEFAULT_FROM"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1786834402829,
+  "updated_at": 1786834402829,
+  "min_tipi_version": "4.5.0"
 }
