@@ -15,11 +15,10 @@
   "source": "https://github.com/hudikhq/hoodik",
   "form_fields": [
     {
-      "type": "text",
+      "type": "random",
       "label": "JWT Secret",
-      "max": 100,
+      "max": 64,
       "min": 32,
-      "hint": "32+ chars (openssl rand -base64 32)",
       "required": true,
       "env_variable": "JWT_SECRET"
     },
