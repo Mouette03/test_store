@@ -4,6 +4,7 @@
   "port": 5698,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "tipi_version": 1,
   "version": "2.4.1",
   "categories": ["data"],
