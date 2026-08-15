@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 5698,
   "id": "hoodik",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "2.4.1",
   "categories": ["data"],
   "description": "Hoodik is a self-hosted cloud storage solution with end-to-end encryption (E2EE). Files are encrypted/decrypted client-side (hybrid RSA + AES), so the server never sees plaintext data. Written in Rust (backend) and Vue (frontend), very lightweight (~20 MB RAM).",
@@ -83,10 +83,18 @@
     },
     {
       "type": "text",
-      "label": "Default sender (Name <email>)",
-      "hint": "E.g. Hoodik Drive <no-reply@yourdomain.com>",
+      "label": "Default sender email",
+      "hint": "Email address shown as the sender of outgoing emails, e.g. you@gmail.com",
       "required": false,
-      "env_variable": "SMTP_DEFAULT_FROM"
+      "env_variable": "SMTP_DEFAULT_FROM_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "Default sender name",
+      "hint": "Display name shown alongside the sender email",
+      "required": false,
+      "default": "hoodik",
+      "env_variable": "SMTP_DEFAULT_FROM_NAME"
     }
   ],
   "supported_architectures": ["amd64", "arm64"],
