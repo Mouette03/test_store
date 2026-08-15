@@ -22,7 +22,7 @@
     },
     {
       "type": "text",
-      "label": "SMTP encryption",
+      "label": "Cookie secure flag",
       "hint": "Set to false only for local HTTP testing (e.g. accessing via IP:port without TLS)",
       "description": "Controls whether the session cookie is only sent over HTTPS. Keep this set to true in production behind Traefik/Runtipi, which already terminates TLS. Set it to false only when testing locally over plain HTTP, otherwise the browser will silently drop the cookie and every request will fail with a 'no_claims' authentication error.",
       "required": true,
@@ -44,9 +44,13 @@
       "type": "text",
       "label": "Mailer type (none or smtp)",
       "hint": "Leave as 'none' if you don't want verification/share emails",
-      "required": false,
+      "required": true,
       "default": "none",
-      "env_variable": "MAILER_TYPE"
+      "env_variable": "MAILER_TYPE",
+      "options": [
+        { "label": "NONE", "value": "none" },
+        { "label": "SMTP", "value": "smtp" }
+     ]
     },
     {
       "type": "text",
