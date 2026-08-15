@@ -14,7 +14,6 @@ Hoodik is a lightweight, self-hosted cloud storage solution focused on end-to-en
 ## Configuration notes
 
 - Set `APP_URL` to the exact public URL you will use to reach the app (including scheme and port if non-standard).
-- Set a stable `JWT_SECRET`: if left unset, Hoodik generates a new random secret on every restart, which logs out every active session.
 - `SSL_DISABLED` should stay enabled (true) when running behind Runtipi's Traefik, since TLS termination is already handled at the proxy level.
 - SMTP settings are optional and only needed if you want email verification or share notifications.
 
@@ -41,7 +40,6 @@ Hoodik est une solution de stockage cloud auto-hébergée, légère, centrée su
 ## Notes de configuration
 
 - Définissez `APP_URL` avec l'URL publique exacte utilisée pour accéder à l'application (schéma et port inclus si non standard).
-- Fixez un `JWT_SECRET` stable : si non défini, Hoodik génère un nouveau secret aléatoire à chaque redémarrage, ce qui déconnecte toutes les sessions actives.
 - `SSL_DISABLED` doit rester activé (true) derrière le Traefik de Runtipi, puisque la terminaison TLS est déjà gérée au niveau du proxy.
 - Les réglages SMTP sont optionnels, uniquement nécessaires pour la vérification par email ou les notifications de partage.
 
