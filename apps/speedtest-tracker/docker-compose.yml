@@ -13,7 +13,7 @@ services:
       - SPEEDTEST_SERVERS=${SPEEDTEST_SERVERS:-''}
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
+      - ${APP_DATA_DIR}/data/config:/config
     ports:
       - "8212:443"
     x-runtipi:
