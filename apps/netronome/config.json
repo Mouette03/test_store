@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "netronome",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "v0.13.0",
   "categories": ["network"],
   "short_desc": "Advanced release monitoring and notification system.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1767055448723,
-  "updated_at": 1785470953535,
+  "updated_at": 1787023073971,
   "min_tipi_version": "4.5.0"
 }
