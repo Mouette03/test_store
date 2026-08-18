@@ -1,6 +1,6 @@
 services:
   homeassistant:
-    image: 'ghcr.io/home-assistant/home-assistant:2026.1.3'
+    image: 'ghcr.io/home-assistant/home-assistant:2026.8.2'
     restart: 'unless-stopped'
     volumes:
       - '${APP_DATA_DIR}/data/config:/config'
@@ -24,7 +24,7 @@ services:
       - '${APP_DATA_DIR}/data/matter:/data'
     network_mode: 'host'
   ha-linky:
-    image: 'ghcr.io/bokub/ha-linky-aarch64:1.7.0'
+    image: 'ghcr.io/bokub/ha-linky-aarch64:1.8.0'
     restart: 'unless-stopped'
     volumes:
       - '${APP_DATA_DIR}/data/ha-linky:/data'
