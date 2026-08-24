@@ -1,168 +1,74 @@
-\# WebApp – Lightweight PHP \& Apache Web Hosting with Extended Capabilities
+OpenCode
 
+OpenCode is an open-source AI coding agent that helps you explore codebases, implement features, fix bugs, run commands, and work with your projects through a web interface.
 
+This Runtipi app runs OpenCode as a persistent web service. Its configuration, authentication data, sessions, and workspace are stored in the application's data directory.
+Access
 
-\## 🇬🇧 English Version
+Open the application URL provided by Runtipi and authenticate with the following HTTP Basic Auth credentials:
 
-Host database = db-webapp
+    Username: opencode
 
-\*\*WebApp\*\* is a containerized application based on PHP and Apache, designed to easily host your site. Simple structure and wide range of PHP extensions and system libraries.
+    Password: the password configured during installation
 
+Workspace
 
+Your projects are stored in the persistent workspace directory:
 
-\### 🔹 Main Features
+text
+${APP_DATA_DIR}/data/workspace
 
+Only put repositories in this directory that you explicitly want OpenCode to read or modify.
+Configuration and data
 
+OpenCode data is persisted under:
 
-\- 🚀 \*\*Out-of-the-box PHP \& Apache stack\*\* for quick deployment  
+text
+${APP_DATA_DIR}/data/home
 
-\- 📂 \*\*Website files go in\*\*: `data/www` – mapped to `/var/www/html`  
+This includes OpenCode configuration, provider authentication, conversations, local data, and snapshots.
+Security
 
-\- ⚙️ \*\*Configuration files go in\*\*: `data/config.d` – for Apache, PHP, and custom settings  
+OpenCode can run commands and modify files in its workspace. Do not expose the application publicly without proper access protection. Use a strong password and preferably restrict access through a VPN, Tailscale, or an authentication proxy.
 
-\- 🧩 \*\*Broad extension support\*\* for advanced use cases  
+This app does not mount the Docker socket, so OpenCode cannot control Docker containers on the host.
+Provider setup
 
-\- 🔒 Runs in a \*\*containerized Linux environment\*\* for portability and easy management  
+After opening OpenCode, use the /connect command to authenticate with a supported AI provider, or configure provider API keys through the application's environment variables if you add them to the app configuration.
+OpenCode
 
+OpenCode est un agent de code IA open source qui aide à explorer des bases de code, implémenter des fonctionnalités, corriger des bugs, exécuter des commandes et travailler sur vos projets depuis une interface web.
 
+Cette application Runtipi exécute OpenCode comme un service web persistant. Sa configuration, ses données d'authentification, ses sessions et son espace de travail sont stockés dans le dossier de données de l'application.
+Accès
 
-\### 🔹 Included PHP Extensions
+Ouvrez l'URL de l'application fournie par Runtipi, puis authentifiez-vous avec les identifiants HTTP Basic suivants :
 
+    Utilisateur : opencode
 
+    Mot de passe : celui défini lors de l'installation
 
-\- ✅ Core: `ctype`, `json`, `session`, `tokenizer`, `opcache`, `fileinfo`  
+Espace de travail
 
-\- ✅ Database: `pdo`, `pdo\_mysql`, `mysqli`  
+Vos projets sont stockés dans le dossier de travail persistant :
 
-\- ✅ Web \& Data: `curl`, `mbstring`, `xml`, `dom`, `simplexml`, `soap`, `gettext`  
+text
+${APP_DATA_DIR}/data/workspace
 
-\- ✅ Compression: `zip`, `zlib`, `phar`  
+Placez uniquement dans ce dossier les dépôts qu'OpenCode est explicitement autorisé à lire ou modifier.
+Configuration et données
 
-\- ✅ Imaging: `gd` (with JPEG, PNG, FreeType), `exif`, `imagick`  
+Les données OpenCode sont persistées dans :
 
-\- ✅ Utilities: `intl`, `bcmath`, `xsl`, `sockets`, `ldap`  
+text
+${APP_DATA_DIR}/data/home
 
+Cela inclut la configuration OpenCode, l'authentification des fournisseurs IA, les conversations, les données locales et les snapshots.
+Sécurité
 
+OpenCode peut exécuter des commandes et modifier les fichiers de son espace de travail. N'exposez pas l'application publiquement sans protection d'accès adéquate. Utilisez un mot de passe robuste et, de préférence, limitez l'accès avec un VPN, Tailscale ou un proxy d'authentification.
 
-\### 🔹 System Dependencies Installed
+Cette application ne monte pas le socket Docker : OpenCode ne peut donc pas contrôler les conteneurs Docker de l'hôte.
+Configuration du fournisseur IA
 
-
-
-Includes development libraries for:
-
-
-
-\- JPEG, PNG, FreeType  
-
-\- ICU (for `intl`)  
-
-\- XML, XSLT, SOAP  
-
-\- LDAP and OpenSSL  
-
-\- ImageMagick (`libmagickwand-dev`)  
-
-\- zlib, gettext, curl, and others  
-
-
-
-\### 🔹 Tech Stack Requirements
-
-
-
-\- Apache 2 with mod\_php  
-
-\- PHP 8.x  
-
-\- Debian-based Linux OS  
-
-
-
-👉 Drop your HTML/PHP files into `www/`, tweak configs in `config.d/`, and you're ready to go!
-
-
-
----
-
-
-
-\## 🇫🇷 Version Française
-
-Host base de données = db-webapp
-
-\*\*WebApp\*\* est une application conteneurisée basée sur PHP et Apache, conçue pour héberger votre site facilement. Structure simple et large éventail d’extensions PHP et de bibliothèques système.
-
-
-
-\### 🔹 Fonctionnalités principales
-
-
-
-\- 🚀 \*\*Pile PHP \& Apache prête à l’emploi\*\* pour un déploiement rapide  
-
-\- 📂 \*\*Fichiers du site\*\* à placer dans : `data/www` – racine web `/var/www/html`  
-
-\- ⚙️ \*\*Configurations personnalisables\*\* via `data/config.d`  
-
-\- 🧩 \*\*Support complet des extensions PHP populaires et avancées\*\*  
-
-\- 🔒 Fonctionne dans un \*\*environnement Linux conteneurisé\*\*, portable et facile à gérer  
-
-
-
-\### 🔹 Extensions PHP incluses
-
-
-
-\- ✅ Noyau : `ctype`, `json`, `session`, `tokenizer`, `opcache`, `fileinfo`  
-
-\- ✅ Bases de données : `pdo`, `pdo\_mysql`, `mysqli`  
-
-\- ✅ Web \& données : `curl`, `mbstring`, `xml`, `dom`, `simplexml`, `soap`, `gettext`  
-
-\- ✅ Compression : `zip`, `zlib`, `phar`  
-
-\- ✅ Images : `gd` (JPEG, PNG, FreeType), `exif`, `imagick`  
-
-\- ✅ Utilitaires : `intl`, `bcmath`, `xsl`, `sockets`, `ldap`  
-
-
-
-\### 🔹 Dépendances système installées
-
-
-
-Inclut des bibliothèques de développement pour :
-
-
-
-\- JPEG, PNG, FreeType  
-
-\- ICU (pour `intl`)  
-
-\- XML, XSLT, SOAP  
-
-\- LDAP et OpenSSL  
-
-\- ImageMagick (`libmagickwand-dev`)  
-
-\- zlib, gettext, curl, etc.  
-
-
-
-\### 🔹 Environnement technique
-
-
-
-\- Apache 2 avec mod\_php  
-
-\- PHP 8.x  
-
-\- Système Debian ou Ubuntu  
-
-
-
-👉 Placez vos fichiers HTML ou PHP dans `www/`, ajustez les configurations dans `config.d/`, et votre site est prêt à être mis en ligne !
-
-
-
+Après avoir ouvert OpenCode, utilisez la commande /connect pour vous authentifier auprès d'un fournisseur IA pris en charge, ou configurez les clés API des fournisseurs via les variables d'environnement de l'application si vous les ajoutez à sa configuration.
