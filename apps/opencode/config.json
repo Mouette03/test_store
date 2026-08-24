@@ -1,0 +1,31 @@
+{
+  "name": "OpenCode",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 4096,
+  "id": "opencode",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["development", "utilities"],
+  "description": "Open-source AI coding agent with a web interface.",
+  "short_desc": "AI coding agent",
+  "author": "Anomaly Innovations",
+  "website": "https://opencode.ai",
+  "source": "https://github.com/anomalyco/opencode",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "OpenCode password",
+      "max": 128,
+      "min": 16,
+      "hint": "HTTP Basic Auth password. Username: opencode.",
+      "required": true,
+      "env_variable": "OPENCODE_SERVER_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1787690280000,
+  "updated_at": 1787690280000,
+  "min_tipi_version": "4.5.0"
+}

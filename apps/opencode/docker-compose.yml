@@ -1,0 +1,25 @@
+services:
+  opencode:
+    image: 'ghcr.io/anomalyco/opencode:latest'
+    command:
+      - 'serve'
+      - '--hostname'
+      - '0.0.0.0'
+    volumes:
+      - '${APP_DATA_DIR}/data/home:/home/opencode'
+      - '${APP_DATA_DIR}/data/workspace:/workspace'
+    working_dir: '/workspace'
+    environment:
+      - 'HOME=/home/opencode'
+      - 'OPENCODE_SERVER_PASSWORD=${OPENCODE_SERVER_PASSWORD}'
+    healthcheck:
+      test: 'curl --fail --user opencode:${OPENCODE_SERVER_PASSWORD} http://localhost:4096/ || exit 1'
+      interval: '30s'
+      timeout: '10s'
+      retries: 3
+    x-runtipi:
+      internal_port: 4096
+      is_main: true
+
+x-runtipi:
+  schema_version: 2
