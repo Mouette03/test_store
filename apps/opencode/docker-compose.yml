@@ -1,6 +1,6 @@
 services:
   opencode:
-    image: 'ghcr.io/anomalyco/opencode:latest'
+    image: 'ghcr.io/anomalyco/opencode:1.18.23'
     command:
       - 'serve'
       - '--hostname'
@@ -8,7 +8,6 @@ services:
     volumes:
       - '${APP_DATA_DIR}/data/home:/home/opencode'
       - '${APP_DATA_DIR}/data/workspace:/workspace'
-    working_dir: '/workspace'
     environment:
       - 'HOME=/home/opencode'
       - 'OPENCODE_SERVER_USERNAME=${OPENCODE_SERVER_USERNAME}'
