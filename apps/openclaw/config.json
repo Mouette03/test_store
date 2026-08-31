@@ -14,6 +14,14 @@
   "source": "https://github.com/openclaw/openclaw",
   "website": "https://openclaw.ai",
   "form_fields": [
+     {
+      "type": "random",
+      "label": "Service account ID",
+      "hint": "Automatically generated, do not modify",
+      "description": "Internal service account identifier required by OpenCloud 7.x for the sharing service",
+      "min": 32,
+      "env_variable": "OPENCLAW_GATEWAY_TOKEN"
+    },
     {
       "type": "password",
       "label": "Anthropic API Key",
