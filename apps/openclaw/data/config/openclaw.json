@@ -7,5 +7,5 @@
 }
 EOF
 
-sudo chown -R 1000:1000 /runtipi/app-data/<nom_app>/data/config
-sudo chown -R 1000:1000 /runtipi/app-data/<nom_app>/data/workspace
+sudo chown -R 1000:1000 /runtipi/app-data/openclaw/data/config
+sudo chown -R 1000:1000 /runtipi/app-data/openclaw/data/workspace
