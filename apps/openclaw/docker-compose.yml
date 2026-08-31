@@ -6,7 +6,6 @@ services:
       - '${APP_DATA_DIR}/workspace:/home/node/.openclaw/workspace'
     environment:
       - 'NODE_ENV=production'
-      - 'OPENCLAW_GATEWAY_MODE=local'
       - 'ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}'
       - 'OPENAI_API_KEY=${OPENAI_API_KEY}'
       - 'GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}'
