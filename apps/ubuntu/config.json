@@ -4,8 +4,8 @@
   "available": true,
   "exposable": true,
   "id": "ubuntu",
-  "tipi_version": 1,
-  "version": "5.0.0",
+  "tipi_version": 2,
+  "version": "5.50.2",
   "categories": ["media"],
   "description": "Ubuntu is a popular open-source operating system based on Linux, known for its ease of use, regular updates, and strong community support. It is widely used for desktops, servers, and cloud environments.",
   "short_desc": "Popular open-source Linux operating system.",
@@ -25,6 +25,6 @@
   "supported_architectures": ["arm64", "amd64"],
   "dynamic_config": true,
   "created_at": 1701388800000,
-  "updated_at": 1733020800000,
+  "updated_at": 1788215656417,
   "min_tipi_version": "4.5.0"
 }

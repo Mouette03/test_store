@@ -1,6 +1,6 @@
 services:
   music-assistant:
-    image: 'ghcr.io/music-assistant/server:2.7.11'
+    image: 'ghcr.io/music-assistant/server:2.10.1'
     restart: 'unless-stopped'
     volumes:
       - '${APP_DATA_DIR}/data/musicassistant:/data'

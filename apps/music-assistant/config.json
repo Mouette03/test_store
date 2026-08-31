@@ -7,8 +7,8 @@
   "port": 9998,
   "categories": ["music"],
   "description": "Music Assistant is an open source music management and playback system.",
-  "tipi_version": 8,
-  "version": "2.7.11",
+  "tipi_version": 9,
+  "version": "2.10.1",
   "source": "https://github.com/music-assistant/music-assistant",
   "website": "https://www.music-assistant.io",
   "dynamic_config": true,
@@ -19,6 +19,6 @@
     "amd64"
   ],
   "created_at": 1766089098500,
-  "updated_at": 1787023073904,
+  "updated_at": 1788215650835,
   "min_tipi_version": "4.5.0"
 }
