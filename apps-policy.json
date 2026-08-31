@@ -1,6 +1,6 @@
 {
   "_default": {
-    "lock": "patch"
+    "lock": "minor"
   },
   "arcane": {
     "images": {
