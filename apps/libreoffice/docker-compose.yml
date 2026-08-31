@@ -1,6 +1,6 @@
 services:
   libreoffice:
-    image: 'linuxserver/libreoffice:25.2.5'
+    image: 'linuxserver/libreoffice:25.8.7'
     volumes:
       - '${APP_DATA_DIR}/data/config:/config'
     environment:

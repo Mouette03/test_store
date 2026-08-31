@@ -1,6 +1,6 @@
 services:
   strapi:
-    image: 'vshadbolt/strapi:5.31.0-arm64'
+    image: 'vshadbolt/strapi:5.50.2-arm64'
     volumes:
       - '${APP_DATA_DIR}/config:/app/config'
       - '${APP_DATA_DIR}/public/uploads:/app/public/uploads'
