@@ -1,6 +1,6 @@
 services:
   opencloud:
-    image: 'opencloudeu/opencloud-rolling:3.5.0'
+    image: 'opencloudeu/opencloud-rolling:3.7.0'
     volumes:
       - '${APP_DATA_DIR}/data/config:/etc/opencloud'
       - '${APP_DATA_DIR}/data/data:/var/lib/opencloud'

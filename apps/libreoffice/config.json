@@ -5,8 +5,8 @@
   "dynamic_config": true,
   "port": 9654,
   "id": "libreoffice",
-  "tipi_version": 3,
-  "version": "1",
+  "tipi_version": 4,
+  "version": "25.8.7",
   "categories": ["data"],
   "description": "traitement de text",
   "short_desc": "Suite bureautique",
@@ -14,5 +14,5 @@
   "source": "https://github.com/",
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1753138178187,
-  "updated_at": 1753138178187
+  "updated_at": 1788215650704
 }
