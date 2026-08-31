@@ -1,6 +1,3 @@
-# 1. Création du dossier et du fichier de configuration
-sudo mkdir -p /runtipi/app-data/<nom_app>/data/config
-sudo tee /runtipi/app-data/<nom_app>/data/config/openclaw.json << 'EOF'
 {
   "gateway": {
     "mode": "local",
@@ -10,6 +7,5 @@ sudo tee /runtipi/app-data/<nom_app>/data/config/openclaw.json << 'EOF'
 }
 EOF
 
-# 2. Attribution des droits à l'utilisateur node (UID 1000)
 sudo chown -R 1000:1000 /runtipi/app-data/<nom_app>/data/config
 sudo chown -R 1000:1000 /runtipi/app-data/<nom_app>/data/workspace
