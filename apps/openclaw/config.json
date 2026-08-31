@@ -17,10 +17,8 @@
      {
       "type": "random",
       "label": "Service account ID",
-      "hint": "Automatically generated, do not modify",
-      "description": "Internal service account identifier required by OpenCloud 7.x for the sharing service",
-      "min": 32,
-      "env_variable": "OPENCLAW_GATEWAY_TOKEN"
+      "min": 16,
+      "env_variable": "OPENCLAW_GATEWAY_PASSWORD"
     },
     {
       "type": "password",
