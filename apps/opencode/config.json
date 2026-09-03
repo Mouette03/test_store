@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 4096,
   "id": "opencode",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "1.18.25",
   "categories": ["development"],
   "description": "Open-source AI coding agent with a web interface.",
