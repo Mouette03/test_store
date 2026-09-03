@@ -6,7 +6,7 @@
   "port": 4096,
   "id": "opencode",
   "tipi_version": 7,
-  "version": "1.18.25",
+  "version": "1.18.27",
   "categories": ["development"],
   "description": "Open-source AI coding agent with a web interface.",
   "short_desc": "AI coding agent",
