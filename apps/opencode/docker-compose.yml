@@ -14,7 +14,7 @@ services:
       - 'OPENCODE_SERVER_USERNAME=${OPENCODE_SERVER_USERNAME}'
       - 'OPENCODE_SERVER_PASSWORD=${OPENCODE_SERVER_PASSWORD}'
     healthcheck:
-      test: 'curl --fail --user opencode:$${OPENCODE_SERVER_PASSWORD} http://localhost:4096/global/health || exit 1'
+      test: 'wget -qO- http://localhost:4096/global/health || exit 1'
       interval: '30s'
       timeout: '10s'
       retries: 3
