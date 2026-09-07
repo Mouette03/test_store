@@ -6,8 +6,8 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 1,
-  "version": "1.9.2",
+  "tipi_version": 2,
+  "version": "1.10.0",
   "categories": ["utilities"],
   "description": "Outline is a fast, open-source knowledge base app for team documentation with real-time collaboration. It supports Markdown, sharing, version history and search.",
   "short_desc": "Open source team wiki for knowledge sharing.",
@@ -114,6 +114,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1786134041260,
-  "updated_at": 1786134041260,
+  "updated_at": 1788577782328,
   "min_tipi_version": "4.5.0"
 }
