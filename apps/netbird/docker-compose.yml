@@ -1,0 +1,39 @@
+services:
+  netbird-dashboard:
+    image: netbirdio/dashboard:latest
+    container_name: netbird-dashboard
+    restart: unless-stopped
+    environment:
+      - NETBIRD_MGMT_API_ENDPOINT=https://${NETBIRD_DOMAIN}
+      - NETBIRD_MGMT_GRPC_API_ENDPOINT=https://${NETBIRD_DOMAIN}
+      - AUTH_AUDIENCE=netbird-dashboard
+      - AUTH_CLIENT_ID=netbird-dashboard
+      - AUTH_CLIENT_SECRET=
+      - AUTH_AUTHORITY=https://${NETBIRD_DOMAIN}/oauth2
+      - USE_AUTH0=false
+      - AUTH_SUPPORTED_SCOPES=openid profile email groups
+      - AUTH_REDIRECT_URI=/nb-auth
+      - AUTH_SILENT_REDIRECT_URI=/nb-silent-auth
+      - LETSENCRYPT_DOMAIN=none
+    depends_on:
+      netbird-server:
+        condition: service_started
+    x-runtipi:
+      internal_port: 80
+      is_main: true
+
+  netbird-server:
+    image: netbirdio/netbird-server:latest
+    container_name: netbird-server
+    restart: unless-stopped
+    ports:
+      - '3478:3478/udp'
+    volumes:
+      - ${APP_DATA_DIR}/data/netbird:/var/lib/netbird
+      - ${APP_DATA_DIR}/data/config.yaml:/etc/netbird/config.yaml
+    command: ["--config", "/etc/netbird/config.yaml"]
+    x-runtipi:
+      internal_port: 80
+
+x-runtipi:
+  schema_version: 2

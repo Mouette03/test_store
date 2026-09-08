@@ -1,0 +1,28 @@
+{
+  "name": "NetBird",
+  "available": true,
+  "port": 0,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "netbird",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["network"],
+  "short_desc": "Serveur NetBird auto-hébergé avec dashboard, management, signal, relay et STUN.",
+  "description": "NetBird self-hosted déploie le serveur combiné (management, signal, relay, STUN) ainsi que le dashboard Web d'administration. Nécessite un sous-domaine dédié et le port UDP 3478 redirigé.",
+  "author": "NetBird",
+  "source": "https://github.com/netbirdio/netbird",
+  "website": "https://netbird.io/",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Domaine NetBird",
+      "required": true,
+      "placeholder": "netbird.mon.dedyn.io",
+      "hint": "Sous-domaine dédié à NetBird, différent du domaine du dashboard Runtipi. Doit pointer vers votre IP publique.",
+      "env_variable": "NETBIRD_DOMAIN"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "min_tipi_version": "4.5.0"
+}
