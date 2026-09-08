@@ -1,7 +1,0 @@
-{
-  "gateway": {
-    "mode": "local",
-    "bind": "lan",
-    "port": 18789
-  }
-}
