@@ -5,8 +5,10 @@ services:
       - 'serve'
       - '--hostname'
       - '0.0.0.0'
+    working_dir: '/workspace'
     volumes:
       - '${APP_DATA_DIR}/data/home:/home/opencode'
+      - '${APP_DATA_DIR}/data/workspace:/home/opencode/workspace'
     environment:
       - 'HOME=/home/opencode'
       - 'OPENCODE_SERVER_USERNAME=${OPENCODE_SERVER_USERNAME}'
