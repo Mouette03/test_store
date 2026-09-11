@@ -5,7 +5,7 @@
   "dynamic_config": true,
   "port": 4096,
   "id": "opencode",
-  "tipi_version": 12,
+  "tipi_version": 1,
   "version": "1.18.30",
   "categories": ["development"],
   "description": "Open-source AI coding agent with a web interface.",
@@ -27,15 +27,15 @@
     {
       "type": "password",
       "label": "OpenCode password",
-      "max": 64,
-      "min": 12,
+      "max": 32,
+      "min": 8,
       "hint": "HTTP Basic Auth password. Username: opencode.",
       "required": true,
       "env_variable": "OPENCODE_SERVER_PASSWORD"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1787690280000,
-  "updated_at": 1789009812079,
+  "created_at": 1789167897697,
+  "updated_at": 1789167897697,
   "min_tipi_version": "4.5.0"
 }
