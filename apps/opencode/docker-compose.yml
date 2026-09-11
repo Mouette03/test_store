@@ -8,7 +8,6 @@ services:
     working_dir: '/home/opencode/workspace'
     volumes:
       - '${APP_DATA_DIR}/data/home:/home/opencode'
-      - '${APP_DATA_DIR}/data/workspace:/home/opencode/workspace'
     environment:
       - 'HOME=/home/opencode'
       - 'OPENCODE_SERVER_USERNAME=${OPENCODE_SERVER_USERNAME}'
