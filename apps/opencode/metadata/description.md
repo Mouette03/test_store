@@ -1,8 +1,8 @@
-BETA
-
 # OpenCode — AI Coding Agent
 
 > **Open-source AI coding agent with a web interface** — explore codebases, implement features, fix bugs and run commands from your browser.
+
+> **Agent de code IA open source avec interface web** — explorez vos projets, implémentez des fonctionnalités, corrigez des bugs et lancez des commandes depuis votre navigateur.
 
 > Runs as a persistent Runtipi service. All configuration, authentication, sessions and workspace are stored in the app data directory. Source: [opencode.ai](https://opencode.ai) · [GitHub](https://github.com/anomalyco/opencode)
 
@@ -90,7 +90,6 @@ Keys stored this way are injected into the container environment on next start.
 | **Working directory** | `/home/opencode/workspace` |
 | **Volumes** | `${APP_DATA_DIR}/data/home:/home/opencode` |
 | **Environment** | `HOME=/home/opencode`, `OPENCODE_SERVER_USERNAME`, `OPENCODE_SERVER_PASSWORD` |
-| **Healthcheck** | `wget -qO- http://localhost:4096/global/health` (30s interval) |
 | **Architectures** | `amd64`, `arm64` |
 | **Runtipi** | `schema_version: 2`, `port: 4096`, `exposable: true` |
 
@@ -178,7 +177,6 @@ Les clés sont injectées dans l'environnement du conteneur au prochain démarra
 | **Working directory** | `/home/opencode/workspace` |
 | **Volumes** | `${APP_DATA_DIR}/data/home:/home/opencode` |
 | **Environnement** | `HOME=/home/opencode`, `OPENCODE_SERVER_USERNAME`, `OPENCODE_SERVER_PASSWORD` |
-| **Healthcheck** | `wget -qO- http://localhost:4096/global/health` (intervalle 30s) |
 | **Architectures** | `amd64`, `arm64` |
 | **Runtipi** | `schema_version: 2`, `port: 4096`, `exposable: true` |
 
