@@ -1,74 +1,182 @@
-OpenCode
+# OpenCode — AI Coding Agent
 
-OpenCode is an open-source AI coding agent that helps you explore codebases, implement features, fix bugs, run commands, and work with your projects through a web interface.
+> **Open-source AI coding agent with a web interface** — explore codebases, implement features, fix bugs and run commands from your browser.
 
-This Runtipi app runs OpenCode as a persistent web service. Its configuration, authentication data, sessions, and workspace are stored in the application's data directory.
-Access
+> Runs as a persistent Runtipi service. All configuration, authentication, sessions and workspace are stored in the app data directory. Source: [opencode.ai](https://opencode.ai) · [GitHub](https://github.com/anomalyco/opencode)
 
-Open the application URL provided by Runtipi and authenticate with the following HTTP Basic Auth credentials:
+---
 
-    Username: opencode
+## 🇬🇧 English
 
-    Password: the password configured during installation
+### 🌐 Overview
 
-Workspace
+**OpenCode** is an open-source AI coding agent that helps you explore codebases, implement features, fix bugs, run commands and work on your projects through a modern web interface.
 
-Your projects are stored in the persistent workspace directory:
+This Runtipi app runs OpenCode as a persistent web service (`serve --hostname 0.0.0.0`) with workspace at `/home/opencode/workspace` and home at `/home/opencode`.
 
-text
-${APP_DATA_DIR}/data/workspace
+### ✨ Key Features
 
-Only put repositories in this directory that you explicitly want OpenCode to read or modify.
-Configuration and data
+- 🔍 **Explore & understand** — navigate large codebases, search, and get contextual answers
+- 🛠️ **Implement features** — generate code, refactor, and apply patches directly in your workspace
+- 🐛 **Fix bugs** — diagnose issues and let the agent propose fixes
+- 💻 **Run commands** — execute shell commands inside the workspace
+- 💬 **Sessions & snapshots** — conversations, history and context are persisted
+- 🌐 **Web UI** — no CLI required, works from any browser via Runtipi
 
-OpenCode data is persisted under:
+### 🔧 Access
 
-text
+1. Open the application URL provided by Runtipi.
+2. Authenticate with **HTTP Basic Auth**:
+
+| Field | Value |
+|-------|-------|
+| **Username** | `opencode` (configurable at install, default `opencode`) |
+| **Password** | the password you set during installation (`OPENCODE_SERVER_PASSWORD`) |
+
+> Tip: change credentials in Runtipi **App Settings** → update `OPENCODE_SERVER_USERNAME` / `OPENCODE_SERVER_PASSWORD` and restart the app.
+
+### 📁 Workspace
+
+Your projects live in the **persistent workspace directory** (container path `/home/opencode/workspace`):
+
+```text
+${APP_DATA_DIR}/data/home/workspace
+```
+
+- Clone or copy repositories there via the OpenCode terminal or via host file access.
+- ⚠️ **Only put repositories you explicitly want OpenCode to read or modify** — the agent can execute commands and edit files in this folder.
+
+### 💾 Configuration & Data
+
+All OpenCode data is persisted under:
+
+```text
 ${APP_DATA_DIR}/data/home
+```
 
-This includes OpenCode configuration, provider authentication, conversations, local data, and snapshots.
-Security
+This includes:
+- OpenCode configuration
+- Provider authentication (via `/connect` or env vars)
+- Conversations, local data and snapshots
+- Workspace content (`workspace/` subfolder)
 
-OpenCode can run commands and modify files in its workspace. Do not expose the application publicly without proper access protection. Use a strong password and preferably restrict access through a VPN, Tailscale, or an authentication proxy.
+`$HOME` is set to `/home/opencode` inside the container.
 
-This app does not mount the Docker socket, so OpenCode cannot control Docker containers on the host.
-Provider setup
+### 🔒 Security
 
-After opening OpenCode, use the /connect command to authenticate with a supported AI provider, or configure provider API keys through the application's environment variables if you add them to the app configuration.
-OpenCode
+> **⚠️ OpenCode can run commands and modify files in its workspace.** Do not expose the application publicly without proper access protection.
 
-OpenCode est un agent de code IA open source qui aide à explorer des bases de code, implémenter des fonctionnalités, corriger des bugs, exécuter des commandes et travailler sur vos projets depuis une interface web.
+- Use a **strong password** (min. 8 characters, enforced by the app form).
+- Prefer restricting access via **VPN, Tailscale or an authentication proxy** if exposed beyond your LAN.
+- ✅ **No Docker socket mounted** — OpenCode cannot control Docker containers on the host (verified in `docker-compose.yml`).
 
-Cette application Runtipi exécute OpenCode comme un service web persistant. Sa configuration, ses données d'authentification, ses sessions et son espace de travail sont stockés dans le dossier de données de l'application.
-Accès
+### 🤖 Provider Setup
 
-Ouvrez l'URL de l'application fournie par Runtipi, puis authentifiez-vous avec les identifiants HTTP Basic suivants :
+After opening OpenCode:
 
-    Utilisateur : opencode
+- Run **`/connect`** inside the UI to authenticate with a supported AI provider, **or**
+- Add provider API keys as **environment variables** in the app configuration (e.g. `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` — depending on the provider you use).
 
-    Mot de passe : celui défini lors de l'installation
+Keys stored this way are injected into the container environment on next start.
 
-Espace de travail
+### 📦 Technical Details
 
-Vos projets sont stockés dans le dossier de travail persistant :
+| Item | Value |
+|------|-------|
+| **Image** | `ghcr.io/anomalyco/opencode:1.18.30` |
+| **Internal port** | `4096` (`x-runtipi.internal_port`) |
+| **Working directory** | `/home/opencode/workspace` |
+| **Volumes** | `${APP_DATA_DIR}/data/home:/home/opencode` |
+| **Environment** | `HOME=/home/opencode`, `OPENCODE_SERVER_USERNAME`, `OPENCODE_SERVER_PASSWORD` |
+| **Healthcheck** | `wget -qO- http://localhost:4096/global/health` (30s interval) |
+| **Architectures** | `amd64`, `arm64` |
+| **Runtipi** | `schema_version: 2`, `port: 4096`, `exposable: true` |
 
-text
-${APP_DATA_DIR}/data/workspace
+---
 
-Placez uniquement dans ce dossier les dépôts qu'OpenCode est explicitement autorisé à lire ou modifier.
-Configuration et données
+## 🇫🇷 Français
+
+### 🌐 Présentation
+
+**OpenCode** est un agent de code IA open source qui vous aide à explorer des bases de code, implémenter des fonctionnalités, corriger des bugs, exécuter des commandes et travailler sur vos projets depuis une interface web moderne.
+
+Cette application Runtipi exécute OpenCode comme un service web persistant (`serve --hostname 0.0.0.0`) avec l'espace de travail à `/home/opencode/workspace` et le home à `/home/opencode`.
+
+### ✨ Fonctionnalités principales
+
+- 🔍 **Explorer & comprendre** — naviguer dans de grosses bases de code, chercher et obtenir des réponses contextuelles
+- 🛠️ **Implémenter** — générer du code, refactoriser et appliquer des patches directement dans l'espace de travail
+- 🐛 **Corriger** — diagnostiquer des problèmes et laisser l'agent proposer des correctifs
+- 💻 **Exécuter des commandes** — lancer des commandes shell dans le workspace
+- 💬 **Sessions & snapshots** — conversations, historique et contexte persistés
+- 🌐 **Interface web** — pas de CLI nécessaire, accessible depuis n'importe quel navigateur via Runtipi
+
+### 🔧 Accès
+
+1. Ouvrez l'URL de l'application fournie par Runtipi.
+2. Authentifiez-vous en **HTTP Basic Auth** :
+
+| Champ | Valeur |
+|-------|--------|
+| **Utilisateur** | `opencode` (configurable à l'installation, défaut `opencode`) |
+| **Mot de passe** | celui défini lors de l'installation (`OPENCODE_SERVER_PASSWORD`) |
+
+> Astuce : modifiez les identifiants dans **Paramètres de l'app** Runtipi → `OPENCODE_SERVER_USERNAME` / `OPENCODE_SERVER_PASSWORD`, puis redémarrez l'app.
+
+### 📁 Espace de travail
+
+Vos projets sont stockés dans le dossier de travail persistant (chemin conteneur `/home/opencode/workspace`) :
+
+```text
+${APP_DATA_DIR}/data/home/workspace
+```
+
+- Clonez ou copiez vos dépôts à cet endroit via le terminal OpenCode ou l'accès fichier hôte.
+- ⚠️ **Placez uniquement les dépôts qu'OpenCode est explicitement autorisé à lire ou modifier** — l'agent peut exécuter des commandes et modifier les fichiers de ce dossier.
+
+### 💾 Configuration & données
 
 Les données OpenCode sont persistées dans :
 
-text
+```text
 ${APP_DATA_DIR}/data/home
+```
 
-Cela inclut la configuration OpenCode, l'authentification des fournisseurs IA, les conversations, les données locales et les snapshots.
-Sécurité
+Cela inclut :
+- La configuration OpenCode
+- L'authentification des fournisseurs IA (via `/connect` ou variables d'environnement)
+- Les conversations, données locales et snapshots
+- Le contenu du workspace (sous-dossier `workspace/`)
 
-OpenCode peut exécuter des commandes et modifier les fichiers de son espace de travail. N'exposez pas l'application publiquement sans protection d'accès adéquate. Utilisez un mot de passe robuste et, de préférence, limitez l'accès avec un VPN, Tailscale ou un proxy d'authentification.
+`$HOME` vaut `/home/opencode` dans le conteneur.
 
-Cette application ne monte pas le socket Docker : OpenCode ne peut donc pas contrôler les conteneurs Docker de l'hôte.
-Configuration du fournisseur IA
+### 🔒 Sécurité
 
-Après avoir ouvert OpenCode, utilisez la commande /connect pour vous authentifier auprès d'un fournisseur IA pris en charge, ou configurez les clés API des fournisseurs via les variables d'environnement de l'application si vous les ajoutez à sa configuration.
+> **⚠️ OpenCode peut exécuter des commandes et modifier les fichiers de son espace de travail.** N'exposez pas l'application publiquement sans protection d'accès adéquate.
+
+- Utilisez un **mot de passe robuste** (min. 8 caractères, imposé par le formulaire).
+- Limitez de préférence l'accès avec un **VPN, Tailscale ou un proxy d'authentification** si exposition hors LAN.
+- ✅ **Socket Docker non monté** — OpenCode ne peut pas contrôler les conteneurs Docker de l'hôte (vérifié dans `docker-compose.yml`).
+
+### 🤖 Configuration du fournisseur IA
+
+Après avoir ouvert OpenCode :
+
+- Utilisez la commande **`/connect`** dans l'interface pour vous authentifier auprès d'un fournisseur IA pris en charge, **ou**
+- Ajoutez les clés API des fournisseurs en **variables d'environnement** dans la configuration de l'app (ex. `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` selon le fournisseur).
+
+Les clés sont injectées dans l'environnement du conteneur au prochain démarrage.
+
+### 📦 Détails techniques
+
+| Élément | Valeur |
+|---------|--------|
+| **Image** | `ghcr.io/anomalyco/opencode:1.18.30` |
+| **Port interne** | `4096` (`x-runtipi.internal_port`) |
+| **Working directory** | `/home/opencode/workspace` |
+| **Volumes** | `${APP_DATA_DIR}/data/home:/home/opencode` |
+| **Environnement** | `HOME=/home/opencode`, `OPENCODE_SERVER_USERNAME`, `OPENCODE_SERVER_PASSWORD` |
+| **Healthcheck** | `wget -qO- http://localhost:4096/global/health` (intervalle 30s) |
+| **Architectures** | `amd64`, `arm64` |
+| **Runtipi** | `schema_version: 2`, `port: 4096`, `exposable: true` |
+
