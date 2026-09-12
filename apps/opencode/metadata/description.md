@@ -6,8 +6,6 @@
 
 > Runs as a persistent Runtipi service. All configuration, authentication, sessions and workspace are stored in the app data directory. Source: [opencode.ai](https://opencode.ai) · [GitHub](https://github.com/anomalyco/opencode)
 
----
-
 ## 🇬🇧 English
 
 ### 🌐 Overview
