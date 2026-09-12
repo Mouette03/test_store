@@ -12,14 +12,8 @@ services:
       - 'HOME=/home/opencode'
       - 'OPENCODE_SERVER_USERNAME=${OPENCODE_SERVER_USERNAME}'
       - 'OPENCODE_SERVER_PASSWORD=${OPENCODE_SERVER_PASSWORD}'
-    healthcheck:
-      test: 'wget -qO- http://localhost:4096/global/health || exit 1'
-      interval: '30s'
-      timeout: '10s'
-      retries: 3
     x-runtipi:
       internal_port: 4096
       is_main: true
-
 x-runtipi:
   schema_version: 2

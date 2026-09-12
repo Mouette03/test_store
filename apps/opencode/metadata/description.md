@@ -1,6 +1,5 @@
 BETA
 
-
 # OpenCode — AI Coding Agent
 
 > **Open-source AI coding agent with a web interface** — explore codebases, implement features, fix bugs and run commands from your browser.
