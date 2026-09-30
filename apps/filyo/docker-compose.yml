@@ -1,6 +1,6 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:add-discord-logo'
+    image: 'ghcr.io/mouette03/filyo:fix-container-cves-2026-09'
     volumes:
       - '${APP_DATA_DIR}/data:/data'
     environment:
