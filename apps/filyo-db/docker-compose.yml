@@ -4,7 +4,7 @@ services:
     volumes:
       - '${APP_DATA_DIR}/data/filyo:/data'
     environment:
-      - 'NODE_ENV=production'
+      - 'NODE_ENV=development'
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
       - 'TRUST_PROXY=${FILYO_TRUST_PROXY}'
       - 'CLEANUP_INTERVAL=${FILYO_CLEANUP_INTERVAL}'
@@ -28,7 +28,7 @@ services:
       internal_port: 3001
       is_main: true
   db-filyo:
-    image: 'mariadb:12.2'
+    image: 'mariadb:12.3'
     command: '--wait_timeout=28800 --interactive_timeout=28800 --log_warnings=1'
     volumes:
       - '${APP_DATA_DIR}/data/mariadb:/var/lib/mysql'
