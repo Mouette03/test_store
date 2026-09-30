@@ -7,7 +7,7 @@
   "exposable": true,
   "dynamic_config": true,
   "tipi_version": 1,
-  "version": "cve",
+  "version": "cve1",
   "categories": ["utilities"],
   "description": "Filyo est une application de gestion de fichiers, utilisant MariaDB comme base de données.",
   "short_desc": "Gestionnaire de fichiers self-hosted",
