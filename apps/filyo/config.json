@@ -8,7 +8,7 @@
   "force_expose": false,
   "dynamic_config": true,
   "tipi_version": 1,
-  "version": "cve",
+  "version": "2FA",
   "categories": ["utilities"],
   "description": "Self-hosted file sharing with reverse upload requests & password-protected expiry links",
   "short_desc": "Self-hosted file sharing",
@@ -22,6 +22,13 @@
       "min": 32,
       "max": 32,
       "env_variable": "FILYO_JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "Two Factor Auth Secret",
+      "min": 32,
+      "max": 32,
+      "env_variable": "FILYO_TWO_FACTOR_AUTH"
     },
     {
       "type": "text",

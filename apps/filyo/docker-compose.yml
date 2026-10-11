@@ -1,11 +1,12 @@
 services:
   filyo:
-    image: 'ghcr.io/mouette03/filyo:fix-container-cves-2026-09'
+    image: 'ghcr.io/mouette03/filyo:2FA'
     volumes:
       - '${APP_DATA_DIR}/data:/data'
     environment:
       - 'NODE_ENV=production'
       - 'JWT_SECRET=${FILYO_JWT_SECRET}'
+      - 'TWO_FACTOR_AUTH=${FILYO_TWO_FACTOR_AUTH}'
       - 'TRUST_PROXY=${FILYO_TRUST_PROXY}'
       - 'CLEANUP_INTERVAL=${FILYO_CLEANUP_INTERVAL}'
       - 'TUS_CHUNK_MB=${FILYO_TUS_CHUNK_MB}'
