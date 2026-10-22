@@ -35,13 +35,7 @@
       "severity": "info",
       "title": "Interface update",
       "message": "Minor interface changes. No action is required.",
-      "require_confirmation": false,
-      "translations": {
-        "fr": {
-          "title": "Mise à jour de l'interface",
-          "message": "Modifications mineures de l'interface. Aucune action requise."
-        }
-      }
+      "require_confirmation": false
     },
     {
       "id": "plugins-check-17",
@@ -55,19 +49,7 @@
       "after_update": [
         "Re-enable the plugins one by one and check that they work."
       ],
-      "require_confirmation": true,
-      "translations": {
-        "fr": {
-          "title": "Compatibilité des plugins",
-          "message": "Certains plugins tiers peuvent être incompatibles avec cette version.",
-          "before_update": [
-            "Désactivez les plugins tiers avant la mise à jour."
-          ],
-          "after_update": [
-            "Réactivez les plugins un par un et vérifiez leur fonctionnement."
-          ]
-        }
-      }
+      "require_confirmation": true
     },
     {
       "id": "database-migration-18",
