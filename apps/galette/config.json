@@ -31,7 +31,7 @@
   "update_notices": [
     {
       "id": "info-interface-16",
-      "tipi_version": 19,
+      "tipi_version": 20,
       "severity": "info",
       "title": "Interface update",
       "message": "Minor interface changes. No action is required.",
@@ -39,7 +39,7 @@
     },
     {
       "id": "plugins-check-17",
-      "tipi_version": 20,
+      "tipi_version": 21,
       "severity": "warning",
       "title": "Plugins compatibility",
       "message": "Some third-party plugins may be incompatible with this version.",
@@ -53,7 +53,7 @@
     },
     {
       "id": "database-migration-18",
-      "tipi_version": 21,
+      "tipi_version": 22,
       "severity": "warning",
       "title": "Database migration",
       "message": "The database schema changes with this update. The first startup may take several minutes.",
