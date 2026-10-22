@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "netronome",
-  "tipi_version": 18,
+  "tipi_version": 19,
   "version": "v0.16.0",
   "categories": ["network"],
   "short_desc": "Advanced release monitoring and notification system.",
