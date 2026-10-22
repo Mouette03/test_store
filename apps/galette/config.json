@@ -27,5 +27,77 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1752437249000,
-  "updated_at": 1792552225518
+  "updated_at": 1792552225518,
+  "update_notices": [
+    {
+      "id": "info-interface-16",
+      "tipi_version": 16,
+      "severity": "info",
+      "title": "Interface update",
+      "message": "Minor interface changes. No action is required.",
+      "require_confirmation": false,
+      "translations": {
+        "fr": {
+          "title": "Mise à jour de l'interface",
+          "message": "Modifications mineures de l'interface. Aucune action requise."
+        }
+      }
+    },
+    {
+      "id": "plugins-check-17",
+      "tipi_version": 17,
+      "severity": "warning",
+      "title": "Plugins compatibility",
+      "message": "Some third-party plugins may be incompatible with this version.",
+      "before_update": [
+        "Disable third-party plugins before updating."
+      ],
+      "after_update": [
+        "Re-enable the plugins one by one and check that they work."
+      ],
+      "require_confirmation": true,
+      "translations": {
+        "fr": {
+          "title": "Compatibilité des plugins",
+          "message": "Certains plugins tiers peuvent être incompatibles avec cette version.",
+          "before_update": [
+            "Désactivez les plugins tiers avant la mise à jour."
+          ],
+          "after_update": [
+            "Réactivez les plugins un par un et vérifiez leur fonctionnement."
+          ]
+        }
+      }
+    },
+    {
+      "id": "database-migration-18",
+      "tipi_version": 18,
+      "severity": "warning",
+      "title": "Database migration",
+      "message": "The database schema changes with this update. The first startup may take several minutes.",
+      "before_update": [
+        "Make sure you have enough free disk space.",
+        "Create a backup of the database before updating."
+      ],
+      "after_update": [
+        "Do not restart the app while the migration is running.",
+        "Check the logs, then sign in and verify the members list."
+      ],
+      "require_confirmation": true,
+      "translations": {
+        "fr": {
+          "title": "Migration de la base de données",
+          "message": "Le schéma de la base change avec cette mise à jour. Le premier démarrage peut prendre plusieurs minutes.",
+          "before_update": [
+            "Vérifiez l'espace disque disponible.",
+            "Faites une sauvegarde de la base avant la mise à jour."
+          ],
+          "after_update": [
+            "Ne redémarrez pas l'application pendant la migration.",
+            "Vérifiez les journaux, puis connectez-vous et contrôlez la liste des adhérents."
+          ]
+        }
+      }
+    }
+  ]
 }
