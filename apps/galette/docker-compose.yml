@@ -17,7 +17,7 @@ services:
       internal_port: 80
       is_main: true
   db-galette:
-    image: 'mariadb:12'
+    image: 'mariadb:13'
     volumes:
       - '${APP_DATA_DIR}/data/galette_db:/var/lib/mysql'
     environment:
