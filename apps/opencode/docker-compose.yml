@@ -1,6 +1,6 @@
 services:
   opencode:
-    image: 'ghcr.io/anomalyco/opencode:1.19.3'
+    image: 'ghcr.io/anomalyco/opencode:2.1.4'
     command:
       - 'serve'
       - '--hostname'
