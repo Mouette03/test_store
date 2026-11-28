@@ -5,8 +5,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "netronome",
-  "tipi_version": 19,
-  "version": "v0.16.0",
+  "tipi_version": 20,
+  "version": "v0.17.0",
   "categories": ["network"],
   "short_desc": "Advanced release monitoring and notification system.",
   "description": "Netronome is a powerful tool for monitoring release announcements across multiple sources and sending intelligent notifications.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1767055448723,
-  "updated_at": 1792552229790,
+  "updated_at": 1795835184963,
   "min_tipi_version": "4.5.0"
 }
